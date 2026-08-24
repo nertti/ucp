@@ -14,63 +14,6 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20260818155058" />
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js?_v=20260818155058"></script>
 	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js?_v=20260818155058"></script>
-	<!-- <script src="js/app.min.js?_v=20260818155058"></script> -->
-  <style>
-    @font-face {
-      font-family: "Montserrat";
-      font-display: swap;
-      src: url("fonts/Montserrat-Regular.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Montserrat-Medium";
-      font-display: swap;
-      src: url("fonts/Montserrat-Medium.woff2") format("woff2");
-      font-weight: 500;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Montserrat-Bold";
-      font-display: swap;
-      src: url("fonts/Montserrat-SemiBold.woff2") format("woff2");
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-    }
-
-    html.preloader-active {
-      overflow: hidden !important;
-      height: 100%;
-    }
-
-    html.preloader-done {
-      background: #ffffff !important;
-      overflow: auto;
-      height: auto;
-      transition: background 0.8s ease 0.3s;
-    }
-
-    html.preloader-active body > :not(.fls-preloader) {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    html.preloader-done body>*:not(.fls-preloader) {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 1s ease, transform 1s ease;
-      transition-delay: 0.4s;
-    }
-  </style>
 </head>
 
 <body>
@@ -87,7 +30,7 @@
     <div class="wrapper">
         <header class="header">
             <div class="header__container">
-                <a href="/new/" class="header__logo">
+                <a href="/" class="header__logo">
                     <img src="/dist/img/icons/logoDesktop.svg" alt="Image" class="header__logo _desktop" />
                     <img src="/dist/img/icons/logoTablet.svg" alt="Image" class="header__logo _tablet" />
                     <div class="header__logo _mobile">
