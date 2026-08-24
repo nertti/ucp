@@ -1,0 +1,2 @@
+Address:  Republic of Belarus, Minsk, 
+220118, st. Mashinostroiteley, 25

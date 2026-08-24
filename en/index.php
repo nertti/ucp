@@ -1,0 +1,413 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("University of Civil Protection");
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.list",
+	"news",
+	Array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "Y",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "news",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(0=>"DETAIL_PICTURE",1=>"",),
+		"FILE_404" => "/en/404.php",
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "26",
+		"IBLOCK_TYPE" => "news",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"MEDIA_PROPERTY" => "",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "5",
+		"PAGER_BASE_LINK" => "",
+		"PAGER_BASE_LINK_ENABLE" => "Y",
+		"PAGER_DESC_NUMBERING" => "Y",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_PARAMS_NAME" => "arrPager",
+		"PAGER_SHOW_ALL" => "Y",
+		"PAGER_SHOW_ALWAYS" => "Y",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_TITLE" => "",
+		"PARENT_SECTION" => "108",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(0=>"",1=>"DESCRIPTION",2=>"",),
+		"SEARCH_PAGE" => "/search/",
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "Y",
+		"SET_META_DESCRIPTION" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_STATUS_404" => "Y",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "Y",
+		"SLIDER_PROPERTY" => "",
+		"SORT_BY1" => "PROPERTY_favorites",
+		"SORT_BY2" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "DESC",
+		"STRICT_SECTION_CHECK" => "N",
+		"TEMPLATE_THEME" => "blue",
+		"USE_RATING" => "N",
+		"USE_SHARE" => "N"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'y'
+)
+);?>
+<div class="news-popular">
+	 <?
+$from = date('d.m.Y', time() - 86400 * 30);
+$to = date("d.m.Y"); //по текущую дату
+$arrFilterMounth = Array(">=DATE_ACTIVE_FROM" => $from, "<=DATE_ACTIVE_FROM" => $to);
+$APPLICATION->IncludeComponent("bitrix:news.list", "popular", array(
+	"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "N",
+		"DISPLAY_PREVIEW_TEXT" => "N",
+		"AJAX_MODE" => "N",
+		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "26",
+		"NEWS_COUNT" => "15",
+		"SORT_BY1" => "SHOW_COUNTER",
+		"SORT_ORDER1" => "DESC",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER2" => "ASC",
+		"FILTER_NAME" => "arrFilterMounth",
+		"FIELD_CODE" => array(
+			0 => "SHOW_COUNTER",
+			1 => "",
+		),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "DESCRIPTION",
+			2 => "",
+		),
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"SET_TITLE" => "N",
+		"SET_BROWSER_TITLE" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "N",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"PAGER_TITLE" => "Новости",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SET_STATUS_404" => "Y",
+		"SHOW_404" => "Y",
+		"MESSAGE_404" => "",
+		"PAGER_BASE_LINK" => "",
+		"PAGER_PARAMS_NAME" => "arrPager",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"COMPONENT_TEMPLATE" => "popular",
+		"TEMPLATE_THEME" => "blue",
+		"MEDIA_PROPERTY" => "",
+		"SLIDER_PROPERTY" => "",
+		"SEARCH_PAGE" => "/search/",
+		"USE_RATING" => "N",
+		"USE_SHARE" => "N",
+		"FILE_404" => "/en/404.php",
+		"STRICT_SECTION_CHECK" => "N",
+		"SELECT_MODE" => "Y",
+		"SELECT_MANUAL_MODE" => "Y",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO"
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "y"
+	)
+);?>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"for-tabs-with-pictures-iblocks",
+	Array(
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_NOTES" => "",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
+		"COUNT_ELEMENTS" => "N",
+		"IBLOCK_ID" => "45",
+		"IBLOCK_TYPE" => "faculties",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array("",""),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array("",""),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "2",
+		"VIEW_MODE" => "LIST"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'Y'
+)
+);?>
+<div class="right-col">
+	 <?$APPLICATION->IncludeComponent(
+	"bitrix:rss.show", 
+	"rss", 
+	array(
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "N",
+		"COMPONENT_TEMPLATE" => "rss",
+		"NUM_NEWS" => "14",
+		"OUT_CHANNEL" => "N",
+		"PROCESS" => "NONE",
+		"URL" => "http://mchs.gov.by/glavnoe/rss",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO"
+	),
+	false,
+	array(
+		"ACTIVE_COMPONENT" => "Y"
+	)
+);?> <?$APPLICATION->IncludeComponent(
+	"custom:news.calendar",
+	"main-cal",
+	Array(
+		"AJAX_MODE" => "Y",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "Y",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "N",
+		"COMPONENT_TEMPLATE" => "main-cal",
+		"DATE_FIELD" => "DATE_ACTIVE_FROM",
+		"DETAIL_URL" => "",
+		"IBLOCK_ID" => "26",
+		"IBLOCK_TYPE" => "news",
+		"MONTH_VAR_NAME" => "month",
+		"NEWS_COUNT" => "0",
+		"SET_TITLE" => "N",
+		"SHOW_CURRENT_DATE" => "Y",
+		"SHOW_MONTH_LIST" => "N",
+		"SHOW_TIME" => "Y",
+		"SHOW_YEAR" => "N",
+		"TITLE_LEN" => "0",
+		"TYPE" => "EVENTS",
+		"WEEK_START" => "0",
+		"YEAR_VAR_NAME" => "year"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'Y'
+)
+);?>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"for-tabs",
+	Array(
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_NOTES" => "",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "N",
+		"COMPONENT_TEMPLATE" => "for-tabs",
+		"COUNT_ELEMENTS" => "N",
+		"IBLOCK_ID" => "36",
+		"IBLOCK_TYPE" => "education",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(0=>"",1=>"",),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "1",
+		"VIEW_MODE" => "LIST"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'Y'
+)
+);?>
+<div class="right-col">
+	<div class="purchases">
+		 <?$APPLICATION->IncludeFile("/en/include/purchases-block.php",
+			Array(),
+			Array("MODE"=>"html")
+		);?>
+	</div>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"for-tabs",
+	Array(
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_NOTES" => "",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "N",
+		"COMPONENT_TEMPLATE" => "for-tabs",
+		"COUNT_ELEMENTS" => "N",
+		"IBLOCK_ID" => "37",
+		"IBLOCK_TYPE" => "education",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(0=>"",1=>"",),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "1",
+		"VIEW_MODE" => "LIST"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'Y'
+)
+);?>
+<div class="right-col presentation">
+	 <?$APPLICATION->IncludeFile("/en/include/presentation-block.php",
+			Array(),
+			Array("MODE"=>"html")
+							   );?> <?$APPLICATION->IncludeFile("/en/include/electronic-circulation.php",
+			Array(),
+			Array("MODE"=>"html")
+		);?>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"for-gal",
+	Array(
+		"ADD_SECTIONS_CHAIN" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_NOTES" => "",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "for-gal",
+		"COUNT_ELEMENTS" => "Y",
+		"IBLOCK_ID" => "38",
+		"IBLOCK_TYPE" => "gallery",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(0=>"",1=>"",),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "1",
+		"VIEW_MODE" => "LIST"
+	),
+false,
+Array(
+	'ACTIVE_COMPONENT' => 'Y'
+)
+);?>
+<div class="right-col presentation">
+	 <?/*$APPLICATION->IncludeFile("/en/include/top-courses-block.php",
+		Array(),
+		Array("MODE"=>"html")
+	);
+	$APPLICATION->IncludeComponent(
+	"bitrix:news.detail", 
+	"top-courses-block", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_ELEMENT_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"BROWSER_TITLE" => "-",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"ELEMENT_CODE" => "",
+		"ELEMENT_ID" => "15582",
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"IBLOCK_ID" => "48",
+		"IBLOCK_TYPE" => "faculties",
+		"IBLOCK_URL" => "",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"MEDIA_PROPERTY" => "",
+		"MESSAGE_404" => "",
+		"META_DESCRIPTION" => "-",
+		"META_KEYWORDS" => "-",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Страница",
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_CANONICAL_URL" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_STATUS_404" => "Y",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "Y",
+		"SLIDER_PROPERTY" => "",
+		"STRICT_SECTION_CHECK" => "N",
+		"TEMPLATE_THEME" => "",
+		"USE_PERMISSIONS" => "N",
+		"USE_SHARE" => "N",
+		"COMPONENT_TEMPLATE" => "top-courses-block",
+		"FILE_404" => "/en/404.php"
+	),
+	false
+);*/?> <?$APPLICATION->IncludeFile("/en/include/answer-block.php",
+			Array(),
+			Array("MODE"=>"html")
+		);
+	?>
+</div>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

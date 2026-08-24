@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Publishing";
+$arDirProperties = array(
+
+);
+?>

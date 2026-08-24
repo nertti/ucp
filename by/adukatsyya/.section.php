@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Адукацыя";
+$arDirProperties = array(
+
+);
+?>

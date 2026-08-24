@@ -1,0 +1,37 @@
+<?
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+
+global $APPLICATION;
+
+if(CModule::IncludeModule("iblock"))
+{
+
+	$IBLOCK_ID = 67;        // указываем
+	$SECTION = 320;        
+
+	
+	$arOrder = Array("SORT"=>"ASC");    // сортируем по свойству SORT по возрастанию
+	$arSelect = Array("ID", "NAME", "IBLOCK_ID",  "DETAIL_PAGE_URL");
+	$arFilter = Array("IBLOCK_ID"=>$IBLOCK_ID, "SECTION_ID"=>$SECTION ,"ACTIVE"=>"Y");
+	$res = CIBlockElement::GetList($arOrder, $arFilter, false, false, $arSelect);
+
+	while($ob = $res->GetNextElement())
+	{
+	$arFields = $ob->GetFields();            // берем поля
+
+	// начинаем наполнять массив aMenuLinksExt нужными данными
+		$aMenuLinksExt[] = Array(
+				$arFields['NAME'],
+				$arFields['DETAIL_PAGE_URL'],
+				Array(),
+				Array(),
+				""
+		);
+	
+	}       
+
+}  
+
+ $aMenuLinks = array_merge($aMenuLinksExt, $aMenuLinks);
+
+?>

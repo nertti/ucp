@@ -1,0 +1,42 @@
+<?php
+
+	echo "<pre>";
+	print_r($_REQUEST);	
+	echo "</pre>";
+
+
+	try {
+		echo "<pre>";
+		//print_r(base64_decode(json_decode($_REQUEST['data'])));
+		echo "Полученный объект: " . print_r(json_decode(htmlspecialchars_decode(base64_decode($_REQUEST['data']))), true);
+		echo "</pre>";		
+	} catch (Exception $e) {
+		echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
+	}
+
+
+
+	echo "<pre lang='jscript'>";
+echo "
+	/**
+	 * Преобразование объекта в base64 и в юникод
+	 * @param {*} str
+	 */
+	function b64EncodeUnicode(str) {
+		return btoa(
+			encodeURIComponent(str).replace(
+				/%([0-9A-F]{2})/g,
+				function(match, p1) {
+					return String.fromCharCode('0x' + p1);
+				}
+			)
+		);
+	}
+
+	b64EncodeUnicode(
+		JSON.stringify(
+			{object} //Объект, который нужно передать
+		)
+	)
+";
+echo "</pre>";

@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Бібліятэка";
+$arDirProperties = array(
+
+);
+?>

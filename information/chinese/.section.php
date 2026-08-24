@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Chinese";
+$arDirProperties = array(
+
+);
+?>

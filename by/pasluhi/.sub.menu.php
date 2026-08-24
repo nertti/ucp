@@ -1,0 +1,74 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"АРIП", 
+		"arip/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Навуковыя", 
+		"navukovyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Адукацыйныя", 
+		"adukacyjnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Паліграфічныя", 
+		"palihrafiсnaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Правядзенне выпрабаванняў", 
+		"praviadziennie-vyprabavanniau/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Распрацоўка ПЗ", 
+		"raspracouka-pa/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Cэрвісныя", 
+		"servisnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Cпецыялізаваныя", 
+		"spiecyjalizavanyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Экспертна-кансультацыйныя", 
+		"ekspiertna-kansultacyjnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		" Кніжная інтэрнэт-крама", 
+		"http://kiosk.ucp.by", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

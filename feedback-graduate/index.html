@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Обратная связь с выпускником</title>
+    <link rel="stylesheet" href="/feedback-graduate/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/feedback-graduate/vendors/jgrowl/jquery.jgrowl.min.css">
+    <link rel="stylesheet" href="/feedback-graduate/css/main.css">
+</head>
+
+<body>
+
+    <!-- h1 class="text-center page-header">Форма обратной связи</h1>
+ -->
+    <hr>
+
+    <!-- <div class="text-center">
+   
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackFormModal">
+        Открыть форму в модальном окне
+    </button>
+</div> -->
+
+    <!-- Форма обратной связи в модальном окне -->
+    <div class="" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ -->
+                    <h4 class="modal-title" id="myModalLabel">Обратная связь с выпускником <br /> Университета
+                        гражданской защиты МЧС Беларуси
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- Форма обратной связи -->
+                    <form id="feedbackForm" action="/feedback-graduate/process/process.php"
+                        enctype="multipart/form-data" novalidate>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="lastname" class="control-label">Фамилия</label>
+                                    <input id="lastname" type="text" name="lastname" class="form-control" value=""
+                                        placeholder="Фамилия (необязательно)" minlength="2">
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-xs-12">
+
+                                <!-- Имя пользователя -->
+
+
+                                <div class="form-group has-feedback">
+                                    <label for="name" class="control-label">Имя</label>
+                                    <input id="name" type="text" name="name" class="form-control" value=""
+                                        placeholder="Имя (необязательно)" minlength="2">
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="middlename" class="control-label">Отчество</label>
+                                    <input id="middlename" type="text" name="middlename" class="form-control" value=""
+                                        placeholder="Отчество (необязательно)" minlength="2">
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="year_of_issue" class="control-label">Год выпуска*</label>
+                                    <input id="year_of_issue" type="number" name="year_of_issue" min="1995" max="2022"
+                                        step="1" class="form-control" value="" placeholder="Год выпуска" required>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="speciality" class="control-label">Специальность*</label>
+                                    <select class="form-control" id="speciality" name="speciality" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>«Предупреждение и ликвидация чрезвычайных ситуаций»</option>
+                                        <option>«Пожарная и промышленная безопасность»</option>
+                                        <option>«Предупреждение и ликвидация чрезвычайных ситуаций»</option>
+                                        <option>«Управление защитой от чрезвычайных ситуаций»</option>
+                                        <option>«Ликвидация чрезвычайных ситуаций и гражданская оборона»
+                                        </option>
+                                        <option>«Информационно-аналитическое обеспечение деятельности органов
+                                            и подразделений по чрезвычайным ситуациям»</option>
+                                        <option>«Информационно-коммуникативное обеспечение безопасности
+                                            жизнедеятельности»</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="work" class="control-label">Работаете ли Вы по специальности*</label>
+                                    <select class="form-control" id="work" name="work" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>Да</option>
+                                        <option>Нет</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="work" class="control-label">Форма полученного образования*</label>
+                                    <select class="form-control" id="work" name="edu_form" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>Очно</option>
+                                        <option>Заочно</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <!-- Email пользователя -->
+                        <!--     <div class="form-group has-feedback">
+                            <label for="email" class="control-label">Email-адрес</label>
+                            <input id="email" type="email" name="email" class="form-control" value="" placeholder="Email-адрес">
+                            <span class="glyphicon form-control-feedback"></span>
+                        </div> -->
+
+
+                        <p>Для ответа на вопрос необходимо отметить степень удовлетворённости по представленным
+                            критериям, из расчета что 10 – отлично, 1 – очень плохо.</p>
+
+
+
+                        <!-- 1. Вопрос 
+                        <label for="question1" class="control-label">1. Отношение «обучающийся – руководство»</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question1" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="10">10</label>
+                        <hr>
+
+                        
+                        <label for="question2" class="control-label">2. Отношение «обучающийся – преподаватель»</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question2" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="10">10</label>
+
+                        <hr>
+
+                        
+                        <label for="question3" class="control-label">3. Качество образовательного процесса</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question3" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="10">10</label>
+                        -->
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 1 Вопрос -->
+                                <fieldset>
+                                    <legend>1. Отношение «обучающийся – руководство»</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question1" value="1" id="question1-1" /><label
+                                            for="question1-1">1</label>
+                                        <input type="radio" name="question1" value="2" id="question1-2" /><label
+                                            for="question1-2">2</label>
+                                        <input type="radio" name="question1" value="3" id="question1-3" /><label
+                                            for="question1-3">3</label>
+                                        <input type="radio" name="question1" value="4" id="question1-4" /><label
+                                            for="question1-4">4</label>
+                                        <input type="radio" name="question1" value="5" id="question1-5" /><label
+                                            for="question1-5">5</label>
+                                        <input type="radio" name="question1" value="6" id="question1-6" /><label
+                                            for="question1-6">6</label>
+                                        <input type="radio" name="question1" value="7" id="question1-7" /><label
+                                            for="question1-7">7</label>
+                                        <input type="radio" name="question1" value="8" id="question1-8" /><label
+                                            for="question1-8">8</label>
+                                        <input type="radio" name="question1" value="9" id="question1-9" /><label
+                                            for="question1-9">9</label>
+                                        <input type="radio" name="question1" value="10" id="question1-10" /><label
+                                            for="question1-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 2 Вопрос -->
+                                <fieldset>
+                                    <legend>2. Отношение «обучающийся – преподаватель</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question2" value="1" id="question2-1" /><label
+                                            for="question2-1">1</label>
+                                        <input type="radio" name="question2" value="2" id="question2-2" /><label
+                                            for="question2-2">2</label>
+                                        <input type="radio" name="question2" value="3" id="question2-3" /><label
+                                            for="question2-3">3</label>
+                                        <input type="radio" name="question2" value="4" id="question2-4" /><label
+                                            for="question2-4">4</label>
+                                        <input type="radio" name="question2" value="5" id="question2-5" /><label
+                                            for="question2-5">5</label>
+                                        <input type="radio" name="question2" value="6" id="question2-6" /><label
+                                            for="question2-6">6</label>
+                                        <input type="radio" name="question2" value="7" id="question2-7" /><label
+                                            for="question2-7">7</label>
+                                        <input type="radio" name="question2" value="8" id="question2-8" /><label
+                                            for="question2-8">8</label>
+                                        <input type="radio" name="question2" value="9" id="question2-9" /><label
+                                            for="question2-9">9</label>
+                                        <input type="radio" name="question2" value="10" id="question2-10" /><label
+                                            for="question2-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 3 Вопрос -->
+                                <fieldset>
+                                    <legend>3. Качество образовательного процесса</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question3" value="1" id="question3-1" /><label
+                                            for="question3-1">1</label>
+                                        <input type="radio" name="question3" value="2" id="question3-2" /><label
+                                            for="question3-2">2</label>
+                                        <input type="radio" name="question3" value="3" id="question3-3" /><label
+                                            for="question3-3">3</label>
+                                        <input type="radio" name="question3" value="4" id="question3-4" /><label
+                                            for="question3-4">4</label>
+                                        <input type="radio" name="question3" value="5" id="question3-5" /><label
+                                            for="question3-5">5</label>
+                                        <input type="radio" name="question3" value="6" id="question3-6" /><label
+                                            for="question3-6">6</label>
+                                        <input type="radio" name="question3" value="7" id="question3-7" /><label
+                                            for="question3-7">7</label>
+                                        <input type="radio" name="question3" value="8" id="question3-8" /><label
+                                            for="question3-8">8</label>
+                                        <input type="radio" name="question3" value="9" id="question3-9" /><label
+                                            for="question3-9">9</label>
+                                        <input type="radio" name="question3" value="10" id="question3-10" /><label
+                                            for="question3-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 4 Вопрос -->
+                                <fieldset>
+                                    <legend>4. Работа и оснащенность учебных аудиторий</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question4" value="1" id="question4-1" /><label
+                                            for="question4-1">1</label>
+                                        <input type="radio" name="question4" value="2" id="question4-2" /><label
+                                            for="question4-2">2</label>
+                                        <input type="radio" name="question4" value="3" id="question4-3" /><label
+                                            for="question4-3">3</label>
+                                        <input type="radio" name="question4" value="4" id="question4-4" /><label
+                                            for="question4-4">4</label>
+                                        <input type="radio" name="question4" value="5" id="question4-5" /><label
+                                            for="question4-5">5</label>
+                                        <input type="radio" name="question4" value="6" id="question4-6" /><label
+                                            for="question4-6">6</label>
+                                        <input type="radio" name="question4" value="7" id="question4-7" /><label
+                                            for="question4-7">7</label>
+                                        <input type="radio" name="question4" value="8" id="question4-8" /><label
+                                            for="question4-8">8</label>
+                                        <input type="radio" name="question4" value="9" id="question4-9" /><label
+                                            for="question4-9">9</label>
+                                        <input type="radio" name="question4" value="10" id="question4-10" /><label
+                                            for="question4-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 5 Вопрос -->
+                                <fieldset>
+                                    <legend>5.Практическая составляющая образовательного процесса</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question5" value="1" id="question5-1" /><label
+                                            for="question5-1">1</label>
+                                        <input type="radio" name="question5" value="2" id="question5-2" /><label
+                                            for="question5-2">2</label>
+                                        <input type="radio" name="question5" value="3" id="question5-3" /><label
+                                            for="question5-3">3</label>
+                                        <input type="radio" name="question5" value="4" id="question5-4" /><label
+                                            for="question5-4">4</label>
+                                        <input type="radio" name="question5" value="5" id="question5-5" /><label
+                                            for="question5-5">5</label>
+                                        <input type="radio" name="question5" value="6" id="question5-6" /><label
+                                            for="question5-6">6</label>
+                                        <input type="radio" name="question5" value="7" id="question5-7" /><label
+                                            for="question5-7">7</label>
+                                        <input type="radio" name="question5" value="8" id="question5-8" /><label
+                                            for="question5-8">8</label>
+                                        <input type="radio" name="question5" value="9" id="question5-9" /><label
+                                            for="question5-9">9</label>
+                                        <input type="radio" name="question5" value="10" id="question5-10" /><label
+                                            for="question5-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 6 Вопрос -->
+                                <fieldset>
+                                    <legend>6.Возможность занятия научно-исследовательской деятельностью</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question6" value="1" id="question6-1" /><label
+                                            for="question6-1">1</label>
+                                        <input type="radio" name="question6" value="2" id="question6-2" /><label
+                                            for="question6-2">2</label>
+                                        <input type="radio" name="question6" value="3" id="question6-3" /><label
+                                            for="question6-3">3</label>
+                                        <input type="radio" name="question6" value="4" id="question6-4" /><label
+                                            for="question6-4">4</label>
+                                        <input type="radio" name="question6" value="5" id="question6-5" /><label
+                                            for="question6-5">5</label>
+                                        <input type="radio" name="question6" value="6" id="question6-6" /><label
+                                            for="question6-6">6</label>
+                                        <input type="radio" name="question6" value="7" id="question6-7" /><label
+                                            for="question6-7">7</label>
+                                        <input type="radio" name="question6" value="8" id="question6-8" /><label
+                                            for="question6-8">8</label>
+                                        <input type="radio" name="question6" value="9" id="question6-9" /><label
+                                            for="question6-9">9</label>
+                                        <input type="radio" name="question6" value="10" id="question6-10" /><label
+                                            for="question6-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 7 Вопрос -->
+                                <fieldset>
+                                    <legend>7.Возможность занятия в спортивных секциях</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question7" value="1" id="question7-1" /><label
+                                            for="question7-1">1</label>
+                                        <input type="radio" name="question7" value="2" id="question7-2" /><label
+                                            for="question7-2">2</label>
+                                        <input type="radio" name="question7" value="3" id="question7-3" /><label
+                                            for="question7-3">3</label>
+                                        <input type="radio" name="question7" value="4" id="question7-4" /><label
+                                            for="question7-4">4</label>
+                                        <input type="radio" name="question7" value="5" id="question7-5" /><label
+                                            for="question7-5">5</label>
+                                        <input type="radio" name="question7" value="6" id="question7-6" /><label
+                                            for="question7-6">6</label>
+                                        <input type="radio" name="question7" value="7" id="question7-7" /><label
+                                            for="question7-7">7</label>
+                                        <input type="radio" name="question7" value="8" id="question7-8" /><label
+                                            for="question7-8">8</label>
+                                        <input type="radio" name="question7" value="9" id="question7-9" /><label
+                                            for="question7-9">9</label>
+                                        <input type="radio" name="question7" value="10" id="question7-10" /><label
+                                            for="question7-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 8 Вопрос -->
+                                <fieldset>
+                                    <legend>8.Актуальность полученной специальности</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question8" value="1" id="question8-1" /><label
+                                            for="question8-1">1</label>
+                                        <input type="radio" name="question8" value="2" id="question8-2" /><label
+                                            for="question8-2">2</label>
+                                        <input type="radio" name="question8" value="3" id="question8-3" /><label
+                                            for="question8-3">3</label>
+                                        <input type="radio" name="question8" value="4" id="question8-4" /><label
+                                            for="question8-4">4</label>
+                                        <input type="radio" name="question8" value="5" id="question8-5" /><label
+                                            for="question8-5">5</label>
+                                        <input type="radio" name="question8" value="6" id="question8-6" /><label
+                                            for="question8-6">6</label>
+                                        <input type="radio" name="question8" value="7" id="question8-7" /><label
+                                            for="question8-7">7</label>
+                                        <input type="radio" name="question8" value="8" id="question8-8" /><label
+                                            for="question8-8">8</label>
+                                        <input type="radio" name="question8" value="9" id="question8-9" /><label
+                                            for="question8-9">9</label>
+                                        <input type="radio" name="question8" value="10" id="question8-10" /><label
+                                            for="question8-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 9 Вопрос -->
+                                <fieldset>
+                                    <legend>9.Уровень полученных навыков в начале трудовой деятельности</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question9" value="1" id="question9-1" /><label
+                                            for="question9-1">1</label>
+                                        <input type="radio" name="question9" value="2" id="question9-2" /><label
+                                            for="question9-2">2</label>
+                                        <input type="radio" name="question9" value="3" id="question9-3" /><label
+                                            for="question9-3">3</label>
+                                        <input type="radio" name="question9" value="4" id="question9-4" /><label
+                                            for="question9-4">4</label>
+                                        <input type="radio" name="question9" value="5" id="question9-5" /><label
+                                            for="question9-5">5</label>
+                                        <input type="radio" name="question9" value="6" id="question9-6" /><label
+                                            for="question9-6">6</label>
+                                        <input type="radio" name="question9" value="7" id="question9-7" /><label
+                                            for="question9-7">7</label>
+                                        <input type="radio" name="question9" value="8" id="question9-8" /><label
+                                            for="question9-8">8</label>
+                                        <input type="radio" name="question9" value="9" id="question9-9" /><label
+                                            for="question9-9">9</label>
+                                        <input type="radio" name="question9" value="10" id="question9-10" /><label
+                                            for="question9-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <!-- 10 Вопрос -->
+                                <fieldset>
+                                    <legend>10. Насколько условия обучения в университете благоприятны для
+                                        профессионального и личностного развития</legend>
+                                    <div class="toggle">
+                                        <input type="radio" name="question10" value="1" id="question10-1" /><label
+                                            for="question10-1">1</label>
+                                        <input type="radio" name="question10" value="2" id="question10-2" /><label
+                                            for="question10-2">2</label>
+                                        <input type="radio" name="question10" value="3" id="question10-3" /><label
+                                            for="question10-3">3</label>
+                                        <input type="radio" name="question10" value="4" id="question10-4" /><label
+                                            for="question10-4">4</label>
+                                        <input type="radio" name="question10" value="5" id="question10-5" /><label
+                                            for="question10-5">5</label>
+                                        <input type="radio" name="question10" value="6" id="question10-6" /><label
+                                            for="question10-6">6</label>
+                                        <input type="radio" name="question10" value="7" id="question10-7" /><label
+                                            for="question10-7">7</label>
+                                        <input type="radio" name="question10" value="8" id="question10-8" /><label
+                                            for="question10-8">8</label>
+                                        <input type="radio" name="question10" value="9" id="question10-9" /><label
+                                            for="question10-9">9</label>
+                                        <input type="radio" name="question10" value="10" id="question10-10" /><label
+                                            for="question10-10">10</label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- Сообщение пользователя -->
+                        <div class="form-group has-feedback">
+                            <label for="message" class="control-label">Что, по Вашему мнению, могло бы способствовать
+                                совершенствованию организации и качества обучения, воспитательного процесса,
+                                материально-технического обеспечения</label>
+                            <textarea id="message" name="message" class="form-control" rows="3"
+                                placeholder="Что, по Вашему мнению, могло бы способствовать совершенствованию организации и качества обучения, воспитательного процесса,   материально-технического обеспечения (необязательно)"
+                                minlength="0" maxlength="500"></textarea>
+                        </div>
+
+                        <!-- Файлы, для прикрепления к форме -->
+                        <!--  <div class="form-group">
+                            <p style="font-weight: 700; margin-bottom: 0;">Прикрепить к сообщению файлы (до <span class="countFiles"></span>):</p>
+                            <p class="small success">pdf, jpg, png (до 512 Кбайт)</p>
+                            <input type="file" name="attachment[]">
+                            <p style="margin-top: 3px; margin-bottom: 3px; color: #ff0000;"></p>
+                        </div> -->
+
+                        <!-- Капча -->
+                        <div class="captcha">
+                            <img class="img-captcha" src="/feedback-graduate/captcha/captcha.php"
+                                data-src="/feedback-graduate/captcha/captcha.php">
+                            <div class="btn btn-default refresh-captcha"><i class="glyphicon glyphicon-refresh"></i>
+                                Обновить
+                            </div>
+                            <div class="form-group has-feedback" style="margin-top: 10px;">
+                                <label for="captcha" class="control-label">Код, показанный на изображении</label>
+                                <input type="text" name="captcha" maxlength="6" required="required" id="captcha"
+                                    class="form-control captcha" placeholder="******" autocomplete="off" value="">
+                                <span class="glyphicon form-control-feedback"></span>
+                            </div>
+                        </div>
+
+                        <!-- Пользовательское солашение -->
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="agree"> Я даю <a href="https://ucp.by/upload/PersonalData/" target="_blank">согласие на обработку персональных данных</a>, указанных в этой форме.
+
+                            </label>
+                        </div>
+
+                        <!-- Кнопка для отправки формы -->
+                        <button type="submit" class="btn btn-success pull-right" disabled="disabled">Отправить
+                            сообщение
+                        </button>
+
+                        <!-- Индикация загрузки данных формы на сервер -->
+                        <div class="clearfix"></div>
+                        <div class="progress" style="display:none; margin-top: 20px;">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                                <span class="sr-only">0%</span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </form>
+
+                    <!-- Сообщение об успешной отправки формы -->
+                    <div class="alert alert-warning success-message hidden">
+                        Форма успешно отправлена. Нажмите на <a class="show-form" href="#">ссылку</a>, чтобы отправить
+                        ещё одно сообщение.
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/feedback-graduate/vendors/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/feedback-graduate/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/feedback-graduate/vendors/jgrowl/jquery.jgrowl.min.js"></script>
+    <script src="/feedback-graduate/js/main.js"></script>
+
+</body>
+
+</html>

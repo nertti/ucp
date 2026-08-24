@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Музей";
+$arDirProperties = Array(
+
+);
+?>

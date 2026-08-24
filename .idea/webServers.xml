@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4631d6c7-2b53-41a3-80aa-a5876e192ef8" name="test">
+        <fileTransfer rootFolder="/var/www/ucp.itg-soft.by/web" accessType="SFTP" host="85.209.148.131" port="22" sshConfigId="82a33676-4e36-4b7c-ad05-6a98c99465ba" sshConfig="root@85.209.148.131:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

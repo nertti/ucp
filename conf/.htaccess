@@ -1,0 +1,5 @@
+php_value mbstring.internal_encoding UTF-8
+php_value default_charset utf-8
+php_value opcache.revalidate_freq 0
+php_value max_input_vars 10000
+php_value default_socket_timeout 60

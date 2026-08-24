@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Leadership";
+$arDirProperties = array(
+
+);
+?>

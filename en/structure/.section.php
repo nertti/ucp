@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Structure";
+$arDirProperties = Array(
+
+);
+?>

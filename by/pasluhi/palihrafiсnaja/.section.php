@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Паліграфічныя";
+$arDirProperties = array(
+
+);
+?>

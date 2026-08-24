@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Arabic", 
+		"arabic/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Chinese", 
+		"chinese", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"English", 
+		"english", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

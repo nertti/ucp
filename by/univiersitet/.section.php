@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Універсітэт";
+$arDirProperties = Array(
+
+);
+?>

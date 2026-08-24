@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Chairs";
+$arDirProperties = array(
+
+);
+?>

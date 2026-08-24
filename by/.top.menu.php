@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Універсітэт", 
+		"univiersitet/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Структура ", 
+		"struktura/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Дзейнасць", 
+		"dziejnasc/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Паслугі", 
+		"pasluhi/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Кантакты", 
+		"kantakty/", 
+		Array(), 
+		Array(), 
+		"" 
+	) 
+);
+?>

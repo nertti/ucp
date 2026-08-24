@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Галоўная";
+$arDirProperties = array(
+
+);
+?>

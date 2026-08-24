@@ -1,0 +1,66 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+<IfModule mod_php5.c>
+  php_flag session.use_trans_sid off
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+</IfModule>
+
+<IfModule mod_php7.c>
+  php_flag session.use_trans_sid off
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule> 
+
+Redirect 301 /standart https://ucp.by/university/news/novosti-universiteta/standart/
+
+#413 Постановление
+Redirect 301 /ok-1 https://do.ucp.by/course/view.php?id=405
+Redirect 301 /ok-2 https://do.ucp.by/course/view.php?id=404
+Redirect 301 /ok-3 https://do.ucp.by/course/view.php?id=1532
+Redirect 301 /ok-4 https://do.ucp.by/course/view.php?id=1523
+
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+
+
+  RewriteRule ^a/(.*)$ https://ucp.by/redirect_second.php?path=$1 [L,QSA] # редирект на тестирование (ООДО)
+  
+
+  RewriteRule ^(ok\d+)$ /redirect.php?id=$1 [L,R=301] # редирект на обучающие курсы ФБЖ (ООДО)
+  RewriteRule ^r/(.*)$ https://online.ucp.by/redirect.php?path=$1 [L,QSA] # редирект на тестирование (ООДО)
+  RewriteRule ^rd/(.*)$ https://do.ucp.by/redirect.php?path=$1 [L,QSA] # редирект на тестирование (ООДО)
+  RewriteRule ^rt/(.*)$ https://test.ucp.by/redirect.php?path=$1 [L,QSA] # редирект на тестирование (ООДО)
+  
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>

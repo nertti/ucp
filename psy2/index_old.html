@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Психологический опрос</title>
+    <link rel="stylesheet" href="/psy/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/psy/vendors/jgrowl/jquery.jgrowl.min.css">
+    <link rel="stylesheet" href="/psy/css/main.css">
+</head>
+
+<body>
+
+    <!-- h1 class="text-center page-header">Форма обратной связи</h1>
+ -->
+    <hr>
+
+    <!-- <div class="text-center">
+   
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackFormModal">
+        Открыть форму в модальном окне
+    </button>
+</div> -->
+
+    <!-- Форма обратной связи в модальном окне -->
+    <div class="" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ -->
+                    <h4 class="modal-title" id="myModalLabel">Психологический опрос 
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+              
+
+
+
+                    <!-- Форма обратной связи -->
+                    <form id="feedbackForm" action="/psy/process/process.php"
+                        enctype="multipart/form-data" novalidate>
+
+                        <div style="text-align: center;">
+
+                            <a href="https://psytests.org/boyko/burnout-run.html" class="btn btn-primary" target="_blank">НАЧАТЬ ТЕСТИРОВАНИЕ</a> <br />
+                            <hr />
+                            После прохождения тестирования скопируйте ссылку на результат в форму и нажмите <b>«отправить»</b> <br /> <br /> <br /> 
+        
+        
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="lastname" class="control-label">Фамилия</label>
+                                    <input id="lastname" type="text" name="lastname" class="form-control" value=""
+                                        placeholder="Фамилия (обязательно)" minlength="2" required>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-xs-12">
+
+                                <!-- Имя пользователя -->
+
+
+                                <div class="form-group has-feedback">
+                                    <label for="name" class="control-label">Имя</label>
+                                    <input id="name" type="text" name="name" class="form-control" value=""
+                                        placeholder="Имя (обязательно)" minlength="2" required>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="middlename" class="control-label">Отчество</label>
+                                    <input id="middlename" type="text" name="middlename" class="form-control" value=""
+                                        placeholder="Отчество (обязательно)" minlength="2" required>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                       <!--<div class="row">
+                            <div class="col-md-2 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="year_of_issue" class="control-label">Год выпуска*</label>
+                                    <input id="year_of_issue" type="number" name="year_of_issue" min="1995" max="2022"
+                                        step="1" class="form-control" value="" placeholder="Год выпуска" required>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="speciality" class="control-label">Специальность*</label>
+                                    <select class="form-control" id="speciality" name="speciality" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>«Предупреждение и ликвидация чрезвычайных ситуаций»</option>
+                                        <option>«Пожарная и промышленная безопасность»</option>
+                                        <option>«Предупреждение и ликвидация чрезвычайных ситуаций»</option>
+                                        <option>«Управление защитой от чрезвычайных ситуаций»</option>
+                                        <option>«Ликвидация чрезвычайных ситуаций и гражданская оборона»
+                                        </option>
+                                        <option>«Информационно-аналитическое обеспечение деятельности органов
+                                            и подразделений по чрезвычайным ситуациям»</option>
+                                        <option>«Информационно-коммуникативное обеспечение безопасности
+                                            жизнедеятельности»</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="work" class="control-label">Работаете ли Вы по специальности*</label>
+                                    <select class="form-control" id="work" name="work" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>Да</option>
+                                        <option>Нет</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <label for="work" class="control-label">Форма полученного образования*</label>
+                                    <select class="form-control" id="work" name="edu_form" class="form-control"
+                                        placeholder="Специальность" required>
+                                        <option>Очно</option>
+                                        <option>Заочно</option>
+                                    </select>
+                                    <span class="glyphicon form-control-feedback"></span>
+                                </div>
+                            </div>
+
+
+                        </div>-->
+
+
+
+
+
+
+
+
+
+                        <!-- Email пользователя -->
+                        <!--     <div class="form-group has-feedback">
+                            <label for="email" class="control-label">Email-адрес</label>
+                            <input id="email" type="email" name="email" class="form-control" value="" placeholder="Email-адрес">
+                            <span class="glyphicon form-control-feedback"></span>
+                        </div> -->
+
+
+                     
+
+
+                        <!-- 1. Вопрос 
+                        <label for="question1" class="control-label">1. Отношение «обучающийся – руководство»</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question1" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question1" value="10">10</label>
+                        <hr>
+
+                        
+                        <label for="question2" class="control-label">2. Отношение «обучающийся – преподаватель»</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question2" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question2" value="10">10</label>
+
+                        <hr>
+
+                        
+                        <label for="question3" class="control-label">3. Качество образовательного процесса</label>
+                        <br>
+
+                        <label class="radio-inline"><input type="radio" name="question3" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="5">5</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="6">6</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="7">7</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="8">8</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="9">9</label>
+                        <label class="radio-inline"><input type="radio" name="question3" value="10">10</label>
+                        -->
+
+                   
+
+
+
+
+
+
+
+
+                        <!-- Сообщение пользователя -->
+                        <div class="form-group has-feedback">
+                            <label for="message" class="control-label">Вставте в данное поля ссылку на результаты опроса на внешнем ресурсе</label>
+                            <textarea id="message" name="message" class="form-control" rows="3" required
+                                placeholder="https://........... (обязательно)"
+                                minlength="0" maxlength="500"></textarea>
+                        </div>
+
+                        <!-- Файлы, для прикрепления к форме -->
+                        <!--  <div class="form-group">
+                            <p style="font-weight: 700; margin-bottom: 0;">Прикрепить к сообщению файлы (до <span class="countFiles"></span>):</p>
+                            <p class="small success">pdf, jpg, png (до 512 Кбайт)</p>
+                            <input type="file" name="attachment[]">
+                            <p style="margin-top: 3px; margin-bottom: 3px; color: #ff0000;"></p>
+                        </div> -->
+
+                        <!-- Капча -->
+                        <div class="captcha">
+                            <img class="img-captcha" src="/psy/captcha/captcha.php"
+                                data-src="/psy/captcha/captcha.php">
+                            <div class="btn btn-default refresh-captcha"><i class="glyphicon glyphicon-refresh"></i>
+                                Обновить
+                            </div>
+                            <div class="form-group has-feedback" style="margin-top: 10px;">
+                                <label for="captcha" class="control-label">Код, показанный на изображении</label>
+                                <input type="text" name="captcha" maxlength="6" required="required" id="captcha"
+                                    class="form-control captcha" placeholder="******" autocomplete="off" value="">
+                                <span class="glyphicon form-control-feedback"></span>
+                            </div>
+                        </div>
+
+                        <!-- Пользовательское солашение -->
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="agree"> Я даю <a href="https://ucp.by/upload/PersonalData/" target="_blank">согласие на обработку персональных данных</a>, указанных в этой форме.
+
+                            </label>
+                        </div>
+
+                        <!-- Кнопка для отправки формы -->
+                        <button type="submit" class="btn btn-success pull-right" disabled="disabled">Отправить
+                        </button>
+
+                        <!-- Индикация загрузки данных формы на сервер -->
+                        <div class="clearfix"></div>
+                        <div class="progress" style="display:none; margin-top: 20px;">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                                <span class="sr-only">0%</span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </form>
+
+                    <!-- Сообщение об успешной отправки формы -->
+                    <div class="alert alert-warning success-message hidden">
+                       Ваши результаты успешено отправлены. Спасибо! <!-- Нажмите на <a class="show-form" href="#">ссылку</a>, чтобы отправить
+                        ещё одно сообщение.-->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/psy/vendors/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/psy/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/psy/vendors/jgrowl/jquery.jgrowl.min.js"></script>
+    <script src="/psy/js/main.js"></script>
+
+</body>
+
+</html>

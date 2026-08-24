@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"БМООСП", 
+		"https://bmoosp.by/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"БРСМ", 
+		"https://brsm.by/ru/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"БСЖ", 
+		"/activity/ideologicheskaya/obshchestvennye-obedineniya/bszh/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

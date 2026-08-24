@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Polygraphic";
+$arDirProperties = Array(
+
+);
+?>

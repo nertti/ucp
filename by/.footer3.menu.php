@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Адукацыя", 
+		"pasluhi/adukacyjnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Паліграфічныя", 
+		"pasluhi/palihrafiсnaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"АРIП", 
+		"pasluhi/arip/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Распрацоўка ПЗ", 
+		"pasluhi/raspracouka-pa/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Экспертна-кансультацыйныя", 
+		"pasluhi/ekspiertna-kansultacyjnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Cэрвісныя", 
+		"pasluhi/servisnyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Правядзенне выпрабаванняў", 
+		"pasluhi/praviadziennie-vyprabavanniau/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Cпецыялізаваныя", 
+		"pasluhi/spiecyjalizavanyja/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

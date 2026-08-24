@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Издательская";
+$arDirProperties = array(
+
+);
+?>

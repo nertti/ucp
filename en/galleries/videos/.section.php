@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Videos";
+$arDirProperties = array(
+
+);
+?>

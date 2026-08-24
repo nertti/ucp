@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Руководство", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/rukovodstvo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Об институте", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/ob-institute/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Центры", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/tsentry/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Факультет безопасности жизнедеятельности", 
+		"/structure/faculties/fakultet-bezopasnosti-zhiznedeyatelnosti/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Музей МЧС", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/muzey-mchs/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Ресурсы", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/resursy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Услуги", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/uslugi/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контактная информация", 
+		"/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/kontaktnaya-informatsiya/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

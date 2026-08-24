@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Университет", 
+		"rtert", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Абитуриенту", 
+		"rtt", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Презентация университета", 
+		"rtt/1", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Услуги", 
+		"dddddd", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Электронные ресурсы", 
+		"rttt", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"rrre", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

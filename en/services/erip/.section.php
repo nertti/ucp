@@ -1,0 +1,6 @@
+<?
+$sSectionName = "ERIP";
+$arDirProperties = Array(
+
+);
+?>

@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Міжнародная";
+$arDirProperties = Array(
+
+);
+?>

@@ -1,0 +1,247 @@
+Array
+(
+    [TIMESTAMP_X] => now()
+    [DATE_CREATE] => now()
+    [STATUS_ID] => 1
+    [FORM_ID] => 1
+    [USER_ID] => 3
+    [USER_AUTH] => 'Y'
+    [STAT_GUEST_ID] => 1914471
+    [STAT_SESSION_ID] => 3574530
+    [SENT_TO_CRM] => 'N'
+)
+Array
+(
+    [bxajaxid] => 3a114d94efb54ab72d9355ce71d04e35
+    [AJAX_CALL] => Y
+    [sessid] => 26d24d6b0f7fd2243ebd2ca1cd7736b4
+    [WEB_FORM_ID] => 1
+    [form_text_3] => Тестовое сообщение
+    [form_email_4] => norely@ucp.by
+    [form_textarea_5] => Тестовое сообщение
+    [form_text_36] => 
+    [form_textarea_6] => Тестовое сообщение
+    [captcha_word] => YF5V3
+    [captcha_sid] => 0ad68b0280a6286549dd2979963be805
+    [web_form_submit] => Отправить
+)
+Array
+(
+    [TIMESTAMP_X] => now()
+    [DATE_CREATE] => now()
+    [STATUS_ID] => 1
+    [FORM_ID] => 1
+    [USER_ID] => 3
+    [USER_AUTH] => 'Y'
+    [STAT_GUEST_ID] => 1914471
+    [STAT_SESSION_ID] => 3574530
+    [SENT_TO_CRM] => 'N'
+)
+Array
+(
+    [bxajaxid] => 3a114d94efb54ab72d9355ce71d04e35
+    [AJAX_CALL] => Y
+    [sessid] => 26d24d6b0f7fd2243ebd2ca1cd7736b4
+    [WEB_FORM_ID] => 1
+    [form_text_3] => Тестовое сообщение
+    [form_text_4] => noreply@ucp.by
+    [form_textarea_5] => Тестовое сообщение
+    [form_text_36] => 
+    [form_textarea_6] => Тестовое сообщение
+    [captcha_word] => YDHBF
+    [captcha_sid] => 08316b738b99c24125458dceeb5d9974
+    [web_form_submit] => Отправить
+)
+Array
+(
+    [ID] => 9230
+    [TIMESTAMP_X] => 02.09.2022 12:53:58
+    [DATE_CREATE] => 02.09.2022 12:53:58
+    [STATUS_ID] => 1
+    [FORM_ID] => 1
+    [USER_ID] => 3
+    [USER_AUTH] => Y
+    [STAT_GUEST_ID] => 1914471
+    [STAT_SESSION_ID] => 3574530
+    [SENT_TO_CRM] => N
+    [IMAGE_ID] => 
+    [DESCRIPTION] => 
+    [DESCRIPTION_TYPE] => text
+    [SHOW_RESULT_TEMPLATE] => 
+    [PRINT_RESULT_TEMPLATE] => 
+    [EDIT_RESULT_TEMPLATE] => 
+    [NAME] => Физическое лицо
+    [SID] => SIMPLE_FORM_1
+    [VARNAME] => SIMPLE_FORM_1
+    [STATUS_TITLE] => DEFAULT
+    [STATUS_DESCRIPTION] => DEFAULT
+    [STATUS_CSS] => statusgreen
+)
+Array
+(
+    [new_field_48133] => Array
+        (
+            [3] => Array
+                (
+                    [RESULT_ID] => 9230
+                    [FIELD_ID] => 3
+                    [SID] => new_field_48133
+                    [VARNAME] => new_field_48133
+                    [TITLE] => Ф.И.О
+                    [TITLE_TYPE] => text
+                    [FILTER_TITLE] => 
+                    [RESULTS_TABLE_TITLE] => Ф.И.О
+                    [ANSWER_ID] => 3
+                    [ANSWER_TEXT] => 
+                    [MESSAGE] =>  
+                    [ANSWER_VALUE] => 
+                    [VALUE] => 
+                    [USER_TEXT] => Тестовое сообщение
+                    [USER_DATE] => 
+                    [USER_FILE_ID] => 
+                    [USER_FILE_NAME] => 
+                    [USER_FILE_IS_IMAGE] => 
+                    [USER_FILE_HASH] => 
+                    [USER_FILE_SUFFIX] => 
+                    [USER_FILE_SIZE] => 
+                    [FIELD_TYPE] => text
+                    [FIELD_WIDTH] => 43
+                    [FIELD_HEIGHT] => 0
+                    [FIELD_PARAM] => 
+                )
+
+        )
+
+    [new_field_17042] => Array
+        (
+            [4] => Array
+                (
+                    [RESULT_ID] => 9230
+                    [FIELD_ID] => 4
+                    [SID] => new_field_17042
+                    [VARNAME] => new_field_17042
+                    [TITLE] => Email
+                    [TITLE_TYPE] => html
+                    [FILTER_TITLE] => 
+                    [RESULTS_TABLE_TITLE] => Email
+                    [ANSWER_ID] => 4
+                    [ANSWER_TEXT] => 
+                    [MESSAGE] =>  
+                    [ANSWER_VALUE] => 
+                    [VALUE] => 
+                    [USER_TEXT] => noreply@ucp.by
+                    [USER_DATE] => 
+                    [USER_FILE_ID] => 
+                    [USER_FILE_NAME] => 
+                    [USER_FILE_IS_IMAGE] => 
+                    [USER_FILE_HASH] => 
+                    [USER_FILE_SUFFIX] => 
+                    [USER_FILE_SIZE] => 
+                    [FIELD_TYPE] => text
+                    [FIELD_WIDTH] => 43
+                    [FIELD_HEIGHT] => 0
+                    [FIELD_PARAM] => 
+                )
+
+        )
+
+    [new_field_31476] => Array
+        (
+            [5] => Array
+                (
+                    [RESULT_ID] => 9230
+                    [FIELD_ID] => 5
+                    [SID] => new_field_31476
+                    [VARNAME] => new_field_31476
+                    [TITLE] => Адрес места жительства (места пребывания) и (или) места работы (учебы)
+                    [TITLE_TYPE] => text
+                    [FILTER_TITLE] => 
+                    [RESULTS_TABLE_TITLE] => Адрес места жительства (места пребывания) и (или) места работы (учебы)
+                    [ANSWER_ID] => 5
+                    [ANSWER_TEXT] => 
+                    [MESSAGE] =>  
+                    [ANSWER_VALUE] => 
+                    [VALUE] => 
+                    [USER_TEXT] => Тестовое сообщение
+                    [USER_DATE] => 
+                    [USER_FILE_ID] => 
+                    [USER_FILE_NAME] => 
+                    [USER_FILE_IS_IMAGE] => 
+                    [USER_FILE_HASH] => 
+                    [USER_FILE_SUFFIX] => 
+                    [USER_FILE_SIZE] => 
+                    [FIELD_TYPE] => textarea
+                    [FIELD_WIDTH] => 45
+                    [FIELD_HEIGHT] => 5
+                    [FIELD_PARAM] => 
+                )
+
+        )
+
+    [SIMPLE_QUESTION_455] => Array
+        (
+            [36] => Array
+                (
+                    [RESULT_ID] => 9230
+                    [FIELD_ID] => 36
+                    [SID] => SIMPLE_QUESTION_455
+                    [VARNAME] => SIMPLE_QUESTION_455
+                    [TITLE] => Контактный телефон
+                    [TITLE_TYPE] => text
+                    [FILTER_TITLE] => 
+                    [RESULTS_TABLE_TITLE] => Контактный телефон
+                    [ANSWER_ID] => 36
+                    [ANSWER_TEXT] => 
+                    [MESSAGE] =>  
+                    [ANSWER_VALUE] => 
+                    [VALUE] => 
+                    [USER_TEXT] => 
+                    [USER_DATE] => 
+                    [USER_FILE_ID] => 
+                    [USER_FILE_NAME] => 
+                    [USER_FILE_IS_IMAGE] => 
+                    [USER_FILE_HASH] => 
+                    [USER_FILE_SUFFIX] => 
+                    [USER_FILE_SIZE] => 
+                    [FIELD_TYPE] => text
+                    [FIELD_WIDTH] => 43
+                    [FIELD_HEIGHT] => 0
+                    [FIELD_PARAM] => 
+                )
+
+        )
+
+    [SIMPLE_QUESTION_886] => Array
+        (
+            [6] => Array
+                (
+                    [RESULT_ID] => 9230
+                    [FIELD_ID] => 6
+                    [SID] => SIMPLE_QUESTION_886
+                    [VARNAME] => SIMPLE_QUESTION_886
+                    [TITLE] => Обращение
+                    [TITLE_TYPE] => text
+                    [FILTER_TITLE] => 
+                    [RESULTS_TABLE_TITLE] => Обращение
+                    [ANSWER_ID] => 6
+                    [ANSWER_TEXT] => 
+                    [MESSAGE] =>  
+                    [ANSWER_VALUE] => 
+                    [VALUE] => 
+                    [USER_TEXT] => Тестовое сообщение
+                    [USER_DATE] => 
+                    [USER_FILE_ID] => 
+                    [USER_FILE_NAME] => 
+                    [USER_FILE_IS_IMAGE] => 
+                    [USER_FILE_HASH] => 
+                    [USER_FILE_SUFFIX] => 
+                    [USER_FILE_SIZE] => 
+                    [FIELD_TYPE] => textarea
+                    [FIELD_WIDTH] => 45
+                    [FIELD_HEIGHT] => 5
+                    [FIELD_PARAM] => 
+                )
+
+        )
+
+)

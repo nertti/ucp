@@ -1,0 +1,217 @@
+.panel-success {
+    border-color: #29b74e;
+}
+
+.panel-success>.panel-heading {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: #29b74e;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: #29b765;
+}
+
+.success {
+    color: #29b74e;
+}
+
+.jgrowl-error {
+    background-color: #a94442 !important;
+}
+
+.jgrowl-success {
+    background-color: #3c763d !important;
+}
+
+.jgrowl-warning {
+    background-color: #8a6d3b !important;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+#feedbackForm hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* @media screen and (mim-width: 767px) {
+    fieldset legend {
+        font-size: 1.5em;
+    }
+}
+ */
+
+
+/*Оформление radiobutton*/
+
+fieldset {
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: block;
+    border: none;
+    border: solid 1px #ccc;
+    min-width: 0;
+    background-color: #fff;
+    margin-bottom: 10px;
+    min-height: 155px;
+}
+
+fieldset legend {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    width: 100%;
+    float: left;
+    display: table;
+    font-size: 1.5em;
+    line-height: 140%;
+    font-weight: 600;
+    color: #333;
+}
+
+fieldset legend+* {
+    clear: both;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+}
+
+
+/* TOGGLE STYLING */
+
+.toggle {
+    margin: 0 0 1.5rem;
+    box-sizing: border-box;
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.toggle input {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px;
+}
+
+.toggle input+label {
+    margin: 0;
+    /*padding: 0.75rem 2rem;*/
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 10%;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: solid 1px #ddd;
+    background-color: #fff;
+    font-size: 32px;
+    line-height: 140%;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+    /* ----- */
+}
+
+.toggle input+label:first-of-type {
+    border-radius: 6px 0 0 6px;
+    border-right: none;
+}
+
+.toggle input+label:last-of-type {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+
+.toggle input:hover+label {
+    border-color: #213140;
+    cursor: pointer;
+}
+
+.toggle input:checked+label {
+    background-color: #4b9dea;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+    border-color: #4b9dea;
+    z-index: 1;
+}
+
+.toggle input:focus+label {
+    outline: dotted 1px #ccc;
+    outline-offset: 0.45rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .toggle input+label {
+        /*padding: 0.75rem 0.25rem;*/
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 20% !important;
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* STYLING FOR THE STATUS HELPER TEXT FOR THE DEMO */
+
+.status {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.status span {
+    font-weight: 600;
+    color: #b6985a;
+}
+
+.status span:first-of-type {
+    display: inline;
+}
+
+.status span:last-of-type {
+    display: none;
+}
+
+.modal-dialog {
+    width: 85vw;
+    margin: 30px auto;
+}
+
+
+/* @media (max-width: 767px) {
+    .status span:first-of-type {
+        display: none;
+    }
+    .status span:last-of-type {
+        display: inline;
+    }
+}
+ */
+
+
+/* @media (min-width: 768px) and (max-width: 1920px) {
+    .modal-dialog {
+        width: 85vw;
+        margin: 30px auto;
+    }
+    .toggle input+label {
+        font-size: 20px;
+    }
+    fieldset legend {
+        font-size: 1em;
+    }
+} */

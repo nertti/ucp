@@ -1,0 +1,155 @@
+<?
+$arUrlRewrite = array(
+	array(
+		"CONDITION" => "#^/university/presentation/press_about_us/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/presentation/press_about_us/index.php",
+	),
+	array(
+		"CONDITION" => "#^/university/history/archival-materials/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/history/archival-materials/index.php",
+	),
+	array(
+		"CONDITION" => "#^/online/([\\.\\-0-9a-zA-Z]+)(/?)([^/]*)#",
+		"RULE" => "alias=\$1",
+		"ID" => "bitrix:im.router",
+		"PATH" => "/desktop_app/router.php",
+	),
+	array(
+		"CONDITION" => "#^/university/selection-committee/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/selection-committee/index.php",
+	),
+	array(
+		"CONDITION" => "#^/university/history/heads/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/history/heads/index.php",
+	),
+	array(
+		"CONDITION" => "#^/university/procurement/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/procurement/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/biblioteka/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/biblioteka/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/faculties/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/faculties/fakultet-tekhnosfernoy-bezopasnosti/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/branches/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/branches/gomel-branch/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/branches/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/branches/ipkk/index.php",
+	),
+	array(
+		"CONDITION" => "#^/online/(/?)([^/]*)#",
+		"RULE" => "",
+		"ID" => "bitrix:im.router",
+		"PATH" => "/desktop_app/router.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/kafedry/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/kafedry/kafedra-avtomaticheskikh-sistem-bezopasnosti/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/upasch/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/upasch/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/otdely/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/otdely/otdel-materialnogo-veshchevogo-i-prodovolstvennogo-obespecheniya/index.php",
+	),
+	array(
+		"CONDITION" => "#^/university/news/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/news/novosti-universiteta/index.php",
+	),
+	array(
+		"CONDITION" => "#^/structure/tskpp/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/structure/tskpp/index.php",
+	),
+	array(
+		"CONDITION" => "#^/university/news/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/university/news/boevaya-rabota/index.php",
+	),
+	array(
+		"CONDITION" => "#^/education/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/education/index.php",
+	),
+	array(
+		"CONDITION" => "#^/services/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/services/erip/index.php",
+	),
+	array(
+		"CONDITION" => "#^/activity/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/activity/ideologicheskaya/index.php",
+	),
+	array(
+		"CONDITION" => "#^/services/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/services/index.php",
+	),
+	array(
+		"CONDITION" => "#^/services/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/services/provedenie-ispytaniy/index.php",
+	),
+	array(
+		"CONDITION" => "#^/honors/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/honors/index.php",
+	),
+	array(
+		"CONDITION" => "#^/photo/#",
+		"RULE" => "",
+		"ID" => "bitrix:photogallery",
+		"PATH" => "/photo.php",
+	),
+	array(
+		"CONDITION" => "#^/news/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/news/index.php",
+	),
+);
+
+?>

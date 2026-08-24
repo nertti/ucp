@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Administration", 
+		"leadership/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Faculties and branches", 
+		"faculties/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Chairs", 
+		"cathedras/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Departments and services", 
+		"departments-and-parts/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Library", 
+		"library/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

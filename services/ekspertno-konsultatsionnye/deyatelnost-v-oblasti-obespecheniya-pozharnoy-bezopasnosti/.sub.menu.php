@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Расчеты", 
+		"/services/ekspertno-konsultatsionnye/deyatelnost-v-oblasti-obespecheniya-pozharnoy-bezopasnosti/raschety/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"НИР", 
+		"/services/ekspertno-konsultatsionnye/deyatelnost-v-oblasti-obespecheniya-pozharnoy-bezopasnosti/nir/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Разработка", 
+		"/services/ekspertno-konsultatsionnye/deyatelnost-v-oblasti-obespecheniya-pozharnoy-bezopasnosti/razrabotka/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Кіраўніцтва", 
+		"kiraunictva/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Факультэты і філіялы", 
+		"fakultety/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Кафедры", 
+		"kafiedry/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аддзелы і часці", 
+		"addziely/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Бібліятэка", 
+		"biblijateka/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

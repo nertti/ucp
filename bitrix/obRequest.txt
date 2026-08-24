@@ -1,0 +1,259 @@
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T085848Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAJLDMOSPZ2SEOJ2CQ/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=43cd7dbe830e593bb52adde4f246fb05a5148ba3e4c65647e315e7004156ab1b
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDO1J1yFqeKi3R9s0YSKoAi8vJM+D3N7giQBncv604NDroGeUpFkJDULThD9AZNXMrGMz5QYud2/vGLPj2IvhA75xEynQNEi+AgfuIq0ZbAIEeahUJu08VYaNPJD+jK9BU/yZOAKW4ZGiR8V/Rx7ghVgs0/CvVcWYq8O0G7bU1vOF6PWBOBwHU6Wb/Q1y9uPG0oUiWmY/aobzQAUF8M8r+YCMUB+/LGP/L6VkDB8nb2J8Xb0UEU4DAW5M1AruRVG/cZtJtcPwSXF9iwTWm1MPpEsL9jsI4Kf8NpiKRY7J7mjT7zNw1SxtXUa6Oz1fzJlgyeMD37WImc7jahrko/s0f5mDH3DVLKEl1iYqIbHzhPrxqBxdN0bRoupOTNfTAPfTJlm78TP/9uecd/TNowI4oUHPT+ndL1CxKMWfn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T085937Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAJJBXR4W2W6PAYL3A/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=f4a24c13c860293babaa42f600132ec5239b83020385253da215e8e9bd559e12
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDIsaKfHBwoo1LSitZyKoAv7ggOMypmT3rYugj1WY3seAbw8no6Kassfkg0nPXP6Dc0tUwQ7WW8ZCmeNgYD+n3M/KOWTeJAs3RRuQLGs6k/bN9jQNUsBRkr0zKvQtwxPEBZvaEcqr5e+osv92LIthPaqfgt5ygrfq3DbTE7ZhMbXP80x2cdrM6LfLot9ElllX7uroYdOJtGQuWjYHA0ow4aqP3rZOLc1kQOLMG8LYWY54/HE1e5GSNAhxLwolK7nXluFxrlmPBmOaSGqmXeBDHAXMjmyIc4Y+5Yu7uWqVm6DKs0ggNvbImcDTE3Drurx2evJ6CzeIvlCbaC9WqyENWwOU4EY80NXz34CzAMXZRMdL0KYBweyhAslG+ra4C4Xf72lHY53yyMFMCFeo8NJdGiKA/3TyY5tCKPafn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T090023Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAIASJ6JMFIK7OVZEQ/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=e21e8574ceee6cfbfa367cb4f44073f3db36c8dccd1fcfd614edd9d3da51ba9c
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDPTSTZeBeSH4bSkCxSKoAnT5IODHs4ToNa5myZ+O2eZ0ykfTXLUuo/jhxv39ANx3EJ8JUBKaiU1X8PBvAinvdjBaGiyhax8DyhUATNmt68Tt3UoS9l2Dy+b0/VT5igLbbdZbNuvY3mAMGp+U6qCsX9001cJtaklyjL0wX6I3zaRdywtPEtw9YbnQqN9Mfth865lOHZnMsjvUP7vB0AdNYex7iS0yu5AxHjbHGmfWgWtZIcFemxXMBmJGsyx0TOMYfqssx1/+988rH/jJJruQmTFf7TrDg6bbz1WBIKQLc9khF0fX5AdKkN43RW0/SWdAjI92Cx1di3amLezxbqJFoHMn82sZibRbS0vfotjGFHpGYaVLyhBdu7hDoEugqfqCyhjRXp6zIhaY9xF2B1iqndJdIIIr81XCKKSgn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T090114Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAIFQSD2YYZBPBCWLQ/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=f86f742c8efbbabc87b2cc5daebe0a27209d330126a81b44de5b71f1610ba0af
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDHubZdLRbvFutSTBniKoAkVWQmS3j4dtVFlR3F4ITP7N3JDOGdCCYr3BzY91bgoFQfGLS5GMKxaGmZovVACcB079eS37vAMHFkW8XxVzUIxpCYjBX1AFr6ZjPNpQKM/apVX1YghOQiVdMQy+qec0gd/Tfa1jwB/919FeoRANBmtDHAcVc2uov2rrgPksVsttRVnPmoUB84fHuytcELjxHKWdP7unPYZAnIxbSbKiaZUwC2UfoAnqtanM4Ya8gJjBpivQ87BvxTfS3N2FOLzuMxySCUWTzoJ6Ihygkj7cschgYQdTnJRxKDryLG5HGEJfytRTmdYdxWTY/j9qWgsJ2NkQwMcqhA3FcPx6Andz22iqsH83+ctb9uE5ZG7Bq03vmW7C/DbZsYagTxdSFv7RSdYd9YyaUJFDKNegn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T090159Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAIV43XLSVBGFWYWGQ/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=924910cedece4508c55435f902c6facc36b50eaa4a9e3613ad4b02cee8abf1bd
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDDUXaEHtA+MW0ExeXyKoAp7ytTLO61E3yK6Nnu55dw1+oFH8nW2dsDQTD608OlWVDlTWUlzjOC+8vQtga2+h1lphbHykT+9cnwxlD1uAivDLk9j9fKZ4vNjI7AiGGZGUCpPFhQfijFsNHu9dbyvR2RmFIclRzTqT5p3Ph/a3lIhUyPjVcYKL/Hs/ebd1TDBPHAkI+pqVbpup7gForNS5jqSiJXirbj7jkhz0MtkPVDWnORc1xanIL9t2MjDeL67umWBMeZfugH94/MgH6s/iBv/W5H5GmUvfN1IDTXmbd4415WMWJrJTXpyJJOpn9YUGaFrGsZZEFKYhdHewwu0w+BLTrwOFMe37fDRx1fqitCNUmY3ayFQvvP8SkLOt8hwPWRTjaNQypBhYqGJDm3YtntKdRiNKe3sWKIShn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T090249Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAJRIYU7CQN6TWKSWA/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=7f2f6a2bdc57840574f156d17eb0b8f9bfc94991eaa633247de307cdd15e6c9a
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDIJ9Z3p57Hed7blvlSKoAvAA8ruJpN9+eZLhITHfkyJifMEleJSfMB46wHA8Bde+Gg1j4fR43HATdObI3KFP5QLQNm2l97QgHzui/L9ZAgAGgM6bFFPHrWVkd91CZIpdc8dgmSF50uun6HKOIpLqmO7RjvpvHpTHRSJ9ZEE2mh+8y9gfNtDUpaHk6hrfWVajpXSXtH/CcK696gcdtJQVqkfDFm/ORs6r5e7LBWTFrm1jRBz9kQAmq2SZs0h3Bfd1iRdZn60LzC/6zzfFPHHIbx2ky+EhglBNRBGzZ3VAvxqZ+UWxfli6km4tf2lo0TBc9lXvp+oo2vLEFmsvM95XDPLwRL7MHa4vhNnASrzVqpQFM2ZwwpdtisMM/+LfZXAc1bCk2w/9s90NMhCZmyuJUeEg6SE/qt7yKLahn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+
+Array
+(
+    [obRequest] => CHTTP Object
+        (
+            [url] => 
+            [status] => 0
+            [result] => 
+            [fp] => 
+            [headers] => Array
+                (
+                )
+
+            [cookies] => Array
+                (
+                )
+
+            [http_timeout] => 30
+            [user_agent] => BitrixSM CHTTP class
+            [follow_redirect] => 
+            [errno] => 110
+            [errstr] => Connection timed out
+            [additional_headers] => Array
+                (
+                    [Date] => 20170831T090334Z
+                    [Authorization] => AWS4-HMAC-SHA256 Credential=ASIAIPBCQTINAFRPVUGQ/20170831/eu-west-1/s3/aws4_request, SignedHeaders=host;x-amz-meta-check-word;x-amz-security-token, Signature=a33f56252e1bd07ae84bff5b2ed6dabfe4137705536bc8b0604bfd880298d271
+                    [x-amz-content-sha256] => e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    [x-amz-meta-check-word] => fc4e35342d3e7ba0bf5869786cb27e83
+                    [x-amz-security-token] => FQoDYXdzELr//////////wEaDCvYTONoQA9JJXPjeCKoAsfA89++dUBE0FdvwPeKfWZwm1v8weNOHd8nav/jyxtmIpXswCs84KIZHARGhx79Wwsetym3pVvqmQTqZxSs8pgEXcNRdvjKMVgIpd/+dwpn5Xa1vkZi3YHTs9Dio7XC63ruSFvj/gTe36gb1H2eAOEtedRJ/96aYnIadeO6dIT2TCfqLPL9evpcQtsxFDo9TEtZFtsAiRP+3sNIO9oHQ1oH5v7ZTyvsOJ9um12TAgg/fuZqAXPl6kR6XN9UyDosSL2Lt/oMWuaAHtNg5DRncoX69HFajDmDoDFGiUgNBeTtYjZqKZxGr5/zub5kgBZU3U0MFpg58r7jH5xwZa6YPDhu4Yy5WbKssh9Z75Y+ScmdK0UzS0ZLayWR7Jy8JNd8dYYwpVDkl+vKKOOhn80F
+                )
+
+            [redirectMax:CHTTP:private] => 5
+            [redirectsMade:CHTTP:private] => 0
+        )
+
+)
+
+

@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"University", 
+		"university/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Structure ", 
+		"structure/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Activities", 
+		"activity/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Services", 
+		"services/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Contacts", 
+		"contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Information", 
+		"information/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

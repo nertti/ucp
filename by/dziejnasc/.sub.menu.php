@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Міжнародная", 
+		"miznarodnaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Iдэалагічная", 
+		"idealahicnaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Адукацыйная", 
+		"adukacyjnaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Выдавецкая", 
+		"vydavieckaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Навуковая", 
+		"navukovaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Спартыуная", 
+		"spartyunaja/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

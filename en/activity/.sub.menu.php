@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"International", 
+		"international/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Educational", 
+		"educational/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Publishing", 
+		"publishing/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Scientific", 
+		"scientific/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Sports", 
+		"sports/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Ideological";
+$arDirProperties = Array(
+
+);
+?>

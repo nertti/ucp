@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Cэрвісныя";
+$arDirProperties = Array(
+
+);
+?>
