@@ -5898,28 +5898,41 @@
             });
             if (visibleCount === 0) newsList.style.minHeight = "200px"; else newsList.style.minHeight = "";
         }
-        function getActiveCategory() {
-            const activeItem = navContainer.querySelector(".home__feed-news-nav-item._active");
-            if (activeItem) return activeItem.dataset.tab || "all";
-            const firstItem = navContainer.querySelector(".home__feed-news-nav-item");
-            if (firstItem) {
-                firstItem.classList.add("_active");
-                return firstItem.dataset.tab || "all";
-            }
-            return "all";
-        }
-        navContainer.addEventListener("click", function(e) {
-            const navItem = e.target.closest(".home__feed-news-nav-item");
-            if (!navItem) return;
-            const category = navItem.dataset.tab || "all";
-            document.querySelectorAll(".home__feed-news-nav-item").forEach(el => {
-                el.classList.remove("_active");
-            });
-            navItem.classList.add("_active");
-            filterNews(category);
-        });
+        // 1. Автоматический запуск фильтрации при загрузке страницы
+// Вызываем функцию один раз, чтобы активировать первый таб и отфильтровать новости
         const initialCategory = getActiveCategory();
         filterNews(initialCategory);
+
+        function getActiveCategory() {
+            const activeItem = navContainer.querySelector('.home__feed-news-nav-item._active');
+            if (activeItem) return activeItem.dataset.tab || 'all';
+
+            const firstItem = navContainer.querySelector('.home__feed-news-nav-item');
+            if (firstItem) {
+                firstItem.classList.add('_active');
+                return firstItem.dataset.tab || 'all';
+            }
+            return 'all';
+        }
+
+        navContainer.addEventListener('click', function(e) {
+            // 2. Предотвращаем прыжок страницы вверх
+            // Если ваши табы — это ссылки <a href="#">, этот метод отключит переход по ссылке-якорю
+            e.preventDefault();
+
+            const navItem = e.target.closest('.home__feed-news-nav-item');
+            if (!navItem) return;
+
+            const category = navItem.dataset.tab || 'all';
+
+            document.querySelectorAll('.home__feed-news-nav-item').forEach(el => {
+                el.classList.remove('_active');
+            });
+
+            navItem.classList.add('_active');
+            filterNews(category);
+        });
+
     });
     document.addEventListener("DOMContentLoaded", () => {
         const cookie = document.querySelector(".warning-cookie");
@@ -5928,7 +5941,7 @@
         if (!cookie || !wrapper) return;
         const acceptBtn = cookie.querySelector(".button-accept");
         const declineBtn = cookie.querySelector(".button-reject");
-        wrapper.classList.add("cookie-active");
+        // wrapper.classList.add("cookie-active");
         function closeCookie() {
             cookie.classList.add("hidden");
             wrapper.classList.remove("cookie-active");
