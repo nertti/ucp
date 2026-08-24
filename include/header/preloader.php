@@ -104,7 +104,7 @@
             preloaderEl.innerHTML = `
 			<div class="fls-preloader__body">
 				<div class="fls-preloader-image">
-					<img src="/dist/img/icons/logoPreloader.svg" alt="Loading">
+					<img src="/local/templates/new_ucp/assets/img/icons/logoPreloader.svg" alt="Loading">
 				</div>
 				<div class="fls-preloader__line"><span></span></div>
 				<div class="fls-preloader__counter">0%</div>

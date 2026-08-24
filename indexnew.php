@@ -13,11 +13,11 @@ $APPLICATION->SetTitle("Title");
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="preview-slider-video">
-								<video  src="/dist/img/main/Intro UCP.mp4" autoplay playsinline loop></video>
+								<video  src="/local/templates/new_ucp/assets/img/main/Intro UCP.mp4" autoplay playsinline loop></video>
 							</div>
 							<div class="preview-slider-logo-wrapper">
 								<div class="home__container">
-									<img  src="/dist/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
+									<img  src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
 								</div>
 							</div>
 							<div class="preview-slider-video-mute-wrapper">
@@ -30,17 +30,17 @@ $APPLICATION->SetTitle("Title");
 						</div>
 						<div class="swiper-slide">
 							<div class="preview-slider-img">
-								<img  src="/dist/img/main/preview.webp" alt="Image" title="Превью" />
+								<img  src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью" />
 							</div>
 							<div class="preview-slider-logo-wrapper">
 								<div class="home__container">
-									<img  src="/dist/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
+									<img  src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
 								</div>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="preview-slider-img">
-								<img  src="/dist/img/main/preview.webp" alt="Image" title="Превью" />
+								<img  src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью" />
 							</div>
 							<div class="preview-slider-content">
 								<div class="preview__container">
@@ -72,7 +72,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Образовательная платформа</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav1.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav1.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -80,7 +80,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Абитуриенту</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav2.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav2.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -88,7 +88,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>UCPExport и IRTCenter</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav3.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav3.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -96,7 +96,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Программы обучения</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav4.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav4.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -104,7 +104,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Культура безопасности</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav5.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav5.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -112,7 +112,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Медиацентр</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav6.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav6.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -120,7 +120,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Молния</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav7.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav7.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -128,7 +128,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Испытательная деятельность</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav8.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav8.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -138,7 +138,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Университет гражданской защиты</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav9.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav9.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -146,7 +146,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Институт профессионального образования</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav10.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav10.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -154,7 +154,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Институт переподготовки и повышения квалификации</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav11.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav11.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -162,7 +162,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Институт теории и практики безопасности жизнедеятельности</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav12.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav12.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -173,7 +173,7 @@ $APPLICATION->SetTitle("Title");
 									ситуаций
 								</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav13.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav13.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -181,7 +181,7 @@ $APPLICATION->SetTitle("Title");
 							<a href="#">
 								<p>Специализированный лицей</p>
 								<div class="icon">
-									<img  src="/dist/img/icons/subnav14.svg" alt="icon" />
+									<img  src="/local/templates/new_ucp/assets/img/icons/subnav14.svg" alt="icon" />
 								</div>
 							</a>
 						</li>
@@ -197,49 +197,49 @@ $APPLICATION->SetTitle("Title");
 								<ul class="home__feed-nav-list">
 									<li class="home__feed-nav-item _one">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo1.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo1.svg" alt="Image" />
 											<p>Образовательная платформа</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _two">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo2.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo2.svg" alt="Image" />
 											<p>Абитуриенту</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _three">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo3.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo3.svg" alt="Image" />
 											<p>UCPExport и IRTCenter</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _four">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo4.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo4.svg" alt="Image" />
 											<p>Программы обучения</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _five">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo5.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo5.svg" alt="Image" />
 											<p>Культура безопасности</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _six">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo6.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo6.svg" alt="Image" />
 											<p>Медиацентр</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _seven">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo7.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo7.svg" alt="Image" />
 											<p>Молния</p>
 										</a>
 									</li>
 									<li class="home__feed-nav-item _eight">
 										<a href="#">
-											<img  src="/dist/img/icons/feedLogo8.svg" alt="Image" />
+											<img  src="/local/templates/new_ucp/assets/img/icons/feedLogo8.svg" alt="Image" />
 											<p>Испытательная деятельность</p>
 										</a>
 									</li>
@@ -260,7 +260,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -287,7 +287,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -314,7 +314,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -341,7 +341,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -368,7 +368,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -395,7 +395,7 @@ $APPLICATION->SetTitle("Title");
 												<div class="swiper-slide">
 													<a href="#">
 														<div class="home__feed-news-slider-img">
-															<img  src="/dist/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news1.webp" alt="Image" title="В Университете МЧС прошло персональное распределение выпускников" />
 															<div class="label">
 																<span>Главная новость</span>
 															</div>
@@ -458,7 +458,7 @@ $APPLICATION->SetTitle("Title");
 												<li class="home__feed-news-item">
 													<a href="#">
 														<div class="home__feed-news-item-img">
-															<img  src="/dist/img/main/news2.webp" alt="Image" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news2.webp" alt="Image" />
 														</div>
 														<div class="home__feed-news-info">
 															<div class="date">
@@ -475,7 +475,7 @@ $APPLICATION->SetTitle("Title");
 												<li class="home__feed-news-item">
 													<a href="#">
 														<div class="home__feed-news-item-img">
-															<img  src="/dist/img/main/news3.webp" alt="Image" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news3.webp" alt="Image" />
 														</div>
 														<div class="home__feed-news-info">
 															<div class="date">
@@ -492,7 +492,7 @@ $APPLICATION->SetTitle("Title");
 												<li class="home__feed-news-item">
 													<a href="#">
 														<div class="home__feed-news-item-img">
-															<img  src="/dist/img/main/news4.webp" alt="Image" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news4.webp" alt="Image" />
 														</div>
 														<div class="home__feed-news-info">
 															<div class="date">
@@ -509,7 +509,7 @@ $APPLICATION->SetTitle("Title");
 												<li class="home__feed-news-item">
 													<a href="#">
 														<div class="home__feed-news-item-img">
-															<img  src="/dist/img/main/news5.webp" alt="Image" />
+															<img  src="/local/templates/new_ucp/assets/img/main/news5.webp" alt="Image" />
 														</div>
 														<div class="home__feed-news-info">
 															<div class="date">
@@ -692,7 +692,7 @@ $APPLICATION->SetTitle("Title");
 										</div>
 										<div class="universities__slider-wrapper">
 											<div class="universities__slider-img">
-												<img  src="/dist/img/main/universities.webp" alt="Image" title="Факультеты" />
+												<img  src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты" />
 											</div>
 											<div class="universities__slider-action">
 												<button class="universities__slider-button-prev swiper-button-prev">
@@ -761,7 +761,7 @@ $APPLICATION->SetTitle("Title");
 										</div>
 										<div class="universities__slider-wrapper">
 											<div class="universities__slider-img">
-												<img  src="/dist/img/main/universities.webp" alt="Image" title="Факультеты" />
+												<img  src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты" />
 											</div>
 											<div class="universities__slider-action">
 												<button class="universities__slider-button-prev swiper-button-prev">
@@ -783,25 +783,25 @@ $APPLICATION->SetTitle("Title");
 										<div class="swiper-wrapper">
 											<div class="swiper-slide">
 												<a href="#">
-													<img  src="/dist/img/main/universitiesBranches1.webp" alt="Image" />
+													<img  src="/local/templates/new_ucp/assets/img/main/universitiesBranches1.webp" alt="Image" />
 													<p>Институт профессионального образования</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img  src="/dist/img/main/universitiesBranches2.webp" alt="Image" />
+													<img  src="/local/templates/new_ucp/assets/img/main/universitiesBranches2.webp" alt="Image" />
 													<p>Институт переподготовки и повышения квалификации</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img  src="/dist/img/main/universitiesBranches3.webp" alt="Image" />
+													<img  src="/local/templates/new_ucp/assets/img/main/universitiesBranches3.webp" alt="Image" />
 													<p>Институт теории и практики безопасности жизнедеятельности</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img  src="/dist/img/main/universitiesBranches4.webp" alt="Image" />
+													<img  src="/local/templates/new_ucp/assets/img/main/universitiesBranches4.webp" alt="Image" />
 													<p>
 														Научно-исследовательский институт пожарной безопасности и
 														проблем чрезвычайных ситуаций
@@ -810,7 +810,7 @@ $APPLICATION->SetTitle("Title");
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img  src="/dist/img/main/universitiesBranches5.webp" alt="Image" />
+													<img  src="/local/templates/new_ucp/assets/img/main/universitiesBranches5.webp" alt="Image" />
 													<p>Специализированный лицей</p>
 												</a>
 											</div>
@@ -994,7 +994,7 @@ $APPLICATION->SetTitle("Title");
 									<div class="swiper-slide">
 										<div class="news__slider-wrapper">
 											<a href="#" class="news__slider-img">
-												<img  src="/dist/img/main/newsRecent6.webp" alt="Image" title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»" />
+												<img  src="/local/templates/new_ucp/assets/img/main/newsRecent6.webp" alt="Image" title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»" />
 											</a>
 											<div class="news__slider-action">
 												<button class="news__slider-button-prev swiper-button-prev">
@@ -1031,7 +1031,7 @@ $APPLICATION->SetTitle("Title");
 									<div class="swiper-slide">
 										<div class="news__slider-wrapper">
 											<a href="#" class="news__slider-img">
-												<img  src="/dist/img/main/newsRecent6.webp" alt="Image" title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»" />
+												<img  src="/local/templates/new_ucp/assets/img/main/newsRecent6.webp" alt="Image" title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»" />
 											</a>
 											<div class="news__slider-action">
 												<button class="news__slider-button-prev swiper-button-prev">
@@ -1075,31 +1075,31 @@ $APPLICATION->SetTitle("Title");
 								<ul class="news__recent">
 									<li class="news__recent-item">
 										<a href="">
-											<img  src="/dist/img/main/newsRecent1.webp" alt="Image" title="Электронный журнал UCP LIVE" />
+											<img  src="/local/templates/new_ucp/assets/img/main/newsRecent1.webp" alt="Image" title="Электронный журнал UCP LIVE" />
 											<p>Электронный журнал UCP LIVE</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="">
-											<img  src="/dist/img/main/newsRecent2.webp" alt="Image" title="Жизнь посвященная службе" />
+											<img  src="/local/templates/new_ucp/assets/img/main/newsRecent2.webp" alt="Image" title="Жизнь посвященная службе" />
 											<p>Жизнь посвященная службе</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="">
-											<img  src="/dist/img/main/newsRecent3.webp" alt="Image" title="Инновации в мире науки" />
+											<img  src="/local/templates/new_ucp/assets/img/main/newsRecent3.webp" alt="Image" title="Инновации в мире науки" />
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="#">
-											<img  src="/dist/img/main/newsRecent4.webp" alt="Image" title="Инновации в мире науки" />
+											<img  src="/local/templates/new_ucp/assets/img/main/newsRecent4.webp" alt="Image" title="Инновации в мире науки" />
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="#">
-											<img  src="/dist/img/main/newsRecent5.webp" alt="Image" title="Инновации в мире науки" />
+											<img  src="/local/templates/new_ucp/assets/img/main/newsRecent5.webp" alt="Image" title="Инновации в мире науки" />
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>

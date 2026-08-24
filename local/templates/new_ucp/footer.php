@@ -2,7 +2,7 @@
         <div class="footer__container">
             <div class="footer__top">
                 <a href="/" class="footer__logo">
-                    <img src="/dist/img/icons/logo.svg" alt="Image" class="_desktop"/>
+                    <img src="/local/templates/new_ucp/assets/img/icons/logo.svg" alt="Image" class="_desktop"/>
                     <div class="mobile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="347" height="68" viewBox="0 0 347 68"
                              fill="none">
@@ -200,96 +200,132 @@
                         </svg>
                     </div>
                 </a>
-                <div class="footer__slider-wrapper">
-                    <div class="footer__slider swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners1.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners2.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners3.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners4.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners1.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners2.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners3.svg" alt="Image"/>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="/dist/img/main/partners4.svg" alt="Image"/>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="footer__slider-action">
-                            <button class="footer__slider-button-prev swiper-button-prev">
-                                <iconify-icon icon="lucide:chevron-left" width="100%" height="100%"
-                                              noobserver></iconify-icon>
-                            </button>
-                            <button class="footer__slider-button-next swiper-button-next">
-                                <iconify-icon icon="lucide:chevron-right" width="100%" height="100%"
-                                              noobserver></iconify-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <ul class="socials">
-                    <li class="socials__item">
-                        <a href="https://www.instagram.com/p/BtRU7eClc8J/" target="_blank">
-                            <iconify-icon icon="formkit:instagram" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="ic:baseline-tiktok" width="20.4" height="20.4"
-                                          noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="https://www.youtube.com/channel/UCnzbvYIka0ulUDDuJkk1CHw" target="_blank">
-                            <iconify-icon icon="mdi:youtube" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="fa-brands:telegram-plane" width="20.4" height="20.4"
-                                          noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="ri:facebook-fill" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="https://vk.ru/club130468362" target="_blank">
-                            <iconify-icon icon="basil:vk-solid" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                </ul>
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "slider_partners",
+                        [
+                                "IBLOCK_ID" => "88",
+                                "NEWS_COUNT" => "10",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "A",
+                                "CACHE_TIME" => "3600",
+                                "COMPONENT_TEMPLATE" => "slider_partners",
+                                "IBLOCK_TYPE" => "news",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "LINK",
+                                        1 => "ICON",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "N",
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "social_links_footer",
+                        [
+                                "IBLOCK_ID" => "87",
+                                "NEWS_COUNT" => "8",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "A",
+                                "CACHE_TIME" => "3600",
+                                "COMPONENT_TEMPLATE" => "social_links_footer",
+                                "IBLOCK_TYPE" => "news",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "LINK",
+                                        1 => "ICON",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "N",
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
             </div>
 
             <div class="footer__nav">
@@ -491,6 +527,13 @@
 
 <?php $APPLICATION->IncludeFile(
         "/include/footer/cookies.php",
+        array(),
+        array(
+                "MODE" => "html"
+        )
+); ?>
+<?php $APPLICATION->IncludeFile(
+        "/include/footer/translate.php",
         array(),
         array(
                 "MODE" => "html"

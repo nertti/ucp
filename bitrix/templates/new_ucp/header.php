@@ -88,8 +88,8 @@
         <header class="header">
             <div class="header__container">
                 <a href="/new/" class="header__logo">
-                    <img src="/dist/img/icons/logoDesktop.svg" alt="Image" class="header__logo _desktop" />
-                    <img src="/dist/img/icons/logoTablet.svg" alt="Image" class="header__logo _tablet" />
+                    <img src="/local/templates/new_ucp/assets/img/icons/logoDesktop.svg" alt="Image" class="header__logo _desktop" />
+                    <img src="/local/templates/new_ucp/assets/img/icons/logoTablet.svg" alt="Image" class="header__logo _tablet" />
                     <div class="header__logo _mobile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="215" height="35" viewBox="0 0 215 35" fill="none">
                             <g filter="url(#filter0_d_453_8192)">

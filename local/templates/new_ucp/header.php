@@ -21,6 +21,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
     <?php
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
     ?>
+    <?php //выгрузить ?>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20260818155058" />
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js?_v=20260818155058"></script>
 	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js?_v=20260818155058"></script>
@@ -36,13 +37,13 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
         )
 ); ?>
 
-	<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+	<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
     <div class="wrapper">
         <header class="header">
             <div class="header__container">
                 <a href="/" class="header__logo">
-                    <img src="/dist/img/icons/logoDesktop.svg" alt="Image" class="header__logo _desktop" />
-                    <img src="/dist/img/icons/logoTablet.svg" alt="Image" class="header__logo _tablet" />
+                    <img src="/local/templates/new_ucp/assets/img/icons/logoDesktop.svg" alt="Image" class="header__logo _desktop" />
+                    <img src="/local/templates/new_ucp/assets/img/icons/logoTablet.svg" alt="Image" class="header__logo _tablet" />
                     <div class="header__logo _mobile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="215" height="35" viewBox="0 0 215 35" fill="none">
                             <g filter="url(#filter0_d_453_8192)">
@@ -164,6 +165,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                     </div>
                 </a>
                 <nav class="header__nav">
+                    <!-- Меню обернуть в компонент -->
                     <ul class="menu">
                         <li class="menu__item menu__item--has-dropdown">
                             <a href="/university/" class="menu__link">
@@ -272,15 +274,14 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                     </ul>
                 </nav>
                 <div class="header__search" data-da=".header__search-mobile,1200, 1">
+                    <!-- Поиск оберуть в компонент -->
                     <div class="header__search-input">
                         <button class="header__search-btn header__search-btn--search">
                             <div class="header__search-btn-icon">
                                 <iconify-icon icon="lucide:search" width="100%" height="100%" noobserver></iconify-icon>
                             </div>
                         </button>
-
                         <input type="text" placeholder="Поиск" />
-
                         <button class="header__search-btn header__search-btn--clear">
                             <div class="header__search-btn-icon">
                                 <iconify-icon icon="lucide:x" width="100%" height="100%" noobserver></iconify-icon>
@@ -341,44 +342,75 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                             </button>
 
                             <div class="header__lang-dropdown">
-                                <a href="#" class="header__lang-option" data-lang="ru">RU</a>
-                                <a href="#" class="header__lang-option" data-lang="en">EN</a>
+                                <a href="#" class="header__lang-option language__img" data-lang="ru" data-google-lang="ru">RU</a>
+                                <a href="#" class="header__lang-option language__img" data-lang="en" data-google-lang="en">EN</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <ul class="socials" data-da=".socials-mobile,1200, 1">
-                    <li class="socials__item">
-                        <a href="https://www.instagram.com/p/BtRU7eClc8J/" target="_blank">
-                            <iconify-icon icon="formkit:instagram" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="ic:baseline-tiktok" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="https://www.youtube.com/channel/UCnzbvYIka0ulUDDuJkk1CHw" target="_blank">
-                            <iconify-icon icon="mdi:youtube" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="fa-brands:telegram-plane" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="#" target="_blank">
-                            <iconify-icon icon="ri:facebook-fill" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a href="https://vk.ru/club130468362" target="_blank">
-                            <iconify-icon icon="basil:vk-solid" width="20.4" height="20.4" noobserver></iconify-icon>
-                        </a>
-                    </li>
-                </ul>
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "social_links_header",
+                        [
+                                "IBLOCK_ID" => "87",
+                                "NEWS_COUNT" => "8",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "A",
+                                "CACHE_TIME" => "3600",
+                                "COMPONENT_TEMPLATE" => "social_links_header",
+                                "IBLOCK_TYPE" => "news",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "LINK",
+                                        1 => "ICON",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "N",
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
                 <div class="header__mobile-action">
                     <div class="header__search-mobile"></div>
                     <button type="button" class="header__search-btn-mobile">

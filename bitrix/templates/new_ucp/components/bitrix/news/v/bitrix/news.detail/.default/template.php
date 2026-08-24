@@ -115,25 +115,25 @@ $this->setFrameMode(true);
 					<ul class="page__banners">
 						<li class="page__banners-item">
 							<a href="cart.html">
-								<img src="/dist/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
+								<img src="/local/templates/new_ucp/assets/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
 							</a>
 						</li>
 						<li class="page__banners-item">
-							<img src="/dist/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
+							<img src="/local/templates/new_ucp/assets/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
 						</li>
 						<li class="page__banners-item">
 							<a href="cart.html">
-								<img src="/dist/img/main/servicesBanner3.webp" alt="Image" title="Баннер 3">
-							</a>
-						</li>
-						<li class="page__banners-item">
-							<a href="cart.html">
-								<img src="/dist/img/main/servicesBanner4.webp" alt="Image" title="Баннер 4">
+								<img src="/local/templates/new_ucp/assets/img/main/servicesBanner3.webp" alt="Image" title="Баннер 3">
 							</a>
 						</li>
 						<li class="page__banners-item">
 							<a href="cart.html">
-								<img src="/dist/img/main/servicesBanner5.webp" alt="Image" title="Баннер 5">
+								<img src="/local/templates/new_ucp/assets/img/main/servicesBanner4.webp" alt="Image" title="Баннер 4">
+							</a>
+						</li>
+						<li class="page__banners-item">
+							<a href="cart.html">
+								<img src="/local/templates/new_ucp/assets/img/main/servicesBanner5.webp" alt="Image" title="Баннер 5">
 							</a>
 						</li>
 					</ul>
@@ -492,31 +492,31 @@ $this->setFrameMode(true);
 								<ul class="news__recent">
 									<li class="news__recent-item">
 										<a href="">
-											<img src="/dist/img/main/newsRecent1.webp" alt="Image" title="Электронный журнал UCP LIVE">
+											<img src="/local/templates/new_ucp/assets/img/main/newsRecent1.webp" alt="Image" title="Электронный журнал UCP LIVE">
 											<p>Электронный журнал UCP LIVE</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="">
-											<img src="/dist/img/main/newsRecent2.webp" alt="Image" title="Жизнь посвященная службе">
+											<img src="/local/templates/new_ucp/assets/img/main/newsRecent2.webp" alt="Image" title="Жизнь посвященная службе">
 											<p>Жизнь посвященная службе</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="">
-											<img src="/dist/img/main/newsRecent3.webp" alt="Image" title="Инновации в мире науки">
+											<img src="/local/templates/new_ucp/assets/img/main/newsRecent3.webp" alt="Image" title="Инновации в мире науки">
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="#">
-											<img src="/dist/img/main/newsRecent4.webp" alt="Image" title="Инновации в мире науки">
+											<img src="/local/templates/new_ucp/assets/img/main/newsRecent4.webp" alt="Image" title="Инновации в мире науки">
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>
 									<li class="news__recent-item">
 										<a href="#">
-											<img src="/dist/img/main/newsRecent5.webp" alt="Image" title="Инновации в мире науки">
+											<img src="/local/templates/new_ucp/assets/img/main/newsRecent5.webp" alt="Image" title="Инновации в мире науки">
 											<p>Инновации в мире науки</p>
 										</a>
 									</li>

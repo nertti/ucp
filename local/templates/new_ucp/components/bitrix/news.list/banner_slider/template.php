@@ -7,7 +7,7 @@
                             </div>
                             <div class="preview-slider-logo-wrapper">
                                 <div class="home__container">
-                                    <img src="/dist/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
+                                    <img src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
                                 </div>
                             </div>
                             <div class="preview-slider-video-mute-wrapper">
@@ -20,17 +20,17 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="preview-slider-img">
-                                <img src="/dist/img/main/preview.webp" alt="Image" title="Превью" />
+                                <img src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью" />
                             </div>
                             <div class="preview-slider-logo-wrapper">
                                 <div class="home__container">
-                                    <img src="/dist/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
+                                    <img src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image" title="Университет гражданской защиты" class="preview-slider-logo" />
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="preview-slider-img">
-                                <img src="/dist/img/main/preview.webp" alt="Image" title="Превью" />
+                                <img src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью" />
                             </div>
                             <div class="preview-slider-content">
                                 <div class="preview__container">

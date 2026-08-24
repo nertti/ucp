@@ -542,7 +542,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 </div>
                                 <div class="universities__slider-wrapper">
                                     <div class="universities__slider-img">
-                                        <img src="/dist/img/main/universities.webp" alt="Image" title="Факультеты"/>
+                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты"/>
                                     </div>
                                     <div class="universities__slider-action">
                                         <button class="universities__slider-button-prev swiper-button-prev">
@@ -619,7 +619,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 </div>
                                 <div class="universities__slider-wrapper">
                                     <div class="universities__slider-img">
-                                        <img src="/dist/img/main/universities.webp" alt="Image" title="Факультеты"/>
+                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты"/>
                                     </div>
                                     <div class="universities__slider-action">
                                         <button class="universities__slider-button-prev swiper-button-prev">
@@ -908,35 +908,35 @@ $APPLICATION->SetTitle("Университет гражданской защит
                         <ul class="news__recent">
                             <li class="news__recent-item">
                                 <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/dist/img/main/newsRecent1.webp" alt="Image"
+                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent1.webp" alt="Image"
                                          title="Электронный журнал UCP LIVE"/>
                                     <p>Электронный журнал UCP LIVE</p>
                                 </a>
                             </li>
                             <li class="news__recent-item">
                                 <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/dist/img/main/newsRecent2.webp" alt="Image"
+                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent2.webp" alt="Image"
                                          title="Жизнь посвященная службе"/>
                                     <p>Жизнь посвященная службе</p>
                                 </a>
                             </li>
                             <li class="news__recent-item">
                                 <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/dist/img/main/newsRecent3.webp" alt="Image"
+                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent3.webp" alt="Image"
                                          title="Инновации в мире науки"/>
                                     <p>Инновации в мире науки</p>
                                 </a>
                             </li>
                             <li class="news__recent-item">
                                 <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/dist/img/main/newsRecent4.webp" alt="Image"
+                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent4.webp" alt="Image"
                                          title="Инновации в мире науки"/>
                                     <p>Инновации в мире науки</p>
                                 </a>
                             </li>
                             <li class="news__recent-item">
                                 <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/dist/img/main/newsRecent5.webp" alt="Image"
+                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent5.webp" alt="Image"
                                          title="Инновации в мире науки"/>
                                     <p>Инновации в мире науки</p>
                                 </a>

@@ -187,11 +187,11 @@ $sort = $_REQUEST['sort'] ?? 'popular';
             <ul class="page__banners">
                 <li class="page__banners-item">
                     <a href="cart.html">
-                        <img src="/dist/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
+                        <img src="/local/templates/new_ucp/assets/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
                     </a>
                 </li>
                 <li class="page__banners-item">
-                    <img src="/dist/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
+                    <img src="/local/templates/new_ucp/assets/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
                 </li>
             </ul>
         </nav>

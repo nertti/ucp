@@ -76,15 +76,15 @@ while ($arSection = $rsSections->GetNext()) {
             <ul class="page__banners">
                 <li class="page__banners-item">
                     <a href="cart.html">
-                        <img src="/dist/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
+                        <img src="/local/templates/new_ucp/assets/img/main/servicesBanner1.webp" alt="Image" title="Баннер 1">
                     </a>
                 </li>
                 <li class="page__banners-item">
-                    <img src="/dist/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
+                    <img src="/local/templates/new_ucp/assets/img/main/servicesBanner2.webp" alt="Image" title="Баннер 2">
                 </li>
                 <li class="page__banners-item">
                     <a href="cart.html">
-                        <img src="/dist/img/main/servicesBanner3.webp" alt="Image" title="Баннер 3">
+                        <img src="/local/templates/new_ucp/assets/img/main/servicesBanner3.webp" alt="Image" title="Баннер 3">
                     </a>
                 </li>
             </ul>
@@ -181,17 +181,17 @@ while ($arSection = $rsSections->GetNext()) {
                                 <?php endif; ?>
                                 <?php if ($arItem["PROPERTIES"]["ST"]["VALUE"] == "Видео"): ?>
                                     <div class="icon">
-                                        <img src="/dist/img/icons/news/icon2.svg" alt="Image">
+                                        <img src="/local/templates/new_ucp/assets/img/icons/news/icon2.svg" alt="Image">
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($arItem["PROPERTIES"]["ST"]["VALUE"] == "Статья"): ?>
                                     <div class="icon">
-                                        <img src="/dist/img/icons/news/icon1.svg" alt="Image">
+                                        <img src="/local/templates/new_ucp/assets/img/icons/news/icon1.svg" alt="Image">
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($arItem["PROPERTIES"]["ST"]["VALUE"] == "Фото"): ?>
                                     <div class="icon">
-                                        <img src="/dist/img/icons/news/icon3.svg" alt="Image">
+                                        <img src="/local/templates/new_ucp/assets/img/icons/news/icon3.svg" alt="Image">
                                     </div>
                                 <?php endif; ?>
                             </a>

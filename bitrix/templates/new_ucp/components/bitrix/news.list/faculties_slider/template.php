@@ -57,7 +57,7 @@
 										</div>
 										<div class="universities__slider-wrapper">
 											<div class="universities__slider-img">
-												<img src="/dist/img/main/universities.webp" alt="Image" title="Факультеты">
+												<img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты">
 											</div>
 											<div class="universities__slider-action">
 												<button class="universities__slider-button-prev swiper-button-prev">
@@ -113,7 +113,7 @@
 										</div>
 										<div class="universities__slider-wrapper">
 											<div class="universities__slider-img">
-												<img src="/dist/img/main/universities.webp" alt="Image" title="Факультеты">
+												<img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты">
 											</div>
 											<div class="universities__slider-action">
 												<button class="universities__slider-button-prev swiper-button-prev">
@@ -137,25 +137,25 @@
 										<div class="swiper-wrapper">
 											<div class="swiper-slide">
 												<a href="">
-													<img src="/dist/img/main/universitiesBranches1.webp" alt="Image">
+													<img src="/local/templates/new_ucp/assets/img/main/universitiesBranches1.webp" alt="Image">
 													<p>Институт профессионального образования</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="">
-													<img src="/dist/img/main/universitiesBranches2.webp" alt="Image">
+													<img src="/local/templates/new_ucp/assets/img/main/universitiesBranches2.webp" alt="Image">
 													<p>Институт переподготовки и повышения квалификации</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img src="/dist/img/main/universitiesBranches3.webp" alt="Image">
+													<img src="/local/templates/new_ucp/assets/img/main/universitiesBranches3.webp" alt="Image">
 													<p>Институт теории и практики безопасности жизнедеятельности</p>
 												</a>
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img src="/dist/img/main/universitiesBranches4.webp" alt="Image">
+													<img src="/local/templates/new_ucp/assets/img/main/universitiesBranches4.webp" alt="Image">
 													<p>
 														Научно-исследовательский институт пожарной безопасности и
 														проблем чрезвычайных ситуаций
@@ -164,7 +164,7 @@
 											</div>
 											<div class="swiper-slide">
 												<a href="#">
-													<img src="/dist/img/main/universitiesBranches5.webp" alt="Image">
+													<img src="/local/templates/new_ucp/assets/img/main/universitiesBranches5.webp" alt="Image">
 													<p>Специализированный лицей</p>
 												</a>
 											</div>

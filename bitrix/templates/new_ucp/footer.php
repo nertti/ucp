@@ -3,7 +3,7 @@
             <div class="footer__container">
                 <div class="footer__top">
                     <a href="/" class="footer__logo">
-                        <img src="/dist/img/icons/logo.svg" alt="Image" class="_desktop" />
+                        <img src="/local/templates/new_ucp/assets/img/icons/logo.svg" alt="Image" class="_desktop" />
                         <div class="mobile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="347" height="68" viewBox="0 0 347 68" fill="none">
                                 <g filter="url(#filter0_d_806_18359)">
@@ -129,42 +129,42 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <a href="#">
-										<img src="/dist/img/main/partners1.svg" alt="Image" />
+										<img src="/local/templates/new_ucp/assets/img/main/partners1.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners2.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners2.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners3.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners3.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners4.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners4.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners1.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners1.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners2.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners2.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners3.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners3.svg" alt="Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a href="#">
-                                        <img src="/dist/img/main/partners4.svg" alt="Image" />
+                                        <img src="/local/templates/new_ucp/assets/img/main/partners4.svg" alt="Image" />
                                     </a>
                                 </div>
                             </div>
@@ -394,7 +394,7 @@
 			<div class="footer__container">
 				<div class="footer__top">
 					<a href="index.html" class="footer__logo">
-						<img src="/dist/img/icons/logo.svg" alt="Image" class="_desktop">
+						<img src="/local/templates/new_ucp/assets/img/icons/logo.svg" alt="Image" class="_desktop">
 						<div class="mobile">
 							<svg xmlns="http://www.w3.org/2000/svg" width="347" height="68" viewBox="0 0 347 68" fill="none">
 								<g filter="url(#filter0_d_806_18359)">
@@ -520,42 +520,42 @@
 							<div class="swiper-wrapper">
 								<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners1.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners1.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners2.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners2.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="2" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners3.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners3.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="3" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners4.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners4.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="4" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners1.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners1.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="5" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners2.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners2.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="6" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners3.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners3.svg" alt="Image">
 									</a>
 								</div>
 								<div class="swiper-slide" data-swiper-slide-index="7" style="width: 160px; margin-right: 20px;">
 									<a href="#">
-										<img src="/dist/img/main/partners4.svg" alt="Image">
+										<img src="/local/templates/new_ucp/assets/img/main/partners4.svg" alt="Image">
 									</a>
 								</div>
 							</div>
