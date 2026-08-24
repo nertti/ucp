@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/phpMyAdmin-5.2.1-all-languages-9b74c9897bac770ffc029102a200c5de/libraries/classes" isTestSource="false" packagePrefix="PhpMyAdmin\" />
       <sourceFolder url="file://$MODULE_DIR$/phpMyAdmin-5.2.1-all-languages-9b74c9897bac770ffc029102a200c5de/test/classes" isTestSource="true" packagePrefix="PhpMyAdmin\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/phpMyAdmin-5.2.1-all-languages-9b74c9897bac770ffc029102a200c5de/test/selenium" isTestSource="true" packagePrefix="PhpMyAdmin\Tests\Selenium\" />
+      <sourceFolder url="file://$MODULE_DIR$/bitrix" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/ab_sajdfkasjhfjdflasjkhflaskfhlaskdfhasldhfaklsdjh/phpoffice/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/ab_sajdfkasjhfjdflasjkhflaskfhlaskdfhasldhfaklsdjh/phpoffice/vendor/laminas/laminas-escaper" />
       <excludeFolder url="file://$MODULE_DIR$/ab_sajdfkasjhfjdflasjkhflaskfhlaskdfhasldhfaklsdjh/phpoffice/vendor/laminas/laminas-zendframework-bridge" />

@@ -84,56 +84,69 @@ $APPLICATION->SetTitle("Университет гражданской защит
                     false
             );
             ?>
-            <ul class="home__subnav-list">
-                <li class="home__subnav-list-item">
-                    <a href="/university/">
-                        <p>Университет гражданской защиты</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav9.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-                <li class="home__subnav-list-item">
-                    <a href="/structure/institut-professionalnogo-obrazovaniya/">
-                        <p>Институт профессионального образования</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav10.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-                <li class="home__subnav-list-item">
-                    <a href="/structure/institut-perepodgotovki-i-povysheniya-kvalifikatsii/">
-                        <p>Институт переподготовки и повышения квалификации</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav11.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-                <li class="home__subnav-list-item">
-                    <a href="/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/">
-                        <p>Институт теории и практики безопасности жизнедеятельности</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav12.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-                <li class="home__subnav-list-item">
-                    <a href="/structure/nauchno-issledovatelskiy-institut-pozharnoy-bezopasnosti-i-problem-chrezvychaynykh-situatsiy/">
-                        <p>Научно-исследовательский институт пожарной безопасности и проблем чрезвычайных ситуаций</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav13.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-                <li class="home__subnav-list-item">
-                    <a href="/structure/litsey-mchs/">
-                        <p>Специализированный лицей</p>
-                        <div class="icon">
-                            <img src="/dist/img/icons/subnav14.svg" alt="icon"/>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <?php
+            $APPLICATION->IncludeComponent(
+                    "bitrix:news.list",
+                    "main_links_right",
+                    [
+                            "IBLOCK_ID" => "86",
+                            "NEWS_COUNT" => "8",
+                            "SORT_BY1" => "SORT",
+                            "SORT_ORDER1" => "ASC",
+                            "CACHE_TYPE" => "A",
+                            "CACHE_TIME" => "3600",
+                            "COMPONENT_TEMPLATE" => "main_links_right",
+                            "IBLOCK_TYPE" => "news",
+                            "SORT_BY2" => "SORT",
+                            "SORT_ORDER2" => "ASC",
+                            "FILTER_NAME" => "",
+                            "FIELD_CODE" => [
+                                    0 => "",
+                                    1 => "",
+                            ],
+                            "PROPERTY_CODE" => [
+                                    0 => "LINK",
+                                    1 => "ICON",
+                            ],
+                            "CHECK_DATES" => "Y",
+                            "DETAIL_URL" => "",
+                            "AJAX_MODE" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "Y",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "CACHE_FILTER" => "N",
+                            "CACHE_GROUPS" => "Y",
+                            "PREVIEW_TRUNCATE_LEN" => "",
+                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                            "SET_TITLE" => "N",
+                            "SET_BROWSER_TITLE" => "N",
+                            "SET_META_KEYWORDS" => "N",
+                            "SET_META_DESCRIPTION" => "N",
+                            "SET_LAST_MODIFIED" => "N",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                            "ADD_SECTIONS_CHAIN" => "N",
+                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                            "PARENT_SECTION" => "",
+                            "PARENT_SECTION_CODE" => "",
+                            "INCLUDE_SUBSECTIONS" => "Y",
+                            "STRICT_SECTION_CHECK" => "N",
+                            "PAGER_TEMPLATE" => ".default",
+                            "DISPLAY_TOP_PAGER" => "N",
+                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                            "PAGER_TITLE" => "Новости",
+                            "PAGER_SHOW_ALWAYS" => "N",
+                            "PAGER_DESC_NUMBERING" => "N",
+                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                            "PAGER_SHOW_ALL" => "N",
+                            "PAGER_BASE_LINK_ENABLE" => "N",
+                            "SET_STATUS_404" => "N",
+                            "SHOW_404" => "N",
+                            "MESSAGE_404" => ""
+                    ],
+                    false
+            );
+            ?>
         </nav>
 
         <div class="home__content">
