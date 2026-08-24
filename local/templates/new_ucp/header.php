@@ -1,16 +1,26 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><!doctype html>
-<html lang="ru">
 
+<?php
+use Bitrix\Main\Page\Asset;
+use Bitrix\Main\Loader;
+
+/** @var \CMain $APPLICATION */
+/** @var \CMain $USER */
+
+$isMainPage = $APPLICATION->GetCurPage(false) === '/';
+?>
+<html lang="ru">
 <head>
    <title><?$APPLICATION->ShowTitle()?></title>
-
 	<?$APPLICATION->ShowHead();?>
     <meta charset="UTF-8" />
     <meta name="format-detection" content="telephone=no" />
-	<link rel="stylesheet" href="/dist/css/style.min.css?_v=20260810155858" />
-    <link rel="shortcut icon" href="img/icons/favicon.svg" />
+    <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/favicon.svg" />
 	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
+    ?>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20260818155058" />
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js?_v=20260818155058"></script>
 	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js?_v=20260818155058"></script>
