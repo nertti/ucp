@@ -8,6 +8,15 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/bitrix" />
+            <excludedPath path="/ab_sajdfkasjhfjdflasjkhflaskfhlaskdfhasldhfaklsdjh" />
+            <excludedPath path="/phpMyAdmin-5.2.1-all-languages-9b74c9897bac770ffc029102a200c5de" />
+            <excludedPath path="/upload" />
+            <excludedPath path="/webstat" />
+            <excludedPath path="/webstat.off" />
+            <excludedPath path="/www" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
