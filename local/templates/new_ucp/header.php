@@ -156,63 +156,15 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                             </a>
                         </li>
                     </ul>
+                    <!-- Меню обернуть в компонент -->
                 </nav>
-                <div class="header__search" data-da=".header__search-mobile,1200, 1">
-                    <!-- Поиск обернуть в компонент -->
-                    <div class="header__search-input">
-                        <button class="header__search-btn header__search-btn--search">
-                            <div class="header__search-btn-icon">
-                                <iconify-icon icon="lucide:search" width="100%" height="100%" noobserver></iconify-icon>
-                            </div>
-                        </button>
-                        <input type="text" placeholder="Поиск" />
-                        <button class="header__search-btn header__search-btn--clear">
-                            <div class="header__search-btn-icon">
-                                <iconify-icon icon="lucide:x" width="100%" height="100%" noobserver></iconify-icon>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="header__search-content">
-                        <ul class="header__search-list">
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет предупреждения и ликвидации ЧС</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет техносферной безопасности</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет заочного обучения</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет безопасности жизнедеятельности</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет предупреждения и ликвидации ЧС</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет техносферной безопасности</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет заочного обучения</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет безопасности жизнедеятельности</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет предупреждения и ликвидации ЧС</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет техносферной безопасности</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет заочного обучения</p>
-                            </li>
-                            <li class="header__search-item">
-                                <p class="text-caption">Факультет безопасности жизнедеятельности</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <?php $APPLICATION->IncludeFile(
+                        "/include/header/search.php",
+                        array(),
+                        array(
+                                "MODE" => "html"
+                        )
+                ); ?>
                 <div class="header__accessibility" data-da=".header__accessibility-mobile,1200, 1">
                     <div class="socials__item">
                         <a href="?special_version=Y">
