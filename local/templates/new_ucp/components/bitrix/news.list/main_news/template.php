@@ -1,35 +1,46 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/** @var array $arParams */
-/** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
+<?php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
 $this->setFrameMode(true);
 ?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?
-	$res = CIBlockSection::GetByID($arItem["IBLOCK_SECTION_ID"]);
-	$arSect = $res->GetNext();
-	if($arItem['PREVIEW_PICTURE']['ID'])
-		$file = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE']['ID'], array('width'=>734, 'height'=>601), BX_RESIZE_IMAGE_EXACT, true);
-	else
-		$file['src']='/i/no-photo.jpg';
-	?>
-	<li>
-<a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-	<img src="<?=$file['src']?>" alt="<?echo $arItem["NAME"]?>">
-		<div>
-			<strong><?echo $arItem["NAME"]?></strong>
-			
-			<p><?echo $arItem["PREVIEW_TEXT"];?></p>
-
-			<span><img src="/i/g2.png" alt=""> <?=intval($arItem['SHOW_COUNTER'])?></span>
-		</div></a>
-	</li>
-<?endforeach;?>
+<div class="home__feed-news-slider swiper">
+    <div class="swiper-wrapper">
+        <?php if (!empty($arResult['ITEMS'])): ?>
+            <?php foreach ($arResult['ITEMS'] as $arItem):
+                $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+                ?>
+                <div class="swiper-slide">
+                    <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+                        <div class="home__feed-news-slider-img">
+                            <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>"
+                                 title="<?= $arItem["NAME"] ?>">
+                            <div class="label">
+                                <span>Главная новость</span>
+                            </div>
+                        </div>
+                        <div class="home__feed-news-slider-info">
+                            <div class="date">
+                                <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
+                                              noobserver=""></iconify-icon>
+                                <span><?= $arItem['DISPLAY_ACTIVE_FROM'] ?></span>
+                            </div>
+                            <h4 class="title-four"><?= $arItem["NAME"] ?></h4>
+                            <div class="text-caption"><?= $arItem["PREVIEW_TEXT"] ?></div>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+    <div class="home__feed-news-slider-action-mobile"></div>
+    <div class="home__feed-news-slider-action" data-da=".home__feed-news-slider-action-mobile,1024, 1">
+        <button class="home__feed-news-slider-button-prev swiper-button-prev">
+            <iconify-icon icon="lucide:chevron-left" width="30" height="30" noobserver></iconify-icon>
+        </button>
+        <div class="home__feed-news-slider-pagination"></div>
+        <button class="home__feed-news-slider-button-next swiper-button-next">
+            <iconify-icon icon="lucide:chevron-right" width="30" height="30" noobserver></iconify-icon>
+        </button>
+    </div>
+</div>

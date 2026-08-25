@@ -1,5 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$APPLICATION->SetPageProperty("title", "Университет гражданской защиты");
 $APPLICATION->SetTitle("Университет гражданской защиты");
 ?>
 <main class="home">
@@ -222,100 +223,150 @@ $APPLICATION->SetTitle("Университет гражданской защит
 
 
                     <div class="home__feed-content">
-                        <? $APPLICATION->IncludeComponent(
-                                "bitrix:news",
-                                "template_news",
-                                [
-                                        "COMPONENT_TEMPLATE" => ".default",
-                                        "IBLOCK_TYPE" => "news",
-                                        "IBLOCK_ID" => "2",
-                                        "NEWS_COUNT" => "20",
-                                        "USE_SEARCH" => "N",
-                                        "USE_RSS" => "N",
-                                        "USE_RATING" => "N",
-                                        "USE_CATEGORIES" => "N",
-                                        "USE_REVIEW" => "N",
-                                        "USE_FILTER" => "N",
-                                        "SORT_BY1" => "ACTIVE_FROM",
-                                        "SORT_ORDER1" => "DESC",
-                                        "SORT_BY2" => "SORT",
-                                        "SORT_ORDER2" => "ASC",
-                                        "CHECK_DATES" => "Y",
-                                        "SEF_MODE" => "Y",
-                                        "SEF_FOLDER" => "/new/news/",
-                                        "AJAX_MODE" => "N",
-                                        "AJAX_OPTION_JUMP" => "N",
-                                        "AJAX_OPTION_STYLE" => "Y",
-                                        "AJAX_OPTION_HISTORY" => "N",
-                                        "AJAX_OPTION_ADDITIONAL" => "",
-                                        "CACHE_TYPE" => "A",
-                                        "CACHE_TIME" => "36000000",
-                                        "CACHE_FILTER" => "N",
-                                        "CACHE_GROUPS" => "Y",
-                                        "SET_LAST_MODIFIED" => "N",
-                                        "SET_TITLE" => "Y",
-                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                        "ADD_SECTIONS_CHAIN" => "Y",
-                                        "ADD_ELEMENT_CHAIN" => "N",
-                                        "USE_PERMISSIONS" => "N",
-                                        "STRICT_SECTION_CHECK" => "N",
-                                        "DISPLAY_DATE" => "Y",
-                                        "DISPLAY_PICTURE" => "Y",
-                                        "DISPLAY_PREVIEW_TEXT" => "Y",
-                                        "USE_SHARE" => "N",
-                                        "COMPOSITE_FRAME_MODE" => "A",
-                                        "COMPOSITE_FRAME_TYPE" => "AUTO",
-                                        "PREVIEW_TRUNCATE_LEN" => "",
-                                        "LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                        "LIST_FIELD_CODE" => [
-                                                0 => "",
-                                                1 => "",
+                        <div class="home__feed-news">
+                            <div class="title-block">
+                                <h2 class="title-two"><a href="/new/news/">Новости</a></h2>
+                                <a href="/new/news/" class="button-all">
+                                    <span>Все новости</span>
+                                    <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                                  noobserver></iconify-icon>
+                                </a>
+                            </div>
+                            <div class="home__feed-news-content">
+                                <?php
+                                $APPLICATION->IncludeComponent(
+                                        "bitrix:news.list",
+                                        "main_news",
+                                        [
+                                                "IBLOCK_ID" => "2",
+                                                "NEWS_COUNT" => "5",
+                                                "SORT_BY1" => "SORT",
+                                                "SORT_ORDER1" => "ASC",
+                                                "CACHE_TYPE" => "A",
+                                                "CACHE_TIME" => "3600",
+                                                "COMPONENT_TEMPLATE" => "main_news",
+                                                "IBLOCK_TYPE" => "news",
+                                                "SORT_BY2" => "SORT",
+                                                "SORT_ORDER2" => "ASC",
+                                                "FILTER_NAME" => "",
+                                                "FIELD_CODE" => [
+                                                        0 => "",
+                                                        1 => "",
+                                                ],
+                                                "PROPERTY_CODE" => [
+                                                        0 => "LINK",
+                                                        1 => "BACKGROUND",
+                                                        2 => "ICON_DESKTOP",
+                                                ],
+                                                "CHECK_DATES" => "Y",
+                                                "DETAIL_URL" => "",
+                                                "AJAX_MODE" => "N",
+                                                "AJAX_OPTION_JUMP" => "N",
+                                                "AJAX_OPTION_STYLE" => "Y",
+                                                "AJAX_OPTION_HISTORY" => "N",
+                                                "AJAX_OPTION_ADDITIONAL" => "",
+                                                "CACHE_FILTER" => "N",
+                                                "CACHE_GROUPS" => "Y",
+                                                "PREVIEW_TRUNCATE_LEN" => "",
+                                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                "SET_TITLE" => "N",
+                                                "SET_BROWSER_TITLE" => "N",
+                                                "SET_META_KEYWORDS" => "N",
+                                                "SET_META_DESCRIPTION" => "N",
+                                                "SET_LAST_MODIFIED" => "N",
+                                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                "ADD_SECTIONS_CHAIN" => "N",
+                                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                "PARENT_SECTION" => "",
+                                                "PARENT_SECTION_CODE" => "645",
+                                                "INCLUDE_SUBSECTIONS" => "Y",
+                                                "STRICT_SECTION_CHECK" => "N",
+                                                "PAGER_TEMPLATE" => ".default",
+                                                "DISPLAY_TOP_PAGER" => "N",
+                                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                "PAGER_TITLE" => "Новости",
+                                                "PAGER_SHOW_ALWAYS" => "N",
+                                                "PAGER_DESC_NUMBERING" => "N",
+                                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                "PAGER_SHOW_ALL" => "N",
+                                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                                "SET_STATUS_404" => "N",
+                                                "SHOW_404" => "N",
+                                                "MESSAGE_404" => ""
                                         ],
-                                        "LIST_PROPERTY_CODE" => [
-                                                0 => "",
-                                                1 => "",
-                                        ],
-                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                        "DISPLAY_NAME" => "Y",
-                                        "META_KEYWORDS" => "-",
-                                        "META_DESCRIPTION" => "-",
-                                        "BROWSER_TITLE" => "-",
-                                        "DETAIL_SET_CANONICAL_URL" => "N",
-                                        "DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                        "DETAIL_FIELD_CODE" => [
-                                                0 => "",
-                                                1 => "",
-                                        ],
-                                        "DETAIL_PROPERTY_CODE" => [
-                                                0 => "",
-                                                1 => "",
-                                        ],
-                                        "DETAIL_DISPLAY_TOP_PAGER" => "N",
-                                        "DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
-                                        "DETAIL_PAGER_TITLE" => "Страница",
-                                        "DETAIL_PAGER_TEMPLATE" => "",
-                                        "DETAIL_PAGER_SHOW_ALL" => "Y",
-                                        "PAGER_TEMPLATE" => ".default",
-                                        "DISPLAY_TOP_PAGER" => "N",
-                                        "DISPLAY_BOTTOM_PAGER" => "Y",
-                                        "PAGER_TITLE" => "Новости",
-                                        "PAGER_SHOW_ALWAYS" => "N",
-                                        "PAGER_DESC_NUMBERING" => "N",
-                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                        "PAGER_SHOW_ALL" => "N",
-                                        "PAGER_BASE_LINK_ENABLE" => "N",
-                                        "SET_STATUS_404" => "N",
-                                        "SHOW_404" => "N",
-                                        "MESSAGE_404" => "",
-                                        "SEF_URL_TEMPLATES" => [
-                                                "news" => "",
-                                                "section" => "",
-                                                "detail" => "#ELEMENT_CODE#/",
+                                        false,
+                                        [
+                                                "HIDE_ICONS" => "Y"
                                         ]
-                                ],
-                                false
-                        ); ?>
+                                );
+                                ?>
+                                <div class="home__feed-news-latest">
+                                    <nav class="home__feed-news-nav">
+                                        <ul class="home__feed-news-nav-list">
+                                            <li class="home__feed-news-nav-item _active">
+                                                <a href="#">
+                                                    <iconify-icon icon="streamline-plump:graduation-cap" width="24"
+                                                                  height="24" noobserver></iconify-icon>
+                                                    <p>Новости университета</p>
+                                                </a>
+                                            </li>
+                                            <li class="home__feed-news-nav-item">
+                                                <a href="#">
+                                                    <iconify-icon icon="icon-park-outline:microscope-one" width="24"
+                                                                  height="24" noobserver></iconify-icon>
+                                                    <p>Наука и инновации</p>
+                                                </a>
+                                            </li>
+                                            <li class="home__feed-news-nav-item">
+                                                <a href="#">
+                                                    <iconify-icon icon="lucide:shield-check" width="24" height="24"
+                                                                  noobserver></iconify-icon>
+                                                    <p>Безопасность жизнедеятельности</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <ul class="home__feed-news-list">
+                                        <?php if (!empty($regularNews)): ?>
+                                            <?php foreach ($regularNews as $arItem): ?>
+                                                <?php
+                                                $date = $arItem["DISPLAY_ACTIVE_FROM"] ?: $arItem["DISPLAY_DATE"];
+                                                if (empty($date)) {
+                                                    $date = FormatDate("d.m.Y", MakeTimeStamp($arItem["DATE_CREATE"]));
+                                                }
 
+                                                $imgSrc = '';
+                                                if (!empty($arItem["PREVIEW_PICTURE"])) {
+                                                    $imgSrc = $arItem["PREVIEW_PICTURE"]["SRC"];
+                                                } elseif (!empty($arItem["DETAIL_PICTURE"])) {
+                                                    $imgSrc = $arItem["DETAIL_PICTURE"]["SRC"];
+                                                } else {
+                                                    $imgSrc = SITE_TEMPLATE_PATH . '/img/main/news2.webp';
+                                                }
+
+                                                $itemLink = !empty($arItem["DETAIL_PAGE_URL"]) ? $arItem["DETAIL_PAGE_URL"] : '#';
+                                                ?>
+                                                <li class="home__feed-news-item">
+                                                    <a href="<?= $itemLink ?>">
+                                                        <div class="home__feed-news-item-img">
+                                                            <img src="<?= $imgSrc ?>" alt="Image">
+                                                        </div>
+                                                        <div class="home__feed-news-info">
+                                                            <div class="date">
+                                                                <iconify-icon icon="lsicon:calendar-outline" width="18"
+                                                                              height="18" noobserver></iconify-icon>
+                                                                <span><?= $date ?></span>
+                                                            </div>
+                                                            <p><?= $arItem["NAME"] ?></p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <? $APPLICATION->IncludeComponent(
                                 "bitrix:news",
                                 "sob_hom",
@@ -542,7 +593,8 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 </div>
                                 <div class="universities__slider-wrapper">
                                     <div class="universities__slider-img">
-                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты"/>
+                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
+                                             alt="Image" title="Факультеты"/>
                                     </div>
                                     <div class="universities__slider-action">
                                         <button class="universities__slider-button-prev swiper-button-prev">
@@ -619,7 +671,8 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 </div>
                                 <div class="universities__slider-wrapper">
                                     <div class="universities__slider-img">
-                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp" alt="Image" title="Факультеты"/>
+                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
+                                             alt="Image" title="Факультеты"/>
                                     </div>
                                     <div class="universities__slider-action">
                                         <button class="universities__slider-button-prev swiper-button-prev">
