@@ -522,7 +522,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 </div>
                             </div>
                         </div>
-                        <? $APPLICATION->IncludeComponent(
+                        <?php $APPLICATION->IncludeComponent(
                                 "bitrix:news",
                                 "sob_hom",
                                 [
