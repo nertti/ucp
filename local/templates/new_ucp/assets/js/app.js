@@ -5932,29 +5932,6 @@
             navItem.classList.add('_active');
             filterNews(category);
         });
-
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-        const cookie = document.querySelector(".warning-cookie");
-        const wrapper = document.querySelector(".wrapper");
-        const popup = document.querySelector("#cookie");
-        if (!cookie || !wrapper) return;
-        const acceptBtn = cookie.querySelector(".button-accept");
-        const declineBtn = cookie.querySelector(".button-reject");
-        // wrapper.classList.add("cookie-active");
-        function closeCookie() {
-            cookie.classList.add("hidden");
-            wrapper.classList.remove("cookie-active");
-        }
-        acceptBtn.addEventListener("click", closeCookie);
-        declineBtn.addEventListener("click", closeCookie);
-        const observer = new MutationObserver(() => {
-            if (popup.classList.contains("popup_show")) cookie.classList.add("hidden"); else cookie.classList.remove("hidden");
-        });
-        observer.observe(popup, {
-            attributes: true,
-            attributeFilter: [ "class" ]
-        });
     });
     window["FLS"] = true;
     function initApp() {

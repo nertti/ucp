@@ -158,7 +158,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                     </ul>
                 </nav>
                 <div class="header__search" data-da=".header__search-mobile,1200, 1">
-                    <!-- Поиск оберуть в компонент -->
+                    <!-- Поиск обернуть в компонент -->
                     <div class="header__search-input">
                         <button class="header__search-btn header__search-btn--search">
                             <div class="header__search-btn-icon">

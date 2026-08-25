@@ -1,3 +1,0 @@
-<?
-$sSectionName="system.pagenavigation";
-?>
