@@ -277,8 +277,8 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                 "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
                                                 "ADD_SECTIONS_CHAIN" => "N",
                                                 "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                "PARENT_SECTION" => "",
-                                                "PARENT_SECTION_CODE" => "645",
+                                                "PARENT_SECTION" => "645",
+                                                "PARENT_SECTION_CODE" => "",
                                                 "INCLUDE_SUBSECTIONS" => "Y",
                                                 "STRICT_SECTION_CHECK" => "N",
                                                 "PAGER_TEMPLATE" => ".default",
@@ -303,66 +303,221 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 <div class="home__feed-news-latest">
                                     <nav class="home__feed-news-nav">
                                         <ul class="home__feed-news-nav-list">
-                                            <li class="home__feed-news-nav-item _active">
-                                                <a href="#">
-                                                    <iconify-icon icon="streamline-plump:graduation-cap" width="24"
-                                                                  height="24" noobserver></iconify-icon>
+                                            <li class="home__feed-news-nav-item _active" data-tab="3">
+                                                <button type="button">
+                                                    <iconify-icon icon="streamline-plump:graduation-cap" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Новости университета</p>
-                                                </a>
+                                                </button>
                                             </li>
-                                            <li class="home__feed-news-nav-item">
-                                                <a href="#">
-                                                    <iconify-icon icon="icon-park-outline:microscope-one" width="24"
-                                                                  height="24" noobserver></iconify-icon>
+                                            <li class="home__feed-news-nav-item" data-tab="644">
+                                                <button type="button">
+                                                    <iconify-icon icon="icon-park-outline:microscope-one" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Наука и инновации</p>
-                                                </a>
+                                                </button>
                                             </li>
-                                            <li class="home__feed-news-nav-item">
-                                                <a href="#">
-                                                    <iconify-icon icon="lucide:shield-check" width="24" height="24"
-                                                                  noobserver></iconify-icon>
+                                            <li class="home__feed-news-nav-item" data-tab="643">
+                                                <button type="button">
+                                                    <iconify-icon icon="lucide:shield-check" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Безопасность жизнедеятельности</p>
-                                                </a>
+                                                </button>
                                             </li>
                                         </ul>
                                     </nav>
                                     <ul class="home__feed-news-list">
-                                        <?php if (!empty($regularNews)): ?>
-                                            <?php foreach ($regularNews as $arItem): ?>
-                                                <?php
-                                                $date = $arItem["DISPLAY_ACTIVE_FROM"] ?: $arItem["DISPLAY_DATE"];
-                                                if (empty($date)) {
-                                                    $date = FormatDate("d.m.Y", MakeTimeStamp($arItem["DATE_CREATE"]));
-                                                }
+                                    <?php
+                                    $APPLICATION->IncludeComponent(
+                                            "bitrix:news.list",
+                                            "main_news_category",
+                                            [
+                                                    "IBLOCK_ID" => "2",
+                                                    "NEWS_COUNT" => "4",
+                                                    "SORT_BY1" => "SORT",
+                                                    "SORT_ORDER1" => "ASC",
+                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TIME" => "3600",
+                                                    "COMPONENT_TEMPLATE" => "main_news_category",
+                                                    "IBLOCK_TYPE" => "news",
+                                                    "SORT_BY2" => "SORT",
+                                                    "SORT_ORDER2" => "ASC",
+                                                    "FILTER_NAME" => "",
+                                                    "FIELD_CODE" => [
+                                                            0 => "",
+                                                            1 => "",
+                                                    ],
+                                                    "PROPERTY_CODE" => [
+                                                    ],
+                                                    "CHECK_DATES" => "Y",
+                                                    "DETAIL_URL" => "",
+                                                    "AJAX_MODE" => "N",
+                                                    "AJAX_OPTION_JUMP" => "N",
+                                                    "AJAX_OPTION_STYLE" => "Y",
+                                                    "AJAX_OPTION_HISTORY" => "N",
+                                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_GROUPS" => "Y",
+                                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                    "SET_TITLE" => "N",
+                                                    "SET_BROWSER_TITLE" => "N",
+                                                    "SET_META_KEYWORDS" => "N",
+                                                    "SET_META_DESCRIPTION" => "N",
+                                                    "SET_LAST_MODIFIED" => "N",
+                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                    "ADD_SECTIONS_CHAIN" => "N",
+                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                    "PARENT_SECTION" => "3",
+                                                    "PARENT_SECTION_CODE" => "",
+                                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                                    "STRICT_SECTION_CHECK" => "N",
+                                                    "PAGER_TEMPLATE" => ".default",
+                                                    "DISPLAY_TOP_PAGER" => "N",
+                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                    "PAGER_TITLE" => "Новости",
+                                                    "PAGER_SHOW_ALWAYS" => "N",
+                                                    "PAGER_DESC_NUMBERING" => "N",
+                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                    "PAGER_SHOW_ALL" => "N",
+                                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                                    "SET_STATUS_404" => "N",
+                                                    "SHOW_404" => "N",
+                                                    "MESSAGE_404" => ""
+                                            ],
+                                            false,
+                                            [
+                                                    "HIDE_ICONS" => "Y"
+                                            ]
+                                    );
+                                    ?>
 
-                                                $imgSrc = '';
-                                                if (!empty($arItem["PREVIEW_PICTURE"])) {
-                                                    $imgSrc = $arItem["PREVIEW_PICTURE"]["SRC"];
-                                                } elseif (!empty($arItem["DETAIL_PICTURE"])) {
-                                                    $imgSrc = $arItem["DETAIL_PICTURE"]["SRC"];
-                                                } else {
-                                                    $imgSrc = SITE_TEMPLATE_PATH . '/img/main/news2.webp';
-                                                }
+                                    <?php
+                                    $APPLICATION->IncludeComponent(
+                                            "bitrix:news.list",
+                                            "main_news_category",
+                                            [
+                                                    "IBLOCK_ID" => "2",
+                                                    "NEWS_COUNT" => "4",
+                                                    "SORT_BY1" => "SORT",
+                                                    "SORT_ORDER1" => "ASC",
+                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TIME" => "3600",
+                                                    "COMPONENT_TEMPLATE" => "main_news_category",
+                                                    "IBLOCK_TYPE" => "news",
+                                                    "SORT_BY2" => "SORT",
+                                                    "SORT_ORDER2" => "ASC",
+                                                    "FILTER_NAME" => "",
+                                                    "FIELD_CODE" => [
+                                                            0 => "",
+                                                            1 => "",
+                                                    ],
+                                                    "PROPERTY_CODE" => [
+                                                    ],
+                                                    "CHECK_DATES" => "Y",
+                                                    "DETAIL_URL" => "",
+                                                    "AJAX_MODE" => "N",
+                                                    "AJAX_OPTION_JUMP" => "N",
+                                                    "AJAX_OPTION_STYLE" => "Y",
+                                                    "AJAX_OPTION_HISTORY" => "N",
+                                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_GROUPS" => "Y",
+                                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                    "SET_TITLE" => "N",
+                                                    "SET_BROWSER_TITLE" => "N",
+                                                    "SET_META_KEYWORDS" => "N",
+                                                    "SET_META_DESCRIPTION" => "N",
+                                                    "SET_LAST_MODIFIED" => "N",
+                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                    "ADD_SECTIONS_CHAIN" => "N",
+                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                    "PARENT_SECTION" => "643",
+                                                    "PARENT_SECTION_CODE" => "",
+                                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                                    "STRICT_SECTION_CHECK" => "N",
+                                                    "PAGER_TEMPLATE" => ".default",
+                                                    "DISPLAY_TOP_PAGER" => "N",
+                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                    "PAGER_TITLE" => "Новости",
+                                                    "PAGER_SHOW_ALWAYS" => "N",
+                                                    "PAGER_DESC_NUMBERING" => "N",
+                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                    "PAGER_SHOW_ALL" => "N",
+                                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                                    "SET_STATUS_404" => "N",
+                                                    "SHOW_404" => "N",
+                                                    "MESSAGE_404" => ""
+                                            ],
+                                            false,
+                                            [
+                                                    "HIDE_ICONS" => "Y"
+                                            ]
+                                    );
+                                    ?>
 
-                                                $itemLink = !empty($arItem["DETAIL_PAGE_URL"]) ? $arItem["DETAIL_PAGE_URL"] : '#';
-                                                ?>
-                                                <li class="home__feed-news-item">
-                                                    <a href="<?= $itemLink ?>">
-                                                        <div class="home__feed-news-item-img">
-                                                            <img src="<?= $imgSrc ?>" alt="Image">
-                                                        </div>
-                                                        <div class="home__feed-news-info">
-                                                            <div class="date">
-                                                                <iconify-icon icon="lsicon:calendar-outline" width="18"
-                                                                              height="18" noobserver></iconify-icon>
-                                                                <span><?= $date ?></span>
-                                                            </div>
-                                                            <p><?= $arItem["NAME"] ?></p>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                    <?php
+                                    $APPLICATION->IncludeComponent(
+                                            "bitrix:news.list",
+                                            "main_news_category",
+                                            [
+                                                    "IBLOCK_ID" => "2",
+                                                    "NEWS_COUNT" => "4",
+                                                    "SORT_BY1" => "SORT",
+                                                    "SORT_ORDER1" => "ASC",
+                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TIME" => "3600",
+                                                    "COMPONENT_TEMPLATE" => "main_news_category",
+                                                    "IBLOCK_TYPE" => "news",
+                                                    "SORT_BY2" => "SORT",
+                                                    "SORT_ORDER2" => "ASC",
+                                                    "FILTER_NAME" => "",
+                                                    "FIELD_CODE" => [
+                                                            0 => "",
+                                                            1 => "",
+                                                    ],
+                                                    "PROPERTY_CODE" => [
+                                                    ],
+                                                    "CHECK_DATES" => "Y",
+                                                    "DETAIL_URL" => "",
+                                                    "AJAX_MODE" => "N",
+                                                    "AJAX_OPTION_JUMP" => "N",
+                                                    "AJAX_OPTION_STYLE" => "Y",
+                                                    "AJAX_OPTION_HISTORY" => "N",
+                                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_GROUPS" => "Y",
+                                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                    "SET_TITLE" => "N",
+                                                    "SET_BROWSER_TITLE" => "N",
+                                                    "SET_META_KEYWORDS" => "N",
+                                                    "SET_META_DESCRIPTION" => "N",
+                                                    "SET_LAST_MODIFIED" => "N",
+                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                    "ADD_SECTIONS_CHAIN" => "N",
+                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                    "PARENT_SECTION" => "644",
+                                                    "PARENT_SECTION_CODE" => "",
+                                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                                    "STRICT_SECTION_CHECK" => "N",
+                                                    "PAGER_TEMPLATE" => ".default",
+                                                    "DISPLAY_TOP_PAGER" => "N",
+                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                    "PAGER_TITLE" => "Новости",
+                                                    "PAGER_SHOW_ALWAYS" => "N",
+                                                    "PAGER_DESC_NUMBERING" => "N",
+                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                    "PAGER_SHOW_ALL" => "N",
+                                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                                    "SET_STATUS_404" => "N",
+                                                    "SHOW_404" => "N",
+                                                    "MESSAGE_404" => ""
+                                            ],
+                                            false,
+                                            [
+                                                    "HIDE_ICONS" => "Y"
+                                            ]
+                                    );
+                                    ?>
                                     </ul>
                                 </div>
                             </div>
