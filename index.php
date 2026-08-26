@@ -701,50 +701,69 @@ $APPLICATION->SetTitle("Университет гражданской защит
                             <div class="swiper-slide">
                                 <div class="universities__slider-content">
                                     <h2 class="title-two">Факультеты</h2>
-                                    <ul class="universities__slider-list">
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-preduprezhdeniya-i-likvidatsii-chs/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет предупреждения и ликвидации ЧС</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-tekhnosfernoy-bezopasnosti/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет техносферной безопасности</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-zaochnogo-obucheniya/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет заочного обучения</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-bezopasnosti-zhiznedeyatelnosti/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет безопасности жизнедеятельности</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-podgotovki-nauchnykh-kadrov/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет подготовки научных кадров</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-podgotovki-rukovodyashchikh-kadrov/">
-                                                <iconify-icon icon="iconamoon:check-bold" width="24" height="24"
-                                                              noobserver></iconify-icon>
-                                                <p>Факультет подготовки руководящих кадров</p>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <?php
+                                    $APPLICATION->IncludeComponent(
+                                            "bitrix:news.list",
+                                            "faculties",
+                                            [
+                                                    "IBLOCK_ID" => "90",
+                                                    "NEWS_COUNT" => "8",
+                                                    "SORT_BY1" => "SORT",
+                                                    "SORT_ORDER1" => "ASC",
+                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TIME" => "3600",
+                                                    "COMPONENT_TEMPLATE" => "faculties",
+                                                    "IBLOCK_TYPE" => "news",
+                                                    "SORT_BY2" => "SORT",
+                                                    "SORT_ORDER2" => "ASC",
+                                                    "FILTER_NAME" => "",
+                                                    "FIELD_CODE" => [
+                                                            0 => "",
+                                                            1 => "",
+                                                    ],
+                                                    "PROPERTY_CODE" => [
+                                                            0 => "TEXT",
+                                                            1 => "",
+                                                    ],
+                                                    "CHECK_DATES" => "Y",
+                                                    "DETAIL_URL" => "",
+                                                    "AJAX_MODE" => "N",
+                                                    "AJAX_OPTION_JUMP" => "N",
+                                                    "AJAX_OPTION_STYLE" => "Y",
+                                                    "AJAX_OPTION_HISTORY" => "N",
+                                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_GROUPS" => "Y",
+                                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                    "SET_TITLE" => "Y",
+                                                    "SET_BROWSER_TITLE" => "Y",
+                                                    "SET_META_KEYWORDS" => "Y",
+                                                    "SET_META_DESCRIPTION" => "Y",
+                                                    "SET_LAST_MODIFIED" => "N",
+                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                    "ADD_SECTIONS_CHAIN" => "N",
+                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                    "PARENT_SECTION" => "",
+                                                    "PARENT_SECTION_CODE" => "",
+                                                    "INCLUDE_SUBSECTIONS" => "N",
+                                                    "STRICT_SECTION_CHECK" => "N",
+                                                    "PAGER_TEMPLATE" => ".default",
+                                                    "DISPLAY_TOP_PAGER" => "N",
+                                                    "DISPLAY_BOTTOM_PAGER" => "N",
+                                                    "PAGER_TITLE" => "Новости",
+                                                    "PAGER_SHOW_ALWAYS" => "N",
+                                                    "PAGER_DESC_NUMBERING" => "N",
+                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                    "PAGER_SHOW_ALL" => "N",
+                                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                                    "SET_STATUS_404" => "N",
+                                                    "SHOW_404" => "N",
+                                                    "MESSAGE_404" => ""
+                                            ],
+                                            false
+                                    );
+                                    ?>
                                 </div>
                                 <div class="universities__slider-wrapper">
                                     <div class="universities__slider-img">
@@ -766,7 +785,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                             </div>
                             <div class="swiper-slide">
                                 <div class="universities__slider-content">
-                                    <h2 class="title-two">Факультеты</h2>
+                                    <h2 class="title-two">Деятельность (для теста)</h2>
                                     <ul class="universities__slider-list">
                                         <li class="universities__slider-list-item">
                                             <a href="/structure/faculties/fakultet-preduprezhdeniya-i-likvidatsii-chs/">

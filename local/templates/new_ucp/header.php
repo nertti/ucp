@@ -19,7 +19,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style1.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
     ?>
     <?php //выгрузить ?>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20260818155058" />
