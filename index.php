@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
             "bitrix:news.list",
             "banner_slider",
             [
-                    "IBLOCK_ID" => 2,
+                    "IBLOCK_ID" => 89,
                     "NEWS_COUNT" => 5,
                     "SORT_BY1" => "SORT",
                     "SORT_ORDER1" => "ASC",

@@ -1,60 +1,154 @@
 <section class="preview">
     <div class="preview-slider swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="preview-slider-video">
-                    <video src="https://ucp-front.devitgso.fatboy.hostflyby.net/img/main/Intro UCP.mp4" autoplay
-                           playsinline loop></video>
-                </div>
-                <div class="preview-slider-logo-wrapper">
-                    <div class="home__container">
-                        <img src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image"
-                             title="Университет гражданской защиты" class="preview-slider-logo"/>
-                    </div>
-                </div>
-                <div class="preview-slider-video-mute-wrapper">
-                    <div class="home__container">
-                        <button class="preview-slider-video-mute" type="button">
-                            <iconify-icon icon="octicon:unmute-16" width="24" height="24" noobserver></iconify-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="preview-slider-img">
-                    <img src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью"/>
-                </div>
-                <div class="preview-slider-logo-wrapper">
-                    <div class="home__container">
-                        <img src="/local/templates/new_ucp/assets/img/main/previewLogo.svg" alt="image"
-                             title="Университет гражданской защиты" class="preview-slider-logo"/>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="preview-slider-img">
-                    <img src="/local/templates/new_ucp/assets/img/main/preview.webp" alt="Image" title="Превью"/>
-                </div>
-                <div class="preview-slider-content">
-                    <div class="preview__container">
-                        <h1 class="title-one">
-                            Эффективное образование - через традиции качества и динамику инноваций
-                        </h1>
-                        <div class="preview-slider-content__action">
-                            <a href="/abiturientu/" class="button-blue">
-                                <span>Поступить</span>
-                                <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                              noobserver></iconify-icon>
-                            </a>
-                            <a href="/university/" class="button-white">
-                                <span>Про университет</span>
-                                <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                              noobserver></iconify-icon>
-                            </a>
+            <?php
+            foreach ($arResult['ITEMS'] as $arItem):
+
+                $properties = $arItem['PROPERTIES'];
+
+                $backgroundImage = !empty($properties['BACKGROUND_IMAGE']['VALUE'])
+                        ? CFile::GetPath($properties['BACKGROUND_IMAGE']['VALUE'])
+                        : '';
+
+                $image = !empty($properties['IMAGE']['VALUE'])
+                        ? CFile::GetPath($properties['IMAGE']['VALUE'])
+                        : '';
+
+                $video = !empty($properties['VIDEO']['VALUE'])
+                        ? CFile::GetPath($properties['VIDEO']['VALUE'])
+                        : '';
+
+                $buttons = [];
+
+                if (!empty($properties['BUTTONS']['VALUE'])) {
+
+                    $values = is_array($properties['BUTTONS']['VALUE'])
+                            ? $properties['BUTTONS']['VALUE']
+                            : [$properties['BUTTONS']['VALUE']];
+
+                    $descriptions = is_array($properties['BUTTONS']['DESCRIPTION'])
+                            ? $properties['BUTTONS']['DESCRIPTION']
+                            : [$properties['BUTTONS']['DESCRIPTION']];
+
+                    foreach ($values as $key => $value) {
+                        if (trim($value) === '') {
+                            continue;
+                        }
+
+                        $buttons[] = [
+                                'TEXT' => $value,
+                                'LINK' => $descriptions[$key] ?? '',
+                        ];
+                    }
+                }
+                if (empty($buttons) && !empty($properties['LINK']['VALUE'])) {
+                    $buttons[] = [
+                            'TEXT' => $arItem['NAME'],
+                            'LINK' => $properties['LINK']['VALUE'],
+                    ];
+                }
+                ?>
+
+                <div class="swiper-slide">
+
+                    <?php if ($video): ?>
+
+                        <div class="preview-slider-video">
+                            <video
+                                    src="<?= htmlspecialcharsbx($video) ?>"
+                                    autoplay
+                                    playsinline
+                                    loop
+                                    muted
+                            ></video>
                         </div>
-                    </div>
+
+                        <div class="preview-slider-logo-wrapper">
+                            <div class="home__container">
+                                <img
+                                        src="<?= $image ?>"
+                                        alt="<?= $arItem['NAME'] ?>"
+                                        title="<?= $arItem['NAME'] ?>"
+                                        class="preview-slider-logo"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="preview-slider-video-mute-wrapper">
+                            <div class="home__container">
+                                <button class="preview-slider-video-mute" type="button">
+                                    <iconify-icon icon="octicon:unmute-16" width="24" height="24"
+                                                  noobserver></iconify-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    <?php elseif ($backgroundImage): ?>
+                        <div class="preview-slider-img">
+                            <img src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
+                                 title="<?= $arItem['NAME'] ?>">
+                        </div>
+                        <?php if ($image): ?>
+                            <div class="preview-slider-logo-wrapper">
+                                <div class="home__container">
+                                    <img src="<?= htmlspecialcharsbx($image) ?>" alt="<?= $arItem['NAME'] ?>"
+                                         title="<?= $arItem['NAME'] ?>" class="preview-slider-logo">
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+
+                    <?php
+                    // Текст и кнопки выводим только если нет VIDEO и IMAGE
+                    if (!$video && !$image):
+                        ?>
+
+                        <div class="preview-slider-content">
+                            <div class="preview__container">
+
+                                <h1 class="title-one">
+                                    <?= htmlspecialcharsbx($arItem['NAME']) ?>
+                                </h1>
+
+                                <?php if ($buttons): ?>
+
+                                    <div class="preview-slider-content__action">
+
+                                        <?php foreach ($buttons as $key => $button): ?>
+
+                                            <?php if (!$button['LINK']) continue; ?>
+
+                                            <a
+                                                    href="<?= htmlspecialcharsbx($button['LINK']) ?>"
+                                                    class="<?= $key === 0 ? 'button-blue' : 'button-white' ?>"
+                                            >
+                                    <span>
+                                        <?= htmlspecialcharsbx($button['TEXT']) ?>
+                                    </span>
+
+                                                <iconify-icon
+                                                        icon="lucide:chevron-right"
+                                                        width="24"
+                                                        height="24"
+                                                        noobserver
+                                                ></iconify-icon>
+                                            </a>
+
+                                        <?php endforeach; ?>
+
+                                    </div>
+
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
                 </div>
-            </div>
+
+            <?php endforeach; ?>
         </div>
         <div class="preview-slider-pagination"></div>
     </div>
