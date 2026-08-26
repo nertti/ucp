@@ -1,6 +1,6 @@
 <?php
 
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 $APPLICATION->SetTitle("Новости");
 ?><?$APPLICATION->IncludeComponent(
@@ -116,4 +116,4 @@ $APPLICATION->SetTitle("Новости");
 );?>
 <?php
 
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");

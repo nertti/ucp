@@ -90,7 +90,7 @@ $arResult["NEXT_ELEMENT"] = $nextElement;
 						<a href="/" class="breadcrumbs__link">Главная</a>
                     </li>
                     <li class="breadcrumbs__item">
-						<a href="/new/news/" class="breadcrumbs__link">Новости</a>
+						<a href="/news/" class="breadcrumbs__link">Новости</a>
                     </li>
                     <li class="breadcrumbs__item">
                         <a href="#" class="breadcrumbs__link"><?php echo $arResult["NAME"]; ?></a>
@@ -211,7 +211,7 @@ $arResult["NEXT_ELEMENT"] = $nextElement;
                     </ul>
                 <?php endif; ?>
        <div class="page__action">
-					<a href="/new/news/" class="button-blue _prev">
+					<a href="/news/" class="button-blue _prev">
                         <iconify-icon icon="lucide:chevron-left" width="24" height="24" noobserver></iconify-icon>
                         <span>Ко всем новостям</span>
                     </a>
