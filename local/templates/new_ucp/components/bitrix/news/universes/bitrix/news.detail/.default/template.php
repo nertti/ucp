@@ -109,114 +109,79 @@ $this->setFrameMode(true);
             </a>
         </div>
         <div class="universities__content">
+            <?php if(!empty($arResult['PROPERTIES']['NEWS']['VALUE'])):?>
             <section class="universities__news-main">
                 <div class="home__feed-news">
-                    <div class="home__feed-news-content">
-                        <div class="home__feed-news-main">
-                            <a href="#">
-                                <div class="home__feed-news-slider-img">
-                                    <img src="img/main/news1.webp" alt="Image"
-                                         title="В Университете МЧС прошло персональное распределение выпускников"/>
-                                </div>
-                                <div class="home__feed-news-slider-info">
-                                    <div class="date">
-                                        <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
-                                                      noobserver></iconify-icon>
-                                        <span>06.03.2026</span>
-                                    </div>
-                                    <h4 class="title-four">
-                                        В Университете МЧС прошло персональное распределение выпускников
-                                    </h4>
-                                    <p class="text-caption">
-                                        В Университете гражданской защиты состоялось персональное
-                                        распределение выпускников. Мероприятие определило места
-                                        дальнейшей службы молодых офицеров. В работе Государственной
-                                        комиссии принял участие Министр по чрезвычайным ситуациям Вадим
-                                        Синявский.
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="home__feed-news-latest">
-                            <ul class="home__feed-news-list">
-                                <li class="home__feed-news-item">
-                                    <a href="#">
-                                        <div class="home__feed-news-item-img">
-                                            <img src="img/main/news2.webp" alt="Image"/>
-                                        </div>
-                                        <div class="home__feed-news-info">
-                                            <div class="date">
-                                                <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
-                                                              noobserver></iconify-icon>
-                                                <span>06.03.2026</span>
-                                            </div>
-                                            <p>
-                                                Курсанты МЧС приняли участие в «Народной зарядке» на
-                                                стадионе «Динамо»
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="home__feed-news-item">
-                                    <a href="#">
-                                        <div class="home__feed-news-item-img">
-                                            <img src="img/main/news3.webp" alt="Image"/>
-                                        </div>
-                                        <div class="home__feed-news-info">
-                                            <div class="date">
-                                                <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
-                                                              noobserver></iconify-icon>
-                                                <span>06.03.2026</span>
-                                            </div>
-                                            <p>
-                                                Финалист «100 идей» презентовал разработку для
-                                                спасателей в эфире СТВ
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="home__feed-news-item">
-                                    <a href="#">
-                                        <div class="home__feed-news-item-img">
-                                            <img src="img/main/news4.webp" alt="Image"/>
-                                        </div>
-                                        <div class="home__feed-news-info">
-                                            <div class="date">
-                                                <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
-                                                              noobserver></iconify-icon>
-                                                <span>06.03.2026</span>
-                                            </div>
-                                            <p>
-                                                «А теперь, внимание, вопрос? Кто лучшие знатоки Беларуси
-                                                в области безопасности
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="home__feed-news-item">
-                                    <a href="#">
-                                        <div class="home__feed-news-item-img">
-                                            <img src="img/main/news5.webp" alt="Image"/>
-                                        </div>
-                                        <div class="home__feed-news-info">
-                                            <div class="date">
-                                                <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
-                                                              noobserver></iconify-icon>
-                                                <span>06.03.2026</span>
-                                            </div>
-                                            <p>
-                                                В Азербайджане проходят Международные соревнования юных
-                                                спасателей
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php
+                    $APPLICATION->IncludeComponent(
+                            "bitrix:news.list",
+                            "university_news",
+                            [
+                                    "IBLOCK_ID" => "2",
+                                    "NEWS_COUNT" => "5",
+                                    "SORT_BY1" => "SORT",
+                                    "SORT_ORDER1" => "ASC",
+                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TIME" => "3600",
+                                    "COMPONENT_TEMPLATE" => "university_news",
+                                    "IBLOCK_TYPE" => "news",
+                                    "SORT_BY2" => "SORT",
+                                    "SORT_ORDER2" => "ASC",
+                                    "FILTER_NAME" => "",
+                                    "FIELD_CODE" => [
+                                            0 => "",
+                                            1 => "",
+                                    ],
+                                    "PROPERTY_CODE" => [
+                                            0 => "LINK",
+                                            1 => "BACKGROUND",
+                                            2 => "ICON_DESKTOP",
+                                    ],
+                                    "CHECK_DATES" => "Y",
+                                    "DETAIL_URL" => "",
+                                    "AJAX_MODE" => "N",
+                                    "AJAX_OPTION_JUMP" => "N",
+                                    "AJAX_OPTION_STYLE" => "Y",
+                                    "AJAX_OPTION_HISTORY" => "N",
+                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                    "CACHE_FILTER" => "N",
+                                    "CACHE_GROUPS" => "Y",
+                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                    "SET_TITLE" => "N",
+                                    "SET_BROWSER_TITLE" => "N",
+                                    "SET_META_KEYWORDS" => "N",
+                                    "SET_META_DESCRIPTION" => "N",
+                                    "SET_LAST_MODIFIED" => "N",
+                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                    "ADD_SECTIONS_CHAIN" => "N",
+                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                    "PARENT_SECTION" => $arResult['PROPERTIES']['NEWS']['VALUE'],
+                                    "PARENT_SECTION_CODE" => "",
+                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                    "STRICT_SECTION_CHECK" => "N",
+                                    "PAGER_TEMPLATE" => ".default",
+                                    "DISPLAY_TOP_PAGER" => "N",
+                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                    "PAGER_TITLE" => "Новости",
+                                    "PAGER_SHOW_ALWAYS" => "N",
+                                    "PAGER_DESC_NUMBERING" => "N",
+                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                    "PAGER_SHOW_ALL" => "N",
+                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                    "SET_STATUS_404" => "N",
+                                    "SHOW_404" => "N",
+                                    "MESSAGE_404" => ""
+                            ],
+                            false,
+                            [
+                                    "HIDE_ICONS" => "Y"
+                            ]
+                    );
+                    ?>
                 </div>
             </section>
-
+            <?php endif;?>
             <?php $APPLICATION->IncludeComponent(
                     "sprint.editor:blocks",
                     "slider",
@@ -318,7 +283,7 @@ $this->setFrameMode(true);
     </div>
 </div>
 <?php
-echo '<pre>';
-print_r($arResult);
-echo '</pre>';
-?>
+//echo '<pre>';
+//print_r($arResult);
+//echo '</pre>';
+//?>

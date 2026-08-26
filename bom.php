@@ -1,71 +1,47 @@
-<?php 
-// Tell me the root folder path.
-// You can also try this one
- $HOME = $_SERVER["DOCUMENT_ROOT"].'/by/'; 
-// Or this
-// dirname(__FILE__)
-//$HOME = dirname(__FILE__);
- 
-// Is this a Windows host ? If it is, change this line to $WIN = 1;
-$WIN = 0;
- 
-// Recursive finder
-function RecursiveFolder($sHOME) {
-    global $BOMBED, $WIN;
-    $win32 = ($WIN == 1)? "\\" : "/";
-    $folder = dir($sHOME);
-    $foundfolders = array();
-    while ($file = $folder->read()) {
-        if($file != "." and $file != "..") {
-            if(filetype($sHOME . $win32 . $file) == "dir"){
-            $foundfolders[count($foundfolders)] = $sHOME . $win32 . $file;
-            }else{
-                $content = file_get_contents($sHOME . $win32 . $file);
-                $BOM = SearchBOM($content);
-                if($BOM){
-                    $BOMBED[count($BOMBED)] = $sHOME . $win32 . $file;
-                    // Remove first three chars from the file
-                    $content = substr($content,3);
-                    // Write to file 
-                    //file_put_contents($sHOME . $win32 . $file, $content);  
-                } 
-            }
-        }
-    }
-    $folder->close();
-    if(count($foundfolders)>0){
-        foreach($foundfolders as $folder){
-            RecursiveFolder($folder, $win32);
-        }
-    }
-}
- 
-// Searching for BOM in files
-function SearchBOM($string){ 
-   // if(substr($string,0,3) == pack("CCC",0xef,0xbb,0xbf)) return true;
-	if(stristr($string, '/by') === TRUE) return true;   
-    return false; 
-}
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>UTF8 BOM FINDER and REMOVER</title>
-<style>
-body { font-size: 10px; font-family: Arial, Helvetica, sans-serif; background: #FFF; color: #000; }
-.FOUND { color: #F30; font-size: 14px; font-weight: bold; }
-</style>
-</head>
-<body>
 <?php
-$BOMBED = array();
-RecursiveFolder($HOME);
-echo '<h2>These files had UTF8 BOM, but i cleaned them:</h2><p class="FOUND">';
-foreach($BOMBED as $utf){
-    echo $utf ."<br />\n";
+
+require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php');
+
+if (!CModule::IncludeModule('iblock')) {
+    die('Модуль iblock не подключен');
 }
-echo '</p>';
-?>
-</body>
-</html>
+
+$iblockId = 2;
+$sectionId = 3;
+
+$rsElements = CIBlockElement::GetList(
+        [],
+        [
+                'IBLOCK_ID' => $iblockId,
+                'SECTION_ID' => $sectionId,
+                'INCLUDE_SUBSECTIONS' => 'N',
+        ],
+        false,
+        false,
+        ['ID', 'NAME']
+);
+
+$el = new CIBlockElement();
+
+while ($element = $rsElements->Fetch()) {
+
+    $result = $el->Update(
+            $element['ID'],
+            [
+                    'IBLOCK_SECTION_ID' => false,
+            ]
+    );
+
+    if ($result) {
+        echo 'Перенесено в корень: ID ' . $element['ID']
+                . ' — ' . htmlspecialcharsbx($element['NAME'])
+                . '<br>';
+    } else {
+        echo '<span style="color:red">'
+                . 'Ошибка ID ' . $element['ID']
+                . ': ' . $el->LAST_ERROR
+                . '</span><br>';
+    }
+}
+
+echo '<br><b>Готово</b>';
