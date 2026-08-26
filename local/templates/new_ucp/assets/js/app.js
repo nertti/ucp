@@ -5898,40 +5898,125 @@
             });
             if (visibleCount === 0) newsList.style.minHeight = "200px"; else newsList.style.minHeight = "";
         }
-        // 1. Автоматический запуск фильтрации при загрузке страницы
-// Вызываем функцию один раз, чтобы активировать первый таб и отфильтровать новости
-        const initialCategory = getActiveCategory();
-        filterNews(initialCategory);
-
         function getActiveCategory() {
-            const activeItem = navContainer.querySelector('.home__feed-news-nav-item._active');
-            if (activeItem) return activeItem.dataset.tab || 'all';
-
-            const firstItem = navContainer.querySelector('.home__feed-news-nav-item');
+            const activeItem = navContainer.querySelector(".home__feed-news-nav-item._active");
+            if (activeItem) return activeItem.dataset.tab || "all";
+            const firstItem = navContainer.querySelector(".home__feed-news-nav-item");
             if (firstItem) {
-                firstItem.classList.add('_active');
-                return firstItem.dataset.tab || 'all';
+                firstItem.classList.add("_active");
+                return firstItem.dataset.tab || "all";
             }
-            return 'all';
+            return "all";
         }
-
-        navContainer.addEventListener('click', function(e) {
-            // 2. Предотвращаем прыжок страницы вверх
-            // Если ваши табы — это ссылки <a href="#">, этот метод отключит переход по ссылке-якорю
-            e.preventDefault();
-
-            const navItem = e.target.closest('.home__feed-news-nav-item');
+        navContainer.addEventListener("click", function(e) {
+            const navItem = e.target.closest(".home__feed-news-nav-item");
             if (!navItem) return;
-
-            const category = navItem.dataset.tab || 'all';
-
-            document.querySelectorAll('.home__feed-news-nav-item').forEach(el => {
-                el.classList.remove('_active');
+            const category = navItem.dataset.tab || "all";
+            document.querySelectorAll(".home__feed-news-nav-item").forEach(el => {
+                el.classList.remove("_active");
             });
-
-            navItem.classList.add('_active');
+            navItem.classList.add("_active");
             filterNews(category);
         });
+        const initialCategory = getActiveCategory();
+        filterNews(initialCategory);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const cookie = document.querySelector(".warning-cookie");
+        const wrapper = document.querySelector(".wrapper");
+        const popup = document.querySelector("#cookie");
+
+        if (!cookie || !wrapper) return;
+
+        const acceptBtn = cookie.querySelector(".button-accept");
+        const declineBtn = cookie.querySelector(".button-reject");
+        const cookieName = "cookie_consent";
+
+        // Получение cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+
+            if (parts.length === 2) {
+                return parts.pop().split(";").shift();
+            }
+
+            return null;
+        }
+
+        // Установка cookie
+        function setCookie(name, value, seconds) {
+            const date = new Date();
+            date.setTime(date.getTime() + seconds * 1000);
+
+            document.cookie =
+                `${name}=${value}; ` +
+                `expires=${date.toUTCString()}; ` +
+                `path=/; ` +
+                `SameSite=Lax`;
+        }
+
+        // Скрытие cookie-блока
+        function closeCookie() {
+            cookie.classList.add("hidden");
+            wrapper.classList.remove("cookie-active");
+        }
+
+        // Показываем cookie только если пользователь еще не сделал выбор
+        const consent = getCookie(cookieName);
+
+        if (consent) {
+            closeCookie();
+        } else {
+            cookie.classList.remove("hidden");
+            wrapper.classList.add("cookie-active");
+        }
+
+        // Принять
+        if (acceptBtn) {
+            acceptBtn.addEventListener("click", () => {
+                const oneYearInSeconds = 365 * 24 * 60 * 60;
+
+                setCookie(
+                    cookieName,
+                    "accepted",
+                    oneYearInSeconds
+                );
+
+                closeCookie();
+            });
+        }
+
+        // Отклонить
+        if (declineBtn) {
+            declineBtn.addEventListener("click", () => {
+                const fiveMinutesInSeconds = 5 * 60;
+
+                setCookie(
+                    cookieName,
+                    "rejected",
+                    fiveMinutesInSeconds
+                );
+
+                closeCookie();
+            });
+        }
+
+        // Если открывается popup #cookie — скрываем cookie-баннер
+        if (popup) {
+            const observer = new MutationObserver(() => {
+                if (popup.classList.contains("popup_show")) {
+                    cookie.classList.add("hidden");
+                } else if (!getCookie(cookieName)) {
+                    cookie.classList.remove("hidden");
+                }
+            });
+
+            observer.observe(popup, {
+                attributes: true,
+                attributeFilter: ["class"]
+            });
+        }
     });
     window["FLS"] = true;
     function initApp() {
