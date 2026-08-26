@@ -132,7 +132,7 @@ if (!empty($arResult["PROPERTIES"]["PHOTO"]["VALUE"]) && is_array($arResult["PRO
         <div class="page__content">
             <div class="title-block">
                 <h2 class="title-two">Новости</h2>
-                <a href="/news/" class="button-all">
+                <a href="/new/news/" class="button-all">
                     <span>Все новости</span>
                     <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
                 </a>

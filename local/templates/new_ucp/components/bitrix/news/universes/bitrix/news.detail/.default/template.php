@@ -16,75 +16,32 @@ $this->setFrameMode(true);
     <!-- слайдер университета главный -->
     <div class="preview-slider swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="preview-slider-img-two">
-                    <img src="img/main/banner2.webp" alt="Image" title="Превью"/>
-                </div>
-                <div class="preview__info">
-                    <div class="preview__container">
-                        <h1 class="title-one" data-da=".title-mobile,950, 1">
-                            Научно-исследовательский институт пожарной безопасности и проблем
-                            чрезвычайных ситуаций Университета гражданской защиты
-                        </h1>
-                        <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
-                            <ul class="breadcrumbs__list">
-                                <li class="breadcrumbs__item">
-                                    <a href="index.html" class="breadcrumbs__link">Главная</a>
-                                </li>
-                                <li class="breadcrumbs__item">
-                                    <a href="#" class="breadcrumbs__link">НИИ ПБиПЧС УГЗ</a>
-                                </li>
-                            </ul>
-                        </nav>
+            <?php foreach ($arResult['PROPERTIES']['BANNER']['VALUE'] as $idImage):
+                $urlImage = CFile::GetPath($idImage);
+                ?>
+                <div class="swiper-slide">
+                    <div class="preview-slider-img-two">
+                        <img src="<?=$urlImage?>" alt="Image" title="Превью"/>
+                    </div>
+                    <div class="preview__info">
+                        <div class="preview__container">
+                            <h1 class="title-one" data-da=".title-mobile,950, 1">
+                                <?=$arResult['NAME']?>
+                            </h1>
+                            <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
+                                <ul class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a href="/" class="breadcrumbs__link">Главная</a>
+                                    </li>
+                                    <li class="breadcrumbs__item">
+                                        <a href="#" class="breadcrumbs__link"><?=$arResult['NAME']?></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="preview-slider-img-two">
-                    <img src="img/main/banner2.webp" alt="Image" title="Превью"/>
-                </div>
-                <div class="preview__info">
-                    <div class="preview__container">
-                        <h1 class="title-one" data-da=".title-mobile,950, 1">
-                            Научно-исследовательский институт пожарной безопасности и проблем
-                            чрезвычайных ситуаций Университета гражданской защиты
-                        </h1>
-                        <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
-                            <ul class="breadcrumbs__list">
-                                <li class="breadcrumbs__item">
-                                    <a href="index.html" class="breadcrumbs__link">Главная</a>
-                                </li>
-                                <li class="breadcrumbs__item">
-                                    <a href="#" class="breadcrumbs__link">НИИ ПБиПЧС УГЗ</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="preview-slider-img-two">
-                    <img src="img/main/banner2.webp" alt="Image" title="Превью"/>
-                </div>
-                <div class="preview__info">
-                    <div class="preview__container">
-                        <h1 class="title-one" data-da=".title-mobile,950, 1">
-                            Научно-исследовательский институт пожарной безопасности и проблем
-                            чрезвычайных ситуаций Университета гражданской защиты
-                        </h1>
-                        <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
-                            <ul class="breadcrumbs__list">
-                                <li class="breadcrumbs__item">
-                                    <a href="index.html" class="breadcrumbs__link">Главная</a>
-                                </li>
-                                <li class="breadcrumbs__item">
-                                    <a href="#" class="breadcrumbs__link">НИИ ПБиПЧС УГЗ</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach;?>
         </div>
         <div class="preview-slider-pagination"></div>
     </div>
@@ -146,7 +103,7 @@ $this->setFrameMode(true);
         </div>
         <div class="title-block">
             <h2 class="title-two">Новости</h2>
-            <a href="news.html" class="button-all">
+            <a href="/news/?univercity=<?=$arResult['CODE']?>" class="button-all">
                 <span>Все новости</span>
                 <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
             </a>
@@ -259,20 +216,18 @@ $this->setFrameMode(true);
                     </div>
                 </div>
             </section>
-            <section class="universities__info">
-                <div class="universities__slider swiper">
-                    <?php $APPLICATION->IncludeComponent(
-                            "sprint.editor:blocks",
-                            "slider",
-                            array(
-                                    "ELEMENT_ID" => $arResult["ID"],
-                                    "IBLOCK_ID" => $arResult["IBLOCK_ID"],
-                                    "PROPERTY_CODE" => 'SLIDER',
-                            ),
-                            $component,
-                    ); ?>
-                </div>
-            </section>
+
+            <?php $APPLICATION->IncludeComponent(
+                    "sprint.editor:blocks",
+                    "slider",
+                    array(
+                            "ELEMENT_ID" => $arResult["ID"],
+                            "IBLOCK_ID" => $arResult["IBLOCK_ID"],
+                            "PROPERTY_CODE" => 'SLIDER',
+                    ),
+                    $component,
+            ); ?>
+
             <section class="page__services">
                 <div class="title-block">
                     <h2 class="title-two">
@@ -359,138 +314,11 @@ $this->setFrameMode(true);
                     </li>
                 </ul>
             </section>
-            <section class="universities__news">
-                <div class="news__slider swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="news__slider-content">
-                                <div class="news__slider-info">
-                                    <h2 class="title-two">
-                                        <a href="#">Проект к Году белорусской женщины: «Женщины МЧС. Профессия
-                                            добрых дел»</a>
-                                    </h2>
-                                    <p class="text">
-                                        В Год белорусской женщины мы продолжаем проект «Женщины МЧС.
-                                        Профессия добрых дел», чтобы рассказать о тех, кто ежедневно
-                                        доказывает, что в суровом мире чрезвычайных ситуаций, где
-                                        ценятся секунды и решительность, женское участие привносит
-                                        особую созидательную энергию, ведь там, где речь идет о
-                                        безопасности людей, нет «мужских» или «женских» профессий – есть
-                                        призвание, ответственность и бесконечная готовность служить
-                                        родной стране. 
-                                    </p>
-                                    <a href="#" class="button-detail">
-                                        <span>Подробне</span>
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="news__slider-wrapper">
-                                <a href="#" class="news__slider-img">
-                                    <img src="img/main/newsRecent6.webp" alt="Image"
-                                         title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»"/>
-                                </a>
-                                <div class="news__slider-action">
-                                    <button class="news__slider-button-prev swiper-button-prev">
-                                        <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </button>
-                                    <button class="news__slider-button-next swiper-button-next">
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="news__slider-wrapper">
-                                <a href="#" class="news__slider-img">
-                                    <img src="img/main/newsRecent6.webp" alt="Image"
-                                         title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»"/>
-                                </a>
-                                <div class="news__slider-action">
-                                    <button class="news__slider-button-prev swiper-button-prev">
-                                        <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </button>
-                                    <button class="news__slider-button-next swiper-button-next">
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="news__slider-content">
-                                <div class="news__slider-info">
-                                    <h2 class="title-two">
-                                        <a href="#">Проект к Году белорусской женщины: «Женщины МЧС. Профессия
-                                            добрых дел»</a>
-                                    </h2>
-                                    <p class="text">
-                                        В Год белорусской женщины мы продолжаем проект «Женщины МЧС.
-                                        Профессия добрых дел», чтобы рассказать о тех, кто ежедневно
-                                        доказывает, что в суровом мире чрезвычайных ситуаций, где
-                                        ценятся секунды и решительность, женское участие привносит
-                                        особую созидательную энергию, ведь там, где речь идет о
-                                        безопасности людей, нет «мужских» или «женских» профессий – есть
-                                        призвание, ответственность и бесконечная готовность служить
-                                        родной стране. 
-                                    </p>
-                                    <a href="#" class="button-detail">
-                                        <span>Подробне</span>
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                      noobserver></iconify-icon>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news__recent-content">
-                    <a href="news.html" class="button-all">
-                        <span>Все проекты</span>
-                        <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
-                    </a>
-                    <ul class="news__recent">
-                        <li class="news__recent-item">
-                            <a href="">
-                                <img src="img/main/newsRecent1.webp" alt="Image" title="Электронный журнал UCP LIVE"/>
-                                <p>Электронный журнал UCP LIVE</p>
-                            </a>
-                        </li>
-                        <li class="news__recent-item">
-                            <a href="">
-                                <img src="img/main/newsRecent2.webp" alt="Image" title="Жизнь посвященная службе"/>
-                                <p>Жизнь посвященная службе</p>
-                            </a>
-                        </li>
-                        <li class="news__recent-item">
-                            <a href="">
-                                <img src="img/main/newsRecent3.webp" alt="Image" title="Инновации в мире науки"/>
-                                <p>Инновации в мире науки</p>
-                            </a>
-                        </li>
-                        <li class="news__recent-item">
-                            <a href="#">
-                                <img src="img/main/newsRecent4.webp" alt="Image" title="Инновации в мире науки"/>
-                                <p>Инновации в мире науки</p>
-                            </a>
-                        </li>
-                        <li class="news__recent-item">
-                            <a href="#">
-                                <img src="img/main/newsRecent5.webp" alt="Image" title="Инновации в мире науки"/>
-                                <p>Инновации в мире науки</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
         </div>
     </div>
 </div>
 <?php
-//echo '<pre>';
-//print_r($arResult);
-//echo '</pre>';
-//?>
+echo '<pre>';
+print_r($arResult);
+echo '</pre>';
+?>

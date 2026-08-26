@@ -8,5 +8,7 @@
 
 use Sprint\Editor\Module;
 ?>
-<div class="news__slider swiper">
-    <div class="swiper-wrapper">
+<section class="universities__news">
+    <div class="news__slider swiper">
+        <div class="swiper-wrapper">
+

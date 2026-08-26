@@ -1,4 +1,4 @@
-
+<?php if ($_COOKIE['cookie_consent'] !== 'accepted'): ?>
 <div class="warning-cookie">
     <div class="warning-cookie__container">
         <div class="warning-cookie__content">
@@ -17,3 +17,4 @@
         </div>
     </div>
 </div>
+<?php endif; ?>

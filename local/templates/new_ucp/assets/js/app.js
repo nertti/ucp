@@ -5958,8 +5958,8 @@
 
         // Скрытие cookie-блока
         function closeCookie() {
-            cookie.classList.add("hidden");
             wrapper.classList.remove("cookie-active");
+            cookie.remove();
         }
 
         // Показываем cookie только если пользователь еще не сделал выбор
