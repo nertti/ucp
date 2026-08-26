@@ -225,8 +225,8 @@ $APPLICATION->SetTitle("Университет гражданской защит
                     <div class="home__feed-content">
                         <div class="home__feed-news">
                             <div class="title-block">
-                                <h2 class="title-two"><a href="/new/news/">Новости</a></h2>
-                                <a href="/new/news/" class="button-all">
+                                <h2 class="title-two"><a href="/news/">Новости</a></h2>
+                                <a href="/news/" class="button-all">
                                     <span>Все новости</span>
                                     <iconify-icon icon="lucide:chevron-right" width="24" height="24"
                                                   noobserver></iconify-icon>
