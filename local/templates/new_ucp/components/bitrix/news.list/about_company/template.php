@@ -20,7 +20,7 @@ $this->setFrameMode(true);
             ?>
             <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__about-list-item">
                 <div class="counters-block">
-                    <div data-digits-counter class="counters__item"><?= $arItem['NAME'] ?></div>
+                    <div data-digits-counter class="counters__item" translate="no"><?= $arItem['NAME'] ?></div>
                     <span>+</span>
                 </div>
                 <p><?= $arItem['PROPERTIES']['TEXT']['VALUE'] ?></p>
