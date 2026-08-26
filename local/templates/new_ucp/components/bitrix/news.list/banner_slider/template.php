@@ -3,6 +3,8 @@
         <div class="swiper-wrapper">
             <?php
             foreach ($arResult['ITEMS'] as $arItem):
+                $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
                 $properties = $arItem['PROPERTIES'];
 
@@ -49,7 +51,7 @@
                 }
                 ?>
 
-                <div class="swiper-slide">
+                <div id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="swiper-slide">
 
                     <?php if ($video): ?>
 
@@ -115,14 +117,13 @@
 
                                     <div class="preview-slider-content__action">
 
-                                        <?php foreach ($buttons as $key => $button): ?>
+                                        <?php foreach ($buttons
 
-                                            <?php if (!$button['LINK']) continue; ?>
+                                        as $key => $button): ?>
 
-                                            <a
-                                                    href="<?= htmlspecialcharsbx($button['LINK']) ?>"
-                                                    class="<?= $key === 0 ? 'button-blue' : 'button-white' ?>"
-                                            >
+                                        <?php if (!$button['LINK']) continue; ?>
+
+                                            <a href="<?= htmlspecialcharsbx($button['LINK']) ?>" class="<?= $key === 0 ? 'button-blue' : 'button-white' ?>">
                                     <span>
                                         <?= htmlspecialcharsbx($button['TEXT']) ?>
                                     </span>
@@ -135,7 +136,7 @@
                                                 ></iconify-icon>
                                             </a>
 
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
 
                                     </div>
 
