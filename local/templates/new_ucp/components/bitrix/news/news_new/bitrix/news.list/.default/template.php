@@ -52,14 +52,9 @@ while ($arSection = $rsSections->GetNext()) {
                 </div>
                 <div data-spollers class="spollers _spoller-init">
                     <details class="spollers__item" data-open open>
-                        <summary class="spollers__title _spoller-active">Категории новостей</summary>
+                        <summary class="spollers__title _spoller-active">Институты и филиалы</summary>
                         <div class="spollers__body">
                             <ul>
-                                <li>
-                                    <a href="#" class="section-link" data-section="0" data-all="1">
-                                        <span>Все новости</span>
-                                    </a>
-                                </li>
                                 <?php foreach ($arSections as $arSection): ?>
                                     <li>
                                         <a href="#" class="section-link" data-section="<?php echo $arSection['ID']; ?>">

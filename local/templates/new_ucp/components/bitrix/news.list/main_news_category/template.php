@@ -8,7 +8,7 @@ $this->setFrameMode(true);
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
         ?>
-        <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__feed-news-item" data-category="<?=$arItem['IBLOCK_SECTION_ID']?>">
+        <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__feed-news-item" data-category="<?=$arItem['PROPERTIES']['CATEGORY']['VALUE']?>">
             <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
                 <div class="home__feed-news-item-img">
                     <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>">

@@ -287,6 +287,12 @@ $APPLICATION->SetTitle("Университет гражданской защит
                             </div>
                             <div class="home__feed-news-content">
                                 <?php
+                                global $mainNewsFilter;
+
+                                $mainNewsFilter = [
+                                        '=PROPERTY_VIEW_ON_MAIN' => 119,
+                                ];
+
                                 $APPLICATION->IncludeComponent(
                                         "bitrix:news.list",
                                         "main_news",
@@ -295,13 +301,13 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                 "NEWS_COUNT" => "5",
                                                 "SORT_BY1" => "SORT",
                                                 "SORT_ORDER1" => "ASC",
-                                                "CACHE_TYPE" => "A",
+                                                "CACHE_TYPE" => "Y",
                                                 "CACHE_TIME" => "3600",
                                                 "COMPONENT_TEMPLATE" => "main_news",
                                                 "IBLOCK_TYPE" => "news",
                                                 "SORT_BY2" => "SORT",
                                                 "SORT_ORDER2" => "ASC",
-                                                "FILTER_NAME" => "",
+                                                "FILTER_NAME" => "mainNewsFilter",
                                                 "FIELD_CODE" => [
                                                         0 => "",
                                                         1 => "",
@@ -318,7 +324,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                 "AJAX_OPTION_STYLE" => "Y",
                                                 "AJAX_OPTION_HISTORY" => "N",
                                                 "AJAX_OPTION_ADDITIONAL" => "",
-                                                "CACHE_FILTER" => "N",
+                                                "CACHE_FILTER" => "Y",
                                                 "CACHE_GROUPS" => "Y",
                                                 "PREVIEW_TRUNCATE_LEN" => "",
                                                 "ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -330,7 +336,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                 "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
                                                 "ADD_SECTIONS_CHAIN" => "N",
                                                 "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                "PARENT_SECTION" => "645",
+                                                "PARENT_SECTION" => "",
                                                 "PARENT_SECTION_CODE" => "",
                                                 "INCLUDE_SUBSECTIONS" => "Y",
                                                 "STRICT_SECTION_CHECK" => "N",
@@ -356,19 +362,19 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 <div class="home__feed-news-latest">
                                     <nav class="home__feed-news-nav">
                                         <ul class="home__feed-news-nav-list">
-                                            <li class="home__feed-news-nav-item _active" data-tab="2">
+                                            <li class="home__feed-news-nav-item _active" data-tab="Новости университета">
                                                 <button type="button">
                                                     <iconify-icon icon="streamline-plump:graduation-cap" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Новости университета</p>
                                                 </button>
                                             </li>
-                                            <li class="home__feed-news-nav-item" data-tab="644">
+                                            <li class="home__feed-news-nav-item" data-tab="Наука и инновации">
                                                 <button type="button">
                                                     <iconify-icon icon="icon-park-outline:microscope-one" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Наука и инновации</p>
                                                 </button>
                                             </li>
-                                            <li class="home__feed-news-nav-item" data-tab="643">
+                                            <li class="home__feed-news-nav-item" data-tab="Безопасность жизнедеятельности">
                                                 <button type="button">
                                                     <iconify-icon icon="lucide:shield-check" width="24" height="24" noobserver=""></iconify-icon>
                                                     <p>Безопасность жизнедеятельности</p>
@@ -378,6 +384,13 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                     </nav>
                                     <ul class="home__feed-news-list">
                                     <?php
+                                    global $mainNewsFilter1;
+
+                                    $mainNewsFilter1 = [
+                                            '=PROPERTY_CATEGORY' => 120,
+                                            '!=PROPERTY_VIEW_ON_MAIN' => 119,
+                                    ];
+
                                     $APPLICATION->IncludeComponent(
                                             "bitrix:news.list",
                                             "main_news_category",
@@ -386,18 +399,19 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "NEWS_COUNT" => "4",
                                                     "SORT_BY1" => "SORT",
                                                     "SORT_ORDER1" => "ASC",
-                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TYPE" => "Y",
                                                     "CACHE_TIME" => "3600",
                                                     "COMPONENT_TEMPLATE" => "main_news_category",
-                                                    "IBLOCK_TYPE" => "",
+                                                    "IBLOCK_TYPE" => "news",
                                                     "SORT_BY2" => "SORT",
                                                     "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "",
+                                                    "FILTER_NAME" => "mainNewsFilter1",
                                                     "FIELD_CODE" => [
                                                             0 => "",
                                                             1 => "",
                                                     ],
                                                     "PROPERTY_CODE" => [
+                                                            0 => "CATEGORY",
                                                     ],
                                                     "CHECK_DATES" => "Y",
                                                     "DETAIL_URL" => "",
@@ -406,7 +420,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "AJAX_OPTION_STYLE" => "Y",
                                                     "AJAX_OPTION_HISTORY" => "N",
                                                     "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_FILTER" => "Y",
                                                     "CACHE_GROUPS" => "Y",
                                                     "PREVIEW_TRUNCATE_LEN" => "",
                                                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -418,7 +432,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
                                                     "ADD_SECTIONS_CHAIN" => "N",
                                                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "3",
+                                                    "PARENT_SECTION" => "",
                                                     "PARENT_SECTION_CODE" => "",
                                                     "INCLUDE_SUBSECTIONS" => "Y",
                                                     "STRICT_SECTION_CHECK" => "N",
@@ -443,6 +457,13 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                     ?>
 
                                     <?php
+                                    global $mainNewsFilter2;
+
+                                    $mainNewsFilter2 = [
+                                            '=PROPERTY_CATEGORY' => 121,
+                                            '=!PROPERTY_VIEW_ON_MAIN' => 119,
+                                    ];
+
                                     $APPLICATION->IncludeComponent(
                                             "bitrix:news.list",
                                             "main_news_category",
@@ -451,18 +472,19 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "NEWS_COUNT" => "4",
                                                     "SORT_BY1" => "SORT",
                                                     "SORT_ORDER1" => "ASC",
-                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TYPE" => "Y",
                                                     "CACHE_TIME" => "3600",
                                                     "COMPONENT_TEMPLATE" => "main_news_category",
                                                     "IBLOCK_TYPE" => "news",
                                                     "SORT_BY2" => "SORT",
                                                     "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "",
+                                                    "FILTER_NAME" => "mainNewsFilter2",
                                                     "FIELD_CODE" => [
                                                             0 => "",
                                                             1 => "",
                                                     ],
                                                     "PROPERTY_CODE" => [
+                                                            0 => "CATEGORY",
                                                     ],
                                                     "CHECK_DATES" => "Y",
                                                     "DETAIL_URL" => "",
@@ -471,7 +493,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "AJAX_OPTION_STYLE" => "Y",
                                                     "AJAX_OPTION_HISTORY" => "N",
                                                     "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_FILTER" => "Y",
                                                     "CACHE_GROUPS" => "Y",
                                                     "PREVIEW_TRUNCATE_LEN" => "",
                                                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -483,7 +505,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
                                                     "ADD_SECTIONS_CHAIN" => "N",
                                                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "643",
+                                                    "PARENT_SECTION" => "",
                                                     "PARENT_SECTION_CODE" => "",
                                                     "INCLUDE_SUBSECTIONS" => "Y",
                                                     "STRICT_SECTION_CHECK" => "N",
@@ -508,6 +530,13 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                     ?>
 
                                     <?php
+                                    global $mainNewsFilter3;
+
+                                    $mainNewsFilter3 = [
+                                            '=PROPERTY_CATEGORY' => 122,
+                                            '=!PROPERTY_VIEW_ON_MAIN' => 119,
+                                    ];
+
                                     $APPLICATION->IncludeComponent(
                                             "bitrix:news.list",
                                             "main_news_category",
@@ -516,18 +545,19 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "NEWS_COUNT" => "4",
                                                     "SORT_BY1" => "SORT",
                                                     "SORT_ORDER1" => "ASC",
-                                                    "CACHE_TYPE" => "A",
+                                                    "CACHE_TYPE" => "Y",
                                                     "CACHE_TIME" => "3600",
                                                     "COMPONENT_TEMPLATE" => "main_news_category",
                                                     "IBLOCK_TYPE" => "news",
                                                     "SORT_BY2" => "SORT",
                                                     "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "",
+                                                    "FILTER_NAME" => "mainNewsFilter3",
                                                     "FIELD_CODE" => [
                                                             0 => "",
                                                             1 => "",
                                                     ],
                                                     "PROPERTY_CODE" => [
+                                                            0 => "CATEGORY",
                                                     ],
                                                     "CHECK_DATES" => "Y",
                                                     "DETAIL_URL" => "",
@@ -536,7 +566,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "AJAX_OPTION_STYLE" => "Y",
                                                     "AJAX_OPTION_HISTORY" => "N",
                                                     "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "N",
+                                                    "CACHE_FILTER" => "Y",
                                                     "CACHE_GROUPS" => "Y",
                                                     "PREVIEW_TRUNCATE_LEN" => "",
                                                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -548,7 +578,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                                     "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
                                                     "ADD_SECTIONS_CHAIN" => "N",
                                                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "644",
+                                                    "PARENT_SECTION" => "",
                                                     "PARENT_SECTION_CODE" => "",
                                                     "INCLUDE_SUBSECTIONS" => "Y",
                                                     "STRICT_SECTION_CHECK" => "N",
