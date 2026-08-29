@@ -21,12 +21,12 @@ $this->setFrameMode(true);
                     ?>
                     <div class="swiper-slide">
                         <div class="preview-slider-img-two">
-                            <img src="<?=$urlImage?>" alt="Image" title="Превью"/>
+                            <img src="<?= $urlImage ?>" alt="Image" title="Превью"/>
                         </div>
                         <div class="preview__info">
                             <div class="preview__container">
                                 <h1 class="title-one" data-da=".title-mobile,950, 1">
-                                    <?=$arResult['NAME']?>
+                                    <?= $arResult['NAME'] ?>
                                 </h1>
                                 <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
                                     <ul class="breadcrumbs__list">
@@ -34,14 +34,14 @@ $this->setFrameMode(true);
                                             <a href="/" class="breadcrumbs__link">Главная</a>
                                         </li>
                                         <li class="breadcrumbs__item">
-                                            <a href="#" class="breadcrumbs__link"><?=$arResult['NAME']?></a>
+                                            <a href="#" class="breadcrumbs__link"><?= $arResult['NAME'] ?></a>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                     </div>
-                <?php endforeach;?>
+                <?php endforeach; ?>
             </div>
             <div class="preview-slider-pagination"></div>
         </div>
@@ -69,36 +69,36 @@ $this->setFrameMode(true);
                     <li class="page__sidebar-event-item"><a href="#">Контактная информация</a></li>
                 </ul>
             </div>
-<!--            <ul class="page__banners">-->
-<!--                <li class="page__banners-item">-->
-<!--                    <a href="cart.html">-->
-<!--                        <img src="img/main/servicesBanner1.webp" alt="Image" title="Баннер 1"/>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="page__banners-item">-->
-<!--                    <img src="img/main/servicesBanner2.webp" alt="Image" title="Баннер 2"/>-->
-<!--                </li>-->
-<!--                <li class="page__banners-item">-->
-<!--                    <a href="cart.html">-->
-<!--                        <img src="img/main/servicesBanner3.webp" alt="Image" title="Баннер 3"/>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="page__banners-item">-->
-<!--                    <a href="cart.html">-->
-<!--                        <img src="img/main/servicesBanner4.webp" alt="Image" title="Баннер 4"/>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="page__banners-item">-->
-<!--                    <a href="cart.html">-->
-<!--                        <img src="img/main/servicesBanner5.webp" alt="Image" title="Баннер 5"/>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--            </ul>-->
-            <?if(\Bitrix\Main\Loader::includeModule("advertising")):?>
-                <?$APPLICATION->IncludeComponent(
+            <!--            <ul class="page__banners">-->
+            <!--                <li class="page__banners-item">-->
+            <!--                    <a href="cart.html">-->
+            <!--                        <img src="img/main/servicesBanner1.webp" alt="Image" title="Баннер 1"/>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--                <li class="page__banners-item">-->
+            <!--                    <img src="img/main/servicesBanner2.webp" alt="Image" title="Баннер 2"/>-->
+            <!--                </li>-->
+            <!--                <li class="page__banners-item">-->
+            <!--                    <a href="cart.html">-->
+            <!--                        <img src="img/main/servicesBanner3.webp" alt="Image" title="Баннер 3"/>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--                <li class="page__banners-item">-->
+            <!--                    <a href="cart.html">-->
+            <!--                        <img src="img/main/servicesBanner4.webp" alt="Image" title="Баннер 4"/>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--                <li class="page__banners-item">-->
+            <!--                    <a href="cart.html">-->
+            <!--                        <img src="img/main/servicesBanner5.webp" alt="Image" title="Баннер 5"/>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--            </ul>-->
+            <? if (\Bitrix\Main\Loader::includeModule("advertising")): ?>
+                <? $APPLICATION->IncludeComponent(
                         "bitrix:advertising.banner",
                         "left", // Шаблон компонента (по умолчанию .default)
-                        Array(
+                        array(
                                 "TYPE" => "left",         // Символьный код типа баннера
                                 "NOINDEX" => "Y",         // Оборачивать ссылки баннера в тег <noindex>
                                 "CACHE_TYPE" => "A",     // Автоматическое кеширование
@@ -106,8 +106,8 @@ $this->setFrameMode(true);
                                 "QUANTITY" => "5",
                         ),
                         false
-                );?>
-            <?endif;?>
+                ); ?>
+            <? endif; ?>
         </nav>
         <div class="page__content">
             <div class="universities__info-mobile">
@@ -115,15 +115,18 @@ $this->setFrameMode(true);
                 <div class="breadcrumbs-mobile"></div>
                 <div class="event-mobile"></div>
             </div>
-            <div class="title-block">
-                <h2 class="title-two">Новости</h2>
-                <a href="/news/?section[]=<?=$arResult['PROPERTIES']['NEWS']['VALUE']?>" class="button-all">
-                    <span>Все новости</span>
-                    <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
-                </a>
-            </div>
+            <?php if (!empty($arResult['PROPERTIES']['NEWS']['VALUE'])): ?>
+                <div class="title-block">
+                    <h2 class="title-two">Новости</h2>
+                    <a href="/news/?section[]=<?= $arResult['PROPERTIES']['NEWS']['VALUE'] ?>" class="button-all">
+                        <span>Все новости</span>
+                        <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
+                    </a>
+                </div>
+            <?php endif; ?>
+
             <div class="universities__content">
-                <?php if(!empty($arResult['PROPERTIES']['NEWS']['VALUE'])):?>
+                <?php if (!empty($arResult['PROPERTIES']['NEWS']['VALUE'])): ?>
                     <section class="universities__news-main">
                         <div class="home__feed-news">
                             <?php
@@ -195,7 +198,7 @@ $this->setFrameMode(true);
                             ?>
                         </div>
                     </section>
-                <?php endif;?>
+                <?php endif; ?>
                 <?php $APPLICATION->IncludeComponent(
                         "sprint.editor:blocks",
                         "slider",
@@ -207,7 +210,7 @@ $this->setFrameMode(true);
                         $component,
                 ); ?>
 
-                <section class="page__services">
+                <section class="page__services" style="display: none">
                     <div class="title-block">
                         <h2 class="title-two">
                             <a href="">Услуги</a>
@@ -292,6 +295,154 @@ $this->setFrameMode(true);
                             </a>
                         </li>
                     </ul>
+                </section>
+                <section class="home__news">
+                    <div class="home__container">
+                        <?php
+                        global $projectFilter;
+
+                        $projectFilter = [
+                                '=SECTION_CODE' => $arResult['CODE'],
+                        ];
+                        $APPLICATION->IncludeComponent(
+                                "bitrix:news.list",
+                                "projects",
+                                [
+                                        "IBLOCK_ID" => "83",
+                                        "NEWS_COUNT" => "10",
+                                        "SORT_BY1" => "SORT",
+                                        "SORT_ORDER1" => "ASC",
+                                        "CACHE_TYPE" => "A",
+                                        "CACHE_TIME" => "3600",
+                                        "COMPONENT_TEMPLATE" => "projects",
+                                        "IBLOCK_TYPE" => "projects",
+                                        "SORT_BY2" => "SORT",
+                                        "SORT_ORDER2" => "ASC",
+                                        "FILTER_NAME" => "projectFilter",
+                                        "FIELD_CODE" => [
+                                                0 => "",
+                                                1 => "",
+                                        ],
+                                        "PROPERTY_CODE" => [
+                                                0 => "TEXT",
+                                                1 => "",
+                                        ],
+                                        "CHECK_DATES" => "Y",
+                                        "DETAIL_URL" => "",
+                                        "AJAX_MODE" => "N",
+                                        "AJAX_OPTION_JUMP" => "N",
+                                        "AJAX_OPTION_STYLE" => "Y",
+                                        "AJAX_OPTION_HISTORY" => "N",
+                                        "AJAX_OPTION_ADDITIONAL" => "",
+                                        "CACHE_FILTER" => "N",
+                                        "CACHE_GROUPS" => "Y",
+                                        "PREVIEW_TRUNCATE_LEN" => "",
+                                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                        "SET_TITLE" => "Y",
+                                        "SET_BROWSER_TITLE" => "Y",
+                                        "SET_META_KEYWORDS" => "Y",
+                                        "SET_META_DESCRIPTION" => "Y",
+                                        "SET_LAST_MODIFIED" => "N",
+                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                        "PARENT_SECTION" => "",
+                                        "PARENT_SECTION_CODE" => "",
+                                        "INCLUDE_SUBSECTIONS" => "Y",
+                                        "STRICT_SECTION_CHECK" => "N",
+                                        "PAGER_TEMPLATE" => ".default",
+                                        "DISPLAY_TOP_PAGER" => "N",
+                                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                                        "PAGER_TITLE" => "Новости",
+                                        "PAGER_SHOW_ALWAYS" => "N",
+                                        "PAGER_DESC_NUMBERING" => "N",
+                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                        "PAGER_SHOW_ALL" => "N",
+                                        "PAGER_BASE_LINK_ENABLE" => "N",
+                                        "SET_STATUS_404" => "N",
+                                        "SHOW_404" => "N",
+                                        "MESSAGE_404" => ""
+                                ],
+                                false
+                        );
+                        ?>
+                        <div class="news__recent-content">
+                            <ul class="news__recent">
+                                <?php
+                                global $newsFilter;
+
+                                $newsFilter = [
+                                        '=PROPERTY_TAGS' => 'project',
+                                        '=SECTION_CODE' => $arResult['CODE'],
+                                ];
+
+                                $APPLICATION->IncludeComponent(
+                                        "bitrix:news.list",
+                                        "news_line",
+                                        [
+                                                "IBLOCK_ID" => "2",
+                                                "NEWS_COUNT" => "5",
+                                                "SORT_BY1" => "SORT",
+                                                "SORT_ORDER1" => "ASC",
+                                                "CACHE_TYPE" => "Y",
+                                                "CACHE_TIME" => "3600",
+                                                "COMPONENT_TEMPLATE" => "news_line",
+                                                "IBLOCK_TYPE" => "news",
+                                                "SORT_BY2" => "SORT",
+                                                "SORT_ORDER2" => "ASC",
+                                                "FILTER_NAME" => "newsFilter",
+                                                "FIELD_CODE" => [
+                                                        0 => "",
+                                                        1 => "",
+                                                ],
+                                                "PROPERTY_CODE" => [
+                                                        0 => "CATEGORY",
+                                                ],
+                                                "CHECK_DATES" => "Y",
+                                                "DETAIL_URL" => "",
+                                                "AJAX_MODE" => "N",
+                                                "AJAX_OPTION_JUMP" => "N",
+                                                "AJAX_OPTION_STYLE" => "Y",
+                                                "AJAX_OPTION_HISTORY" => "N",
+                                                "AJAX_OPTION_ADDITIONAL" => "",
+                                                "CACHE_FILTER" => "Y",
+                                                "CACHE_GROUPS" => "Y",
+                                                "PREVIEW_TRUNCATE_LEN" => "",
+                                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                "SET_TITLE" => "N",
+                                                "SET_BROWSER_TITLE" => "N",
+                                                "SET_META_KEYWORDS" => "N",
+                                                "SET_META_DESCRIPTION" => "N",
+                                                "SET_LAST_MODIFIED" => "N",
+                                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                "ADD_SECTIONS_CHAIN" => "N",
+                                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                "PARENT_SECTION" => "",
+                                                "PARENT_SECTION_CODE" => "",
+                                                "INCLUDE_SUBSECTIONS" => "Y",
+                                                "STRICT_SECTION_CHECK" => "N",
+                                                "PAGER_TEMPLATE" => ".default",
+                                                "DISPLAY_TOP_PAGER" => "N",
+                                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                "PAGER_TITLE" => "Новости",
+                                                "PAGER_SHOW_ALWAYS" => "N",
+                                                "PAGER_DESC_NUMBERING" => "N",
+                                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                "PAGER_SHOW_ALL" => "N",
+                                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                                "SET_STATUS_404" => "N",
+                                                "SHOW_404" => "N",
+                                                "MESSAGE_404" => ""
+                                        ],
+                                        false,
+                                        [
+                                                "HIDE_ICONS" => "Y"
+                                        ]
+                                );
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
