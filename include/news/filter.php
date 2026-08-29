@@ -1,86 +1,162 @@
+<?php
+
+use Bitrix\Main\Loader;
+
+if (!Loader::includeModule('iblock')) {
+    return;
+}
+
+$iblockId = (int)$arParams['IBLOCK_ID'];
+
+// Получаем ID свойства CATEGORY
+$categoryPropertyId = 0;
+
+$propertyRes = CIBlockProperty::GetList(
+        [],
+        [
+                'IBLOCK_ID' => $iblockId,
+                'CODE' => 'CATEGORY',
+        ]
+);
+
+if ($property = $propertyRes->Fetch()) {
+    $categoryPropertyId = (int)$property['ID'];
+}
+
+// Получаем значения CATEGORY
+$categories = [];
+
+if ($categoryPropertyId) {
+    $enumRes = CIBlockPropertyEnum::GetList(
+            ['SORT' => 'ASC'],
+            ['PROPERTY_ID' => $categoryPropertyId]
+    );
+
+    while ($enum = $enumRes->GetNext()) {
+        $categories[] = $enum;
+    }
+}
+
+// Получаем разделы первого уровня
+$sections = [];
+
+$sectionRes = CIBlockSection::GetList(
+        ['SORT' => 'ASC', 'NAME' => 'ASC'],
+        [
+                'IBLOCK_ID' => $iblockId,
+                'ACTIVE' => 'Y',
+                'DEPTH_LEVEL' => 1,
+        ],
+        false,
+        [
+                'ID',
+                'NAME',
+                'SORT',
+        ]
+);
+
+while ($section = $sectionRes->GetNext()) {
+    $sections[] = $section;
+}
+?>
+
 <div class="page__sidebar-content" data-da=".page__sidebar-content-mobile,950, 1">
+
     <div class="page__sidebar-search-content">
         <p>Быстрый поиск</p>
+
         <div class="page__sidebar-search">
             <div class="page__sidebar-search-input">
-                <button class="page__sidebar-search-btn page__sidebar-search-btn--search">
+
+                <button
+                        type="button"
+                        class="page__sidebar-search-btn page__sidebar-search-btn--search"
+                >
                     <div class="page__sidebar-search-btn-icon">
-                        <iconify-icon icon="lucide:search" width="100%" height="100%" noobserver></iconify-icon>
+                        <iconify-icon
+                                icon="lucide:search"
+                                width="100%"
+                                height="100%"
+                                noobserver
+                        ></iconify-icon>
                     </div>
                 </button>
 
-                <input type="text" placeholder="Введите запрос..."/>
+                <input
+                        type="text"
+                        name="news_search"
+                        placeholder="Введите запрос..."
+                        autocomplete="off"
+                />
 
-                <button class="page__sidebar-search-btn page__sidebar-search-btn--clear">
+                <button
+                        type="button"
+                        class="page__sidebar-search-btn page__sidebar-search-btn--clear"
+                >
                     <div class="page__sidebar-search-btn-icon">
-                        <iconify-icon icon="lucide:x" width="100%" height="100%" noobserver></iconify-icon>
+                        <iconify-icon
+                                icon="lucide:x"
+                                width="100%"
+                                height="100%"
+                                noobserver
+                        ></iconify-icon>
                     </div>
                 </button>
+
             </div>
         </div>
     </div>
+
     <div data-spollers class="spollers">
+
+        <!-- Категории -->
         <details class="spollers__item" data-open>
-            <summary class="spollers__title">Категории новостей</summary>
+            <summary class="spollers__title">
+                Категории новостей
+            </summary>
+
             <div class="spollers__body">
                 <ul>
-                    <li>
-                        <a href="#">
-                            <span>Новости университета</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
+                    <?php foreach ($categories as $category): ?>
+                        <li>
+                            <a
+                                    href="/"
+                                    class="news-filter-category"
+                                    data-category="<?= (int)$category['ID'] ?>"
+                            >
+                                <span><?= htmlspecialcharsbx($category['VALUE']) ?></span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
 
-                            <span>Наука и инновации</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-                            <span>Безопасность жизнедеятельности</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </details>
+
+
+        <!-- Институты и филиалы -->
         <details class="spollers__item">
-            <summary class="spollers__title">Институты и филиалы</summary>
+            <summary class="spollers__title">
+                Институты и филиалы
+            </summary>
+
             <div class="spollers__body">
                 <ul>
-                    <li>
-                        <a href="#">
+                    <?php foreach ($sections as $section): ?>
+                        <li>
+                            <a
+                                    href="#"
+                                    class="news-filter-section"
+                                    data-section="<?= (int)$section['ID'] ?>"
+                            >
+                                <span><?= htmlspecialcharsbx($section['NAME']) ?></span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
 
-                            <span>Институт профессионального образования</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-                            <span>Институт переподготовки и повышения квалификации</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-                            <span>Институт теории и практики безопасности жизнедеятельности</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-												<span>Научно-исследовательский институт пожарной безопасности и
-													проблем чрезвычайных ситуаций</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-                            <span>Специализированный лицей</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </details>
+
     </div>
 </div>

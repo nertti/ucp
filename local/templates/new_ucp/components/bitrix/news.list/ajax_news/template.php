@@ -1,4 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
+    die();
+}
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -11,21 +14,46 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-$SECTION_ID=$arResult["ITEMS"][0]['IBLOCK_SECTION_ID'];
 ?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?
-	if($arItem['PREVIEW_PICTURE']['ID'])
-		$file = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE']['ID'], array('width'=>110, 'height'=>90), BX_RESIZE_IMAGE_EXACT, true);
-	else
-		$file['src']='/i/no-photo.jpg';
-	?>
-	<li<?if($SECTION_ID==98):?> class="mini"<?endif;?>>
-		<?if($SECTION_ID!=98):?>
-		<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$file['src']?>" alt="<?echo $arItem["NAME"]?>"></a>
-		<?endif;?>
-		<h2><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a></h2>
-		<span><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></span>
-		<p><?echo $arItem["PREVIEW_TEXT"];?></p>
-	</li>
-<?endforeach;?>
+<?php if (!empty($arResult["ITEMS"])): ?>
+    <ul class="news__list">
+        <?php foreach ($arResult["ITEMS"] as $arItem):
+            $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+            $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+            ?>
+            <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="news__list-item">
+                <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-img">
+                    <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
+                         title="<?= $arItem['NAME'] ?>"/>
+                </a>
+                <div class="news__list-item-info">
+                    <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-info-content">
+                        <div class="date">
+                            <iconify-icon icon="lsicon:calendar-outline" width="18" height="18"
+                                          noobserver></iconify-icon>
+                            <span><?= (new DateTime($arItem['ACTIVE_FROM']))->format('d.m.Y') ?></span>
+                        </div>
+                        <h5>
+                            <?= $arItem['NAME'] ?>
+                        </h5>
+                        <p>
+                            <?= $arItem['PREVIEW_TEXT'] ?>
+                        </p>
+                    </a>
+                    <?php if ($arItem['HASHTAGS']): ?>
+                        <ul class="hashtags">
+                            <?php foreach ($arItem['HASHTAGS'] as $hashtag): ?>
+                                <li class="hashtags__item">
+                                    <a href="?<?= htmlspecialcharsbx($hashtag['LINK']) ?>">#<?= htmlspecialcharsbx($hashtag['NAME']) ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+        <?php echo $arResult["NAV_STRING"]; ?>
+    <?php endif; ?>
+<?php endif; ?>
