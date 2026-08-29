@@ -40,7 +40,7 @@ $this->setFrameMode(true);
                             <?= $arItem['PREVIEW_TEXT'] ?>
                         </p>
                     </a>
-                    <?php if ($arItem['HASHTAGS']['TAGS']): ?>
+                    <?php if (!empty($arItem['HASHTAGS']['TAGS'])): ?>
                         <ul class="hashtags">
                             <?php foreach ($arItem['HASHTAGS']['TAGS'] as $hashtagTag): ?>
                                 <li class="hashtags__item">
@@ -56,13 +56,15 @@ $this->setFrameMode(true);
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
-                    <?php if ($arItem['HASHTAGS']['PROJECTS']): ?>
+
+
+                    <?php if (!empty($arItem['HASHTAGS']['PROJECTS'])): ?>
                         <ul class="hashtags">
                             <?php foreach ($arItem['HASHTAGS']['PROJECTS'] as $hashtagProject): ?>
                                 <li class="hashtags__item">
                                     <a
-                                            class="news-filter-tag"
-                                            data-tag="<?= htmlspecialcharsbx($hashtagProject['XML_ID']) ?>"
+                                            class="news-filter-project"
+                                            data-project="<?= htmlspecialcharsbx($hashtagProject['XML_ID']) ?>"
                                             data-name="<?= htmlspecialcharsbx($hashtagProject['NAME']) ?>"
                                             href="?<?= htmlspecialcharsbx($hashtagProject['LINK']) ?>"
                                     >
