@@ -1,37 +1,42 @@
 <?php
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
-{
-	die();
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
+    die();
 }
-$hashtags = [];
 
-foreach ($arResult["ITEMS"] as &$arItem){
+foreach ($arResult["ITEMS"] as &$arItem) {
+    $hashtags = [];
 
-// TAGS
+// Теги
     if (!empty($arItem['PROPERTIES']['TAGS']['VALUE'])) {
-        $tags = getHLData(
-            'Tags',
-            ['UF_XML_ID', 'UF_NAME'],
-            ['UF_XML_ID' => (array)$arItem['PROPERTIES']['TAGS']['VALUE']]
-        );
-        foreach ($tags as $tag) {
-            if (!empty($tag['UF_NAME'])) {
-                $hashtags[] = $tag['UF_NAME'];
+        $tagXmlIds = (array)$arItem['PROPERTIES']['TAGS']['VALUE'];
+        foreach ($tagXmlIds as $xmlId) {
+            $tags = getHLData(
+                'Tags',
+                ['UF_XML_ID' => $xmlId]
+            );
+            foreach ($tags as $tag) {
+                if (!empty($tag['UF_NAME'])) {
+                    $arTag = ['NAME' => $tag['UF_NAME'], 'LINK' => 'tag='.$tag['UF_NAME']];
+                    $hashtags[] = $arTag;
+                }
             }
         }
     }
 
-// PROJECTS
+// Проекты
     if (!empty($arItem['PROPERTIES']['PROJECTS']['VALUE'])) {
-        $projects = getHLData(
-            'Projects',
-            ['UF_XML_ID', 'UF_NAME'],
-            ['UF_XML_ID' => (array)$arItem['PROPERTIES']['PROJECTS']['VALUE']]
-        );
+        $projectXmlIds = (array)$arItem['PROPERTIES']['PROJECTS']['VALUE'];
 
-        foreach ($projects as $project) {
-            if (!empty($project['UF_NAME'])) {
-                $hashtags[] = $project['UF_NAME'];
+        foreach ($projectXmlIds as $xmlId) {
+            $projects = getHLData(
+                'projects',
+                ['UF_XML_ID' => $xmlId]
+            );
+            foreach ($projects as $project) {
+                if (!empty($project['UF_NAME'])) {
+                    $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project='.$project['UF_NAME']];
+                    $hashtags[] = $arProject;
+                }
             }
         }
     }

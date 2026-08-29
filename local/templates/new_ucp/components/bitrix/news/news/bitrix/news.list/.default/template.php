@@ -14,19 +14,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-$arSections = array();
-$rsSections = CIBlockSection::GetList(
-    array('SORT' => 'ASC', 'NAME' => 'ASC'),
-    array('IBLOCK_ID' => 2, 'ACTIVE' => 'Y'),
-    false,
-    array('ID', 'NAME')
-);
-while ($arSection = $rsSections->GetNext()) {
-    $arSections[] = $arSection;
-}
-
-//pr($arSections);
 ?>
 <main class="page">
     <div class="page__container">
@@ -108,7 +95,7 @@ while ($arSection = $rsSections->GetNext()) {
                                     <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="news__list-item-info-content">
                                         <div class="date">
                                             <iconify-icon icon="lsicon:calendar-outline" width="18" height="18" noobserver></iconify-icon>
-                                            <span><?=$arItem['DATE_ACTIVE_FROM']?></span>
+                                            <span><?= (new DateTime($arItem['ACTIVE_FROM']))->format('d.m.Y') ?></span>
                                         </div>
                                         <h5>
                                             <?=$arItem['NAME']?>
@@ -121,7 +108,7 @@ while ($arSection = $rsSections->GetNext()) {
                                     <ul class="hashtags">
                                     <?php foreach ($arItem['HASHTAGS'] as $hashtag): ?>
                                             <li class="hashtags__item">
-                                                <a href="#">#<?= htmlspecialcharsbx($hashtag) ?></a>
+                                                <a href="?<?= htmlspecialcharsbx($hashtag['LINK']) ?>">#<?= htmlspecialcharsbx($hashtag['NAME']) ?></a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
