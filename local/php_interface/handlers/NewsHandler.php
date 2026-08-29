@@ -47,4 +47,13 @@ function onAfterIBlockElementAddHandler(&$arFields)
         'UF_NAME'   => $shortName,
         'UF_XML_ID' => $xmlId,
     ]);
+
+    // Сохраняем английскую версию в TAG
+    CIBlockElement::SetPropertyValuesEx(
+        $arFields['ID'],
+        83,
+        [
+            'TAG' => $xmlId,
+        ]
+    );
 }
