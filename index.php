@@ -1186,41 +1186,77 @@ $APPLICATION->SetTitle("Университет гражданской защит
                             <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
                         </a>
                         <ul class="news__recent">
-                            <li class="news__recent-item">
-                                <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent1.webp" alt="Image"
-                                         title="Электронный журнал UCP LIVE"/>
-                                    <p>Электронный журнал UCP LIVE</p>
-                                </a>
-                            </li>
-                            <li class="news__recent-item">
-                                <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent2.webp" alt="Image"
-                                         title="Жизнь посвященная службе"/>
-                                    <p>Жизнь посвященная службе</p>
-                                </a>
-                            </li>
-                            <li class="news__recent-item">
-                                <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent3.webp" alt="Image"
-                                         title="Инновации в мире науки"/>
-                                    <p>Инновации в мире науки</p>
-                                </a>
-                            </li>
-                            <li class="news__recent-item">
-                                <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent4.webp" alt="Image"
-                                         title="Инновации в мире науки"/>
-                                    <p>Инновации в мире науки</p>
-                                </a>
-                            </li>
-                            <li class="news__recent-item">
-                                <a href="/new/sobytiya/?ELEMENT_ID=29112">
-                                    <img src="/local/templates/new_ucp/assets/img/main/newsRecent5.webp" alt="Image"
-                                         title="Инновации в мире науки"/>
-                                    <p>Инновации в мире науки</p>
-                                </a>
-                            </li>
+                            <?php
+                            global $mainNewsFilter4;
+
+                            $mainNewsFilter4 = [
+                                    '=PROPERTY_TAGS' => 'project',
+                            ];
+
+                            $APPLICATION->IncludeComponent(
+                                    "bitrix:news.list",
+                                    "news_line",
+                                    [
+                                            "IBLOCK_ID" => "2",
+                                            "NEWS_COUNT" => "5",
+                                            "SORT_BY1" => "SORT",
+                                            "SORT_ORDER1" => "ASC",
+                                            "CACHE_TYPE" => "Y",
+                                            "CACHE_TIME" => "3600",
+                                            "COMPONENT_TEMPLATE" => "news_line",
+                                            "IBLOCK_TYPE" => "news",
+                                            "SORT_BY2" => "SORT",
+                                            "SORT_ORDER2" => "ASC",
+                                            "FILTER_NAME" => "mainNewsFilter4",
+                                            "FIELD_CODE" => [
+                                                    0 => "",
+                                                    1 => "",
+                                            ],
+                                            "PROPERTY_CODE" => [
+                                                    0 => "CATEGORY",
+                                            ],
+                                            "CHECK_DATES" => "Y",
+                                            "DETAIL_URL" => "",
+                                            "AJAX_MODE" => "N",
+                                            "AJAX_OPTION_JUMP" => "N",
+                                            "AJAX_OPTION_STYLE" => "Y",
+                                            "AJAX_OPTION_HISTORY" => "N",
+                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                            "CACHE_FILTER" => "Y",
+                                            "CACHE_GROUPS" => "Y",
+                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                            "SET_TITLE" => "N",
+                                            "SET_BROWSER_TITLE" => "N",
+                                            "SET_META_KEYWORDS" => "N",
+                                            "SET_META_DESCRIPTION" => "N",
+                                            "SET_LAST_MODIFIED" => "N",
+                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                            "ADD_SECTIONS_CHAIN" => "N",
+                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                            "PARENT_SECTION" => "",
+                                            "PARENT_SECTION_CODE" => "",
+                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                            "STRICT_SECTION_CHECK" => "N",
+                                            "PAGER_TEMPLATE" => ".default",
+                                            "DISPLAY_TOP_PAGER" => "N",
+                                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                                            "PAGER_TITLE" => "Новости",
+                                            "PAGER_SHOW_ALWAYS" => "N",
+                                            "PAGER_DESC_NUMBERING" => "N",
+                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                            "PAGER_SHOW_ALL" => "N",
+                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                            "SET_STATUS_404" => "N",
+                                            "SHOW_404" => "N",
+                                            "MESSAGE_404" => ""
+                                    ],
+                                    false,
+                                    [
+                                            "HIDE_ICONS" => "Y"
+                                    ]
+                            );
+                            ?>
                         </ul>
                     </div>
                 </div>
