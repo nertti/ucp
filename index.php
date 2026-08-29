@@ -1093,93 +1093,69 @@ $APPLICATION->SetTitle("Университет гражданской защит
             <!-- Секция: новости -->
             <section class="home__news">
                 <div class="home__container">
-                    <div class="news__slider swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="news__slider-wrapper">
-                                    <a href="https://ucp.by/university/news/novosti-universiteta/zhenshchina-i-vremya-soyuz-zhenshchin-ugz-i-kommunarki-obedinilis-na-dialogovoy-ploshchadke/"
-                                       class="news__slider-img">
-                                        <img src="https://ucp.by/upload/iblock/5bb/itg1bhm7qomjf0bffczyomho3tb85rxr.jpg"
-                                             alt="Image"
-                                             title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»"/>
-                                    </a>
-                                    <div class="news__slider-action">
-                                        <button class="news__slider-button-prev swiper-button-prev">
-                                            <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                        <button class="news__slider-button-next swiper-button-next">
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="news__slider-content">
-                                    <div class="news__slider-info">
-                                        <h2 class="title-two">
-                                            <a href="https://ucp.by/university/news/novosti-universiteta/zhenshchina-i-vremya-soyuz-zhenshchin-ugz-i-kommunarki-obedinilis-na-dialogovoy-ploshchadke/">
-                                                Женщина и время: Союз женщин УГЗ и «Коммунарки» объединились на
-                                                диалоговой площадке</a>
-                                        </h2>
-                                        <p class="text">
-                                            лены первичной организации Союза женщин Университета гражданской защиты МЧС
-                                            побывали на кондитерской фабрике «Коммунарка», где в рамках диалоговой
-                                            площадки «Женщина и время: от идей к действиям» встретились с
-                                            представителями первичной организации Белорусского союза женщин предприятия.
-                                        </p>
-                                        <a href="https://ucp.by/university/news/novosti-universiteta/zhenshchina-i-vremya-soyuz-zhenshchin-ugz-i-kommunarki-obedinilis-na-dialogovoy-ploshchadke/"
-                                           class="button-detail">
-                                            <span>Подробне</span>
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="news__slider-wrapper">
-                                    <a href="https://ucp.by/university/news/novosti-universiteta/rol-zhenshchiny-v-sisteme-bezopasnosti-itogi-otchetno-vybornoy-konferentsii-soyuza-zhenshchin-mchs/"
-                                       class="news__slider-img">
-                                        <img src="https://ucp.by/upload/iblock/eae/nkxo11eo2iuub9al5ync8cvlemdpno14.JPG"
-                                             alt="Image"
-                                             title="Проект к Году белорусской женщины: «Женщины МЧС. Профессия добрых дел»"/>
-                                    </a>
-                                    <div class="news__slider-action">
-                                        <button class="news__slider-button-prev swiper-button-prev">
-                                            <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                        <button class="news__slider-button-next swiper-button-next">
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="news__slider-content">
-                                    <div class="news__slider-info">
-                                        <h2 class="title-two">
-                                            <a href="https://ucp.by/university/news/novosti-universiteta/rol-zhenshchiny-v-sisteme-bezopasnosti-itogi-otchetno-vybornoy-konferentsii-soyuza-zhenshchin-mchs/">
-                                                Роль женщины в системе безопасности: итоги отчетно-выборной конференции
-                                                Союза женщин МЧС</a>
-                                        </h2>
-                                        <p class="text">
-                                            В Университете гражданской защиты МЧС состоялась III Республиканская
-                                            отчетно-выборная конференция Объединенной организации Министерства по
-                                            чрезвычайным ситуациям Республики Беларусь ОО «Белорусский союз женщин».
-                                            Мероприятие объединило председателей первичных организаций со всей страны,
-                                            представителей областных структур и почетных гостей.
-                                        </p>
-                                        <a href="https://ucp.by/university/news/novosti-universiteta/rol-zhenshchiny-v-sisteme-bezopasnosti-itogi-otchetno-vybornoy-konferentsii-soyuza-zhenshchin-mchs/"
-                                           class="button-detail">
-                                            <span>Подробне</span>
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $APPLICATION->IncludeComponent(
+                            "bitrix:news.list",
+                            "projects",
+                            [
+                                    "IBLOCK_ID" => "83",
+                                    "NEWS_COUNT" => "10",
+                                    "SORT_BY1" => "SORT",
+                                    "SORT_ORDER1" => "ASC",
+                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TIME" => "3600",
+                                    "COMPONENT_TEMPLATE" => "projects",
+                                    "IBLOCK_TYPE" => "projects",
+                                    "SORT_BY2" => "SORT",
+                                    "SORT_ORDER2" => "ASC",
+                                    "FILTER_NAME" => "",
+                                    "FIELD_CODE" => [
+                                            0 => "",
+                                            1 => "",
+                                    ],
+                                    "PROPERTY_CODE" => [
+                                            0 => "TEXT",
+                                            1 => "",
+                                    ],
+                                    "CHECK_DATES" => "Y",
+                                    "DETAIL_URL" => "",
+                                    "AJAX_MODE" => "N",
+                                    "AJAX_OPTION_JUMP" => "N",
+                                    "AJAX_OPTION_STYLE" => "Y",
+                                    "AJAX_OPTION_HISTORY" => "N",
+                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                    "CACHE_FILTER" => "N",
+                                    "CACHE_GROUPS" => "Y",
+                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                    "SET_TITLE" => "Y",
+                                    "SET_BROWSER_TITLE" => "Y",
+                                    "SET_META_KEYWORDS" => "Y",
+                                    "SET_META_DESCRIPTION" => "Y",
+                                    "SET_LAST_MODIFIED" => "N",
+                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                    "ADD_SECTIONS_CHAIN" => "Y",
+                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                    "PARENT_SECTION" => "",
+                                    "PARENT_SECTION_CODE" => "",
+                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                    "STRICT_SECTION_CHECK" => "N",
+                                    "PAGER_TEMPLATE" => ".default",
+                                    "DISPLAY_TOP_PAGER" => "N",
+                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                    "PAGER_TITLE" => "Новости",
+                                    "PAGER_SHOW_ALWAYS" => "N",
+                                    "PAGER_DESC_NUMBERING" => "N",
+                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                    "PAGER_SHOW_ALL" => "N",
+                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                    "SET_STATUS_404" => "N",
+                                    "SHOW_404" => "N",
+                                    "MESSAGE_404" => ""
+                            ],
+                            false
+                    );
+                    ?>
                     <div class="news__recent-content">
                         <a href="/news/?tag=project" class="button-all">
                             <span>Все проекты</span>
