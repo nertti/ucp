@@ -64,7 +64,7 @@ $this->setFrameMode(true);
                                 <li class="hashtags__item">
                                     <a
                                             class="news-filter-project"
-                                            data-project="<?= htmlspecialcharsbx($hashtagProject['XML_ID']) ?>"
+                                            data-project="<?= htmlspecialcharsbx($hashtagProject['UF_XML_ID']) ?>"
                                             data-name="<?= htmlspecialcharsbx($hashtagProject['NAME']) ?>"
                                             href="?<?= htmlspecialcharsbx($hashtagProject['LINK']) ?>"
                                     >
