@@ -40,11 +40,34 @@ $this->setFrameMode(true);
                             <?= $arItem['PREVIEW_TEXT'] ?>
                         </p>
                     </a>
-                    <?php if ($arItem['HASHTAGS']): ?>
+                    <?php if ($arItem['HASHTAGS']['TAGS']): ?>
                         <ul class="hashtags">
-                            <?php foreach ($arItem['HASHTAGS'] as $hashtag): ?>
+                            <?php foreach ($arItem['HASHTAGS']['TAGS'] as $hashtagTag): ?>
                                 <li class="hashtags__item">
-                                    <a href="?<?= htmlspecialcharsbx($hashtag['LINK']) ?>">#<?= htmlspecialcharsbx($hashtag['NAME']) ?></a>
+                                    <a
+                                            class="news-filter-tag"
+                                            data-tag="<?= htmlspecialcharsbx($hashtagTag['XML_ID']) ?>"
+                                            data-name="<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>"
+                                            href="?<?= htmlspecialcharsbx($hashtagTag['LINK']) ?>"
+                                    >
+                                        #<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <?php if ($arItem['HASHTAGS']['PROJECTS']): ?>
+                        <ul class="hashtags">
+                            <?php foreach ($arItem['HASHTAGS']['PROJECTS'] as $hashtagProject): ?>
+                                <li class="hashtags__item">
+                                    <a
+                                            class="news-filter-tag"
+                                            data-tag="<?= htmlspecialcharsbx($hashtagProject['XML_ID']) ?>"
+                                            data-name="<?= htmlspecialcharsbx($hashtagProject['NAME']) ?>"
+                                            href="?<?= htmlspecialcharsbx($hashtagProject['LINK']) ?>"
+                                    >
+                                        #<?= htmlspecialcharsbx($hashtagProject['NAME']) ?>
+                                    </a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

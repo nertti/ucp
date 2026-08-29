@@ -77,6 +77,89 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                     </div>
                 </div>
             </div>
+            <?php
+            /**
+             * Категория
+             */
+            $categories = $_GET['category'] ?? [];
+
+            if (!is_array($categories)) {
+                $categories = [$categories];
+            }
+
+            $categories = array_filter(array_map('intval', $categories));
+
+            if (!empty($categories)) {
+                $categoryFilter = [
+                        'LOGIC' => 'OR',
+                ];
+
+                foreach ($categories as $category) {
+                    $categoryFilter[] = [
+                            'PROPERTY_CATEGORY' => $category,
+                    ];
+                }
+
+                $GLOBALS[$filterName][] = $categoryFilter;
+            }
+
+            /**
+             * Институт / филиал
+             */
+            $sections = $_GET['section'] ?? [];
+
+            if (!is_array($sections)) {
+                $sections = [$sections];
+            }
+
+            $sections = array_filter(
+                    array_map('intval', $sections)
+            );
+
+            if ($sections) {
+                $GLOBALS[$filterName]['SECTION_ID'] = $sections;
+                $GLOBALS[$filterName]['INCLUDE_SUBSECTIONS'] = 'Y';
+            }
+            if (!empty($_GET['tag'])) {
+            $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_GET['tag'];
+            }
+
+            if (!empty($_GET['project'])) {
+            $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_GET['project'];
+            }
+            ?>
+
+            <?php if (!empty($_GET['tag']) || !empty($_GET['project'])): ?>
+                <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
+                    <ul>
+                        <?php if (!empty($_GET['tag'])): ?>
+                            <?php foreach ((array)$_GET['tag'] as $tag): ?>
+                                <li>
+                                    <a href="#">
+                                        <span>#<?= htmlspecialcharsbx($tag) ?></span>
+                                        <button type="button">
+                                            <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
+                                        </button>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                        <?php if (!empty($_GET['project'])): ?>
+                            <?php foreach ((array)$_POST['$_GET'] as $project): ?>
+                                <li>
+                                    <a href="#">
+                                        <span>#<?= htmlspecialcharsbx($project) ?></span>
+                                        <button type="button">
+                                            <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
+                                        </button>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
             <div class="news__list-wrapper" id="news-list">
                 <?php
                 $APPLICATION->IncludeComponent(
@@ -125,7 +208,7 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                                 "ACTIVE_DATE_FORMAT" => $arParams["LIST_ACTIVE_DATE_FORMAT"],
                                 "USE_PERMISSIONS" => $arParams["USE_PERMISSIONS"],
                                 "GROUP_PERMISSIONS" => $arParams["GROUP_PERMISSIONS"],
-                                "FILTER_NAME" => $arParams["FILTER_NAME"],
+                                "FILTER_NAME" => $filterName,
                                 "HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
                                 "CHECK_DATES" => $arParams["CHECK_DATES"],
                         ],
