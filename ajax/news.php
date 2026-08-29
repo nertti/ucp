@@ -77,38 +77,6 @@ if (!empty($_POST['project'])) {
     $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_POST['project'];
 }
 ?>
-
-<?php if (!empty($_POST['tag']) || !empty($_POST['project'])): ?>
-        <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
-            <ul>
-                <?php if (!empty($_POST['tag'])): ?>
-                    <?php foreach ((array)$_POST['tag'] as $tag): ?>
-                        <li>
-                            <a href="#">
-                                <span>#<?= htmlspecialcharsbx($tag) ?></span>
-                                <button type="button">
-                                    <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
-                                </button>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
-                <?php if (!empty($_POST['project'])): ?>
-                    <?php foreach ((array)$_POST['project'] as $project): ?>
-                        <li>
-                            <a href="#">
-                                <span>#<?= htmlspecialcharsbx($project) ?></span>
-                                <button type="button">
-                                    <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
-                                </button>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-        </div>
-<?php endif; ?>
 <div class="news__list-wrapper" id="news-list">
     <? $APPLICATION->IncludeComponent(
             "bitrix:news.list",

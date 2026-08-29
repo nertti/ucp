@@ -16,7 +16,7 @@ foreach ($arResult["ITEMS"] as &$arItem) {
             );
             foreach ($tags as $tag) {
                 if (!empty($tag['UF_NAME'])) {
-                    $arTag = ['NAME' => $tag['UF_NAME'], 'LINK' => 'tag='.$tag['UF_XML_ID']];
+                    $arTag = ['NAME' => $tag['UF_NAME'], 'LINK' => 'tag='.$tag['UF_XML_ID'], 'UF_XML_ID' => $tag['UF_XML_ID']];
                     $hashtagsTag[] = $arTag;
                 }
             }
@@ -35,7 +35,7 @@ foreach ($arResult["ITEMS"] as &$arItem) {
             );
             foreach ($projects as $project) {
                 if (!empty($project['UF_NAME'])) {
-                    $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project='.$project['UF_XML_ID']];
+                    $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project='.$project['UF_XML_ID'], 'UF_XML_ID' => $project['UF_XML_ID']];
                     $hashtagsProject[] = $arProject;
                 }
             }

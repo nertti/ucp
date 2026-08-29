@@ -46,7 +46,7 @@ $this->setFrameMode(true);
                                 <li class="hashtags__item">
                                     <a
                                             class="news-filter-tag"
-                                            data-tag="<?= htmlspecialcharsbx($hashtagTag['XML_ID']) ?>"
+                                            data-tag="<?= htmlspecialcharsbx($hashtagTag['UF_XML_ID']) ?>"
                                             data-name="<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>"
                                             href="?<?= htmlspecialcharsbx($hashtagTag['LINK']) ?>"
                                     >

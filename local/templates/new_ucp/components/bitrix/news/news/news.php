@@ -37,6 +37,9 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                         <span>RSS</span>
                     </a>
                 </div>
+                <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
+                    <ul></ul>
+                </div>
                 <?php $APPLICATION->IncludeComponent(
                         "bitrix:breadcrumb",
                         "breadcrumb",
@@ -128,38 +131,6 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
             $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_GET['project'];
             }
             ?>
-
-            <?php if (!empty($_GET['tag']) || !empty($_GET['project'])): ?>
-                <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
-                    <ul>
-                        <?php if (!empty($_GET['tag'])): ?>
-                            <?php foreach ((array)$_GET['tag'] as $tag): ?>
-                                <li>
-                                    <a href="#">
-                                        <span>#<?= htmlspecialcharsbx($tag) ?></span>
-                                        <button type="button">
-                                            <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
-                                        </button>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-
-                        <?php if (!empty($_GET['project'])): ?>
-                            <?php foreach ((array)$_POST['$_GET'] as $project): ?>
-                                <li>
-                                    <a href="#">
-                                        <span>#<?= htmlspecialcharsbx($project) ?></span>
-                                        <button type="button">
-                                            <iconify-icon icon="lucide:x" width="16" height="16" noobserver=""></iconify-icon>
-                                        </button>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
             <div class="news__list-wrapper" id="news-list">
                 <?php
                 $APPLICATION->IncludeComponent(

@@ -1181,7 +1181,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                         </div>
                     </div>
                     <div class="news__recent-content">
-                        <a href="#" class="button-all">
+                        <a href="/news/?tag=project" class="button-all">
                             <span>Все проекты</span>
                             <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
                         </a>

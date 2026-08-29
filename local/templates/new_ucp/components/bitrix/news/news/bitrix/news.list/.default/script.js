@@ -231,12 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-
-        /**
-         * Очищаем старые выбранные фильтры
-         */
+        // Очищаем список
         list.innerHTML = '';
-
 
         /**
          * TAG
@@ -248,27 +244,26 @@ document.addEventListener('DOMContentLoaded', function () {
             const li = document.createElement('li');
 
             li.innerHTML = `
-                <a
-                    href="#"
-                    class="selected-filter"
-                    data-filter-type="tag"
-                >
-                    <span>#${escapeHtml(tagName)}</span>
+            <a
+                href="#"
+                class="selected-filter"
+                data-filter-type="tag"
+            >
+                <span>#${escapeHtml(tagName)}</span>
 
-                    <button type="button">
-                        <iconify-icon
-                            icon="lucide:x"
-                            width="16"
-                            height="16"
-                            noobserver=""
-                        ></iconify-icon>
-                    </button>
-                </a>
-            `;
+                <button type="button">
+                    <iconify-icon
+                        icon="lucide:x"
+                        width="16"
+                        height="16"
+                        noobserver=""
+                    ></iconify-icon>
+                </button>
+            </a>
+        `;
 
             list.appendChild(li);
         }
-
 
         /**
          * PROJECT
@@ -280,27 +275,26 @@ document.addEventListener('DOMContentLoaded', function () {
             const li = document.createElement('li');
 
             li.innerHTML = `
-                <a
-                    href="#"
-                    class="selected-filter"
-                    data-filter-type="project"
-                >
-                    <span>#${escapeHtml(projectName)}</span>
+            <a
+                href="#"
+                class="selected-filter"
+                data-filter-type="project"
+            >
+                <span>#${escapeHtml(projectName)}</span>
 
-                    <button type="button">
-                        <iconify-icon
-                            icon="lucide:x"
-                            width="16"
-                            height="16"
-                            noobserver=""
-                        ></iconify-icon>
-                    </button>
-                </a>
-            `;
+                <button type="button">
+                    <iconify-icon
+                        icon="lucide:x"
+                        width="16"
+                        height="16"
+                        noobserver=""
+                    ></iconify-icon>
+                </button>
+            </a>
+        `;
 
             list.appendChild(li);
         }
-
 
         /**
          * Показываем / скрываем блок
@@ -311,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function () {
             header.style.display = 'none';
         }
     }
-
 
     /**
      * Переключение значения в массиве
@@ -451,39 +444,27 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     document.addEventListener('click', function (event) {
 
-        const tagLink = event.target.closest(
-            '.news-filter-tag'
-        );
+        const tagLink = event.target.closest('.news-filter-tag');
 
         if (!tagLink) {
             return;
         }
 
-
         event.preventDefault();
 
-
         const tag = tagLink.dataset.tag;
-
 
         if (!tag) {
             return;
         }
 
-
-        /**
-         * Если уже выбран — снимаем
-         * Если другой — заменяем
-         */
         if (selectedTag === tag) {
             selectedTag = '';
         } else {
             selectedTag = tag;
         }
 
-
         applyFilters();
-
     });
 
 
@@ -533,35 +514,26 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     document.addEventListener('click', function (event) {
 
-        const selectedFilter = event.target.closest(
-            '.selected-filter'
-        );
+        const selectedFilter = event.target.closest('.selected-filter');
 
         if (!selectedFilter) {
             return;
         }
 
-
         event.preventDefault();
 
-
         const type = selectedFilter.dataset.filterType;
-
 
         if (type === 'tag') {
             selectedTag = '';
         }
 
-
         if (type === 'project') {
             selectedProject = '';
         }
 
-
         applyFilters();
-
     });
-
 
     /**
      * КАТЕГОРИИ
