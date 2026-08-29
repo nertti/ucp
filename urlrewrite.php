@@ -280,7 +280,7 @@ $arUrlRewrite=array (
     'PATH' => '/by/adukatsyya/index.php',
     'SORT' => 100,
   ),
-  79 => 
+  82 => 
   array (
     'CONDITION' => '#^/new/instituty/#',
     'RULE' => '',
@@ -392,6 +392,14 @@ $arUrlRewrite=array (
     'PATH' => '/galleries/video/index.php',
     'SORT' => 100,
   ),
+  83 => 
+  array (
+    'CONDITION' => '#^/universes/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/universes/index.php',
+    'SORT' => 100,
+  ),
   80 => 
   array (
     'CONDITION' => '#^/new/news/#',
@@ -430,6 +438,14 @@ $arUrlRewrite=array (
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/honor/index.php',
+    'SORT' => 100,
+  ),
+  84 => 
+  array (
+    'CONDITION' => '#^/news/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/news/index.php',
     'SORT' => 100,
   ),
 );

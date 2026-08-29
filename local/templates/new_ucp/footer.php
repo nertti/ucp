@@ -275,7 +275,6 @@
         <iconify-icon icon="lucide:chevron-up" width="24" height="24" noobserver></iconify-icon>
     </button>
     </div>
-    <script src="<?=SITE_TEMPLATE_PATH?>/assets/js/app.js"></script>
     <script>
         Fancybox.defaults.l10n = {
             CLOSE: "Закрыть",

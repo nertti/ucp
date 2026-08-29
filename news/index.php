@@ -1,5 +1,14 @@
 <?php
 
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+
+/**
+ * @global CMain $APPLICATION
+ */
+
+$APPLICATION->SetTitle("Новости");
+?><?php
+
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 $APPLICATION->SetTitle("Новости");
@@ -33,17 +42,16 @@ $APPLICATION->SetTitle("Новости");
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => [
-			0 => "",
-			1 => "favorites",
-			2 => "POPULAR",
-			3 => "ST",
-			4 => "TEG",
-			5 => "ELEMENTS_IN_ROW",
-			6 => "DISTACE",
-			7 => "SLIDING_ANIMATION",
-			8 => "OPEN_ANIMATION",
-			9 => "SPEED_ANIMATION",
-			10 => "",
+			0 => "favorites",
+			1 => "POPULAR",
+			2 => "ST",
+			3 => "TEG",
+			4 => "ELEMENTS_IN_ROW",
+			5 => "DISTACE",
+			6 => "SLIDING_ANIMATION",
+			7 => "OPEN_ANIMATION",
+			8 => "SPEED_ANIMATION",
+			9 => "",
 		],
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -62,17 +70,16 @@ $APPLICATION->SetTitle("Новости");
 			1 => "",
 		],
 		"LIST_PROPERTY_CODE" => [
-			0 => "",
-			1 => "favorites",
-			2 => "POPULAR",
-			3 => "ST",
-			4 => "TEG",
-			5 => "ELEMENTS_IN_ROW",
-			6 => "DISTACE",
-			7 => "SLIDING_ANIMATION",
-			8 => "OPEN_ANIMATION",
-			9 => "SPEED_ANIMATION",
-			10 => "",
+			0 => "favorites",
+			1 => "POPULAR",
+			2 => "ST",
+			3 => "TEG",
+			4 => "ELEMENTS_IN_ROW",
+			5 => "DISTACE",
+			6 => "SLIDING_ANIMATION",
+			7 => "OPEN_ANIMATION",
+			8 => "SPEED_ANIMATION",
+			9 => "",
 		],
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -86,7 +93,7 @@ $APPLICATION->SetTitle("Новости");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_FOLDER" => "/new/news/",
+		"SEF_FOLDER" => "/news/",
 		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
@@ -108,7 +115,7 @@ $APPLICATION->SetTitle("Новости");
 		"COMPONENT_TEMPLATE" => "news_new",
 		"SEF_URL_TEMPLATES" => [
 			"news" => "",
-			"section" => "",
+			"section" => "#SECTION_CODE#/",
 			"detail" => "#ELEMENT_CODE#/",
 		]
 	],

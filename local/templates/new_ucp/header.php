@@ -11,8 +11,8 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 ?>
 <html lang="ru">
 <head>
-   <title><?$APPLICATION->ShowTitle()?></title>
-	<?$APPLICATION->ShowHead();?>
+   <title><?php $APPLICATION->ShowTitle()?></title>
+	<?php $APPLICATION->ShowHead();?>
     <meta charset="UTF-8" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/favicon.svg" />
@@ -20,11 +20,13 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js', true, ['defer' => 'defer']);
+
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/fancybox.css');
+
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/fancybox.umd.js', true, ['defer' => 'defer']);
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/iconify-icon.min.js', true, ['defer' => 'defer']);
     ?>
-    <?php //выгрузить ?>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20260818155058" />
-	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js?_v=20260818155058"></script>
-	<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js?_v=20260818155058"></script>
 </head>
 
 <body>
