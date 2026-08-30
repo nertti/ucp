@@ -15,28 +15,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-    <style>
-        .label {
-            border-radius: 0 10px 0 0;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            z-index: 2;
-            padding-block: 12px;
-            padding-inline: 16px;
-            background-color: #0d2660;
-            color: #fff;
-        }
-
-        .label span {
-            color: #fff;
-            font-family: Montserrat-Medium, sans-serif;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 18px;
-        }
-    </style>
 <?php if (!empty($arResult["ITEMS"])): ?>
     <ul class="news__list">
         <?php foreach ($arResult["ITEMS"] as $arItem):

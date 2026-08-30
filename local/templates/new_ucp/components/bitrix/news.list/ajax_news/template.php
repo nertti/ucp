@@ -25,6 +25,17 @@ $this->setFrameMode(true);
                 <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-img">
                     <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
                          title="<?= $arItem['NAME'] ?>"/>
+                    <?php if (!empty($arItem['ICON'])): ?>
+                        <div class="icon">
+                            <?= $arItem['ICON'] ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($arItem['PROPERTIES']['VIEW_ON_MAIN']['VALUE_XML_ID'] == 'Y'): ?>
+                        <div class="label">
+                            <span>Главная новость</span>
+                        </div>
+                    <?php endif; ?>
+
                 </a>
                 <div class="news__list-item-info">
                     <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-info-content">
@@ -64,7 +75,7 @@ $this->setFrameMode(true);
                                 <li class="hashtags__item">
                                     <a
                                             class="news-filter-project"
-                                            data-project="<?= htmlspecialcharsbx($hashtagProject['XML_ID']) ?>"
+                                            data-project="<?= htmlspecialcharsbx($hashtagProject['UF_XML_ID']) ?>"
                                             data-name="<?= htmlspecialcharsbx($hashtagProject['NAME']) ?>"
                                             href="?<?= htmlspecialcharsbx($hashtagProject['LINK']) ?>"
                                     >
