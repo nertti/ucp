@@ -19,9 +19,9 @@ $this->setFrameMode(true);
 <div class="home__feed-event">
     <div class="title-block">
         <h3 class="title-three">
-            <a href="/new/sobytiya/">События</a>
+            <a href="/events/">События</a>
         </h3>
-        <a href="/new/sobytiya/" class="button-all">
+        <a href="/events/" class="button-all">
             <span>Все события</span>
             <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver=""></iconify-icon>
         </a>
@@ -52,9 +52,9 @@ $this->setFrameMode(true);
             ?>
             
             <li class="home__feed-event-item" id="<?php echo $this->GetEditAreaId($arItem['ID']); ?>">
-				<a href="/new/sobytiya/?ELEMENT_ID=<?=$arItem["ID"]; ?>">
+				<a href="<?php echo $arItem["PROPERTIES"]["LINK"]["VALUE"]; ?>">
                     <div class="home__feed-event-date">
-                        <p><strong><?php echo $day; ?></strong> <?php echo $month; ?></p>
+                        <p><strong><?php echo $arItem["PROPERTIES"]["DATE"]["DESCRIPTION"]; ?></strong> <?php echo $arItem["PROPERTIES"]["DATE"]["VALUE"]; ?></p>
                     </div>
                     <div class="home__feed-event-info">
                         <h4><?php echo $title; ?></h4>

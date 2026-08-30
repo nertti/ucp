@@ -1,11 +1,5 @@
 <?php /** @var $block array */ ?>
-<style>
-    .home__feed-nav-list {
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        gap: 16px;
-    }
-</style>
+
 <?php
 
 $elements = Sprint\Editor\Blocks\IblockElements::getList($block);

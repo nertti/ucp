@@ -15,6 +15,28 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+    <style>
+        .label {
+            border-radius: 0 10px 0 0;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            padding-block: 12px;
+            padding-inline: 16px;
+            background-color: #0d2660;
+            color: #fff;
+        }
+
+        .label span {
+            color: #fff;
+            font-family: Montserrat-Medium, sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px;
+        }
+    </style>
 <?php if (!empty($arResult["ITEMS"])): ?>
     <ul class="news__list">
         <?php foreach ($arResult["ITEMS"] as $arItem):
@@ -25,6 +47,17 @@ $this->setFrameMode(true);
                 <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-img">
                     <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
                          title="<?= $arItem['NAME'] ?>"/>
+                    <?php if (!empty($arItem['ICON'])): ?>
+                        <div class="icon">
+                            <?= $arItem['ICON'] ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($arItem['PROPERTIES']['VIEW_ON_MAIN']['VALUE_XML_ID'] == 'Y'): ?>
+                        <div class="label">
+                            <span>Главная новость</span>
+                        </div>
+                    <?php endif; ?>
+
                 </a>
                 <div class="news__list-item-info">
                     <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-info-content">

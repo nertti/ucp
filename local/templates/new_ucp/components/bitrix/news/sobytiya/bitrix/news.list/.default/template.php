@@ -64,7 +64,7 @@ $this->setFrameMode(true);
                 <nav class="breadcrumbs">
                     <ul class="breadcrumbs__list">
                         <li class="breadcrumbs__item">
-                            <a href="index.html" class="breadcrumbs__link">Главная</a>
+                            <a href="/" class="breadcrumbs__link">Главная</a>
                         </li>
                         <li class="breadcrumbs__item">
                             <a href="#" class="breadcrumbs__link">События</a>
@@ -98,9 +98,9 @@ $this->setFrameMode(true);
                         }
                         ?>
                         <li class="event__item" id="<?php echo $this->GetEditAreaId($arItem['ID']); ?>">
-                            <a href="<?php echo $arItem["DETAIL_PAGE_URL"]; ?>">
+                            <a href="<?php echo $arItem["PROPERTIES"]["LINK"]["VALUE"]; ?>">
                                 <div class="event__item-date">
-                                    <p><strong><?php echo $dateDay; ?></strong><?php echo $dateMonth; ?></p>
+                                    <p><strong><?php echo $arItem["PROPERTIES"]["DATE"]["DESCRIPTION"]; ?></strong><?php echo $arItem["PROPERTIES"]["DATE"]["VALUE"]; ?></p>
                                 </div>
                                 <div class="event__item-content">
                                     <div class="event__item-info">
