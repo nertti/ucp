@@ -32,10 +32,10 @@ $APPLICATION->SetTitle("Университет");
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => [
-			0 => "NEWS",
-			1 => "PROJECT",
-			2 => "SLIDER",
-			3 => "SERVICES",
+			0 => "SLIDER",
+			1 => "SERVICES",
+			2 => "PROJECT",
+			3 => "NEWS",
 			4 => "",
 		],
 		"DETAIL_SET_CANONICAL_URL" => "N",
@@ -48,7 +48,7 @@ $APPLICATION->SetTitle("Университет");
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "91",
 		"IBLOCK_TYPE" => "other",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => [
 			0 => "",
@@ -98,6 +98,8 @@ $APPLICATION->SetTitle("Университет");
 	],
 	false
 ); ?>
-
+                <? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+                        'PACK_ID' => 'university',
+                ]); ?>
     </main>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
