@@ -50,7 +50,21 @@ foreach ($arResult["ITEMS"] as &$arItem) {
         );
         $iconSRC = $icon[0]['UF_ICON'];
     }
+
+//превью текст
+    $text = !empty($arItem['PREVIEW_TEXT'])
+        ? $arItem['PREVIEW_TEXT']
+        : $arItem['DETAIL_TEXT'];
+    $text = preg_replace('/<video\b[^>]*>.*?<\/video>/is', '', $text);
+    $text = strip_tags($text);
+    $paragraphs = preg_split('/\R\s*\R/', trim($text));
+    $text = trim($paragraphs[0] ?? '');
+    if (mb_strlen($text) > 100) {
+        $text = mb_substr($text, 0, 100) . '...';
+    }
+
     $arItem['HASHTAGS']['TAGS'] = $hashtagsTag;
     $arItem['HASHTAGS']['PROJECTS'] = $hashtagsProject;
     $arItem['ICON'] = $iconSRC;
+    $arItem['TEXT'] = $text;
 }

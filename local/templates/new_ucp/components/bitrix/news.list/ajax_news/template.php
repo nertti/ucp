@@ -48,7 +48,7 @@ $this->setFrameMode(true);
                             <?= $arItem['NAME'] ?>
                         </h5>
                         <p>
-                            <?= $arItem['PREVIEW_TEXT'] ?>
+                            <?=$arItem['TEXT']?>
                         </p>
                     </a>
                     <?php if (!empty($arItem['HASHTAGS']['TAGS'])): ?>
