@@ -109,22 +109,28 @@ $arResult["NEXT_ELEMENT"] = $nextElement;
                     <?php if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && !empty($arResult["PREVIEW_TEXT"])): ?>
                         <p><strong><?php echo $arResult["PREVIEW_TEXT"]; ?></strong></p>
                     <?php endif; ?>
-
-                    <?php if (!empty($arResult["PROPERTIES"]["VIDEO"]["VALUE"])): ?>
-                        <div class="page__video">
-                            <iframe src="<?php echo $arResult["PROPERTIES"]["VIDEO"]["VALUE"]; ?>"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    <?php endif; ?>
-
                     <?php if (!empty($arResult["DETAIL_TEXT"])): ?>
                         <div class="page__info-block">
                             <?php echo $arResult["DETAIL_TEXT"]; ?>
                         </div>
                     <?php endif; ?>
-
+                    <?php if (!empty($arResult["PROPERTIES"]["CONTENT"]["VALUE"])): ?>
+                        <div class="page__info-block">
+                            <?$APPLICATION->IncludeComponent(
+								"sprint.editor:blocks",
+								".default",
+								Array(
+									"ELEMENT_ID" => $arResult["ID"],
+									"IBLOCK_ID" => $arResult["IBLOCK_ID"],
+									"PROPERTY_CODE" => "CONTENT",
+								),
+								$component,
+								Array(
+									"HIDE_ICONS" => "Y"
+								)
+							);?>
+                        </div>
+                    <?php endif; ?>
                     <?php if (!empty($arResult["PROPERTIES"]["IMAGE_1"]["VALUE"])): ?>
                         <?php $img1 = CFile::GetFileArray($arResult["PROPERTIES"]["IMAGE_1"]["VALUE"]); ?>
                         <?php if ($img1): ?>
