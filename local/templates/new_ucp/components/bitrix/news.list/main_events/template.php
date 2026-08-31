@@ -35,7 +35,9 @@ $this->setFrameMode(true);
             ?>
             
             <li class="home__feed-event-item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-				<a href="<?= $arItem["PROPERTIES"]["LINK"]["VALUE"]; ?>">
+				<a href="<?= !empty($arItem["PROPERTIES"]["LINK"]["VALUE"])
+                        ? htmlspecialcharsbx($arItem["PROPERTIES"]["LINK"]["VALUE"])
+                        : "/events/?id=" . $arItem["ID"] ?>">
                     <div class="home__feed-event-date">
                         <p><strong><?= $arItem["PROPERTIES"]["DATE"]["DESCRIPTION"]; ?></strong> <?php echo $arItem["PROPERTIES"]["DATE"]["VALUE"]; ?></p>
                     </div>
