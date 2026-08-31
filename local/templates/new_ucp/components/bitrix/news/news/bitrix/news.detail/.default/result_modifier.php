@@ -3,7 +3,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
+$hashtagsTag = [];
 
+// Теги
 if (!empty($arResult['PROPERTIES']['TAGS']['VALUE'])) {
     $tagXmlIds = (array)$arResult['PROPERTIES']['TAGS']['VALUE'];
     foreach ($tagXmlIds as $xmlId) {
@@ -13,12 +15,13 @@ if (!empty($arResult['PROPERTIES']['TAGS']['VALUE'])) {
         );
         foreach ($tags as $tag) {
             if (!empty($tag['UF_NAME'])) {
-                $arTag = ['NAME' => $tag['UF_NAME'], 'LINK' => 'tag=' . $tag['UF_NAME']];
-                $hashtags[] = $arTag;
+                $arTag = ['NAME' => $tag['UF_NAME'], 'LINK' => 'tag=' . $tag['UF_XML_ID'], 'UF_XML_ID' => $tag['UF_XML_ID']];
+                $hashtagsTag[] = $arTag;
             }
         }
     }
 }
+$hashtagsProject = [];
 
 // Проекты
 if (!empty($arResult['PROPERTIES']['PROJECTS']['VALUE'])) {
@@ -31,10 +34,14 @@ if (!empty($arResult['PROPERTIES']['PROJECTS']['VALUE'])) {
         );
         foreach ($projects as $project) {
             if (!empty($project['UF_NAME'])) {
-                $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project=' . $project['UF_NAME']];
-                $hashtags[] = $arProject;
+                $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project=' . $project['UF_XML_ID'], 'UF_XML_ID' => $project['UF_XML_ID']];
+                $hashtagsProject[] = $arProject;
             }
         }
     }
 }
-$arResult['HASHTAGS'] = $hashtags;
+$arResult['HASHTAGS']['TAGS'] = $hashtagsTag;
+$arResult['HASHTAGS']['PROJECTS'] = $hashtagsProject;
+$arResult['IMAGE'] = !empty($arResult['DETAIL_PICTURE'])
+    ? $arResult['DETAIL_PICTURE']
+    : $arResult['PREVIEW_PICTURE'];

@@ -52,7 +52,7 @@
                 ?>
                 <div id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="swiper-slide">
                     <?php if ($video): ?>
-                        <div class="preview-slider-video">
+                        <div class="preview-slider-video<?php if ($arItem['PROPERTIES']['VIEW_GRADIENT']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?><?php if ($arItem['PROPERTIES']['VIEW_BLUR']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>">
                             <video
                                     src="<?= htmlspecialcharsbx($video) ?>"
                                     autoplay
@@ -80,7 +80,9 @@
                             </div>
                         </div>
                     <?php elseif ($backgroundImage): ?>
-                        <div class="preview-slider-img">
+                        <div class="preview-slider-img
+                        <?php if ($arItem['PROPERTIES']['VIEW_GRADIENT']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>
+                        <?php if ($arItem['PROPERTIES']['VIEW_BLUR']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>">
                             <img src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
                                  title="<?= $arItem['NAME'] ?>">
                         </div>

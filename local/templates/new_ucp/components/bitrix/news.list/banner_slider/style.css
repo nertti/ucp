@@ -1,0 +1,12 @@
+.preview-slider-video.without-blur::before {
+    display: none;
+}
+.preview-slider-video.without-gradient::after {
+    display: none;
+}
+.preview-slider-img.without-blur::before {
+    display: none;
+}
+.preview-slider-img.without-gradient::after {
+    display: none;
+}
