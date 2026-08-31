@@ -50,11 +50,8 @@
                     ];
                 }
                 ?>
-
                 <div id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="swiper-slide">
-
                     <?php if ($video): ?>
-
                         <div class="preview-slider-video">
                             <video
                                     src="<?= htmlspecialcharsbx($video) ?>"
@@ -64,7 +61,6 @@
                                     muted
                             ></video>
                         </div>
-
                         <div class="preview-slider-logo-wrapper">
                             <div class="home__container">
                                 <img
@@ -75,7 +71,6 @@
                                 />
                             </div>
                         </div>
-
                         <div class="preview-slider-video-mute-wrapper">
                             <div class="home__container">
                                 <button class="preview-slider-video-mute" type="button">
@@ -84,7 +79,6 @@
                                 </button>
                             </div>
                         </div>
-
                     <?php elseif ($backgroundImage): ?>
                         <div class="preview-slider-img">
                             <img src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
@@ -99,35 +93,24 @@
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
-
-
                     <?php
                     // Текст и кнопки выводим только если нет VIDEO и IMAGE
                     if (!$video && !$image):
                         ?>
-
                         <div class="preview-slider-content">
                             <div class="preview__container">
-
                                 <h1 class="title-one">
                                     <?= htmlspecialcharsbx($arItem['NAME']) ?>
                                 </h1>
-
                                 <?php if ($buttons): ?>
-
                                     <div class="preview-slider-content__action">
-
-                                        <?php foreach ($buttons
-
-                                        as $key => $button): ?>
-
-                                        <?php if (!$button['LINK']) continue; ?>
-
-                                            <a href="<?= htmlspecialcharsbx($button['LINK']) ?>" class="<?= $key === 0 ? 'button-blue' : 'button-white' ?>">
+                                        <?php foreach ($buttons as $key => $button): ?>
+                                            <?php if (!$button['LINK']) continue; ?>
+                                            <a href="<?= htmlspecialcharsbx($button['LINK']) ?>"
+                                               class="<?= $key === 0 ? 'button-blue' : 'button-white' ?>">
                                     <span>
                                         <?= htmlspecialcharsbx($button['TEXT']) ?>
                                     </span>
-
                                                 <iconify-icon
                                                         icon="lucide:chevron-right"
                                                         width="24"
@@ -135,20 +118,13 @@
                                                         noobserver
                                                 ></iconify-icon>
                                             </a>
-
-                                            <?php endforeach; ?>
-
+                                        <?php endforeach; ?>
                                     </div>
-
                                 <?php endif; ?>
-
                             </div>
                         </div>
-
                     <?php endif; ?>
-
                 </div>
-
             <?php endforeach; ?>
         </div>
         <div class="preview-slider-pagination"></div>
