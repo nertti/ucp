@@ -71,6 +71,18 @@ $this->setFrameMode(true);
 
                     <?php if (!empty($arItem['HASHTAGS']['PROJECTS'])): ?>
                         <ul class="hashtags">
+                            <?php if($arItem['PROPERTIES']['IS_PROJECT']['VALUE_XML_ID'] == 'Y'):?>
+                                <li class="hashtags__item">
+                                    <a
+                                            class="news-filter-project"
+                                            data-is-project="126"
+                                            data-name="Проект"
+                                            href="?is-project=126"
+                                    >
+                                        #Проект
+                                    </a>
+                                </li>
+                            <?php endif;?>
                             <?php foreach ($arItem['HASHTAGS']['PROJECTS'] as $hashtagProject): ?>
                                 <li class="hashtags__item">
                                     <a
