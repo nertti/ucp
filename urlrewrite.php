@@ -392,7 +392,7 @@ $arUrlRewrite=array (
     'PATH' => '/galleries/video/index.php',
     'SORT' => 100,
   ),
-  83 => 
+  87 => 
   array (
     'CONDITION' => '#^/universes/#',
     'RULE' => '',
@@ -400,7 +400,7 @@ $arUrlRewrite=array (
     'PATH' => '/universes/index.php',
     'SORT' => 100,
   ),
-  80 => 
+  85 => 
   array (
     'CONDITION' => '#^/new/news/#',
     'RULE' => '',
@@ -440,7 +440,7 @@ $arUrlRewrite=array (
     'PATH' => '/honor/index.php',
     'SORT' => 100,
   ),
-  84 => 
+  88 => 
   array (
     'CONDITION' => '#^/news/#',
     'RULE' => '',

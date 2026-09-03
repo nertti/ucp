@@ -46,7 +46,7 @@ $APPLICATION->SetTitle("События");
 		"DISPLAY_TOP_PAGER" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "82",
-		"IBLOCK_TYPE" => "education",
+		"IBLOCK_TYPE" => "events",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => [

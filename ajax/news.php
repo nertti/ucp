@@ -8,7 +8,6 @@ define('DisableEventsCheck', true);
 require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
 
 use Bitrix\Main\Loader;
-
 if (!Loader::includeModule('iblock')) {
     die();
 }
@@ -110,7 +109,6 @@ if (!empty($_POST['project'])) {
                     "INCLUDE_SUBSECTIONS" => "N",
                     "MESSAGE_404" => "",
                     "NEWS_COUNT" => "21",
-                    "PAGER_BASE_LINK_ENABLE" => "N",
                     "PAGER_DESC_NUMBERING" => "N",
                     "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
                     "PAGER_SHOW_ALL" => "N",
@@ -132,9 +130,10 @@ if (!empty($_POST['project'])) {
                     "SORT_BY2" => "SORT",
                     "SORT_ORDER1" => "DESC",
                     "SORT_ORDER2" => "ASC",
-                    "STRICT_SECTION_CHECK" => "N"
+                    "STRICT_SECTION_CHECK" => "N",
+                    "PAGER_BASE_LINK_ENABLE" => "Y",
+                    "PAGER_BASE_LINK" => "/news/",
             ),
-            $component
     ); ?>
 </div>
 

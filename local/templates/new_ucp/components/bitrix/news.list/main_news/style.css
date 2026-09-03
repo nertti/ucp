@@ -7,6 +7,9 @@
     line-height: 18px;
     text-align: justify;
 }
-.home__feed-news-slider{
-    min-height: 650px
+@media (min-width: 865px) {
+    .home__feed,
+    .news.slider {
+        min-height: 650px;
+    }
 }

@@ -17,12 +17,12 @@ html.preloader-done {
     transition: background 0.8s ease 0.3s;
 }
 
-html.preloader-active body > :not(.fls-preloader) {
+html.preloader-active body {
     opacity: 0;
     visibility: hidden;
 }
 
-html.preloader-done body>*:not(.fls-preloader) {
+html.preloader-done body {
     opacity: 1;
     visibility: visible;
     transition: opacity 1s ease, transform 1s ease;

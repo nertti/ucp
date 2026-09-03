@@ -130,10 +130,6 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
             if (!empty($_GET['project'])) {
             $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_GET['project'];
             }
-
-            if (!empty($_GET['is-project'])) {
-                $GLOBALS[$filterName]['PROPERTY_IS_PROJECTS'] = $_GET['is-project'];
-            }
             ?>
             <div class="news__list-wrapper" id="news-list">
                 <?php

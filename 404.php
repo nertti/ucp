@@ -29,9 +29,9 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	<li><a href="/" title="Вернуться на Домашнюю страницу">Домашняя страница</a></li>
 	<li><a href="/sitemap" title="Перейти на карту сайта">Карта сайта</a></li>
 	</ul>
-	<p>Если проблемы продолжатся, пожалуйста, обратитесь к <a href="mailto:mail@ucp.by">системному администратору</a> сайта и сообщите об ошибке.</p>
+	<p>Если проблемы продолжатся, пожалуйста, обратитесь к <a href="mailto:mail@ucp.by">системному администратору</a> сайта и сообщите об ошибке.</p> 
 </div>
-<?endif;?>
+<?endif;?> 
 <?if(SITE_DIR=="/by/"):?>
 <?$APPLICATION->SetTitle("Старонка не знойдзена");?>
 <div>
@@ -59,7 +59,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	</p>
 
 </div>
-<?endif;?>
+<?endif;?> 
 <?if(SITE_DIR=="/en/"):?>
 <?$APPLICATION->SetTitle("Page not found");?>
 <div>
@@ -89,6 +89,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	</p>
  </strong>
 </div>
-<?endif;?>
+<?endif;?>  
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -15,7 +15,7 @@ $APPLICATION->SetTitle("Переподготовка руководящих ра
 <p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
- <a href="https://ucp.by/upload/FILES/umc/%D0%A0%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%202025%20%D1%81%D0%B0%D0%B9%D1%82.pdf"><b>Расписание проведения вступительных испытаний по специальностям переподготовки&nbsp;в 2026 году</b></a>
+ <a href="https://ucp.by/upload/FILES/umc/+Расписание%20втупительных%202026%20на%20утверждение%20на%20сайт.pdf"><b>Расписание проведения вступительных испытаний по специальностям переподготовки&nbsp;в 2026 году</b></a>
 </p>
 <p style="text-align: justify;">
 </p>
@@ -40,7 +40,7 @@ $APPLICATION->SetTitle("Переподготовка руководящих ра
 <p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
- <a href="https://ucp.by/upload/FILES/umc/9-09-1033-05%20%D0%98%D0%A0%D0%B8%D0%9A%D0%9F%20%D0%B2%20%D0%9E%D0%9F%D0%A7%D0%A1_.pdf"><b><span style="color: #0070c0;">Идеологическая работа и кадровая политика в ОПЧС</span></b></a>
+ <a href="https://ucp.by/upload/FILES/umc/программа%20вступительных%20Идеология.pdf"><b><span style="color: #0070c0;">Идеологическая работа и кадровая политика в ОПЧС</span></b></a>
 </p>
 <p style="text-align: justify;">
 </p>

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedSections = [];
     let selectedTag = '';
     let selectedProject = '';
-    let selectedIsProject = '';
 
 
     /**
@@ -68,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         selectedTag = params.get('tag') || '';
         selectedProject = params.get('project') || '';
-        selectedIsProject = params.get('is-project') || '';
 
 
         /**
@@ -205,19 +203,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /**
-         * #Проект
-         */
-        if (selectedIsProject) {
-            params.set('is-project', selectedIsProject);
-        }
-
-
         const queryString = params.toString();
 
         const url = queryString
             ? window.location.pathname + '?' + queryString
             : window.location.pathname;
+
 
         window.history.pushState({}, '', url);
     }
@@ -240,10 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-
         // Очищаем список
         list.innerHTML = '';
-
 
         /**
          * TAG
@@ -255,27 +244,26 @@ document.addEventListener('DOMContentLoaded', function () {
             const li = document.createElement('li');
 
             li.innerHTML = `
-<a
-href="#"
-class="selected-filter"
-data-filter-type="tag"
-    >
-    <span>#${escapeHtml(tagName)}</span>
+            <a
+                href="#"
+                class="selected-filter"
+                data-filter-type="tag"
+            >
+                <span>#${escapeHtml(tagName)}</span>
 
-<button type="button">
-    <iconify-icon
-        icon="lucide:x"
-        width="16"
-        height="16"
-        noobserver=""
-    ></iconify-icon>
-</button>
-</a>
-`;
+                <button type="button">
+                    <iconify-icon
+                        icon="lucide:x"
+                        width="16"
+                        height="16"
+                        noobserver=""
+                    ></iconify-icon>
+                </button>
+            </a>
+        `;
 
             list.appendChild(li);
         }
-
 
         /**
          * PROJECT
@@ -287,76 +275,36 @@ data-filter-type="tag"
             const li = document.createElement('li');
 
             li.innerHTML = `
-<a
-href="#"
-class="selected-filter"
-data-filter-type="project"
-    >
-    <span>#${escapeHtml(projectName)}</span>
+            <a
+                href="#"
+                class="selected-filter"
+                data-filter-type="project"
+            >
+                <span>#${escapeHtml(projectName)}</span>
 
-<button type="button">
-    <iconify-icon
-        icon="lucide:x"
-        width="16"
-        height="16"
-        noobserver=""
-    ></iconify-icon>
-</button>
-</a>
-`;
-
-            list.appendChild(li);
-        }
-
-
-        /**
-         * IS-PROJECT
-         *
-         * Новый тег:
-         * #Проект
-         * ?is-project=126
-         */
-        if (selectedIsProject) {
-
-            const li = document.createElement('li');
-
-            li.innerHTML = `
-<a
-href="#"
-class="selected-filter"
-data-filter-type="is-project"
-    >
-    <span>#Проект</span>
-
-<button type="button">
-    <iconify-icon
-        icon="lucide:x"
-        width="16"
-        height="16"
-        noobserver=""
-    ></iconify-icon>
-</button>
-</a>
-`;
+                <button type="button">
+                    <iconify-icon
+                        icon="lucide:x"
+                        width="16"
+                        height="16"
+                        noobserver=""
+                    ></iconify-icon>
+                </button>
+            </a>
+        `;
 
             list.appendChild(li);
         }
-
 
         /**
          * Показываем / скрываем блок
          */
-        if (
-            selectedTag ||
-            selectedProject ||
-            selectedIsProject
-        ) {
+        if (selectedTag || selectedProject) {
             header.style.display = '';
         } else {
             header.style.display = 'none';
         }
     }
-
 
     /**
      * Переключение значения в массиве
@@ -412,8 +360,6 @@ data-filter-type="is-project"
 
         formData.append('project', selectedProject);
 
-        formData.append('is-project', selectedIsProject);
-
 
         /**
          * Категории
@@ -424,6 +370,7 @@ data-filter-type="is-project"
                 'category[]',
                 category
             );
+
         });
 
 
@@ -436,6 +383,7 @@ data-filter-type="is-project"
                 'section[]',
                 section
             );
+
         });
 
 
@@ -443,11 +391,15 @@ data-filter-type="is-project"
 
 
         fetch('/ajax/news.php', {
+
             method: 'POST',
+
             body: formData,
+
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             }
+
         })
 
             .then(function (response) {
@@ -457,14 +409,17 @@ data-filter-type="is-project"
                     throw new Error(
                         'Ошибка AJAX: ' + response.status
                     );
+
                 }
 
                 return response.text();
+
             })
 
             .then(function (html) {
 
                 newsList.innerHTML = html;
+
             })
 
             .catch(function (error) {
@@ -473,17 +428,19 @@ data-filter-type="is-project"
                     'Ошибка загрузки новостей:',
                     error
                 );
+
             })
 
             .finally(function () {
 
                 newsList.classList.remove('is-loading');
+
             });
     }
 
 
     /**
-     * TAG / IS-PROJECT
+     * TAG
      */
     document.addEventListener('click', function (event) {
 
@@ -495,44 +452,17 @@ data-filter-type="is-project"
 
         event.preventDefault();
 
-
-        /**
-         * #Проект
-         *
-         * data-is-project="126"
-         */
-        const isProject = tagLink.dataset.isProject;
-
-        if (isProject) {
-
-            if (selectedIsProject === isProject) {
-                selectedIsProject = '';
-            } else {
-                selectedIsProject = isProject;
-            }
-
-            applyFilters();
-
-            return;
-        }
-
-
-        /**
-         * Обычный TAG
-         */
         const tag = tagLink.dataset.tag;
 
         if (!tag) {
             return;
         }
 
-
         if (selectedTag === tag) {
             selectedTag = '';
         } else {
             selectedTag = tag;
         }
-
 
         applyFilters();
     });
@@ -575,47 +505,35 @@ data-filter-type="is-project"
 
 
         applyFilters();
+
     });
 
 
     /**
-     * Удаление выбранного TAG / PROJECT / IS-PROJECT
+     * Удаление выбранного TAG / PROJECT
      */
     document.addEventListener('click', function (event) {
 
-        const selectedFilter = event.target.closest(
-            '.selected-filter'
-        );
+        const selectedFilter = event.target.closest('.selected-filter');
 
         if (!selectedFilter) {
             return;
         }
 
-
         event.preventDefault();
 
-
         const type = selectedFilter.dataset.filterType;
-
 
         if (type === 'tag') {
             selectedTag = '';
         }
 
-
         if (type === 'project') {
             selectedProject = '';
         }
 
-
-        if (type === 'is-project') {
-            selectedIsProject = '';
-        }
-
-
         applyFilters();
     });
-
 
     /**
      * КАТЕГОРИИ
@@ -650,6 +568,7 @@ data-filter-type="is-project"
                 .forEach(function (item) {
 
                     item.classList.remove('checked');
+
                 });
 
 
@@ -700,10 +619,12 @@ data-filter-type="is-project"
                     '.news-filter-category[data-category=""]'
                 )
                 ?.classList.add('checked');
+
         }
 
 
         applyFilters();
+
     });
 
 
@@ -740,6 +661,7 @@ data-filter-type="is-project"
                 .forEach(function (item) {
 
                     item.classList.remove('checked');
+
                 });
 
 
@@ -790,10 +712,12 @@ data-filter-type="is-project"
                     '.news-filter-section[data-section=""]'
                 )
                 ?.classList.add('checked');
+
         }
 
 
         applyFilters();
+
     });
 
 
@@ -832,8 +756,10 @@ data-filter-type="is-project"
                     event.preventDefault();
 
                     applyFilters();
+
                 }
             );
+
         }
 
 
@@ -848,8 +774,10 @@ data-filter-type="is-project"
                     searchInput.value = '';
 
                     applyFilters();
+
                 }
             );
+
         }
 
 
@@ -868,8 +796,10 @@ data-filter-type="is-project"
                 event.preventDefault();
 
                 applyFilters();
+
             }
         );
+
     }
 
 
@@ -885,6 +815,7 @@ data-filter-type="is-project"
             renderSelectedFilters();
 
             loadNews();
+
         }
     );
 
@@ -896,7 +827,4 @@ data-filter-type="is-project"
 
     renderSelectedFilters();
 
-    loadNews();
-
 });
-
