@@ -332,14 +332,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         renderSelectedFilters();
 
-        loadNews();
+        loadNews(1);
     }
 
 
     /**
      * AJAX-загрузка новостей
      */
-    function loadNews() {
+
+    function loadNews(page = 1) {
 
         const searchInput = document.querySelector(
             'input[name="news_search"]'
@@ -349,15 +350,20 @@ document.addEventListener('DOMContentLoaded', function () {
             ? searchInput.value.trim()
             : '';
 
-
         const formData = new FormData();
 
         formData.append('ajax_news', 'Y');
 
+        // Номер страницы
+        formData.append('PAGEN_1', page);
+
+        // Поиск
         formData.append('search', search);
 
+        // TAG
         formData.append('tag', selectedTag);
 
+        // PROJECT
         formData.append('project', selectedProject);
 
 
@@ -419,6 +425,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (html) {
 
                 newsList.innerHTML = html;
+
+                // После AJAX Bitrix снова создаёт pagination,
+                // поэтому обработчик отдельно навешивать не нужно —
+                // используется делегирование document.click.
 
             })
 
@@ -801,6 +811,95 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
+
+    /**
+     * Пагинация
+     */
+
+    document.addEventListener('click', function (event) {
+
+        const paginationLink = event.target.closest(
+            '.pagination a'
+        );
+
+        if (!paginationLink) {
+            return;
+        }
+
+        event.preventDefault();
+
+
+        /**
+         * Получаем номер страницы из ссылки Bitrix
+         *
+         * Например:
+         * /news/?PAGEN_1=4
+         */
+        const url = new URL(
+            paginationLink.href,
+            window.location.origin
+        );
+
+        const page = url.searchParams.get('PAGEN_1') || 1;
+
+
+        /**
+         * Загружаем нужную страницу,
+         * сохраняя все текущие фильтры
+         */
+        loadNews(page);
+
+
+        /**
+         * Обновляем URL браузера.
+         *
+         * Сначала берём текущий URL,
+         * чтобы сохранить:
+         * search
+         * category[]
+         * section[]
+         * tag
+         * project
+         *
+         * и только меняем PAGEN_1.
+         */
+        const currentUrl = new URL(
+            window.location.href
+        );
+
+        if (page > 1) {
+            currentUrl.searchParams.set(
+                'PAGEN_1',
+                page
+            );
+        } else {
+            currentUrl.searchParams.delete(
+                'PAGEN_1'
+            );
+        }
+
+
+        window.history.pushState(
+            {},
+            '',
+            currentUrl.pathname +
+            (
+                currentUrl.searchParams.toString()
+                    ? '?' + currentUrl.searchParams.toString()
+                    : ''
+            )
+        );
+
+
+        /**
+         * Прокручиваем к началу списка новостей
+         */
+        newsList.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+    });
 
 
     /**
