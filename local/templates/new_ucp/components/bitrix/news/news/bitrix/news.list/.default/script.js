@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedSections = [];
     let selectedTag = '';
     let selectedProject = '';
+    let selectedIsProject = '';
 
 
     /**
@@ -56,17 +57,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /**
+     * Получение названия фильтра "Проект"
+     */
+    function getIsProjectName() {
+
+        const element = document.querySelector(
+            '.news-filter-project[data-is-project]'
+        );
+
+        return element
+            ? (element.dataset.name || 'Проект')
+            : 'Проект';
+    }
+
+
+    /**
      * Инициализация фильтров из URL
      */
     function initFiltersFromUrl() {
 
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(
+            window.location.search
+        );
 
+        /**
+         * Категории
+         */
         selectedCategories = params.getAll('category[]');
+
+        /**
+         * Институты / филиалы
+         */
         selectedSections = params.getAll('section[]');
 
+        /**
+         * Тег
+         */
         selectedTag = params.get('tag') || '';
+
+        /**
+         * Обычный проект
+         */
         selectedProject = params.get('project') || '';
+
+        /**
+         * Фильтр "Проект"
+         */
+        selectedIsProject = params.get('is-project') || '';
 
 
         /**
@@ -77,7 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         if (searchInput) {
+
             searchInput.value = params.get('search') || '';
+
         }
 
 
@@ -98,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ) {
                     item.classList.add('checked');
                 }
+
             });
 
 
@@ -108,8 +148,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedCategories.length === 0) {
 
             document
-                .querySelector('.news-filter-category[data-category=""]')
+                .querySelector(
+                    '.news-filter-category[data-category=""]'
+                )
                 ?.classList.add('checked');
+
         }
 
 
@@ -130,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ) {
                     item.classList.add('checked');
                 }
+
             });
 
 
@@ -140,16 +184,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedSections.length === 0) {
 
             document
-                .querySelector('.news-filter-section[data-section=""]')
+                .querySelector(
+                    '.news-filter-section[data-section=""]'
+                )
                 ?.classList.add('checked');
+
         }
+
     }
 
 
     /**
      * Обновление URL
      */
-    function updateUrl() {
+    function updateUrl(page = null) {
 
         const params = new URLSearchParams();
 
@@ -167,7 +215,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         if (search) {
-            params.set('search', search);
+
+            params.set(
+                'search',
+                search
+            );
+
         }
 
 
@@ -175,7 +228,12 @@ document.addEventListener('DOMContentLoaded', function () {
          * Категории
          */
         selectedCategories.forEach(function (category) {
-            params.append('category[]', category);
+
+            params.append(
+                'category[]',
+                category
+            );
+
         });
 
 
@@ -183,7 +241,12 @@ document.addEventListener('DOMContentLoaded', function () {
          * Институты
          */
         selectedSections.forEach(function (section) {
-            params.append('section[]', section);
+
+            params.append(
+                'section[]',
+                section
+            );
+
         });
 
 
@@ -191,15 +254,51 @@ document.addEventListener('DOMContentLoaded', function () {
          * Тег
          */
         if (selectedTag) {
-            params.set('tag', selectedTag);
+
+            params.set(
+                'tag',
+                selectedTag
+            );
+
         }
 
 
         /**
-         * Проект
+         * Обычный проект
          */
         if (selectedProject) {
-            params.set('project', selectedProject);
+
+            params.set(
+                'project',
+                selectedProject
+            );
+
+        }
+
+
+        /**
+         * Фильтр "Проект"
+         */
+        if (selectedIsProject) {
+
+            params.set(
+                'is-project',
+                selectedIsProject
+            );
+
+        }
+
+
+        /**
+         * Страница
+         */
+        if (page && Number(page) > 1) {
+
+            params.set(
+                'PAGEN_1',
+                page
+            );
+
         }
 
 
@@ -210,20 +309,28 @@ document.addEventListener('DOMContentLoaded', function () {
             : window.location.pathname;
 
 
-        window.history.pushState({}, '', url);
+        window.history.pushState(
+            {},
+            '',
+            url
+        );
+
     }
 
 
     /**
-     * Отображение выбранных TAG / PROJECT
+     * Отображение выбранных TAG / PROJECT / IS-PROJECT
      */
     function renderSelectedFilters() {
 
-        const header = document.querySelector('.hashtags-header');
+        const header = document.querySelector(
+            '.hashtags-header'
+        );
 
         if (!header) {
             return;
         }
+
 
         const list = header.querySelector('ul');
 
@@ -231,80 +338,135 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Очищаем список
+
+        /**
+         * Очищаем список
+         */
         list.innerHTML = '';
+
 
         /**
          * TAG
          */
         if (selectedTag) {
 
-            const tagName = getTagName(selectedTag);
+            const tagName = getTagName(
+                selectedTag
+            );
 
             const li = document.createElement('li');
 
             li.innerHTML = `
-            <a
-                href="#"
-                class="selected-filter"
-                data-filter-type="tag"
-            >
-                <span>#${escapeHtml(tagName)}</span>
+                <a
+                    href="#"
+                    class="selected-filter"
+                    data-filter-type="tag"
+                >
+                    <span>#${escapeHtml(tagName)}</span>
 
-                <button type="button">
-                    <iconify-icon
-                        icon="lucide:x"
-                        width="16"
-                        height="16"
-                        noobserver=""
-                    ></iconify-icon>
-                </button>
-            </a>
-        `;
+                    <button type="button">
+                        <iconify-icon
+                            icon="lucide:x"
+                            width="16"
+                            height="16"
+                            noobserver=""
+                        ></iconify-icon>
+                    </button>
+                </a>
+            `;
 
             list.appendChild(li);
+
         }
+
 
         /**
          * PROJECT
          */
         if (selectedProject) {
 
-            const projectName = getProjectName(selectedProject);
+            const projectName = getProjectName(
+                selectedProject
+            );
 
             const li = document.createElement('li');
 
             li.innerHTML = `
-            <a
-                href="#"
-                class="selected-filter"
-                data-filter-type="project"
-            >
-                <span>#${escapeHtml(projectName)}</span>
+                <a
+                    href="#"
+                    class="selected-filter"
+                    data-filter-type="project"
+                >
+                    <span>#${escapeHtml(projectName)}</span>
 
-                <button type="button">
-                    <iconify-icon
-                        icon="lucide:x"
-                        width="16"
-                        height="16"
-                        noobserver=""
-                    ></iconify-icon>
-                </button>
-            </a>
-        `;
+                    <button type="button">
+                        <iconify-icon
+                            icon="lucide:x"
+                            width="16"
+                            height="16"
+                            noobserver=""
+                        ></iconify-icon>
+                    </button>
+                </a>
+            `;
 
             list.appendChild(li);
+
         }
+
+
+        /**
+         * IS-PROJECT
+         */
+        if (selectedIsProject) {
+
+            const projectName = getIsProjectName();
+
+            const li = document.createElement('li');
+
+            li.innerHTML = `
+                <a
+                    href="#"
+                    class="selected-filter"
+                    data-filter-type="is-project"
+                >
+                    <span>#${escapeHtml(projectName)}</span>
+
+                    <button type="button">
+                        <iconify-icon
+                            icon="lucide:x"
+                            width="16"
+                            height="16"
+                            noobserver=""
+                        ></iconify-icon>
+                    </button>
+                </a>
+            `;
+
+            list.appendChild(li);
+
+        }
+
 
         /**
          * Показываем / скрываем блок
          */
-        if (selectedTag || selectedProject) {
+        if (
+            selectedTag ||
+            selectedProject ||
+            selectedIsProject
+        ) {
+
             header.style.display = '';
+
         } else {
+
             header.style.display = 'none';
+
         }
+
     }
+
 
     /**
      * Переключение значения в массиве
@@ -314,12 +476,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const index = array.indexOf(value);
 
         if (index === -1) {
+
             array.push(value);
+
         } else {
+
             array.splice(index, 1);
+
         }
 
         return array;
+
     }
 
 
@@ -328,18 +495,22 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function applyFilters() {
 
-        updateUrl();
+        /**
+         * При изменении фильтра
+         * всегда возвращаемся на первую страницу
+         */
+        updateUrl(1);
 
         renderSelectedFilters();
 
         loadNews(1);
+
     }
 
 
     /**
      * AJAX-загрузка новостей
      */
-
     function loadNews(page = 1) {
 
         const searchInput = document.querySelector(
@@ -350,21 +521,58 @@ document.addEventListener('DOMContentLoaded', function () {
             ? searchInput.value.trim()
             : '';
 
+
         const formData = new FormData();
 
-        formData.append('ajax_news', 'Y');
+        formData.append(
+            'ajax_news',
+            'Y'
+        );
 
-        // Номер страницы
-        formData.append('PAGEN_1', page);
 
-        // Поиск
-        formData.append('search', search);
+        /**
+         * Номер страницы
+         */
+        formData.append(
+            'PAGEN_1',
+            page
+        );
 
-        // TAG
-        formData.append('tag', selectedTag);
 
-        // PROJECT
-        formData.append('project', selectedProject);
+        /**
+         * Поиск
+         */
+        formData.append(
+            'search',
+            search
+        );
+
+
+        /**
+         * TAG
+         */
+        formData.append(
+            'tag',
+            selectedTag
+        );
+
+
+        /**
+         * Обычный PROJECT
+         */
+        formData.append(
+            'project',
+            selectedProject
+        );
+
+
+        /**
+         * IS-PROJECT
+         */
+        formData.append(
+            'is-project',
+            selectedIsProject
+        );
 
 
         /**
@@ -393,27 +601,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
-        newsList.classList.add('is-loading');
+        /**
+         * Состояние загрузки
+         */
+        newsList.classList.add(
+            'is-loading'
+        );
 
 
-        fetch('/ajax/news.php', {
+        fetch(
+            '/ajax/news.php',
+            {
+                method: 'POST',
 
-            method: 'POST',
+                body: formData,
 
-            body: formData,
-
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
             }
-
-        })
+        )
 
             .then(function (response) {
 
                 if (!response.ok) {
 
                     throw new Error(
-                        'Ошибка AJAX: ' + response.status
+                        'Ошибка AJAX: ' +
+                        response.status
                     );
 
                 }
@@ -425,10 +640,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (html) {
 
                 newsList.innerHTML = html;
-
-                // После AJAX Bitrix снова создаёт pagination,
-                // поэтому обработчик отдельно навешивать не нужно —
-                // используется делегирование document.click.
 
             })
 
@@ -443,292 +654,419 @@ document.addEventListener('DOMContentLoaded', function () {
 
             .finally(function () {
 
-                newsList.classList.remove('is-loading');
+                newsList.classList.remove(
+                    'is-loading'
+                );
 
             });
+
     }
 
 
     /**
      * TAG
      */
-    document.addEventListener('click', function (event) {
+    document.addEventListener(
+        'click',
+        function (event) {
 
-        const tagLink = event.target.closest('.news-filter-tag');
+            const tagLink = event.target.closest(
+                '.news-filter-tag'
+            );
 
-        if (!tagLink) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const tag = tagLink.dataset.tag;
-
-        if (!tag) {
-            return;
-        }
-
-        if (selectedTag === tag) {
-            selectedTag = '';
-        } else {
-            selectedTag = tag;
-        }
-
-        applyFilters();
-    });
+            if (!tagLink) {
+                return;
+            }
 
 
-    /**
-     * PROJECT
-     */
-    document.addEventListener('click', function (event) {
-
-        const projectLink = event.target.closest(
-            '.news-filter-project'
-        );
-
-        if (!projectLink) {
-            return;
-        }
+            event.preventDefault();
 
 
-        event.preventDefault();
+            const tag = tagLink.dataset.tag;
 
 
-        const project = projectLink.dataset.project;
+            if (!tag) {
+                return;
+            }
 
 
-        if (!project) {
-            return;
-        }
+            /**
+             * Если уже выбран —
+             * снимаем фильтр.
+             *
+             * Если другой —
+             * заменяем.
+             */
+            if (selectedTag === tag) {
 
+                selectedTag = '';
 
-        /**
-         * Если уже выбран — снимаем
-         * Если другой — заменяем
-         */
-        if (selectedProject === project) {
-            selectedProject = '';
-        } else {
-            selectedProject = project;
-        }
+            } else {
 
+                selectedTag = tag;
 
-        applyFilters();
-
-    });
-
-
-    /**
-     * Удаление выбранного TAG / PROJECT
-     */
-    document.addEventListener('click', function (event) {
-
-        const selectedFilter = event.target.closest('.selected-filter');
-
-        if (!selectedFilter) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const type = selectedFilter.dataset.filterType;
-
-        if (type === 'tag') {
-            selectedTag = '';
-        }
-
-        if (type === 'project') {
-            selectedProject = '';
-        }
-
-        applyFilters();
-    });
-
-    /**
-     * КАТЕГОРИИ
-     */
-    document.addEventListener('click', function (event) {
-
-        const categoryLink = event.target.closest(
-            '.news-filter-category'
-        );
-
-        if (!categoryLink) {
-            return;
-        }
-
-
-        event.preventDefault();
-
-
-        const category = categoryLink.dataset.category;
-
-
-        /**
-         * "Все категории"
-         */
-        if (!category) {
-
-            selectedCategories = [];
-
-
-            document
-                .querySelectorAll('.news-filter-category')
-                .forEach(function (item) {
-
-                    item.classList.remove('checked');
-
-                });
-
-
-            categoryLink.classList.add('checked');
+            }
 
 
             applyFilters();
 
-            return;
         }
+    );
 
 
-        /**
-         * Добавляем / удаляем категорию
-         */
-        toggleValue(
-            selectedCategories,
-            category
-        );
+    /**
+     * PROJECT
+     *
+     * Здесь обрабатываются два варианта:
+     *
+     * data-project="..."
+     * data-is-project="126"
+     */
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            const projectLink = event.target.closest(
+                '.news-filter-project'
+            );
+
+            if (!projectLink) {
+                return;
+            }
 
 
-        /**
-         * Визуальное состояние
-         */
-        categoryLink.classList.toggle(
-            'checked'
-        );
+            event.preventDefault();
 
 
-        /**
-         * Убираем "Все категории"
-         */
-        document
-            .querySelector(
-                '.news-filter-category[data-category=""]'
-            )
-            ?.classList.remove('checked');
+            /**
+             * Специальный фильтр "Проект"
+             */
+            const isProject = projectLink.dataset.isProject;
 
 
-        /**
-         * Если ничего не выбрано —
-         * возвращаем "Все категории"
-         */
-        if (selectedCategories.length === 0) {
+            if (isProject) {
 
+                if (
+                    selectedIsProject === isProject
+                ) {
+
+                    selectedIsProject = '';
+
+                } else {
+
+                    selectedIsProject = isProject;
+
+                }
+
+
+                applyFilters();
+
+                return;
+            }
+
+
+            /**
+             * Обычный проект
+             */
+            const project = projectLink.dataset.project;
+
+
+            if (!project) {
+                return;
+            }
+
+
+            if (selectedProject === project) {
+
+                selectedProject = '';
+
+            } else {
+
+                selectedProject = project;
+
+            }
+
+
+            applyFilters();
+
+        }
+    );
+
+
+    /**
+     * Удаление выбранного TAG / PROJECT / IS-PROJECT
+     */
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            const selectedFilter = event.target.closest(
+                '.selected-filter'
+            );
+
+            if (!selectedFilter) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            const type = selectedFilter.dataset.filterType;
+
+
+            /**
+             * TAG
+             */
+            if (type === 'tag') {
+
+                selectedTag = '';
+
+            }
+
+
+            /**
+             * PROJECT
+             */
+            if (type === 'project') {
+
+                selectedProject = '';
+
+            }
+
+
+            /**
+             * IS-PROJECT
+             */
+            if (type === 'is-project') {
+
+                selectedIsProject = '';
+
+            }
+
+
+            applyFilters();
+
+        }
+    );
+
+
+    /**
+     * КАТЕГОРИИ
+     */
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            const categoryLink = event.target.closest(
+                '.news-filter-category'
+            );
+
+            if (!categoryLink) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            const category = categoryLink.dataset.category;
+
+
+            /**
+             * "Все категории"
+             */
+            if (!category) {
+
+                selectedCategories = [];
+
+
+                document
+                    .querySelectorAll(
+                        '.news-filter-category'
+                    )
+                    .forEach(function (item) {
+
+                        item.classList.remove(
+                            'checked'
+                        );
+
+                    });
+
+
+                categoryLink.classList.add(
+                    'checked'
+                );
+
+
+                applyFilters();
+
+                return;
+
+            }
+
+
+            /**
+             * Добавляем / удаляем категорию
+             */
+            toggleValue(
+                selectedCategories,
+                category
+            );
+
+
+            /**
+             * Визуальное состояние
+             */
+            categoryLink.classList.toggle(
+                'checked'
+            );
+
+
+            /**
+             * Убираем "Все категории"
+             */
             document
                 .querySelector(
                     '.news-filter-category[data-category=""]'
                 )
-                ?.classList.add('checked');
+                ?.classList.remove(
+                'checked'
+            );
+
+
+            /**
+             * Если ничего не выбрано —
+             * возвращаем "Все категории"
+             */
+            if (
+                selectedCategories.length === 0
+            ) {
+
+                document
+                    .querySelector(
+                        '.news-filter-category[data-category=""]'
+                    )
+                    ?.classList.add(
+                    'checked'
+                );
+
+            }
+
+
+            applyFilters();
 
         }
-
-
-        applyFilters();
-
-    });
+    );
 
 
     /**
      * ИНСТИТУТЫ / ФИЛИАЛЫ
      */
-    document.addEventListener('click', function (event) {
+    document.addEventListener(
+        'click',
+        function (event) {
 
-        const sectionLink = event.target.closest(
-            '.news-filter-section'
-        );
+            const sectionLink = event.target.closest(
+                '.news-filter-section'
+            );
 
-        if (!sectionLink) {
-            return;
-        }
-
-
-        event.preventDefault();
-
-
-        const section = sectionLink.dataset.section;
+            if (!sectionLink) {
+                return;
+            }
 
 
-        /**
-         * "Все институты"
-         */
-        if (!section) {
-
-            selectedSections = [];
+            event.preventDefault();
 
 
-            document
-                .querySelectorAll('.news-filter-section')
-                .forEach(function (item) {
-
-                    item.classList.remove('checked');
-
-                });
+            const section = sectionLink.dataset.section;
 
 
-            sectionLink.classList.add('checked');
+            /**
+             * "Все институты"
+             */
+            if (!section) {
+
+                selectedSections = [];
 
 
-            applyFilters();
+                document
+                    .querySelectorAll(
+                        '.news-filter-section'
+                    )
+                    .forEach(function (item) {
 
-            return;
-        }
+                        item.classList.remove(
+                            'checked'
+                        );
 
-
-        /**
-         * Добавляем / удаляем раздел
-         */
-        toggleValue(
-            selectedSections,
-            section
-        );
+                    });
 
 
-        /**
-         * Визуальное состояние
-         */
-        sectionLink.classList.toggle(
-            'checked'
-        );
+                sectionLink.classList.add(
+                    'checked'
+                );
 
 
-        /**
-         * Убираем "Все институты"
-         */
-        document
-            .querySelector(
-                '.news-filter-section[data-section=""]'
-            )
-            ?.classList.remove('checked');
+                applyFilters();
+
+                return;
+
+            }
 
 
-        /**
-         * Если ничего не выбрано —
-         * возвращаем "Все институты"
-         */
-        if (selectedSections.length === 0) {
+            /**
+             * Добавляем / удаляем раздел
+             */
+            toggleValue(
+                selectedSections,
+                section
+            );
 
+
+            /**
+             * Визуальное состояние
+             */
+            sectionLink.classList.toggle(
+                'checked'
+            );
+
+
+            /**
+             * Убираем "Все институты"
+             */
             document
                 .querySelector(
                     '.news-filter-section[data-section=""]'
                 )
-                ?.classList.add('checked');
+                ?.classList.remove(
+                'checked'
+            );
+
+
+            /**
+             * Если ничего не выбрано —
+             * возвращаем "Все институты"
+             */
+            if (
+                selectedSections.length === 0
+            ) {
+
+                document
+                    .querySelector(
+                        '.news-filter-section[data-section=""]'
+                    )
+                    ?.classList.add(
+                    'checked'
+                );
+
+            }
+
+
+            applyFilters();
 
         }
-
-
-        applyFilters();
-
-    });
+    );
 
 
     /**
@@ -757,6 +1095,9 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
 
+        /**
+         * Поиск
+         */
         if (searchButton) {
 
             searchButton.addEventListener(
@@ -773,6 +1114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
+        /**
+         * Очистка
+         */
         if (clearButton) {
 
             clearButton.addEventListener(
@@ -812,94 +1156,104 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+
     /**
-     * Пагинация
+     * ПАГИНАЦИЯ
      */
+    document.addEventListener(
+        'click',
+        function (event) {
 
-    document.addEventListener('click', function (event) {
-
-        const paginationLink = event.target.closest(
-            '.pagination a'
-        );
-
-        if (!paginationLink) {
-            return;
-        }
-
-        event.preventDefault();
-
-
-        /**
-         * Получаем номер страницы из ссылки Bitrix
-         *
-         * Например:
-         * /news/?PAGEN_1=4
-         */
-        const url = new URL(
-            paginationLink.href,
-            window.location.origin
-        );
-
-        const page = url.searchParams.get('PAGEN_1') || 1;
-
-
-        /**
-         * Загружаем нужную страницу,
-         * сохраняя все текущие фильтры
-         */
-        loadNews(page);
-
-
-        /**
-         * Обновляем URL браузера.
-         *
-         * Сначала берём текущий URL,
-         * чтобы сохранить:
-         * search
-         * category[]
-         * section[]
-         * tag
-         * project
-         *
-         * и только меняем PAGEN_1.
-         */
-        const currentUrl = new URL(
-            window.location.href
-        );
-
-        if (page > 1) {
-            currentUrl.searchParams.set(
-                'PAGEN_1',
-                page
+            const paginationLink = event.target.closest(
+                '.pagination a'
             );
-        } else {
-            currentUrl.searchParams.delete(
-                'PAGEN_1'
+
+            if (!paginationLink) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            /**
+             * Получаем номер страницы
+             * из ссылки Bitrix
+             */
+            const url = new URL(
+                paginationLink.href,
+                window.location.origin
             );
+
+
+            const page =
+                url.searchParams.get('PAGEN_1') || 1;
+
+
+            /**
+             * Загружаем нужную страницу,
+             * сохраняя все фильтры
+             */
+            loadNews(page);
+
+
+            /**
+             * Обновляем URL
+             *
+             * Берём текущий URL,
+             * чтобы сохранить:
+             *
+             * search
+             * category[]
+             * section[]
+             * tag
+             * project
+             * is-project
+             */
+            const currentUrl = new URL(
+                window.location.href
+            );
+
+
+            if (Number(page) > 1) {
+
+                currentUrl.searchParams.set(
+                    'PAGEN_1',
+                    page
+                );
+
+            } else {
+
+                currentUrl.searchParams.delete(
+                    'PAGEN_1'
+                );
+
+            }
+
+
+            window.history.pushState(
+                {},
+                '',
+                currentUrl.pathname +
+                (
+                    currentUrl.searchParams.toString()
+                        ? '?' +
+                        currentUrl.searchParams.toString()
+                        : ''
+                )
+            );
+
+
+            /**
+             * Прокручиваем к началу списка
+             */
+            newsList.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
         }
-
-
-        window.history.pushState(
-            {},
-            '',
-            currentUrl.pathname +
-            (
-                currentUrl.searchParams.toString()
-                    ? '?' + currentUrl.searchParams.toString()
-                    : ''
-            )
-        );
-
-
-        /**
-         * Прокручиваем к началу списка новостей
-         */
-        newsList.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-
-    });
+    );
 
 
     /**
@@ -913,7 +1267,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             renderSelectedFilters();
 
-            loadNews();
+            /**
+             * При Back/Forward нужно загрузить
+             * страницу, указанную в URL
+             */
+            const params = new URLSearchParams(
+                window.location.search
+            );
+
+            const page =
+                params.get('PAGEN_1') || 1;
+
+
+            loadNews(page);
 
         }
     );

@@ -19,7 +19,7 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
 <main class="page">
     <div class="page__container">
         <nav class="page__sidebar">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/include/news/filter.php'; ?>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/include/services/filter.php'; ?>
             <?php $APPLICATION->IncludeFile(
                     "/include/left/banners.php",
                     array(),
@@ -31,14 +31,47 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
         <div class="page__content">
             <div class="page__content-header">
                 <div class="title-block">
-                    <h1 class="title-two">Новости</h1>
-                    <a href="#" class="button-rss" data-da=".button-rss__mobile,950,1">
-                        <iconify-icon icon="line-md:rss" width="24" height="24" noobserver></iconify-icon>
-                        <span>RSS</span>
-                    </a>
+                    <h1 class="title-two">Услуги</h1>
+                    <div class="sort__block" data-da=".sort-mobile,950, 1">
+                        <button type="button" class="button-sort">
+                            <div class="icon">
+                                <iconify-icon icon="fluent:arrow-sort-16-regular" width="100%" height="100%" noobserver></iconify-icon>
+                            </div>
+                            <span>По популярности</span>
+                        </button>
+                        <div class="sort__content">
+                            <ul>
+                                <li>
+                                    <label class="active _form-focus">
+                                        <input type="radio" name="sort_cheap" value="cheap" class="_form-focus" checked />
+                                        <span>По популярности</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="sort_dear" value="dear" />
+                                        <span>По названию (А-Я)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="sort_short" value="short" />
+                                        <span>По названию (Я-А)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="sort_long" value="long" />
+                                        <span>Сначала новые</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
-                    <ul></ul>
+                <div class="hashtags-header" data-da=".hashtags-header-mobile,950, 1">
+                    <ul>
+                    </ul>
                 </div>
                 <?php $APPLICATION->IncludeComponent(
                         "bitrix:breadcrumb",
@@ -57,7 +90,7 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                         </div>
                         <span>Фильтр</span>
                     </button>
-                    <div class="button-rss__mobile"></div>
+                    <div class="sort-mobile"></div>
                     <div class="page__mobile-filter">
                         <div class="page__mobile-filter-header">
                             <h4 class="title-four">Фильтр</h4>
@@ -65,14 +98,14 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                                 <iconify-icon icon="lucide:x" width="24" height="24" noobserver></iconify-icon>
                             </button>
                         </div>
+
                         <div class="page__mobile-filter-content">
                             <form action="#">
                                 <div class="page__sidebar-content-mobile"></div>
                                 <div class="page__mobile-filter-action">
                                     <button type="button" class="button-result" data-close>
                                         <span>Показать результат</span>
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                      noobserver></iconify-icon>
+                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
                                     </button>
                                 </div>
                             </form>
@@ -81,31 +114,6 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                 </div>
             </div>
             <?php
-            /**
-             * Категория
-             */
-            $categories = $_GET['category'] ?? [];
-
-            if (!is_array($categories)) {
-                $categories = [$categories];
-            }
-
-            $categories = array_filter(array_map('intval', $categories));
-
-            if (!empty($categories)) {
-                $categoryFilter = [
-                        'LOGIC' => 'OR',
-                ];
-
-                foreach ($categories as $category) {
-                    $categoryFilter[] = [
-                            'PROPERTY_CATEGORY' => $category,
-                    ];
-                }
-
-                $GLOBALS[$filterName][] = $categoryFilter;
-            }
-
             /**
              * Институт / филиал
              */
@@ -123,17 +131,10 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                 $GLOBALS[$filterName]['SECTION_ID'] = $sections;
             }
             if (!empty($_GET['tag'])) {
-            $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_GET['tag'];
-            }
-
-            if (!empty($_GET['project'])) {
-            $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_GET['project'];
-            }
-            if (!empty($_GET['is-project'])) {
-                $GLOBALS[$filterName]['PROPERTY_IS_PROJECT'] = $_GET['is-project'];
+                $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_GET['tag'];
             }
             ?>
-            <div class="news__list-wrapper" id="news-list">
+            <div class="services__list-wrapper" id="services-list">
                 <?php
                 $APPLICATION->IncludeComponent(
                         "bitrix:news.list",

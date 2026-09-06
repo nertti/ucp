@@ -28,31 +28,6 @@ if ($search !== '') {
 /**
  * Категория
  */
-$categories = $_POST['category'] ?? [];
-
-if (!is_array($categories)) {
-    $categories = [$categories];
-}
-
-$categories = array_filter(array_map('intval', $categories));
-
-if (!empty($categories)) {
-    $categoryFilter = [
-            'LOGIC' => 'OR',
-    ];
-
-    foreach ($categories as $category) {
-        $categoryFilter[] = [
-                'PROPERTY_CATEGORY' => $category,
-        ];
-    }
-
-    $GLOBALS[$filterName][] = $categoryFilter;
-}
-
-/**
- * Институт / филиал
- */
 $sections = $_POST['section'] ?? [];
 
 if (!is_array($sections)) {
@@ -69,18 +44,11 @@ if (!empty($sections)) {
 if (!empty($_POST['tag'])) {
     $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_POST['tag'];
 }
-
-if (!empty($_POST['project'])) {
-    $GLOBALS[$filterName]['PROPERTY_PROJECTS'] = $_POST['project'];
-}
-if (!empty($_POST['is-project'])) {
-    $GLOBALS[$filterName]['PROPERTY_IS_PROJECT'] = $_POST['is-project'];
-}
 ?>
-<div class="news__list-wrapper" id="news-list">
+<div class="services__list-wrapper" id="services-list">
     <? $APPLICATION->IncludeComponent(
             "bitrix:news.list",
-            "ajax_news",
+            "ajax_services",
             array(
                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
                     "ADD_SECTIONS_CHAIN" => "N",
@@ -104,8 +72,8 @@ if (!empty($_POST['is-project'])) {
                     "FIELD_CODE" => array("", ""),
                     "FILTER_NAME" => $filterName,
                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                    "IBLOCK_ID" => "2",
-                    "IBLOCK_TYPE" => "news",
+                    "IBLOCK_ID" => "79",
+                    "IBLOCK_TYPE" => "services",
                     "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
                     "INCLUDE_SUBSECTIONS" => "Y",
                     "MESSAGE_404" => "",
@@ -119,7 +87,7 @@ if (!empty($_POST['is-project'])) {
                     "PARENT_SECTION" => "",
                     "PARENT_SECTION_CODE" => "",
                     "PREVIEW_TRUNCATE_LEN" => "",
-                    "PROPERTY_CODE" => array("VIEW_ON_MAIN", "CATEGORY", "PROJECTS", "TAGS", ""),
+                    "PROPERTY_CODE" => array("VIEW_ON_MAIN", "TAGS", "TAG"),
                     "SET_BROWSER_TITLE" => "N",
                     "SET_LAST_MODIFIED" => "N",
                     "SET_META_DESCRIPTION" => "N",
@@ -133,7 +101,7 @@ if (!empty($_POST['is-project'])) {
                     "SORT_ORDER2" => "ASC",
                     "STRICT_SECTION_CHECK" => "N",
                     "PAGER_BASE_LINK_ENABLE" => "Y",
-                    "PAGER_BASE_LINK" => "/news/",
+                    "PAGER_BASE_LINK" => "/services/",
             ),
     ); ?>
 </div>

@@ -85,6 +85,20 @@ $this->setFrameMode(true);
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
+
+                    <?php if (!empty($arItem['PROPERTIES']['IS_PROJECT']['VALUE_XML_ID'])): ?>
+                        <ul class="hashtags">
+                            <li class="hashtags__item">
+                                <a
+                                        class="news-filter-project"
+                                        data-is-project="126"
+                                        href="?is-project=126"
+                                >
+                                    #Проект
+                                </a>
+                            </li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </li>
         <?php endforeach; ?>

@@ -11,7 +11,7 @@ foreach ($arResult["ITEMS"] as &$arItem) {
         $tagXmlIds = (array)$arItem['PROPERTIES']['TAGS']['VALUE'];
         foreach ($tagXmlIds as $xmlId) {
             $tags = getHLData(
-                'Tags',
+                'TagsNews',
                 ['UF_XML_ID' => $xmlId]
             );
             foreach ($tags as $tag) {
