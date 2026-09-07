@@ -7,3 +7,5 @@
  */
 
 use Sprint\Editor\Module;
+?>
+<div class="page__info-group">

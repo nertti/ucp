@@ -2448,6 +2448,18 @@ body::after {
   visibility: visible;
   transition: opacity .3s ease
 }
+.video__list {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px
+}
+.video__list._three {
+  grid-template-columns: repeat(3,1fr)
+}
+.video__list video {
+  width: 100%;
+  border-radius: 10px
+}
 .header {
   padding-block: 16px;
   background-color: #0d2660;
@@ -5757,6 +5769,9 @@ body._lock {
     font-size: 14px;
     line-height: 18px
   }
+  .video__list._three {
+    grid-template-columns: repeat(2,1fr)
+  }
   .footer {
     background-image: url(../img/main/footer-bg-tablet.webp)
   }
@@ -6109,6 +6124,12 @@ body._lock {
   .warning-cookie__action .button-reject {
     width: 100%;
     padding-inline: 12px
+  }
+  .video__list {
+    grid-template-columns: repeat(1,1fr)
+  }
+  .video__list._three {
+    grid-template-columns: repeat(1,1fr)
   }
   .header-mobile .header__container {
     justify-content: center

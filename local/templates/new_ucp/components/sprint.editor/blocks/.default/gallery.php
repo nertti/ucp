@@ -1,33 +1,41 @@
 <?php /**
  * @var $block array
  * @var $this  SprintEditorBlocksComponent
- */ ?><?php
-$images = Sprint\Editor\Blocks\Gallery::getImages(
-    $block, [
-    'width'  => 300,
-    'height' => 300,
-    'exact'  => 0,
-], [
-        'width'  => 1024,
-        'height' => 768,
-        'exact'  => 0,
-    ]
-);
-?><?php if (!empty($images)) { ?>
-    <div class="sp-gallery">
-        <div class="sp-gallery-items">
-            <?php foreach ($images as $image) { ?>
-                <div class="sp-gallery-item">
-                    <a data-fancybox="gallery" class="sp-gallery-item-img-wrapper fancy" rel="media-gallery" href="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>">
-                        <img alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>" src="<?= htmlspecialcharsbx($image['SRC']) ?>">
-                        <?php if (!empty($image['DESCRIPTION'])) { ?>
-                            <div class="sp-gallery-item-text">
-                                <div class="sp-gallery-item-text-content"><?= htmlspecialcharsbx($image['DESCRIPTION']) ?></div>
-                            </div>
-                        <?php } ?>
-                    </a>
+ */ ?>
+
+<?php if (!empty($block['images'])): ?>
+    <div class="page__image-slider">
+        <div class="page__image-slider-main swiper">
+            <div class="swiper-wrapper">
+                <?php foreach ($block['images'] as $image) : ?>
+                    <div class="swiper-slide">
+                        <a href="<?= htmlspecialcharsbx($image['file']['ORIGIN_SRC']) ?>"
+                           class="page__image-slider-link"
+                           data-fancybox="gallery">
+                            <img src="<?= htmlspecialcharsbx($image['file']['ORIGIN_SRC']) ?>"
+                                 alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>" title="Новость"/>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="page__image-slider-action">
+                <div class="page__image-slider-prev swiper-button-prev">
+                    <iconify-icon icon="ep:arrow-left-bold" width="20" height="20" noobserver></iconify-icon>
                 </div>
-            <?php } ?>
+                <div class="page__image-slider-next swiper-button-next">
+                    <iconify-icon icon="ep:arrow-right-bold" width="20" height="20" noobserver></iconify-icon>
+                </div>
+            </div>
+        </div>
+        <div class="page__image-slider-thumbs swiper">
+            <div class="swiper-wrapper">
+                <?php foreach ($block['images'] as $image) : ?>
+                    <div class="swiper-slide">
+                        <img src="<?= htmlspecialcharsbx($image['file']['ORIGIN_SRC']) ?>"
+                             alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"/>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
-<?php } ?>
+<?php endif; ?>

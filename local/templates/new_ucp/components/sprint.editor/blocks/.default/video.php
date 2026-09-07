@@ -1,18 +1,13 @@
-<?php /** @var $block array */ ?><?php
-
-/*
-$preview = Sprint\Editor\Blocks\Image::getImage($block['preview'], array(
-    'width' => 1024,
-    'height' => 768,
-    'exact' => 0,
-    //'jpg_quality' => 75
-));
-
-<img alt="<?= $preview['DESCRIPTION'] ?>" src="<?= $preview['SRC'] ?>">
-
-*/
-
-?>
-<div class="sp-video">
+<?php /** @var $block array */ ?>
+<style>
+    .page__video {
+        width: 100%;
+        max-width: 780px;
+        height: 480px;
+        border-radius: 8px;
+        margin-inline: auto;
+    }
+</style>
+<div class="page__video">
     <?= Sprint\Editor\Blocks\Video::getHtml($block) ?>
 </div>
