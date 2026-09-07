@@ -106,4 +106,6 @@ $this->setFrameMode(true);
     <?php if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
         <?php echo $arResult["NAV_STRING"]; ?>
     <?php endif; ?>
+<?php else:?>
+    <p class="text">По вашему запросу ничего не найдено</p>
 <?php endif; ?>

@@ -10,7 +10,7 @@ if (!empty($arResult['PROPERTIES']['TAGS']['VALUE'])) {
     $tagXmlIds = (array)$arResult['PROPERTIES']['TAGS']['VALUE'];
     foreach ($tagXmlIds as $xmlId) {
         $tags = getHLData(
-            'Tags',
+            'TagsServices',
             ['UF_XML_ID' => $xmlId]
         );
         foreach ($tags as $tag) {
@@ -21,27 +21,8 @@ if (!empty($arResult['PROPERTIES']['TAGS']['VALUE'])) {
         }
     }
 }
-$hashtagsProject = [];
 
-// Проекты
-if (!empty($arResult['PROPERTIES']['PROJECTS']['VALUE'])) {
-    $projectXmlIds = (array)$arResult['PROPERTIES']['PROJECTS']['VALUE'];
-
-    foreach ($projectXmlIds as $xmlId) {
-        $projects = getHLData(
-            'projects',
-            ['UF_XML_ID' => $xmlId]
-        );
-        foreach ($projects as $project) {
-            if (!empty($project['UF_NAME'])) {
-                $arProject = ['NAME' => $project['UF_NAME'], 'LINK' => 'project=' . $project['UF_XML_ID'], 'UF_XML_ID' => $project['UF_XML_ID']];
-                $hashtagsProject[] = $arProject;
-            }
-        }
-    }
-}
 $arResult['HASHTAGS']['TAGS'] = $hashtagsTag;
-$arResult['HASHTAGS']['PROJECTS'] = $hashtagsProject;
 $arResult['IMAGE'] = !empty($arResult['DETAIL_PICTURE'])
     ? $arResult['DETAIL_PICTURE']
     : $arResult['PREVIEW_PICTURE'];
