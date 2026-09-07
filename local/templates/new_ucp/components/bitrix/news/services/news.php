@@ -15,6 +15,63 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
+
+/**
+ * Сортировка
+ */
+$sort = $_GET['sort'] ?? 'popular';
+
+$allowedSorts = [
+        'popular',
+        'name_asc',
+        'name_desc',
+        'new',
+];
+
+if (!in_array($sort, $allowedSorts, true)) {
+    $sort = 'popular';
+}
+
+$sortBy1 = 'SORT';
+$sortOrder1 = 'ASC';
+$sortBy2 = 'ACTIVE_FROM';
+$sortOrder2 = 'DESC';
+
+switch ($sort) {
+    case 'name_asc':
+        $sortBy1 = 'NAME';
+        $sortOrder1 = 'ASC';
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'ASC';
+        break;
+
+    case 'name_desc':
+        $sortBy1 = 'NAME';
+        $sortOrder1 = 'DESC';
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'DESC';
+        break;
+
+    case 'new':
+        $sortBy1 = 'ACTIVE_FROM';
+        $sortOrder1 = 'DESC';
+        $sortBy2 = 'SORT';
+        $sortOrder2 = 'ASC';
+        break;
+
+    case 'popular':
+        $sortBy1 = 'PROPERTY_VIEWS';
+        $sortOrder1 = 'DESC';
+        $sortBy2 = 'ACTIVE_FROM';
+        $sortOrder2 = 'DESC';
+        break;
+    default:
+        $sortBy1 = 'SORT';
+        $sortOrder1 = 'ASC';
+        $sortBy2 = 'ACTIVE_FROM';
+        $sortOrder2 = 'DESC';
+        break;
+}
 ?>
 <main class="page">
     <div class="page__container">
@@ -108,10 +165,10 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
                                 "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                                 "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                                 "NEWS_COUNT" => $arParams["NEWS_COUNT"],
-                                "SORT_BY1" => $arParams["SORT_BY1"],
-                                "SORT_ORDER1" => $arParams["SORT_ORDER1"],
-                                "SORT_BY2" => $arParams["SORT_BY2"],
-                                "SORT_ORDER2" => $arParams["SORT_ORDER2"],
+                                "SORT_BY1" => $sortBy1,
+                                "SORT_ORDER1" => $sortOrder1,
+                                "SORT_BY2" => $sortBy2,
+                                "SORT_ORDER2" => $sortOrder2,
                                 "FIELD_CODE" => $arParams["LIST_FIELD_CODE"],
                                 "PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
                                 "DETAIL_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["detail"],

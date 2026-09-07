@@ -8,48 +8,187 @@ define('DisableEventsCheck', true);
 require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
 
 use Bitrix\Main\Loader;
+
 if (!Loader::includeModule('iblock')) {
     die();
 }
+
 
 $filterName = 'arrFilter';
 
 $GLOBALS[$filterName] = [];
 
+
 /**
- * Поиск по названию
+ * =========================================================
+ * ПОИСК ПО НАЗВАНИЮ
+ * =========================================================
  */
+
 $search = trim($_POST['search'] ?? '');
 
 if ($search !== '') {
+
     $GLOBALS[$filterName]['%NAME'] = $search;
+
 }
 
+
 /**
- * Категория
+ * =========================================================
+ * КАТЕГОРИИ
+ * =========================================================
  */
+
 $sections = $_POST['section'] ?? [];
 
 if (!is_array($sections)) {
-    $sections = [$sections];
+
+    $sections = [
+            $sections
+    ];
+
 }
+
 
 $sections = array_filter(
-        array_map('intval', $sections)
+        array_map(
+                'intval',
+                $sections
+        )
 );
+
+
 if (!empty($sections)) {
-    $GLOBALS[$filterName]['SECTION_ID'] = $sections;
+
+    $GLOBALS[$filterName]['SECTION_ID'] =
+            $sections;
+
 }
 
-if (!empty($_POST['tag'])) {
-    $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_POST['tag'];
+
+/**
+ * =========================================================
+ * TAG
+ * =========================================================
+ */
+
+$tag = trim($_POST['tag'] ?? '');
+
+if ($tag !== '') {
+
+    $GLOBALS[$filterName]['PROPERTY_TAGS'] =
+            $tag;
+
+}
+
+
+/**
+ * =========================================================
+ * СОРТИРОВКА
+ * =========================================================
+ */
+
+$sort = $_POST['sort'] ?? 'popular';
+
+
+/**
+ * Защищаемся от неизвестных значений
+ */
+$allowedSorts = [
+        'popular',
+        'name_asc',
+        'name_desc',
+        'new'
+];
+
+
+if (!in_array($sort, $allowedSorts, true)) {
+
+    $sort = 'popular';
+
+}
+
+
+/**
+ * Значения сортировки
+ */
+$sortBy1 = 'SORT';
+$sortOrder1 = 'ASC';
+
+$sortBy2 = 'ACTIVE_FROM';
+$sortOrder2 = 'DESC';
+
+
+switch ($sort) {
+
+    /**
+     * По популярности
+     *
+     * Основная сортировка:
+     * SORT ASC
+     *
+     * Если SORT одинаковый:
+     * новые выше.
+     */
+    case 'popular':
+        $sortBy1 = 'PROPERTY_VIEWS';
+        $sortOrder1 = 'DESC';
+        $sortBy2 = 'ACTIVE_FROM';
+        $sortOrder2 = 'DESC';
+        break;
+
+
+    /**
+     * По названию А-Я
+     */
+    case 'name_asc':
+
+        $sortBy1 = 'NAME';
+        $sortOrder1 = 'ASC';
+
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'ASC';
+
+        break;
+
+
+    /**
+     * По названию Я-А
+     */
+    case 'name_desc':
+
+        $sortBy1 = 'NAME';
+        $sortOrder1 = 'DESC';
+
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'DESC';
+
+        break;
+
+
+    /**
+     * Сначала новые
+     */
+    case 'new':
+
+        $sortBy1 = 'ACTIVE_FROM';
+        $sortOrder1 = 'DESC';
+
+        $sortBy2 = 'SORT';
+        $sortOrder2 = 'ASC';
+
+        break;
+
 }
 ?>
 <div class="services__list-wrapper" id="services-list">
-    <? $APPLICATION->IncludeComponent(
+    <?php
+
+    $APPLICATION->IncludeComponent(
             "bitrix:news.list",
             "ajax_services",
-            array(
+            [
                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
                     "ADD_SECTIONS_CHAIN" => "N",
                     "AJAX_MODE" => "N",
@@ -69,7 +208,10 @@ if (!empty($_POST['tag'])) {
                     "DISPLAY_PICTURE" => "Y",
                     "DISPLAY_PREVIEW_TEXT" => "Y",
                     "DISPLAY_TOP_PAGER" => "N",
-                    "FIELD_CODE" => array("", ""),
+                    "FIELD_CODE" => [
+                            "",
+                            ""
+                    ],
                     "FILTER_NAME" => $filterName,
                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
                     "IBLOCK_ID" => "79",
@@ -83,11 +225,15 @@ if (!empty($_POST['tag'])) {
                     "PAGER_SHOW_ALL" => "N",
                     "PAGER_SHOW_ALWAYS" => "N",
                     "PAGER_TEMPLATE" => "pagination",
-                    "PAGER_TITLE" => "Новости",
+                    "PAGER_TITLE" => "Услуги",
                     "PARENT_SECTION" => "",
                     "PARENT_SECTION_CODE" => "",
                     "PREVIEW_TRUNCATE_LEN" => "",
-                    "PROPERTY_CODE" => array("VIEW_ON_MAIN", "TAGS", "TAG"),
+                    "PROPERTY_CODE" => [
+                            "VIEW_ON_MAIN",
+                            "TAGS",
+                            "TAG"
+                    ],
                     "SET_BROWSER_TITLE" => "N",
                     "SET_LAST_MODIFIED" => "N",
                     "SET_META_DESCRIPTION" => "N",
@@ -95,14 +241,22 @@ if (!empty($_POST['tag'])) {
                     "SET_STATUS_404" => "N",
                     "SET_TITLE" => "N",
                     "SHOW_404" => "N",
-                    "SORT_BY1" => "ACTIVE_FROM",
-                    "SORT_BY2" => "SORT",
-                    "SORT_ORDER1" => "DESC",
-                    "SORT_ORDER2" => "ASC",
+                /**
+                 * СОРТИРОВКА
+                 */
+                    "SORT_BY1" => $sortBy1,
+                    "SORT_BY2" => $sortBy2,
+                    "SORT_ORDER1" => $sortOrder1,
+                    "SORT_ORDER2" => $sortOrder2,
                     "STRICT_SECTION_CHECK" => "N",
+                /**
+                 * ПАГИНАЦИЯ
+                 */
                     "PAGER_BASE_LINK_ENABLE" => "Y",
                     "PAGER_BASE_LINK" => "/services/",
-            ),
-    ); ?>
-</div>
+            ]
+    );
 
+    ?>
+
+</div>

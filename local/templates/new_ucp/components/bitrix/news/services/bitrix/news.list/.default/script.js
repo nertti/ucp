@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let selectedSections = [];
     let selectedTag = '';
+    let selectedSort = 'popular';
 
 
     /**
@@ -41,28 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * Получение ВСЕХ дочерних разделов
-     * конкретного раздела.
-     *
-     * Поиск начинается от <li> текущего раздела,
-     * поэтому соседние разделы никогда не попадут
-     * в результат.
-     *
-     * Результат:
-     *
-     * Родитель
-     * ├── Ребёнок 1
-     * ├── Ребёнок 2
-     * │   ├── Подраздел 1
-     * │   └── Подраздел 2
-     * └── Ребёнок 3
-     *
-     * вернёт:
-     * Родитель
-     * Ребёнок 1
-     * Ребёнок 2
-     * Подраздел 1
-     * Подраздел 2
-     * Ребёнок 3
      */
     function getSectionGroup(sectionLink) {
 
@@ -77,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         /**
          * Ищем контейнер spollers
-         * непосредственно внутри текущего <li>
          */
         const spollers = Array.from(
             currentLi.children
@@ -94,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         /**
-         * Ищем details непосредственно внутри spollers
+         * Ищем details
          */
         const details = Array.from(
             spollers.children
@@ -163,13 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                 /**
-                 * Вариант 1:
-                 *
-                 * Обычный дочерний раздел:
-                 *
-                 * <li>
-                 *     <a class="services-filter-section">
-                 * </li>
+                 * Обычный дочерний раздел
                  */
                 const directLink =
                     Array.from(
@@ -194,16 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                 /**
-                 * Вариант 2:
-                 *
-                 * Дочерний раздел сам имеет
-                 * вложенные разделы:
-                 *
-                 * <li>
-                 *     <div data-spollers>
-                 *         <details>
-                 *             <summary>
-                 *                 <a class="services-filter-section">
+                 * Вложенный spoller
                  */
                 const nestedSpollers =
                     Array.from(
@@ -285,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                 /**
-                 * Получаем body вложенного раздела
+                 * Получаем body
                  */
                 const nestedBody =
                     Array.from(
@@ -305,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                 /**
-                 * Получаем UL вложенных разделов
+                 * Получаем UL
                  */
                 const nestedUl =
                     Array.from(
@@ -341,29 +304,221 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /**
+     * Получение названия текущей сортировки
+     */
+    function getSortName(sort) {
+
+        const sortInput = document.querySelector(
+            '.sort__block input[type="radio"][value="' +
+            CSS.escape(sort) +
+            '"]'
+        );
+
+
+        if (sortInput) {
+
+            const label = sortInput.closest('label');
+
+            if (label) {
+
+                const span = label.querySelector('span');
+
+                if (span) {
+                    return span.textContent.trim();
+                }
+
+            }
+
+        }
+
+
+        /**
+         * Запасные значения
+         */
+        const names = {
+            popular: 'По популярности',
+            name_asc: 'По названию (А-Я)',
+            name_desc: 'По названию (Я-А)',
+            new: 'Сначала новые'
+        };
+
+
+        return names[sort] || names.popular;
+    }
+
+
+    /**
+     * Обновление визуального состояния сортировки
+     */
+    function renderSort() {
+
+        const sortBlock =
+            document.querySelector('.sort__block');
+
+
+        if (!sortBlock) {
+            return;
+        }
+
+
+        /**
+         * ВАЖНО:
+         *
+         * У всех radio должен быть один name.
+         *
+         * На случай старой HTML-разметки
+         * исправляем name через JS.
+         */
+        const inputs =
+            sortBlock.querySelectorAll(
+                'input[type="radio"]'
+            );
+
+
+        inputs.forEach(function (input) {
+
+            input.name = 'services_sort';
+
+        });
+
+
+        /**
+         * Снимаем active
+         */
+        sortBlock
+            .querySelectorAll('label')
+            .forEach(function (label) {
+
+                label.classList.remove(
+                    'active'
+                );
+
+            });
+
+
+        /**
+         * Снимаем checked
+         */
+        inputs.forEach(function (input) {
+
+            input.checked =
+                input.value === selectedSort;
+
+        });
+
+
+        /**
+         * Добавляем active выбранному
+         */
+        const selectedInput =
+            sortBlock.querySelector(
+                'input[type="radio"][value="' +
+                CSS.escape(selectedSort) +
+                '"]'
+            );
+
+
+        if (selectedInput) {
+
+            const label =
+                selectedInput.closest('label');
+
+
+            if (label) {
+
+                label.classList.add(
+                    'active'
+                );
+
+            }
+
+        }
+
+
+        /**
+         * Меняем текст кнопки
+         */
+        const button =
+            sortBlock.querySelector(
+                '.button-sort'
+            );
+
+
+        if (button) {
+
+            const text =
+                button.querySelector('span');
+
+
+            if (text) {
+
+                text.textContent =
+                    getSortName(
+                        selectedSort
+                    );
+
+            }
+
+        }
+
+    }
+
+
+    /**
      * Инициализация фильтров из URL
      */
     function initFiltersFromUrl() {
 
-        const params = new URLSearchParams(
-            window.location.search
-        );
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
 
 
         /**
          * Категории
          */
-        selectedSections = params.getAll(
-            'section[]'
-        );
+        selectedSections =
+            params.getAll(
+                'section[]'
+            );
 
 
         /**
          * Тег
          */
-        selectedTag = params.get(
-            'tag'
-        ) || '';
+        selectedTag =
+            params.get(
+                'tag'
+            ) || '';
+
+
+        /**
+         * Сортировка
+         */
+        selectedSort =
+            params.get(
+                'sort'
+            ) || 'popular';
+
+
+        /**
+         * Разрешённые значения сортировки
+         */
+        const allowedSorts = [
+            'popular',
+            'name_asc',
+            'name_desc',
+            'new'
+        ];
+
+
+        if (!allowedSorts.includes(selectedSort)) {
+
+            selectedSort =
+                'popular';
+
+        }
 
 
         /**
@@ -425,6 +580,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             });
 
+
+        /**
+         * Восстанавливаем сортировку
+         */
+        renderSort();
+
     }
 
 
@@ -478,13 +639,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         /**
-         * Тег
+         * TAG
          */
         if (selectedTag) {
 
             params.set(
                 'tag',
                 selectedTag
+            );
+
+        }
+
+
+        /**
+         * Сортировка
+         *
+         * popular считаем значением
+         * по умолчанию и не обязательно
+         * писать его в URL.
+         */
+        if (
+            selectedSort &&
+            selectedSort !== 'popular'
+        ) {
+
+            params.set(
+                'sort',
+                selectedSort
             );
 
         }
@@ -622,7 +803,12 @@ document.addEventListener('DOMContentLoaded', function () {
             page
         );
 
+
         renderSelectedFilters();
+
+
+        renderSort();
+
 
         loadServices(
             page
@@ -685,6 +871,15 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append(
             'tag',
             selectedTag
+        );
+
+
+        /**
+         * Сортировка
+         */
+        formData.append(
+            'sort',
+            selectedSort
         );
 
 
@@ -861,17 +1056,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * КАТЕГОРИИ
-     *
-     * При клике на родителя:
-     *
-     * Родитель
-     * + все его дочерние разделы
-     *
-     * При клике на дочерний:
-     *
-     * только он
-     * + его собственные дочерние разделы,
-     * если они есть.
      */
     document.addEventListener(
         'click',
@@ -942,8 +1126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (allSelected) {
 
                 /**
-                 * Убираем только текущий раздел
-                 * и его поддерево
+                 * Убираем группу
                  */
                 selectedSections =
                     selectedSections.filter(
@@ -973,8 +1156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
                 /**
-                 * Добавляем текущий раздел
-                 * и его поддерево
+                 * Добавляем группу
                  */
                 sectionIds.forEach(
                     function (id) {
@@ -1012,6 +1194,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             applyFilters();
+
+        }
+    );
+
+
+    /**
+     * СОРТИРОВКА
+     */
+    document.addEventListener(
+        'change',
+        function (event) {
+
+            const sortInput =
+                event.target.closest(
+                    '.sort__block input[type="radio"]'
+                );
+
+
+            if (!sortInput) {
+                return;
+            }
+
+
+            const sort =
+                sortInput.value;
+
+
+            const allowedSorts = [
+                'popular',
+                'name_asc',
+                'name_desc',
+                'new'
+            ];
+
+
+            if (!allowedSorts.includes(sort)) {
+                return;
+            }
+
+
+            /**
+             * Запоминаем сортировку
+             */
+            selectedSort =
+                sort;
+
+
+            /**
+             * Сбрасываем на первую страницу
+             */
+            applyFilters(
+                1
+            );
 
         }
     );
@@ -1165,8 +1400,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             /**
-             * Обновляем URL,
-             * сохраняя фильтры
+             * Обновляем URL
+             *
+             * Здесь сохраняются:
+             * - search
+             * - section[]
+             * - tag
+             * - sort
              */
             updateUrl(
                 page
@@ -1204,6 +1444,9 @@ document.addEventListener('DOMContentLoaded', function () {
             renderSelectedFilters();
 
 
+            renderSort();
+
+
             /**
              * Получаем страницу
              */
@@ -1239,5 +1482,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initFiltersFromUrl();
 
     renderSelectedFilters();
+
+    renderSort();
 
 });

@@ -26,3 +26,26 @@ $arResult['HASHTAGS']['TAGS'] = $hashtagsTag;
 $arResult['IMAGE'] = !empty($arResult['DETAIL_PICTURE'])
     ? $arResult['DETAIL_PICTURE']
     : $arResult['PREVIEW_PICTURE'];
+
+// Просмотры
+
+use Bitrix\Main\Loader;
+
+if (!Loader::includeModule('iblock')) {
+    return;
+}
+
+$elementId = (int)$arResult['ID'];
+
+if ($elementId > 0) {
+    CIBlockElement::SetPropertyValuesEx(
+        $elementId,
+        $arParams['IBLOCK_ID'],
+        [
+            'VIEWS' => new \Bitrix\Main\DB\SqlExpression(
+                'IFNULL(%s, 0) + 1',
+                'PROPERTY_VIEWS'
+            )
+        ]
+    );
+}
