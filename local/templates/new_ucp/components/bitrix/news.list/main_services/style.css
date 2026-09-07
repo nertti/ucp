@@ -99,3 +99,14 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.services__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr) !important;
+    gap: 16px;
+}
+
+.services__list-item-info{
+    height: 100%;
+}

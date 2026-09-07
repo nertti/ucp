@@ -64,8 +64,8 @@ $this->setFrameMode(true);
     </ul>
 
     <!-- Основной список услуг -->
-    <ul class="services__main-list">
-        <?php foreach ($arResult["ITEMS"] as $arItem): ?>
+    <ul class="services__list">
+    <?php foreach ($arResult["ITEMS"] as $arItem): ?>
             <?
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
             $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
@@ -96,30 +96,49 @@ $this->setFrameMode(true);
 
             $categoriesJson = htmlspecialchars(json_encode($sectionCodes));
             ?>
-            <li class="services__main-list-item <?=($arItem["PROPERTIES"]["ATT_BLUE"]["VALUE"] || in_array('_blue', $arItem["PROPERTIES"])) ? '_blue' : ''?>"
+            <li class="services__list-item"
                 id="<?=$this->GetEditAreaId($arItem['ID']);?>"
                 data-category="<?=$directSectionCode?>"
                 data-categories='<?=$categoriesJson?>'>
-
-                <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                    <div class="services__main-list-header">
+                <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="services__list-item-img">
+                    <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
+                    <div class="services__list-item-badge">
                         <div class="icon">
-                            <?if(!empty($arItem["PROPERTIES"]["ATT_ICON"]["VALUE"])):?>
-                                <iconify-icon icon="<?=$arItem["PROPERTIES"]["ATT_ICON"]["VALUE"]?>" width="100%" height="100%" noobserver=""></iconify-icon>
-                            <?else:?>
-                                <iconify-icon icon="lucide:atom" width="100%" height="100%" noobserver=""></iconify-icon>
-                            <?endif;?>
+                            <img src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
                         </div>
-                        <?if(!empty($arItem["PROPERTIES"]["ATT_LABEL"]["VALUE"])):?>
-                            <div class="label"><?=$arItem["PROPERTIES"]["ATT_LABEL"]["VALUE"]?></div>
-                        <?endif;?>
-                    </div>
-                    <div class="services__main-list-content">
-                        <h3><?=$arItem["NAME"]?></h3>
-                        <p><?=$arItem["PREVIEW_TEXT"]?></p>
+                        <?php if (!empty($arItem['PROPERTIES']['TAG']['VALUE'])): ?>
+                            <div class="label">
+                                <span><?=$arItem['PROPERTIES']['TAG']['VALUE']?></span>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </a>
+                <div class="services__list-item-info">
+                    <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="services__list-item-info-content">
+                        <h4><?= $arItem['NAME'] ?></h4>
+                        <p>
+                            <?=$arItem['TEXT']?>
+                        </p>
+                    </a>
+                    <?php if (!empty($arItem['HASHTAGS']['TAGS'])): ?>
+                        <ul class="hashtags">
+                            <?php foreach ($arItem['HASHTAGS']['TAGS'] as $hashtagTag): ?>
+                                <li class="hashtags__item">
+                                    <a
+                                            class="services-filter-tag"
+                                            data-tag="<?= htmlspecialcharsbx($hashtagTag['UF_XML_ID']) ?>"
+                                            data-name="<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>"
+                                            href="?<?= htmlspecialcharsbx($hashtagTag['LINK']) ?>"
+                                    >
+                                        #<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             </li>
+
         <?php endforeach; ?>
     </ul>
 </div>

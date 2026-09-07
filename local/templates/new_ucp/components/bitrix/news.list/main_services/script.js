@@ -1,13 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tabsContainer = document.querySelector(".tabs");
-    const servicesList = document.querySelector(".services__main-list");
+    const servicesList = document.querySelector(".services__list");
     const wrapper = document.querySelector(".services__wrapper");
     const skeletonList = document.querySelector(".services__skeleton-list");
 
     if (!tabsContainer || !servicesList || !wrapper || !skeletonList) return;
 
+    // Функция сортировки: элементы с заполненным тегом .label поднимаются наверх
+    function sortItemsByTag(itemsArray) {
+        return itemsArray.sort((a, b) => {
+            // Ищем блок тега внутри бейджа карточки
+            const tagA = a.querySelector(".services__list-item-badge .label span");
+            const tagB = b.querySelector(".services__list-item-badge .label span");
+
+            // Проверяем, есть ли там реальный текст (исключаем пустые обертки)
+            const hasTagA = tagA && tagA.textContent.trim().length > 0;
+            const hasTagB = tagB && tagB.textContent.trim().length > 0;
+
+            if (hasTagA && !hasTagB) return -1; // Карточка A идет вверх
+            if (!hasTagA && hasTagB) return 1;  // Карточка B идет вверх
+            return 0; // Порядок не меняется
+        });
+    }
+
     function filterServices(category) {
-        const items = servicesList.querySelectorAll(".services__main-list-item");
+        const items = Array.from(servicesList.querySelectorAll(".services__list-item"));
 
         // Сбрасываем состояния пустых разделов перед новой фильтрацией
         skeletonList.classList.remove("_empty-active");
@@ -21,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         servicesList.style.opacity = "0";
 
         setTimeout(() => {
+            // Мгновенно скрываем все старые элементы
             items.forEach(item => {
                 item.style.display = "none";
                 item.style.opacity = "0";
@@ -36,12 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 skeletonList.classList.remove("_active");
 
                 setTimeout(() => {
-                    let visibleIndex = 0;
-                    let matchCount = 0; // Счетчик найденных карточек
-
-                    // Фильтруем элементы
-                    items.forEach((item) => {
-                        // Проверяем категорию (одиночную или массив)
+                    // Фильтруем элементы по категории
+                    let matchedItems = items.filter(item => {
                         const singleCategory = item.dataset.category || "";
                         let multiCategories = [];
                         try {
@@ -51,15 +65,23 @@ document.addEventListener("DOMContentLoaded", function() {
                             multiCategories = [];
                         }
 
-                        const isMatch = category === "all" ||
+                        return category === "all" ||
                             singleCategory === category ||
                             multiCategories.includes(category);
+                    });
 
-                        // ДОБАВЛЕНО ОГРАНИЧЕНИЕ: отображаем элемент, только если МЕНЬШЕ 5 совпадений
-                        if (isMatch && matchCount < 5) {
-                            item.style.display = ""; // Возвращаем в сетку grid
+                    // Сортируем: карточки с TAG выводятся в приоритете
+                    matchedItems = sortItemsByTag(matchedItems);
 
-                            // Ваша каскадная анимация появления
+                    let visibleIndex = 0;
+                    const matchCount = matchedItems.length;
+
+                    // Отображаем первые 5 отсортированных карточек
+                    matchedItems.forEach((item) => {
+                        if (visibleIndex < 5) {
+                            item.style.display = "";
+
+                            // Каскадная анимация появления
                             setTimeout(() => {
                                 item.style.transition = "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
                                 item.style.opacity = "1";
@@ -67,17 +89,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             }, visibleIndex * 80);
 
                             visibleIndex++;
-                            matchCount++;
-                        } else if (isMatch) {
-                            // Если карточка подходит под фильтр, но она уже шестая по счету,
-                            // мы увеличиваем matchCount, чтобы понять, что раздел не пустой,
-                            // но display оставляем "none"
-                            matchCount++;
                         }
                     });
 
+                    // Физически перестраиваем порядок элементов в DOM, чтобы Grid/Flex сетка отображала их корректно
+                    matchedItems.forEach(item => servicesList.appendChild(item));
+
                     // Если подходящих карточек вообще нет
-                    if (visibleIndex === 0) {
+                    if (matchCount === 0) {
                         skeletonList.classList.add("_empty-active");
 
                         setTimeout(() => {
@@ -98,17 +117,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         }, (visibleIndex * 80) + 200);
                     }
 
-                }, 200); // Задержка на исчезновение скелетона
-            }, 450); // Время работы скелетона
-        }, 250); // Время затухания старого списка
+                }, 200);
+            }, 450);
+        }, 250);
     }
 
     tabsContainer.addEventListener("click", function(e) {
         const tabItem = e.target.closest(".tabs__item");
         if (!tabItem) return;
-        if (tabItem.classList.contains("_active")) return; // Защита от повторного клика по активному табу
+        if (tabItem.classList.contains("_active")) return;
 
-        // Проверяем оба варианта дата-атрибутов на всякий случай
         const category = tabItem.dataset.tab || tabItem.dataset.code || "all";
 
         document.querySelectorAll(".tabs__item").forEach(el => el.classList.remove("_active"));
@@ -117,16 +135,29 @@ document.addEventListener("DOMContentLoaded", function() {
         filterServices(category);
     });
 
-    // При первой загрузке страницы показываем всё сразу БЕЗ скелетона
-    const firstItems = servicesList.querySelectorAll(".services__main-list-item");
-    firstItems.forEach((item, index) => {
-        item.style.opacity = "0";
-        item.style.transform = "translateY(20px) scale(0.95)";
-        item.style.transition = "none";
-        setTimeout(() => {
-            item.style.transition = "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
-            item.style.opacity = "1";
-            item.style.transform = "translateY(0) scale(1)";
-        }, index * 60);
+    // При первой загрузке страницы плавно показываем отсортированные топ-5 элементов (для "Все услуги")
+    const firstItems = Array.from(servicesList.querySelectorAll(".services__list-item"));
+    const sortedFirstItems = sortItemsByTag(firstItems);
+    let initialCount = 0;
+
+    sortedFirstItems.forEach((item) => {
+        if (initialCount < 5) {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(20px) scale(0.95)";
+            item.style.transition = "none";
+
+            setTimeout(() => {
+                item.style.transition = "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                item.style.opacity = "1";
+                item.style.transform = "translateY(0) scale(1)";
+            }, initialCount * 60);
+
+            initialCount++;
+        } else {
+            item.style.display = "none";
+        }
     });
+
+    // Фиксируем физический порядок элементов в DOM при старте
+    sortedFirstItems.forEach(item => servicesList.appendChild(item));
 });
