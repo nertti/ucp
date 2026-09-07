@@ -16,16 +16,19 @@ $this->setFrameMode(true);
 <ul class="tabs">
     <li class="tabs__item _active" data-code="all" data-tab="all">
         <button type="button">
-            <iconify-icon icon="hugeicons:stars" width="24" height="24" noobserver=""></iconify-icon>
+            <span class="tab-icon-source">
+                <iconify-icon icon="hugeicons:stars" width="24" height="24" noobserver=""></iconify-icon>
+            </span>
             <span>Все услуги</span>
         </button>
     </li>
     <?php if(!empty($arResult["PARENT_SECTIONS"])): ?>
         <?php foreach ($arResult["PARENT_SECTIONS"] as $section):?>
-            <?// Заполняем и data-code, и data-tab для совместимости с JS ?>
             <li class="tabs__item" data-code="<?=$section['CODE']?>" data-tab="<?=$section['CODE']?>">
                 <button type="button">
-                    <?=$section['UF_ICON_MAIN_1']?>
+                    <span class="tab-icon-source">
+                        <?=$section['UF_ICON_MAIN_1']?>
+                    </span>
                     <span><?=$section['NAME']?></span>
                 </button>
             </li>

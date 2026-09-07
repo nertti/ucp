@@ -41,26 +41,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     // Фильтруем элементы
                     items.forEach((item) => {
-                        // 1. Проверяем старый одиночный атрибут data-category
+                        // Проверяем категорию (одиночную или массив)
                         const singleCategory = item.dataset.category || "";
-
-                        // 2. Проверяем новый атрибут для вложенных подразделов data-categories
                         let multiCategories = [];
                         try {
                             const rawCats = item.getAttribute('data-categories');
-                            if (rawCats) {
-                                multiCategories = JSON.parse(rawCats);
-                            }
+                            if (rawCats) multiCategories = JSON.parse(rawCats);
                         } catch (e) {
                             multiCategories = [];
                         }
 
-                        // Условие совпадения: если выбрано "all", либо совпал одиночный код, либо код есть в массиве подразделов
                         const isMatch = category === "all" ||
                             singleCategory === category ||
                             multiCategories.includes(category);
 
-                        if (isMatch) {
+                        // ДОБАВЛЕНО ОГРАНИЧЕНИЕ: отображаем элемент, только если МЕНЬШЕ 5 совпадений
+                        if (isMatch && matchCount < 5) {
                             item.style.display = ""; // Возвращаем в сетку grid
 
                             // Ваша каскадная анимация появления
@@ -72,20 +68,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
                             visibleIndex++;
                             matchCount++;
+                        } else if (isMatch) {
+                            // Если карточка подходит под фильтр, но она уже шестая по счету,
+                            // мы увеличиваем matchCount, чтобы понять, что раздел не пустой,
+                            // но display оставляем "none"
+                            matchCount++;
                         }
                     });
 
                     // Если подходящих карточек вообще нет
-                    if (matchCount === 0) {
+                    if (visibleIndex === 0) {
                         skeletonList.classList.add("_empty-active");
 
-                        // Вместо 0px ставим высоту карточки-заглушки, чтобы не было прыжка
                         setTimeout(() => {
                             const emptyCard = skeletonList.querySelector("._empty-state");
                             if (emptyCard) {
                                 wrapper.style.minHeight = `${emptyCard.offsetHeight}px`;
                             } else {
-                                wrapper.style.minHeight = "250px"; // Запасной вариант
+                                wrapper.style.minHeight = "350px";
                             }
                         }, 100);
                     } else {
