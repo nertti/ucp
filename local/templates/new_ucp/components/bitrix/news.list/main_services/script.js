@@ -9,17 +9,23 @@ document.addEventListener("DOMContentLoaded", function() {
     // Функция сортировки: элементы с заполненным тегом .label поднимаются наверх
     function sortItemsByTag(itemsArray) {
         return itemsArray.sort((a, b) => {
-            // Ищем блок тега внутри бейджа карточки
-            const tagA = a.querySelector(".services__list-item-badge .label span");
-            const tagB = b.querySelector(".services__list-item-badge .label span");
+            // Вспомогательная функция для определения веса карточки
+            const getWeight = (item) => {
+                const tagSpan = item.querySelector(".services__list-item-badge .label span");
+                if (!tagSpan) return 3; // Нет тега — самый низкий приоритет
 
-            // Проверяем, есть ли там реальный текст (исключаем пустые обертки)
-            const hasTagA = tagA && tagA.textContent.trim().length > 0;
-            const hasTagB = tagB && tagB.textContent.trim().length > 0;
+                const tagText = tagSpan.textContent.trim().toLowerCase();
 
-            if (hasTagA && !hasTagB) return -1; // Карточка A идет вверх
-            if (!hasTagA && hasTagB) return 1;  // Карточка B идет вверх
-            return 0; // Порядок не меняется
+                if (tagText === "популярная услуга") return 1; // Максимальный приоритет
+                if (tagText === "рекомендуем") return 2;       // Средний приоритет
+
+                return 3; // Любой другой текст тега
+            };
+
+            const weightA = getWeight(a);
+            const weightB = getWeight(b);
+
+            return weightA - weightB; // Сортируем от меньшего веса к большему (1 -> 2 -> 3)
         });
     }
 
