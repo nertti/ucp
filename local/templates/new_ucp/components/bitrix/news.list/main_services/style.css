@@ -1,0 +1,101 @@
+.services__wrapper {
+    position: relative;
+    width: 100%;
+    /* Плавный переход для изменения высоты wrappers */
+    transition: min-height 0.3s ease;
+}
+
+.services__skeleton-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.services__skeleton-list._active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.services__main-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    transition: opacity 0.3s ease;
+}
+
+.services__main-list-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services__main-list-item._fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Возвращаем первый вариант дизайна скелетонов */
+.services__skeleton-item {
+    background: #f6f7f8;
+    border-radius: 8px;
+    padding: 24px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skeleton-el {
+    background: linear-gradient(90deg, #eceff1 25%, #f6f7f8 50%, #eceff1 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.skeleton-icon { width: 40px; height: 40px; border-radius: 50%; }
+.skeleton-label { width: 120px; height: 16px; }
+.skeleton-title { width: 70%; height: 24px; margin-top: 4px; }
+.skeleton-text { width: 100%; height: 14px; margin-bottom: 4px; }
+.skeleton-text._short { width: 40%; }
+
+/* Если скелетон используется как заглушка для пустого раздела */
+.services__skeleton-list._empty-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Отключаем мерцание и скрываем лишние полосы для пустого состояния */
+.services__skeleton-list._empty-active .services__skeleton-item:not(._empty-state) {
+    display: none !important;
+}
+
+.services__skeleton-list._empty-active ._empty-state {
+    display: flex !important;
+    background: #f8fafd;
+    border: 1px dashed #0c338c;
+    grid-column: 1 / -1; /* Растягиваем на все 5 колонок */
+    min-height: 150px;   /* Гарантирует, что контейнер не схлопнется */
+    width: 100%;
+    box-sizing: border-box;
+}

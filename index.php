@@ -985,155 +985,69 @@ $APPLICATION->SetTitle("Университет гражданской защит
 
             <section class="home__services">
                 <div class="home__container">
-                    <div class="title-block">
-                        <h2 class="title-two">
-                            <a href="">Услуги</a>
-                        </h2>
-                        <a href="#" class="button-all">
-                            <span>Все услуги</span>
-                            <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver=""></iconify-icon>
-                        </a>
-                    </div>
-                    <ul class="tabs">
-                        <li class="tabs__item _active">
-                            <button type="button">
-                                <iconify-icon icon="hugeicons:stars" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Все услуги</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="streamline-plump:graduation-cap" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Образовательные и просветительские услуги</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="lucide:atom" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Наука и инновационная продукция</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="famicons:flask-outline" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Испытательная деятельность</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="solar:clipboard-check-linear" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Экспертная деятельность</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="lucide:file-badge" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Орган по сертификации продукции</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="lucide:briefcase-business" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Полиграфические и сервисные услуги</span>
-                            </button>
-                        </li>
-                        <li class="tabs__item">
-                            <button type="button">
-                                <iconify-icon icon="mynaui:lightning" width="24" height="24" noobserver=""></iconify-icon>
-                                <span>Молния</span>
-                            </button>
-                        </li>
-                    </ul>
-                    <ul class="services__main-list">
-                        <li class="services__main-list-item _blue" style="opacity: 1; transform: translateY(0px) scale(1); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="lucide:atom" width="100%" height="100%" noobserver=""></iconify-icon>
-                                    </div>
-                                    <div class="label">Популярная услуга</div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Разработка инновационных решений для промышленной безопасности</h3>
-                                    <p>
-                                        Проведение&nbsp;научных исследований, разработка методик и технологий,
-                                        направленных на повышение уровня безопасности и эффективности
-                                        производственных процессов.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item _blue" style="opacity: 1; transform: translateY(0px) scale(1); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="solar:clipboard-check-linear" width="100%" height="100%" noobserver=""></iconify-icon>
-                                    </div>
-                                    <div class="label">Рекомендуем</div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Экспертная оценка промышленной и пожарной безопасности</h3>
-                                    <p>
-                                        Проведение независимой экспертной оценки объектов, документации и
-                                        технических решений в соответствии с действующими нормативными
-                                        требованиями.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item" style="opacity: 1; transform: translateY(0px) scale(1); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="famicons:flask-outline" width="100%" height="100%" noobserver=""></iconify-icon>
-                                    </div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Испытания продукции на соответствие требованиям безопасности</h3>
-                                    <p>
-                                        Комплексные&nbsp;лабораторные испытания&nbsp;материалов,
-                                        оборудования&nbsp;и&nbsp;изделий&nbsp;с выдачей официальных протоколов испытаний.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item" style="opacity: 1; transform: translateY(0px) scale(1); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="lucide:file-badge" width="100%" height="100%" noobserver=""></iconify-icon>
-                                    </div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>
-                                        Сертификация продукции на соответствие установленным требованиям
-                                    </h3>
-                                    <p>
-                                        Подтверждение соответствия продукции требованиям технических
-                                        регламентов и национальных стандартов с выдачей необходимых
-                                        документов.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item" style="opacity: 1; transform: translateY(0px) scale(1); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="streamline-plump:graduation-cap" width="100%" height="100%" noobserver=""></iconify-icon>
-                                    </div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Обучение руководящего состава по программе «Защита от ЧС»</h3>
-                                    <p>
-                                        Обязательное обучение директоров предприятий и уполномоченных лиц в
-                                        области гражданской обороны, защиты населения и организации
-                                        первичных звеньев....
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    $APPLICATION->IncludeComponent(
+                            "bitrix:news.list",
+                            "main_services",
+                            [
+                                    "IBLOCK_ID" => "79",
+                                    "NEWS_COUNT" => "40",
+                                    "SORT_BY1" => "SORT",
+                                    "SORT_ORDER1" => "ASC",
+                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TIME" => "3600",
+                                    "COMPONENT_TEMPLATE" => "main_services",
+                                    "IBLOCK_TYPE" => "services",
+                                    "SORT_BY2" => "SORT",
+                                    "SORT_ORDER2" => "ASC",
+                                    "FILTER_NAME" => "",
+                                    "FIELD_CODE" => [
+                                            0 => "",
+                                            1 => "",
+                                    ],
+                                    "PROPERTY_CODE" => [
+                                            0 => "TEXT",
+                                            1 => "",
+                                    ],
+                                    "CHECK_DATES" => "Y",
+                                    "DETAIL_URL" => "",
+                                    "AJAX_MODE" => "N",
+                                    "AJAX_OPTION_JUMP" => "N",
+                                    "AJAX_OPTION_STYLE" => "Y",
+                                    "AJAX_OPTION_HISTORY" => "N",
+                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                    "CACHE_FILTER" => "N",
+                                    "CACHE_GROUPS" => "Y",
+                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                    "SET_TITLE" => "Y",
+                                    "SET_BROWSER_TITLE" => "Y",
+                                    "SET_META_KEYWORDS" => "Y",
+                                    "SET_META_DESCRIPTION" => "Y",
+                                    "SET_LAST_MODIFIED" => "N",
+                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                    "ADD_SECTIONS_CHAIN" => "Y",
+                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                    "PARENT_SECTION" => "",
+                                    "PARENT_SECTION_CODE" => "",
+                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                    "STRICT_SECTION_CHECK" => "N",
+                                    "PAGER_TEMPLATE" => ".default",
+                                    "DISPLAY_TOP_PAGER" => "N",
+                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                    "PAGER_TITLE" => "Новости",
+                                    "PAGER_SHOW_ALWAYS" => "N",
+                                    "PAGER_DESC_NUMBERING" => "N",
+                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                    "PAGER_SHOW_ALL" => "N",
+                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                    "SET_STATUS_404" => "N",
+                                    "SHOW_404" => "N",
+                                    "MESSAGE_404" => ""
+                            ],
+                            false
+                    );
+                    ?>
                 </div>
             </section>
 

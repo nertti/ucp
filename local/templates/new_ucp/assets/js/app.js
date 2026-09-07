@@ -5817,44 +5817,6 @@
         }
     });
     document.addEventListener("DOMContentLoaded", function() {
-        const tabsContainer = document.querySelector(".tabs");
-        const servicesList = document.querySelector(".services__main-list");
-        if (!tabsContainer || !servicesList) return;
-        servicesList.querySelectorAll(".services__main-list-item");
-        function filterServices(category) {
-            const items = servicesList.querySelectorAll(".services__main-list-item");
-            items.forEach((item, index) => {
-                const itemCategory = item.dataset.category || "all";
-                if (category === "all" || itemCategory === category) {
-                    item.style.opacity = "0";
-                    item.style.transform = "translateY(20px) scale(0.95)";
-                    item.style.transition = "none";
-                    item.style.display = "";
-                    setTimeout(() => {
-                        item.style.transition = "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
-                        item.style.opacity = "1";
-                        item.style.transform = "translateY(0) scale(1)";
-                    }, index * 100);
-                } else {
-                    item.style.opacity = "0";
-                    item.style.transform = "translateY(20px) scale(0.95)";
-                    setTimeout(() => {
-                        item.style.display = "none";
-                    }, 300);
-                }
-            });
-        }
-        tabsContainer.addEventListener("click", function(e) {
-            const tabItem = e.target.closest(".tabs__item");
-            if (!tabItem) return;
-            const category = tabItem.dataset.tab || "all";
-            document.querySelectorAll(".tabs__item").forEach(el => el.classList.remove("_active"));
-            tabItem.classList.add("_active");
-            filterServices(category);
-        });
-        filterServices("all");
-    });
-    document.addEventListener("DOMContentLoaded", function() {
         const navContainer = document.querySelector(".home__feed-news-nav");
         const newsList = document.querySelector(".home__feed-news-list");
         if (!navContainer || !newsList) return;
