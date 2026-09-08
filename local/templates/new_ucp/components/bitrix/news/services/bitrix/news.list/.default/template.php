@@ -25,9 +25,11 @@ $this->setFrameMode(true);
             <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="services__list-item-img">
                 <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
                 <div class="services__list-item-badge">
+                    <?php if(!empty($arItem['ICON'])):?>
                     <div class="icon">
                         <img src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
                     </div>
+                    <?php endif; ?>
                     <?php if (!empty($arItem['PROPERTIES']['TAG']['VALUE'])): ?>
                         <div class="label">
                             <span><?=$arItem['PROPERTIES']['TAG']['VALUE']?></span>
