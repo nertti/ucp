@@ -69,45 +69,13 @@ $this->setFrameMode(true);
                     <li class="page__sidebar-event-item"><a href="#">Контактная информация</a></li>
                 </ul>
             </div>
-            <!--            <ul class="page__banners">-->
-            <!--                <li class="page__banners-item">-->
-            <!--                    <a href="cart.html">-->
-            <!--                        <img src="img/main/servicesBanner1.webp" alt="Image" title="Баннер 1"/>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--                <li class="page__banners-item">-->
-            <!--                    <img src="img/main/servicesBanner2.webp" alt="Image" title="Баннер 2"/>-->
-            <!--                </li>-->
-            <!--                <li class="page__banners-item">-->
-            <!--                    <a href="cart.html">-->
-            <!--                        <img src="img/main/servicesBanner3.webp" alt="Image" title="Баннер 3"/>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--                <li class="page__banners-item">-->
-            <!--                    <a href="cart.html">-->
-            <!--                        <img src="img/main/servicesBanner4.webp" alt="Image" title="Баннер 4"/>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--                <li class="page__banners-item">-->
-            <!--                    <a href="cart.html">-->
-            <!--                        <img src="img/main/servicesBanner5.webp" alt="Image" title="Баннер 5"/>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--            </ul>-->
-            <? if (\Bitrix\Main\Loader::includeModule("advertising")): ?>
-                <? $APPLICATION->IncludeComponent(
-                        "bitrix:advertising.banner",
-                        "left", // Шаблон компонента (по умолчанию .default)
-                        array(
-                                "TYPE" => "left",         // Символьный код типа баннера
-                                "NOINDEX" => "Y",         // Оборачивать ссылки баннера в тег <noindex>
-                                "CACHE_TYPE" => "A",     // Автоматическое кеширование
-                                "CACHE_TIME" => "3600",    // Время кеширования в секундах
-                                "QUANTITY" => "5",
-                        ),
-                        false
-                ); ?>
-            <? endif; ?>
+            <?php $APPLICATION->IncludeFile(
+                    "/include/left/banners.php",
+                    array(),
+                    array(
+                            "MODE" => "html"
+                    )
+            ); ?>
         </nav>
         <div class="page__content">
             <div class="universities__info-mobile">
