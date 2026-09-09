@@ -31,14 +31,6 @@ $this->setFrameMode(true);
             </div>
         </div>
         <div class="page__info">
-            <?php if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && !empty($arResult["PREVIEW_TEXT"])): ?>
-                <p><strong><?php echo $arResult["PREVIEW_TEXT"]; ?></strong></p>
-            <?php endif; ?>
-            <?php if (!empty($arResult["DETAIL_TEXT"])): ?>
-                <div class="page__info-block">
-                    <?php echo $arResult["DETAIL_TEXT"]; ?>
-                </div>
-            <?php endif; ?>
             <?php if (!empty($arResult["PROPERTIES"]["CONTENT"]["VALUE"])): ?>
                 <div class="page__info-block">
                     <? $APPLICATION->IncludeComponent(
