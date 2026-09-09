@@ -27,12 +27,6 @@ $this->setFrameMode(true);
                 </div>
             <?php endif; ?>
             <div class="page__banner-content">
-                <?php if ($arParams["DISPLAY_DATE"] != "N" && $arResult["DISPLAY_ACTIVE_FROM"]): ?>
-                    <div class="date">
-                        <iconify-icon icon="lsicon:calendar-outline" width="18" height="18" noobserver></iconify-icon>
-                        <span><?php echo $arResult["DISPLAY_ACTIVE_FROM"]; ?></span>
-                    </div>
-                <?php endif; ?>
                 <h1 class="title-two"><?= $arResult["NAME"]; ?></h1>
             </div>
         </div>

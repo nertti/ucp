@@ -80,7 +80,7 @@ function renderServiceSections(array $sections): void
 
                 <div data-fls-spollers class="spollers">
 
-                    <details class="spollers__item">
+                    <details class="spollers__item" >
 
                         <summary class="spollers__title">
 
@@ -186,7 +186,7 @@ function renderServiceSections(array $sections): void
 
     <div data-fls-spollers class="spollers">
 
-        <details class="spollers__item" data-open>
+        <details class="spollers__item" data-fls-spollers-open>
 
             <summary class="spollers__title">
                 Услуги
