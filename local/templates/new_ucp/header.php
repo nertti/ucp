@@ -19,14 +19,14 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
-    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js', true, ['defer' => 'defer']);
-
+    //Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css');
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/fancybox.css');
 
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/fancybox.umd.js', true, ['defer' => 'defer']);
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/iconify-icon.min.js', true, ['defer' => 'defer']);
     ?>
+    <link rel="stylesheet" crossorigin="" href="/local/templates/new_ucp/dist/css/app.min.css">
+    <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app9.min.js"></script>
 </head>
 
 <body>
@@ -41,7 +41,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 
 	<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
     <div class="wrapper">
-        <header class="header">
+        <header class="header" data-fls-header="">
             <div class="header__container">
                 <?php $APPLICATION->IncludeFile(
                         "/include/header/logo.php",
@@ -167,7 +167,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                                 "MODE" => "html"
                         )
                 ); ?>
-                <div class="header__accessibility" data-da=".header__accessibility-mobile,1200, 1">
+                <div class="header__accessibility" data-fls-dynamic=".header__accessibility-mobile,1200, 1">
                     <div class="socials__item">
                         <a href="?special_version=Y">
                             <iconify-icon icon="mdi:eye" width="20.4" height="20.4" noobserver></iconify-icon>
@@ -305,7 +305,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 
         <div class="header-mobile">
             <div class="header__container">
-                <div class="spollers" data-spollers>
+                <div class="spollers" data-fls-spollers="">
                     <details class="spollers__item">
                         <summary class="spollers__title"><a href="/university/">Университет</a></summary>
                         <div class="spollers__body">

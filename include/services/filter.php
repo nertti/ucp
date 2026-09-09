@@ -78,7 +78,7 @@ function renderServiceSections(array $sections): void
 
             <?php if ($hasChildren): ?>
 
-                <div data-spollers class="spollers">
+                <div data-fls-spollers class="spollers">
 
                     <details class="spollers__item">
 
@@ -184,7 +184,7 @@ function renderServiceSections(array $sections): void
     </div>
 
 
-    <div data-spollers class="spollers">
+    <div data-fls-spollers class="spollers">
 
         <details class="spollers__item" data-open>
 

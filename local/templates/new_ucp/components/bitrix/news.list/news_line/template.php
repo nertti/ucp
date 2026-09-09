@@ -10,7 +10,7 @@ $this->setFrameMode(true);
         ?>
         <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="news__recent-item">
             <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
-                <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>"
+                <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>"
                      title="<?= $arItem["NAME"] ?>"/>
                 <p><?= $arItem["NAME"] ?></p>
             </a>

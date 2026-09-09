@@ -11,7 +11,7 @@ $this->setFrameMode(true);
         <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__feed-news-item" data-category="<?=$arItem['PROPERTIES']['CATEGORY']['VALUE']?>">
             <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
                 <div class="home__feed-news-item-img">
-                    <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>">
+                    <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>">
                 </div>
                 <div class="home__feed-news-info">
                     <div class="date">

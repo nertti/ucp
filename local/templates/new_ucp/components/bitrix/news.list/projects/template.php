@@ -23,7 +23,7 @@ $this->setFrameMode(true);
                 <div class="news__slider-wrapper">
                     <a href="/news/?project=<?=$arItem['PROPERTIES']['TAG']['VALUE']?>"
                        class="news__slider-img">
-                        <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>"
+                        <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>"
                              alt="<?= $arItem['NAME'] ?>"
                              title="<?= $arItem['NAME'] ?>"/>
                     </a>

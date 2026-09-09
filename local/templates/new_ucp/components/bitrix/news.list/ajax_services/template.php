@@ -23,10 +23,10 @@ $this->setFrameMode(true);
         ?>
         <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="services__list-item">
             <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="services__list-item-img">
-                <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
+                <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
                 <div class="services__list-item-badge">
                     <div class="icon">
-                        <img src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
+                        <img loading="lazy" src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
                     </div>
                     <?php if (!empty($arItem['PROPERTIES']['TAG']['VALUE'])): ?>
                         <div class="label">

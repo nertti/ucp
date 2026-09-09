@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentLi.children
         ).find(function (child) {
 
-            return child.hasAttribute('data-spollers');
+            return child.hasAttribute('data-fls-spollers');
 
         });
 
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     ).find(function (child) {
 
                         return child.hasAttribute(
-                            'data-spollers'
+                            'data-fls-spollers'
                         );
 
                     });

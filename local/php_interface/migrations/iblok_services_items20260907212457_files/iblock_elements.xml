@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items iblockUid="services:services" exchangeVersion="2" >
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>06.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Экскурсия</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="3k01j8h1pdhcpp44qvdh28eu5xnjxovk.webp" type="file">iblock/7cc/llqkvhxluxwrdatfdvuolydkc9c4fpdo.webp</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT"/>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>ekskursiya</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29201</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="2">Музей МЧС</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN">
+  <value>Y</value>
+ </property>
+ <property name="TAGS"/>
+ <property name="REQUEST">
+  <value>Y</value>
+ </property>
+ <property name="TAG">
+  <value>popular</value>
+ </property>
+ <property name="CONTENT">
+  <value><![CDATA[{"version":2,"blocks":[{"value":"<p>Тестовое наполнение разными блоками</p>","name":"text","settings":{},"layout":"0,0","meta":{}},{"type":"h4","value":"Текст заголовка","anchor":"tekst-zagolovka","name":"htag","settings":{},"layout":"0,0","meta":{}},{"files":[{"file":{"ID":"127570","TIMESTAMP_X":"07.09.2026 15:40:34","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"70266","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/39f","FILE_NAME":"igx63u38r7jgbcjcl1vqipyki6s1d3vn.webp","ORIGINAL_NAME":"news7.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"v56bxdrgb920ykifahxmn23ygwwxiq8g","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/39f/igx63u38r7jgbcjcl1vqipyki6s1d3vn.webp"},"desc":""},{"file":{"ID":"127571","TIMESTAMP_X":"07.09.2026 15:40:35","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"76850","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/315","FILE_NAME":"2yzb2p03zvpg1z7cfdg2lz2qh88y59md.webp","ORIGINAL_NAME":"news6.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"8sh4q1d8ccvpq8niguyrk0qkyuzqi5l8","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/315/2yzb2p03zvpg1z7cfdg2lz2qh88y59md.webp"},"desc":""},{"file":{"ID":"127572","TIMESTAMP_X":"07.09.2026 15:40:35","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"80036","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/905","FILE_NAME":"iwi8gkyam7xs7emmf75twz8wdn9j15az.webp","ORIGINAL_NAME":"news10.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"n25uhnijukzufyavdflv4u6ods5i8f1g","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/905/iwi8gkyam7xs7emmf75twz8wdn9j15az.webp"},"desc":""},{"file":{"ID":"127573","TIMESTAMP_X":"07.09.2026 15:40:35","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"99158","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/57a","FILE_NAME":"givetojyng2lowsrgp8rumrnrfzhm6q8.webp","ORIGINAL_NAME":"news8.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"4fkknt9m6tvs2nx6g0xnvk871vm7iq64","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/57a/givetojyng2lowsrgp8rumrnrfzhm6q8.webp"},"desc":""},{"file":{"ID":"127574","TIMESTAMP_X":"07.09.2026 15:40:35","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"98758","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/106","FILE_NAME":"4dp0d3jarzsyco2t52ar8l6utdxowx89.webp","ORIGINAL_NAME":"news9.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"aawsle7xmfw5gkyu5kte4qip82kl9kqr","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/106/4dp0d3jarzsyco2t52ar8l6utdxowx89.webp"},"desc":""},{"file":{"ID":"127575","TIMESTAMP_X":"07.09.2026 15:40:35","MODULE_ID":"sprint.editor","HEIGHT":"800","WIDTH":"1200","FILE_SIZE":"109670","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/b42","FILE_NAME":"3dn6uuv1rv7y86ziwz6wryjpb9syk924.webp","ORIGINAL_NAME":"news11.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"al42slutkgp4g1cfm3wsq07un2jjf043","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/b42/3dn6uuv1rv7y86ziwz6wryjpb9syk924.webp"},"desc":""}],"name":"files","settings":{},"layout":"0,0","meta":{}},{"images":[{"file":{"ID":"127576","TIMESTAMP_X":"07.09.2026 15:40:47","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"70266","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/b17","FILE_NAME":"e5l8foywoh3xox9twzc1qwdvkoz2p2u8.webp","ORIGINAL_NAME":"news7.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"eh7kjsvef2rq8hnnyj0mu3jzmjd3qejq","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/b17/98_55_2/e5l8foywoh3xox9twzc1qwdvkoz2p2u8.webp","ORIGIN_SRC":"/upload/sprint.editor/b17/e5l8foywoh3xox9twzc1qwdvkoz2p2u8.webp"},"desc":""},{"file":{"ID":"127577","TIMESTAMP_X":"07.09.2026 15:40:47","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"76850","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/31a","FILE_NAME":"l2tydb9f79py09f8pja4tg3cz7hwtkz2.webp","ORIGINAL_NAME":"news6.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"ah2223uumy9ewv86wu2ie93wxg7p899h","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/31a/98_55_2/l2tydb9f79py09f8pja4tg3cz7hwtkz2.webp","ORIGIN_SRC":"/upload/sprint.editor/31a/l2tydb9f79py09f8pja4tg3cz7hwtkz2.webp"},"desc":""},{"file":{"ID":"127578","TIMESTAMP_X":"07.09.2026 15:40:47","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"80036","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/127","FILE_NAME":"lukjv3f1nu03irbejirnmtijlg3cqlba.webp","ORIGINAL_NAME":"news10.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"flo9whbzubmj2rf4d0movz2s9147lz3i","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/127/98_55_2/lukjv3f1nu03irbejirnmtijlg3cqlba.webp","ORIGIN_SRC":"/upload/sprint.editor/127/lukjv3f1nu03irbejirnmtijlg3cqlba.webp"},"desc":""},{"file":{"ID":"127579","TIMESTAMP_X":"07.09.2026 15:40:47","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"98758","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/e7b","FILE_NAME":"sf56z014criok2y6uvosyhw1e8aoj9e0.webp","ORIGINAL_NAME":"news9.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"kzgmkihty3ai2psteuqmq4d3ws3qfqq9","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/e7b/98_55_2/sf56z014criok2y6uvosyhw1e8aoj9e0.webp","ORIGIN_SRC":"/upload/sprint.editor/e7b/sf56z014criok2y6uvosyhw1e8aoj9e0.webp"},"desc":""},{"file":{"ID":"127580","TIMESTAMP_X":"07.09.2026 15:40:47","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"99158","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/bf6","FILE_NAME":"knoq5yit1o77dxhaguz3jj0rkierks33.webp","ORIGINAL_NAME":"news8.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"ila3ouk48348dj0icu1na58lo6pf7oco","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/bf6/98_55_2/knoq5yit1o77dxhaguz3jj0rkierks33.webp","ORIGIN_SRC":"/upload/sprint.editor/bf6/knoq5yit1o77dxhaguz3jj0rkierks33.webp"},"desc":""},{"file":{"ID":"127581","TIMESTAMP_X":"07.09.2026 15:40:48","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"109670","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/956","FILE_NAME":"iygzhj5gaulsnp1s02ztbum8f7vl6yu3.webp","ORIGINAL_NAME":"news11.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"7e5dnqnsbd1f50wg7b2pj7j1vk5jzkov","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/956/98_55_2/iygzhj5gaulsnp1s02ztbum8f7vl6yu3.webp","ORIGIN_SRC":"/upload/sprint.editor/956/iygzhj5gaulsnp1s02ztbum8f7vl6yu3.webp"},"desc":""}],"name":"gallery","settings":{},"layout":"0,0","meta":{}},{"url":"https://youtu.be/PHMHcA7cJIk","width":"100%","height":"480","name":"video","preview":{"file":[],"desc":"","name":"image"},"settings":{},"layout":"0,0","meta":{}},{"items":[{"video":"https://youtu.be/PHMHcA7cJIk","file":{"ID":"127583","TIMESTAMP_X":"07.09.2026 15:41:25","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"21786","CONTENT_TYPE":"image/jpeg","SUBDIR":"sprint.editor/41e","FILE_NAME":"bn0yf23z7djq5jea3rnog3r2soaho5vk.jpg","ORIGINAL_NAME":"0.jpg","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"fdkcqc3xffuu5m2dpnnbmdl933p74mq8","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/41e/98_55_2/bn0yf23z7djq5jea3rnog3r2soaho5vk.jpg","ORIGIN_SRC":"/upload/sprint.editor/41e/bn0yf23z7djq5jea3rnog3r2soaho5vk.jpg"},"desc":""},{"video":"https://youtu.be/PHMHcA7cJIk","file":{"ID":"127585","TIMESTAMP_X":"07.09.2026 16:21:49","MODULE_ID":"sprint.editor","HEIGHT":55,"WIDTH":98,"FILE_SIZE":"21786","CONTENT_TYPE":"image/jpeg","SUBDIR":"sprint.editor/14f","FILE_NAME":"a8bsradrz0ajgi6vkiff8uwdcjxlpie0.jpg","ORIGINAL_NAME":"0.jpg","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"jbxfchcqcmxy28934agw4etann9tsggu","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/14f/98_55_2/a8bsradrz0ajgi6vkiff8uwdcjxlpie0.jpg","ORIGIN_SRC":"/upload/sprint.editor/14f/a8bsradrz0ajgi6vkiff8uwdcjxlpie0.jpg"},"desc":""}],"name":"video_gallery","settings":{},"layout":"0,0","meta":{}},{"title":"Button","url":"/link","target":"","name":"button_link","settings":{},"layout":"0,0","meta":{}},{"rows":[[{"text":"<p>123</p>"},{"text":"<p>321</p>"},{"text":"<p>222</p>"},{"text":"<p>111</p>"}],[{"text":"<p>333</p>"},{"text":"<p>444</p>"},{"text":"<p>555</p>"},{"text":"<p>666</p>"}]],"name":"table","settings":{},"layout":"0,0","meta":{}}],"layouts":[{"settings":{},"columns":[{"css":""}]}]}]]></value>
+ </property>
+ <property name="INSTITUTE">
+  <value>2b83f7601e0b803fe2e3b84207a851c9</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>06.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Полиграфические услуги</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="llqkvhxluxwrdatfdvuolydkc9c4fpdo.webp" type="file">iblock/01b/wutfkhpy82ae2a3d3q2rcok2mvipqx9j.webp</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT"/>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>poligraficheskie-uslugi</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29202</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="1" section_code="poligraficheskie-i-servisnye-uslugi">Полиграфические и сервисные услуги</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN">
+  <value>Y</value>
+ </property>
+ <property name="TAGS"/>
+ <property name="REQUEST">
+  <value>Y</value>
+ </property>
+ <property name="TAG">
+  <value>recommend</value>
+ </property>
+ <property name="CONTENT">
+  <value><![CDATA[{"version":2,"blocks":[{"value":"<p>Тестовый текст</p>","name":"text","settings":{},"layout":"0,0","meta":{}}],"layouts":[{"settings":{},"columns":[{"css":""}]}]}]]></value>
+ </property>
+ <property name="INSTITUTE">
+  <value>2b83f7601e0b803fe2e3b84207a851c9</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>06.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Грузовые и легковые перевозки</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="llqkvhxluxwrdatfdvuolydkc9c4fpdo.webp" type="file">iblock/cbd/4yfzhdu4iwmhxscmrhvbq0vt6cb900ph.webp</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT"/>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>gruzovye-i-legkovye-perevozki</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29203</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="1" section_code="poligraficheskie-i-servisnye-uslugi">Полиграфические и сервисные услуги</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN">
+  <value>Y</value>
+ </property>
+ <property name="TAGS"/>
+ <property name="REQUEST">
+  <value>Y</value>
+ </property>
+ <property name="TAG">
+  <value>recommend</value>
+ </property>
+ <property name="CONTENT"/>
+ <property name="INSTITUTE">
+  <value>2b83f7601e0b803fe2e3b84207a851c9</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>06.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Вторичные ресурсы</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="llqkvhxluxwrdatfdvuolydkc9c4fpdo.webp" type="file">iblock/0d5/ngg8agha0lpvmktt1rzbj9ejxhxo5wuz.webp</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT"/>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>vtorichnye-resursy</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29204</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="1" section_code="poligraficheskie-i-servisnye-uslugi">Полиграфические и сервисные услуги</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN"/>
+ <property name="TAGS">
+  <value>education</value>
+ </property>
+ <property name="REQUEST"/>
+ <property name="TAG"/>
+ <property name="CONTENT"/>
+ <property name="INSTITUTE">
+  <value>2b83f7601e0b803fe2e3b84207a851c9</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>07.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Приём иностранных граждан на обучение по программам общего высшего образования (Платно)</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="DSC03771.JPG" type="file">iblock/df8/5z6h8r0uckiifcpmbiwlvw2w0pfll42h.JPG</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE">
+  <value name="DSC03771.JPG" type="file">iblock/902/x0f90bbj1lvbua1o302gifx58x3djb1r.JPG</value>
+ </field>
+ <field name="DETAIL_TEXT">
+  <value><![CDATA[<p style="text-align: justify;">
+	<b>Университет гражданской защиты </b>осуществляет прием на обучение <b>и</b><b>ностранных граждан и лиц без гражданства, временно пребывающих или временно проживающих в Республике Беларусь </b>по результатам собеседования, устанавливающего уровень владения ими языком, на котором осуществляется образовательный процесс, в объеме, достаточном для освоения содержания образовательной программы высшего образования.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Прием иностранных граждан и лиц без гражданства для получения высшего образования осуществляется на основе договора о подготовке специалиста с высшим образованием <b>на платной основе.</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>В 2026 году </b>набор на обучение осуществляется по специальностям <b>общего высшего образования:</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 6-05-1033-01 «Предупреждение и ликвидация чрезвычайных ситуаций» (очная форма, заочная форма, дистанционная форма);
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 6-05-1033-02 «Пожарная и промышленная безопасность» (очная форма)
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Иностранные граждане и лица без гражданства <br>
+	 (их представители) <b>подают в приемную комиссию следующие документы:</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<ul>
+	<li>
+	<p style="text-align: justify;">
+		заявление на имя руководителя УВО;
+	</p>
+	</li>
+	<li>
+	<p style="text-align: justify;">
+		оригинал свидетельства (документа) об образовании с указанием изученных предметов и полученных по ним отметок (баллов);
+	</p>
+	</li>
+	<li>
+	<p style="text-align: justify;">
+		документ о прохождении в территориальных организациях здравоохранения обязательного медицинского обследования, подтверждающего отсутствие медицинских противопоказаний
+	</p>
+	</li>
+	<li>
+	<p style="text-align: justify;">
+		к обучению в Республике Беларусь;
+	</p>
+	</li>
+	<li>
+	<p style="text-align: justify;">
+		сертификат об отсутствии ВИЧ-инфекции, выданный официальным органом здравоохранения страны, из которой прибыл абитуриент;
+	</p>
+	</li>
+	<li>
+	<p style="text-align: justify;">
+		оригинал (копию) свидетельства о рождении и (или) иного документа, подтверждающего дату рождения и гражданство.
+	</p>
+	</li>
+</ul>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 К указанным документам, исполненным на иностранном языке, одновременно прилагается удостоверенный нотариально их перевод <br>
+	 на белорусский или русский язык.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Для абитуриентов в возрасте <b>до 18 лет</b> необходимо письменное согласие одного из законных представителей.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>Срок приема документов </b>– до 15 октября
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Медицинское освидетельствование:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Учреждение здравоохранения «33-я городская студенческая поликлиника»
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <a href="mailto:%D0%B3.%20%D0%9C%D0%B8%D0%BD%D1%81%D0%BA,%20%D1%83%D0%BB.%20%D0%A1%D1%83%D1%80%D0%B3%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0,%2045,%20%D0%BA%D0%BE%D1%80%D0%BF.,%C2%A0">г. Минск, ул. Сурганова, 45, корп.,&nbsp;</a><a href="mailto:info@33gsp.by">info@33gsp.by</a>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <a href="tel:+375173794043">+375 17 379-40-43;</a> <a href="tel:+375173783035">+375 17 378-30-35;</a> <a href="tel:+375173787961">+375 17 378-79-61</a>
+</p>
+<p style="text-align: justify;">
+</p>
+ <br>]]></value>
+ </field>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>html</value>
+ </field>
+ <field name="CODE">
+  <value>priyem-inostrannykh-grazhdan-na-obuchenie-po-programmam-obshchego-vysshego-obrazovaniya-platno</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29205</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="2">Общее высшее образование (бакалавриат)</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN"/>
+ <property name="TAGS"/>
+ <property name="REQUEST"/>
+ <property name="TAG"/>
+ <property name="CONTENT"/>
+ <property name="INSTITUTE">
+  <value>2b83f7601e0b803fe2e3b84207a851c9</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>07.09.2026 00:00:00</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Интерактивная игра «Антикриминальная безопасность»</value>
+ </field>
+ <field name="PREVIEW_PICTURE">
+  <value name="DSC_4379.JPG" type="file">iblock/16e/sb6gl1cdlhdvp3pueu4vp1cyhyaxyqc6.JPG</value>
+ </field>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE">
+  <value name="DSC_4372.JPG" type="file">iblock/80b/umvevrxf7urtgjpa1bcbucnbmtcmn1d7.JPG</value>
+ </field>
+ <field name="DETAIL_TEXT">
+  <value><![CDATA[<p style="text-align: justify;">
+	 Интерактивная игра <b>«Антикриминальная безопасность»</b> — это комплексное динамичное занятие, направленное на обучение граждан защите от противоправных действий в повседневной жизни. В игровой форме участники распознают уловки мошенников, учатся противостоять агрессивному поведению, правильно вести себя в местах массового скопления людей и отрабатывают алгоритмы экстренных действий при угрозе преступления. Мероприятие помогает сформировать «ситуационную осведомленность», уверенность в себе и готовность защитить не только свою жизнь, но и жизнь близких.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>Правила посещения центра безопасности:</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<ul>
+	<li>
+	<p style="text-align: justify;">
+		 для интерактивной игры действуют возрастные ограничения. Возраст участников: от 12 лет. Дети младше 12 лет не допускаются;
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 занятия проводятся только по предварительной записи! Обучающие занятия проходят в группах. Количество людей в группе не должно превышать 25 человек;
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 при себе желательно иметь сменную обувь или бахилы;
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 оплата производиться за каждого человека (допускается два сопровождающих на группу без оплаты);
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 стоимость обучающего занятия: 12 бел. руб.;
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 многодетные семьи оплачивают 50% стоимости посещения. Инвалиды 1,2 группы, дети-сироты и лица их сопровождающие посещают центр&nbsp;бесплатно. Наличие оригиналов подтверждающих документов обязательно!
+	</p>
+ </li>
+	<li>
+	<p style="text-align: justify;">
+		 продолжительность обучающего занятия: 1,5 часа. Прибыть необходимо за&nbsp;10 - 15&nbsp;минут до&nbsp;начала занятия.
+	</p>
+ </li>
+</ul>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 &nbsp;
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>Формат и график занятий интерактивной игры «Антикриминальная безопасность»:</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 для семей, взрослых (включая пенсионеров): занятия организуются в будние дни и субботы в групповом формате;
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 для школьников занятия проводятся в течение всего учебного года по графику, согласованному с комитетом по образованию Мингорисполкома.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>Все занятия проводятся только по предварительной записи!&nbsp;</b>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Способы оплаты:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Для физических лиц:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Оплата производится наличными, банковской картой, через систему ЕРИП непосредственно в центре безопасности (при помощи кассового терминала) перед началом интерактивного квеста.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Через систему ЕРИП:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 1.&nbsp;&nbsp;&nbsp;&nbsp; ЕРИП&nbsp;(путь): Система «Расчёт»&nbsp;(ЕРИП)&nbsp;— Образование и&nbsp;развитие&nbsp;— Дополнительное образование и развитие&nbsp;— Ведомственные учебные центры&nbsp;— УГЗ&nbsp;МЧС&nbsp;РБ&nbsp;— Посещение Центра безопасности&nbsp;— Ввести Ф.И.О.&nbsp;— Сумма&nbsp;— Оплатить
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 2.&nbsp;&nbsp;&nbsp;&nbsp; ЕРИП по коду услуги: Система «Расчёт» (ЕРИП)&nbsp;— Оплата в&nbsp;ЕРИП по&nbsp;коду услуги&nbsp;— Ввести код и оплатить (код услуги 4749881)&nbsp;— Ввести Ф.И.О.&nbsp;— Сумма&nbsp;— Оплатить
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <br>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Для юридических лиц:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Оплата производится как правило не позднее 2 (двух) рабочих дней до даты посещения центра по заключенному договору. Заявку с указанием наименования организации, банковских реквизитов, а также ФИО лица, подписывающего договор, необходимо направить на почту: <a href="mailto:cb@ucp.by">cb@ucp.by</a>
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Телефон для записи и справок: +375 (17) 269-70-60.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 &nbsp;
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Контактная информация:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Режим работы:
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 09:00 – 18:00 (пн-пт).
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 09:00 – 17:00 (сб).
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Воскресенье — выходной.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Адрес: 220090, Республика Беларусь, г. Минск, ул. Олешева, 2.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Телефон для записи и справок: +375 (17) 269-70-60.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 Почта: <a href="mailto:cb@ucp.by">cb@ucp.by</a>.
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 &nbsp;
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+	 &nbsp;
+</p>]]></value>
+ </field>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>html</value>
+ </field>
+ <field name="CODE">
+  <value>interaktivnaya-igra-antikriminalnaya-bezopasnost</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29206</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value section_depth_level="2">Центр безопасности</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="VIEW_ON_MAIN">
+  <value>Y</value>
+ </property>
+ <property name="TAGS"/>
+ <property name="REQUEST">
+  <value>Y</value>
+ </property>
+ <property name="TAG">
+  <value>popular</value>
+ </property>
+ <property name="CONTENT">
+  <value><![CDATA[{"version":2,"blocks":[{"value":"<p>123123</p>","name":"text","settings":{},"layout":"0,0","meta":{}},{"files":[{"file":{"ID":"127569","TIMESTAMP_X":"07.09.2026 15:24:00","MODULE_ID":"sprint.editor","HEIGHT":"0","WIDTH":"0","FILE_SIZE":"834792","CONTENT_TYPE":"application/pdf","SUBDIR":"sprint.editor/18e","FILE_NAME":"j2bu2x6wd1d4v3xsb42gr0hu5ftc2nw4.pdf","ORIGINAL_NAME":"LAS_July_2025.pdf","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"yssk906isv3pfzwe5n3tdh2mx1bcekjc","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/sprint.editor/18e/j2bu2x6wd1d4v3xsb42gr0hu5ftc2nw4.pdf"},"desc":""}],"name":"files","settings":{},"layout":"0,0","meta":{}}],"layouts":[{"settings":{},"columns":[{"css":""}]}]}]]></value>
+ </property>
+ <property name="INSTITUTE">
+  <value>b2a2a95fd63e285cce3b79d870e6653b</value>
+ </property>
+ <property name="VIEWS"/>
+</item>
+
+</items>

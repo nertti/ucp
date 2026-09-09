@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
     <section class="preview universities__preview">
         <!-- слайдер университета главный -->
-        <div class="preview-slider swiper">
+        <div class="preview-slider swiper" data-fls-slider>
             <div class="swiper-wrapper">
                 <?php foreach ($arResult['PROPERTIES']['BANNER']['VALUE'] as $idImage):
                     $urlImage = CFile::GetPath($idImage);
@@ -25,10 +25,10 @@ $this->setFrameMode(true);
                         </div>
                         <div class="preview__info">
                             <div class="preview__container">
-                                <h1 class="title-one" data-da=".title-mobile,950, 1">
+                                <h1 class="title-one" data-fls-dynamic=".title-mobile,950, 1">
                                     <?= $arResult['NAME'] ?>
                                 </h1>
-                                <nav class="breadcrumbs" data-da=".breadcrumbs-mobile,950, 1">
+                                <nav class="breadcrumbs" data-fls-dynamic=".breadcrumbs-mobile,950, 1">
                                     <ul class="breadcrumbs__list">
                                         <li class="breadcrumbs__item">
                                             <a href="/" class="breadcrumbs__link">Главная</a>
@@ -49,7 +49,7 @@ $this->setFrameMode(true);
     <div class="universities__container">
         <nav class="page__sidebar">
             <div class="page__sidebar-content _event">
-                <ul class="page__sidebar-event" data-da=".event-mobile,950, 1">
+                <ul class="page__sidebar-event" data-fls-dynamic=".event-mobile,950, 1">
                     <li class="page__sidebar-event-item"><a href="#">Руководство</a></li>
                     <li class="page__sidebar-event-item"><a href="#">Об институте</a></li>
                     <li class="page__sidebar-event-item">

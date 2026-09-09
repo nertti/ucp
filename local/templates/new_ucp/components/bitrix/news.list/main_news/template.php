@@ -3,7 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 $this->setFrameMode(true);
 ?>
-<div class="home__feed-news-slider swiper">
+<div class="home__feed-news-slider swiper" data-fls-slider>
     <div class="swiper-wrapper">
         <?php if (!empty($arResult['ITEMS'])): ?>
             <?php foreach ($arResult['ITEMS'] as $arItem):
@@ -13,7 +13,7 @@ $this->setFrameMode(true);
                 <div class="swiper-slide">
                     <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                         <div class="home__feed-news-slider-img">
-                            <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>"
+                            <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>"
                                  title="<?= $arItem["NAME"] ?>">
                             <div class="label">
                                 <span>Главная новость</span>
@@ -34,7 +34,7 @@ $this->setFrameMode(true);
         <?php endif; ?>
     </div>
     <div class="home__feed-news-slider-action-mobile"></div>
-    <div class="home__feed-news-slider-action" data-da=".home__feed-news-slider-action-mobile,1024, 1">
+    <div class="home__feed-news-slider-action" data-fls-dynamic=".home__feed-news-slider-action-mobile,1024, 1">
         <button class="home__feed-news-slider-button-prev swiper-button-prev">
             <iconify-icon icon="lucide:chevron-left" width="30" height="30" noobserver></iconify-icon>
         </button>

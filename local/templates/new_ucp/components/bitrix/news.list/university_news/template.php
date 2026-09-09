@@ -35,8 +35,8 @@ $this->setFrameMode(true);
             >
                 <a href="<?= $mainItem['DETAIL_PAGE_URL']; ?>">
                     <div class="home__feed-news-slider-img">
-                        <img
-                                src="<?= $mainItem['PREVIEW_PICTURE']['SRC'] ?>"
+                        <img loading="lazy"
+                             src="<?= $mainItem['PREVIEW_PICTURE']['SRC'] ?>"
                                 alt="<?= htmlspecialchars($mainItem['NAME']) ?>"
                                 title="<?= htmlspecialchars($mainItem['NAME']) ?>"
                         />
@@ -97,8 +97,8 @@ $this->setFrameMode(true);
                         <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
 
                             <div class="home__feed-news-item-img">
-                                <img
-                                        src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>"
+                                <img loading="lazy"
+                                     src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>"
                                         alt="<?= htmlspecialchars($arItem['NAME']) ?>"
                                 />
                             </div>

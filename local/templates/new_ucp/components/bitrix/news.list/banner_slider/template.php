@@ -1,5 +1,5 @@
 <section class="preview">
-    <div class="preview-slider swiper">
+    <div class="preview-slider swiper" data-fls-slider>
         <div class="swiper-wrapper">
             <?php
             foreach ($arResult['ITEMS'] as $arItem):
@@ -63,8 +63,8 @@
                         </div>
                         <div class="preview-slider-logo-wrapper">
                             <div class="home__container">
-                                <img
-                                        src="<?= $image ?>"
+                                <img loading="lazy"
+                                     src="<?= $image ?>"
                                         alt="<?= $arItem['NAME'] ?>"
                                         title="<?= $arItem['NAME'] ?>"
                                         class="preview-slider-logo"
@@ -83,13 +83,13 @@
                         <div class="preview-slider-img
                         <?php if ($arItem['PROPERTIES']['VIEW_GRADIENT']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>
                         <?php if ($arItem['PROPERTIES']['VIEW_BLUR']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>">
-                            <img src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
+                            <img loading="lazy" src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
                                  title="<?= $arItem['NAME'] ?>">
                         </div>
                         <?php if ($image): ?>
                             <div class="preview-slider-logo-wrapper">
                                 <div class="home__container">
-                                    <img src="<?= htmlspecialcharsbx($image) ?>" alt="<?= $arItem['NAME'] ?>"
+                                    <img loading="lazy" src="<?= htmlspecialcharsbx($image) ?>" alt="<?= $arItem['NAME'] ?>"
                                          title="<?= $arItem['NAME'] ?>" class="preview-slider-logo">
                                 </div>
                             </div>

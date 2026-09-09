@@ -13,14 +13,14 @@
 $this->setFrameMode(true);
 ?>
 <?php if (!empty($arResult['ITEMS'])): ?>
-    <ul class="home__about-list" data-watch>
+    <ul class="home__about-list" data-fls-watcher>
         <?php foreach ($arResult['ITEMS'] as $arItem):
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
             $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
             ?>
             <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__about-list-item">
                 <div class="counters-block">
-                    <div data-digits-counter class="counters__item" translate="no"><?= $arItem['NAME'] ?></div>
+                    <div data-fls-digcounter class="counters__item" translate="no"><?= $arItem['NAME'] ?></div>
                     <span>+</span>
                 </div>
                 <p><?= $arItem['PROPERTIES']['TEXT']['VALUE'] ?></p>

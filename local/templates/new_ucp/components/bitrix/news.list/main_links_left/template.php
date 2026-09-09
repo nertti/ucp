@@ -22,7 +22,7 @@ $this->setFrameMode(true);
                 <a href="<?= $arItem['PROPERTIES']['LINK']['VALUE'] ?>">
                     <p><?= $arItem['NAME'] ?></p>
                     <div class="icon">
-                        <img src="<?= CFile::GetPath($arItem['PROPERTIES']['ICON_MOBILE']['VALUE']) ?>" alt="<?= $arItem['NAME'] ?>"/>
+                        <img loading="lazy" src="<?= CFile::GetPath($arItem['PROPERTIES']['ICON_MOBILE']['VALUE']) ?>" alt="<?= $arItem['NAME'] ?>"/>
                     </div>
                 </a>
             </li>

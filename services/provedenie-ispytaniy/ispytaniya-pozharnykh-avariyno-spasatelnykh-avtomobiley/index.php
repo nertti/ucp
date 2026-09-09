@@ -1,0 +1,106 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Испытания пожарных аварийно - спасательных автомобилей");
+?><table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+	<td colspan="3">
+		<p align="center">
+		</p>
+	</td>
+</tr>
+</tbody>
+</table>
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+	<td>
+		<p align="center">
+			 ИСПЫТАТЕЛЬНЫЙ ЦЕНТР
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p align="center">
+			 Отдел организации и проведения испытаний техники, веществ, материалов и средств предупреждения и ликвидации чрезвычайных ситуаций
+		</p>
+		<p align="center">
+			 8-017-388-98-02
+		</p>
+		<p align="center">
+			 &nbsp;
+		</p>
+		<p align="center">
+			 Группа договорной работы&nbsp;
+		</p>
+		<p align="center">
+			 Электронный адрес для направления корреспонденции
+		</p>
+		<p align="center">
+ <a href="mailto:mail@ucp.by">mail@ucp.by</a>,&nbsp;<a href="mailto:mail.nii@ucp.by">mail.nii@ucp.by</a>,&nbsp;<a href="mailto:ic.nii@ucp.by">ic.nii@ucp.by</a>
+		</p>
+		<p align="center">
+ <br>
+		</p>
+		<table border="1" cellspacing="0" cellpadding="0">
+		<tbody>
+		<tr>
+			<td style="text-align: justify;">
+				<p align="center" style="text-align: justify;">
+					 Прием заявок, оформление договоров, актов выполненных работ, подготовка счетов, выдача протоколов испытаний и прочее
+				</p>
+			</td>
+			<td style="text-align: justify;">
+				<p align="center" style="text-align: justify;">
+					 8-017-388-98-20
+				</p>
+			</td>
+			<td style="text-align: justify;">
+				<p align="center">
+ <a target="_blank" href="https://ucp.by/upload/NIIPB/Doc/14567Zayavka.docx">Файл</a>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="1" style="text-align: justify;">
+				 Сотрудничество со специалистами испытательного центра для уточнения запросов заказчиков, способов доставки и приемки образцов, проведения испытаний и оформления результатов
+			</td>
+			<td colspan="1">
+				<p style="text-align: justify;">
+					 8-017-388-96-40
+				</p>
+			</td>
+			<td colspan="1">
+				 &nbsp; &nbsp; &nbsp; &nbsp;<a href="mailto:tehnika@ucp.by">tehnika@ucp.by</a>
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		<p>
+			 Информация о методах и объектах испытаний размещена в соответствующей&nbsp;<a href="https://bsca.by/ru/registry-testlab/view?id=1992">ссылке</a>.<br>
+ <br>
+			 Образцы на испытания принимаются только при наличии&nbsp;оплаченного&nbsp;договора. (<a href="https://ucp.by/upload/NIIPB/Doc/razmery-obraztsov-dlya-ispytaniy-konstruktsiy_-veshchestv-i-materialov.docx" target="_blank">Количество образцов строительных материалов и конструкций</a>)
+		</p>
+		<p>
+			 При проведении сертификационных испытаний образцы в обязательном порядке должны быть опечатаны представителями органа по сертификации, проводившими отбор образцов, а также иметь сопроводительные документы (заявка (копия) на проведение испытаний, акт отбора образцов, направление на проведение испытаний, программа проведения испытаний).
+		</p>
+		<p>
+		</p>
+		<p>
+			 Предоставление образцов (противогазов) для испытаний и возврат после проведения испытаний с выдачей протоколов испытаний осуществляется по адресу д.Светлая Роща Борисовского района Минской области&nbsp;в понедельник с 09:00 до 13:00 и с 14:00 до 17:00. Контактные номера телефонов 8 (0177) 90 01 54, 8 (017) 388 98 24,&nbsp;8 (0177) 90 01 52. Приемка образцов (противогазов) осуществляется только посредством личной передачи доверенным лицом Заказчика с предъявлением доверенности, документа удостоверяющего личность, копии платежного поручения и копии договора.
+		</p>
+		<p>
+		</p>
+		<p>
+			 ОБРАЗЦЫ (ПРОТИВОГАЗЫ) КУРЬЕРСКОЙ ДОСТАВКОЙ И ПО ПОЧТЕ НЕ ПРИНИМАЮТСЯ И НЕ ОТПРАВЛЯЮТСЯ.
+		</p>
+		<p>
+		</p>
+		<p>
+			 Протоколы испытаний выдаются на руки представителю организации,&nbsp;полномочия которого на получение протоколов испытаний подтверждены доверенностью.
+		</p>
+	</td>
+</tr>
+</tbody>
+</table><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

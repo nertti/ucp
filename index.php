@@ -3,624 +3,1083 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Университет гражданской защиты");
 $APPLICATION->SetTitle("Университет гражданской защиты");
 ?>
-<main class="home">
-    <!-- Секция: превью -->
-    <?php
-    $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"banner_slider", 
-	[
-		"IBLOCK_ID" => "89",
-		"NEWS_COUNT" => "5",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "banner_slider",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "BUTTONS",
-			1 => "LINK",
-			2 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "N",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"DISPLAY_DATE" => "Y",
-		"DISPLAY_NAME" => "Y",
-		"DISPLAY_PICTURE" => "Y",
-		"DISPLAY_PREVIEW_TEXT" => "Y",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-    ?>
-    <div class="home__wrapper">
-        <nav class="home__subnav">
-            <?php
-            $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"main_links_left", 
-	[
-		"IBLOCK_ID" => "85",
-		"NEWS_COUNT" => "8",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "main_links_left",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "LINK",
-			1 => "ICON_MOBILE",
-			2 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "N",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-            ?>
-            <?php
-            $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"main_links_right", 
-	[
-		"IBLOCK_ID" => "86",
-		"NEWS_COUNT" => "8",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "main_links_right",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "LINK",
-			1 => "ICON",
-			2 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "N",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-            ?>
-        </nav>
+<main class="page">
+    <div data-fls-index="" class="index">
+        <!-- Секция: превью -->
+        <?php
+        $APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "banner_slider",
+                [
+                        "IBLOCK_ID" => "89",
+                        "NEWS_COUNT" => "5",
+                        "SORT_BY1" => "SORT",
+                        "SORT_ORDER1" => "ASC",
+                        "CACHE_TYPE" => "Y",
+                        "CACHE_TIME" => "360000",
+                        "COMPONENT_TEMPLATE" => "banner_slider",
+                        "IBLOCK_TYPE" => "news",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "FIELD_CODE" => [
+                                0 => "",
+                                1 => "",
+                        ],
+                        "PROPERTY_CODE" => [
+                                0 => "BUTTONS",
+                                1 => "LINK",
+                                2 => "",
+                        ],
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_TITLE" => "N",
+                        "SET_BROWSER_TITLE" => "N",
+                        "SET_META_KEYWORDS" => "N",
+                        "SET_META_DESCRIPTION" => "N",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "STRICT_SECTION_CHECK" => "N",
+                        "DISPLAY_DATE" => "Y",
+                        "DISPLAY_NAME" => "Y",
+                        "DISPLAY_PICTURE" => "Y",
+                        "DISPLAY_PREVIEW_TEXT" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "N",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                ],
+                false
+        );
+        ?>
+        <div class="home__wrapper">
+            <nav class="home__subnav">
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "main_links_left",
+                        [
+                                "IBLOCK_ID" => "85",
+                                "NEWS_COUNT" => "8",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "Y",
+                                "CACHE_TIME" => "360000",
+                                "COMPONENT_TEMPLATE" => "main_links_left",
+                                "IBLOCK_TYPE" => "news",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "LINK",
+                                        1 => "ICON_MOBILE",
+                                        2 => "",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "N",
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "N",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "main_links_right",
+                        [
+                                "IBLOCK_ID" => "86",
+                                "NEWS_COUNT" => "8",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "Y",
+                                "CACHE_TIME" => "360000",
+                                "COMPONENT_TEMPLATE" => "main_links_right",
+                                "IBLOCK_TYPE" => "news",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "LINK",
+                                        1 => "ICON",
+                                        2 => "",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "N",
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "N",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
+            </nav>
 
-        <div class="home__content">
-            <!-- Секция: новости и события -->
-            <section class="home__feed">
-                <div class="home__container">
-                    <nav class="home__feed-nav">
-                        <?php
-                        $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"main_links", 
-	[
-		"IBLOCK_ID" => "85",
-		"NEWS_COUNT" => "8",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "main_links",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "LINK",
-			1 => "BACKGROUND",
-			2 => "ICON_DESKTOP",
-			3 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "N",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-                        ?>
-                    </nav>
+            <div class="home__content">
+                <!-- Секция: новости и события -->
+                <section class="home__feed">
+                    <div class="home__container">
+                        <nav class="home__feed-nav">
+                            <?php
+                            $APPLICATION->IncludeComponent(
+                                    "bitrix:news.list",
+                                    "main_links",
+                                    [
+                                            "IBLOCK_ID" => "85",
+                                            "NEWS_COUNT" => "8",
+                                            "SORT_BY1" => "SORT",
+                                            "SORT_ORDER1" => "ASC",
+                                            "CACHE_TYPE" => "Y",
+                                            "CACHE_TIME" => "360000",
+                                            "COMPONENT_TEMPLATE" => "main_links",
+                                            "IBLOCK_TYPE" => "news",
+                                            "SORT_BY2" => "SORT",
+                                            "SORT_ORDER2" => "ASC",
+                                            "FILTER_NAME" => "",
+                                            "FIELD_CODE" => [
+                                                    0 => "",
+                                                    1 => "",
+                                            ],
+                                            "PROPERTY_CODE" => [
+                                                    0 => "LINK",
+                                                    1 => "BACKGROUND",
+                                                    2 => "ICON_DESKTOP",
+                                                    3 => "",
+                                            ],
+                                            "CHECK_DATES" => "Y",
+                                            "DETAIL_URL" => "",
+                                            "AJAX_MODE" => "N",
+                                            "AJAX_OPTION_JUMP" => "N",
+                                            "AJAX_OPTION_STYLE" => "Y",
+                                            "AJAX_OPTION_HISTORY" => "N",
+                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                            "CACHE_FILTER" => "N",
+                                            "CACHE_GROUPS" => "Y",
+                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                            "SET_TITLE" => "N",
+                                            "SET_BROWSER_TITLE" => "N",
+                                            "SET_META_KEYWORDS" => "N",
+                                            "SET_META_DESCRIPTION" => "N",
+                                            "SET_LAST_MODIFIED" => "N",
+                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                            "ADD_SECTIONS_CHAIN" => "N",
+                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                            "PARENT_SECTION" => "",
+                                            "PARENT_SECTION_CODE" => "",
+                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                            "STRICT_SECTION_CHECK" => "N",
+                                            "PAGER_TEMPLATE" => ".default",
+                                            "DISPLAY_TOP_PAGER" => "N",
+                                            "DISPLAY_BOTTOM_PAGER" => "N",
+                                            "PAGER_TITLE" => "Новости",
+                                            "PAGER_SHOW_ALWAYS" => "N",
+                                            "PAGER_DESC_NUMBERING" => "N",
+                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                            "PAGER_SHOW_ALL" => "N",
+                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                            "SET_STATUS_404" => "N",
+                                            "SHOW_404" => "N",
+                                            "MESSAGE_404" => ""
+                                    ],
+                                    false
+                            );
+                            ?>
+                        </nav>
 
 
-                    <div class="home__feed-content">
-                        <div class="home__feed-news">
-                            <div class="title-block">
-                                <h2 class="title-two"><a href="/news/">Новости</a></h2>
-                                <a href="/news/" class="button-all">
-                                    <span>Все новости</span>
-                                    <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                  noobserver></iconify-icon>
-                                </a>
-                            </div>
-                            <div class="home__feed-news-content">
-                                <?php
-                                global $mainNewsFilter;
+                        <div class="home__feed-content">
+                            <div class="home__feed-news">
+                                <div class="title-block">
+                                    <h2 class="title-two"><a href="/news/">Новости</a></h2>
+                                    <a href="/news/" class="button-all">
+                                        <span>Все новости</span>
+                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                                      noobserver></iconify-icon>
+                                    </a>
+                                </div>
+                                <div class="home__feed-news-content">
+                                    <?php
+                                    global $mainNewsFilter;
 
-                                $mainNewsFilter = [
-                                        '=PROPERTY_VIEW_ON_MAIN' => 119,
-                                ];
+                                    $mainNewsFilter = [
+                                            '=PROPERTY_VIEW_ON_MAIN' => 119,
+                                    ];
 
-                                $APPLICATION->IncludeComponent(
-                                        "bitrix:news.list",
-                                        "main_news",
-                                        [
-                                                "IBLOCK_ID" => "2",
-                                                "NEWS_COUNT" => "5",
-                                                "SORT_BY1" => "ACTIVE_FROM",
-                                                "SORT_ORDER1" => "DESC",
-                                                "CACHE_TYPE" => "Y",
-                                                "CACHE_TIME" => "3600",
-                                                "COMPONENT_TEMPLATE" => "main_news",
-                                                "IBLOCK_TYPE" => "news",
-                                                "SORT_BY2" => "SORT",
-                                                "SORT_ORDER2" => "ASC",
-                                                "FILTER_NAME" => "mainNewsFilter",
-                                                "FIELD_CODE" => [
-                                                        0 => "",
-                                                        1 => "",
-                                                ],
-                                                "PROPERTY_CODE" => [
-                                                        0 => "LINK",
-                                                        1 => "BACKGROUND",
-                                                        2 => "ICON_DESKTOP",
-                                                ],
-                                                "CHECK_DATES" => "Y",
-                                                "DETAIL_URL" => "",
-                                                "AJAX_MODE" => "N",
-                                                "AJAX_OPTION_JUMP" => "N",
-                                                "AJAX_OPTION_STYLE" => "Y",
-                                                "AJAX_OPTION_HISTORY" => "N",
-                                                "AJAX_OPTION_ADDITIONAL" => "",
-                                                "CACHE_FILTER" => "Y",
-                                                "CACHE_GROUPS" => "Y",
-                                                "PREVIEW_TRUNCATE_LEN" => "",
-                                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                                "SET_TITLE" => "N",
-                                                "SET_BROWSER_TITLE" => "N",
-                                                "SET_META_KEYWORDS" => "N",
-                                                "SET_META_DESCRIPTION" => "N",
-                                                "SET_LAST_MODIFIED" => "N",
-                                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                                "ADD_SECTIONS_CHAIN" => "N",
-                                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                "PARENT_SECTION" => "",
-                                                "PARENT_SECTION_CODE" => "",
-                                                "INCLUDE_SUBSECTIONS" => "Y",
-                                                "STRICT_SECTION_CHECK" => "N",
-                                                "PAGER_TEMPLATE" => ".default",
-                                                "DISPLAY_TOP_PAGER" => "N",
-                                                "DISPLAY_BOTTOM_PAGER" => "Y",
-                                                "PAGER_TITLE" => "Новости",
-                                                "PAGER_SHOW_ALWAYS" => "N",
-                                                "PAGER_DESC_NUMBERING" => "N",
-                                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                                "PAGER_SHOW_ALL" => "N",
-                                                "PAGER_BASE_LINK_ENABLE" => "N",
-                                                "SET_STATUS_404" => "N",
-                                                "SHOW_404" => "N",
-                                                "MESSAGE_404" => ""
-                                        ],
-                                        false,
-                                        [
-                                                "HIDE_ICONS" => "Y"
-                                        ]
-                                );
-                                ?>
-                                <div class="home__feed-news-latest">
-                                    <nav class="home__feed-news-nav">
-                                        <ul class="home__feed-news-nav-list">
-                                            <li class="home__feed-news-nav-item _active" data-tab="Новости университета">
-                                                <button type="button">
-                                                    <iconify-icon icon="streamline-plump:graduation-cap" width="24" height="24" noobserver=""></iconify-icon>
-                                                    <p>Новости университета</p>
-                                                </button>
-                                            </li>
-                                            <li class="home__feed-news-nav-item" data-tab="Наука и инновации">
-                                                <button type="button">
-                                                    <iconify-icon icon="icon-park-outline:microscope-one" width="24" height="24" noobserver=""></iconify-icon>
-                                                    <p>Наука и инновации</p>
-                                                </button>
-                                            </li>
-                                            <li class="home__feed-news-nav-item" data-tab="Безопасность жизнедеятельности">
-                                                <button type="button">
-                                                    <iconify-icon icon="lucide:shield-check" width="24" height="24" noobserver=""></iconify-icon>
-                                                    <p>Безопасность жизнедеятельности</p>
-                                                </button>
-                                            </li>
+                                    $APPLICATION->IncludeComponent(
+                                            "bitrix:news.list",
+                                            "main_news",
+                                            [
+                                                    "IBLOCK_ID" => "2",
+                                                    "NEWS_COUNT" => "5",
+                                                    "SORT_BY1" => "ACTIVE_FROM",
+                                                    "SORT_ORDER1" => "DESC",
+                                                    "CACHE_TYPE" => "Y",
+                                                    "CACHE_TIME" => "3600",
+                                                    "COMPONENT_TEMPLATE" => "main_news",
+                                                    "IBLOCK_TYPE" => "news",
+                                                    "SORT_BY2" => "SORT",
+                                                    "SORT_ORDER2" => "ASC",
+                                                    "FILTER_NAME" => "mainNewsFilter",
+                                                    "FIELD_CODE" => [
+                                                            0 => "",
+                                                            1 => "",
+                                                    ],
+                                                    "PROPERTY_CODE" => [
+                                                            0 => "LINK",
+                                                            1 => "BACKGROUND",
+                                                            2 => "ICON_DESKTOP",
+                                                    ],
+                                                    "CHECK_DATES" => "Y",
+                                                    "DETAIL_URL" => "",
+                                                    "AJAX_MODE" => "N",
+                                                    "AJAX_OPTION_JUMP" => "N",
+                                                    "AJAX_OPTION_STYLE" => "Y",
+                                                    "AJAX_OPTION_HISTORY" => "N",
+                                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                                    "CACHE_FILTER" => "Y",
+                                                    "CACHE_GROUPS" => "Y",
+                                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                    "SET_TITLE" => "N",
+                                                    "SET_BROWSER_TITLE" => "N",
+                                                    "SET_META_KEYWORDS" => "N",
+                                                    "SET_META_DESCRIPTION" => "N",
+                                                    "SET_LAST_MODIFIED" => "N",
+                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                    "ADD_SECTIONS_CHAIN" => "N",
+                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                    "PARENT_SECTION" => "",
+                                                    "PARENT_SECTION_CODE" => "",
+                                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                                    "STRICT_SECTION_CHECK" => "N",
+                                                    "PAGER_TEMPLATE" => ".default",
+                                                    "DISPLAY_TOP_PAGER" => "N",
+                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                    "PAGER_TITLE" => "Новости",
+                                                    "PAGER_SHOW_ALWAYS" => "N",
+                                                    "PAGER_DESC_NUMBERING" => "N",
+                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                    "PAGER_SHOW_ALL" => "N",
+                                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                                    "SET_STATUS_404" => "N",
+                                                    "SHOW_404" => "N",
+                                                    "MESSAGE_404" => ""
+                                            ],
+                                            false,
+                                            [
+                                                    "HIDE_ICONS" => "Y"
+                                            ]
+                                    );
+                                    ?>
+                                    <div class="home__feed-news-latest">
+                                        <nav class="home__feed-news-nav">
+                                            <ul class="home__feed-news-nav-list">
+                                                <li class="home__feed-news-nav-item _active"
+                                                    data-tab="Новости университета">
+                                                    <button type="button">
+                                                        <iconify-icon icon="streamline-plump:graduation-cap" width="24"
+                                                                      height="24" noobserver=""></iconify-icon>
+                                                        <p>Новости университета</p>
+                                                    </button>
+                                                </li>
+                                                <li class="home__feed-news-nav-item" data-tab="Наука и инновации">
+                                                    <button type="button">
+                                                        <iconify-icon icon="icon-park-outline:microscope-one" width="24"
+                                                                      height="24" noobserver=""></iconify-icon>
+                                                        <p>Наука и инновации</p>
+                                                    </button>
+                                                </li>
+                                                <li class="home__feed-news-nav-item"
+                                                    data-tab="Безопасность жизнедеятельности">
+                                                    <button type="button">
+                                                        <iconify-icon icon="lucide:shield-check" width="24" height="24"
+                                                                      noobserver=""></iconify-icon>
+                                                        <p>Безопасность жизнедеятельности</p>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                        <ul class="home__feed-news-list">
+                                            <?php
+                                            global $mainNewsFilter1;
+
+                                            $mainNewsFilter1 = [
+                                                    '=PROPERTY_CATEGORY' => 120,
+                                                    '!=PROPERTY_VIEW_ON_MAIN' => 119,
+                                            ];
+
+                                            $APPLICATION->IncludeComponent(
+                                                    "bitrix:news.list",
+                                                    "main_news_category",
+                                                    [
+                                                            "IBLOCK_ID" => "2",
+                                                            "NEWS_COUNT" => "4",
+                                                            "SORT_BY1" => "ACTIVE_FROM",
+                                                            "SORT_ORDER1" => "DESC",
+                                                            "CACHE_TYPE" => "Y",
+                                                            "CACHE_TIME" => "3600",
+                                                            "COMPONENT_TEMPLATE" => "main_news_category",
+                                                            "IBLOCK_TYPE" => "news",
+                                                            "SORT_BY2" => "SORT",
+                                                            "SORT_ORDER2" => "ASC",
+                                                            "FILTER_NAME" => "mainNewsFilter1",
+                                                            "FIELD_CODE" => [
+                                                                    0 => "",
+                                                                    1 => "",
+                                                            ],
+                                                            "PROPERTY_CODE" => [
+                                                                    0 => "CATEGORY",
+                                                            ],
+                                                            "CHECK_DATES" => "Y",
+                                                            "DETAIL_URL" => "",
+                                                            "AJAX_MODE" => "N",
+                                                            "AJAX_OPTION_JUMP" => "N",
+                                                            "AJAX_OPTION_STYLE" => "Y",
+                                                            "AJAX_OPTION_HISTORY" => "N",
+                                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                                            "CACHE_FILTER" => "Y",
+                                                            "CACHE_GROUPS" => "Y",
+                                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                            "SET_TITLE" => "N",
+                                                            "SET_BROWSER_TITLE" => "N",
+                                                            "SET_META_KEYWORDS" => "N",
+                                                            "SET_META_DESCRIPTION" => "N",
+                                                            "SET_LAST_MODIFIED" => "N",
+                                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                            "ADD_SECTIONS_CHAIN" => "N",
+                                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                            "PARENT_SECTION" => "",
+                                                            "PARENT_SECTION_CODE" => "",
+                                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                                            "STRICT_SECTION_CHECK" => "N",
+                                                            "PAGER_TEMPLATE" => ".default",
+                                                            "DISPLAY_TOP_PAGER" => "N",
+                                                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                            "PAGER_TITLE" => "Новости",
+                                                            "PAGER_SHOW_ALWAYS" => "N",
+                                                            "PAGER_DESC_NUMBERING" => "N",
+                                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                            "PAGER_SHOW_ALL" => "N",
+                                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                                            "SET_STATUS_404" => "N",
+                                                            "SHOW_404" => "N",
+                                                            "MESSAGE_404" => ""
+                                                    ],
+                                                    false,
+                                                    [
+                                                            "HIDE_ICONS" => "Y"
+                                                    ]
+                                            );
+                                            ?>
+
+                                            <?php
+                                            global $mainNewsFilter2;
+
+                                            $mainNewsFilter2 = [
+                                                    '=PROPERTY_CATEGORY' => 121,
+                                                    '=!PROPERTY_VIEW_ON_MAIN' => 119,
+                                            ];
+
+                                            $APPLICATION->IncludeComponent(
+                                                    "bitrix:news.list",
+                                                    "main_news_category",
+                                                    [
+                                                            "IBLOCK_ID" => "2",
+                                                            "NEWS_COUNT" => "4",
+                                                            "SORT_BY1" => "ACTIVE_FROM",
+                                                            "SORT_ORDER1" => "DESC",
+                                                            "CACHE_TYPE" => "Y",
+                                                            "CACHE_TIME" => "3600",
+                                                            "COMPONENT_TEMPLATE" => "main_news_category",
+                                                            "IBLOCK_TYPE" => "news",
+                                                            "SORT_BY2" => "SORT",
+                                                            "SORT_ORDER2" => "ASC",
+                                                            "FILTER_NAME" => "mainNewsFilter2",
+                                                            "FIELD_CODE" => [
+                                                                    0 => "",
+                                                                    1 => "",
+                                                            ],
+                                                            "PROPERTY_CODE" => [
+                                                                    0 => "CATEGORY",
+                                                            ],
+                                                            "CHECK_DATES" => "Y",
+                                                            "DETAIL_URL" => "",
+                                                            "AJAX_MODE" => "N",
+                                                            "AJAX_OPTION_JUMP" => "N",
+                                                            "AJAX_OPTION_STYLE" => "Y",
+                                                            "AJAX_OPTION_HISTORY" => "N",
+                                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                                            "CACHE_FILTER" => "Y",
+                                                            "CACHE_GROUPS" => "Y",
+                                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                            "SET_TITLE" => "N",
+                                                            "SET_BROWSER_TITLE" => "N",
+                                                            "SET_META_KEYWORDS" => "N",
+                                                            "SET_META_DESCRIPTION" => "N",
+                                                            "SET_LAST_MODIFIED" => "N",
+                                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                            "ADD_SECTIONS_CHAIN" => "N",
+                                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                            "PARENT_SECTION" => "",
+                                                            "PARENT_SECTION_CODE" => "",
+                                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                                            "STRICT_SECTION_CHECK" => "N",
+                                                            "PAGER_TEMPLATE" => ".default",
+                                                            "DISPLAY_TOP_PAGER" => "N",
+                                                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                            "PAGER_TITLE" => "Новости",
+                                                            "PAGER_SHOW_ALWAYS" => "N",
+                                                            "PAGER_DESC_NUMBERING" => "N",
+                                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                            "PAGER_SHOW_ALL" => "N",
+                                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                                            "SET_STATUS_404" => "N",
+                                                            "SHOW_404" => "N",
+                                                            "MESSAGE_404" => ""
+                                                    ],
+                                                    false,
+                                                    [
+                                                            "HIDE_ICONS" => "Y"
+                                                    ]
+                                            );
+                                            ?>
+
+                                            <?php
+                                            global $mainNewsFilter3;
+
+                                            $mainNewsFilter3 = [
+                                                    '=PROPERTY_CATEGORY' => 122,
+                                                    '=!PROPERTY_VIEW_ON_MAIN' => 119,
+                                            ];
+
+                                            $APPLICATION->IncludeComponent(
+                                                    "bitrix:news.list",
+                                                    "main_news_category",
+                                                    [
+                                                            "IBLOCK_ID" => "2",
+                                                            "NEWS_COUNT" => "4",
+                                                            "SORT_BY1" => "ACTIVE_FROM",
+                                                            "SORT_ORDER1" => "DESC",
+                                                            "CACHE_TYPE" => "Y",
+                                                            "CACHE_TIME" => "3600",
+                                                            "COMPONENT_TEMPLATE" => "main_news_category",
+                                                            "IBLOCK_TYPE" => "news",
+                                                            "SORT_BY2" => "SORT",
+                                                            "SORT_ORDER2" => "ASC",
+                                                            "FILTER_NAME" => "mainNewsFilter3",
+                                                            "FIELD_CODE" => [
+                                                                    0 => "",
+                                                                    1 => "",
+                                                            ],
+                                                            "PROPERTY_CODE" => [
+                                                                    0 => "CATEGORY",
+                                                            ],
+                                                            "CHECK_DATES" => "Y",
+                                                            "DETAIL_URL" => "",
+                                                            "AJAX_MODE" => "N",
+                                                            "AJAX_OPTION_JUMP" => "N",
+                                                            "AJAX_OPTION_STYLE" => "Y",
+                                                            "AJAX_OPTION_HISTORY" => "N",
+                                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                                            "CACHE_FILTER" => "Y",
+                                                            "CACHE_GROUPS" => "Y",
+                                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                            "SET_TITLE" => "N",
+                                                            "SET_BROWSER_TITLE" => "N",
+                                                            "SET_META_KEYWORDS" => "N",
+                                                            "SET_META_DESCRIPTION" => "N",
+                                                            "SET_LAST_MODIFIED" => "N",
+                                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                            "ADD_SECTIONS_CHAIN" => "N",
+                                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                            "PARENT_SECTION" => "",
+                                                            "PARENT_SECTION_CODE" => "",
+                                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                                            "STRICT_SECTION_CHECK" => "N",
+                                                            "PAGER_TEMPLATE" => ".default",
+                                                            "DISPLAY_TOP_PAGER" => "N",
+                                                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                            "PAGER_TITLE" => "Новости",
+                                                            "PAGER_SHOW_ALWAYS" => "N",
+                                                            "PAGER_DESC_NUMBERING" => "N",
+                                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                            "PAGER_SHOW_ALL" => "N",
+                                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                                            "SET_STATUS_404" => "N",
+                                                            "SHOW_404" => "N",
+                                                            "MESSAGE_404" => ""
+                                                    ],
+                                                    false,
+                                                    [
+                                                            "HIDE_ICONS" => "Y"
+                                                    ]
+                                            );
+                                            ?>
                                         </ul>
-                                    </nav>
-                                    <ul class="home__feed-news-list">
-                                    <?php
-                                    global $mainNewsFilter1;
-
-                                    $mainNewsFilter1 = [
-                                            '=PROPERTY_CATEGORY' => 120,
-                                            '!=PROPERTY_VIEW_ON_MAIN' => 119,
-                                    ];
-
-                                    $APPLICATION->IncludeComponent(
-                                            "bitrix:news.list",
-                                            "main_news_category",
-                                            [
-                                                    "IBLOCK_ID" => "2",
-                                                    "NEWS_COUNT" => "4",
-                                                    "SORT_BY1" => "ACTIVE_FROM",
-                                                    "SORT_ORDER1" => "DESC",
-                                                    "CACHE_TYPE" => "Y",
-                                                    "CACHE_TIME" => "3600",
-                                                    "COMPONENT_TEMPLATE" => "main_news_category",
-                                                    "IBLOCK_TYPE" => "news",
-                                                    "SORT_BY2" => "SORT",
-                                                    "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "mainNewsFilter1",
-                                                    "FIELD_CODE" => [
-                                                            0 => "",
-                                                            1 => "",
-                                                    ],
-                                                    "PROPERTY_CODE" => [
-                                                            0 => "CATEGORY",
-                                                    ],
-                                                    "CHECK_DATES" => "Y",
-                                                    "DETAIL_URL" => "",
-                                                    "AJAX_MODE" => "N",
-                                                    "AJAX_OPTION_JUMP" => "N",
-                                                    "AJAX_OPTION_STYLE" => "Y",
-                                                    "AJAX_OPTION_HISTORY" => "N",
-                                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "Y",
-                                                    "CACHE_GROUPS" => "Y",
-                                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                                    "SET_TITLE" => "N",
-                                                    "SET_BROWSER_TITLE" => "N",
-                                                    "SET_META_KEYWORDS" => "N",
-                                                    "SET_META_DESCRIPTION" => "N",
-                                                    "SET_LAST_MODIFIED" => "N",
-                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                                    "ADD_SECTIONS_CHAIN" => "N",
-                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "",
-                                                    "PARENT_SECTION_CODE" => "",
-                                                    "INCLUDE_SUBSECTIONS" => "Y",
-                                                    "STRICT_SECTION_CHECK" => "N",
-                                                    "PAGER_TEMPLATE" => ".default",
-                                                    "DISPLAY_TOP_PAGER" => "N",
-                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                                                    "PAGER_TITLE" => "Новости",
-                                                    "PAGER_SHOW_ALWAYS" => "N",
-                                                    "PAGER_DESC_NUMBERING" => "N",
-                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                                    "PAGER_SHOW_ALL" => "N",
-                                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                                    "SET_STATUS_404" => "N",
-                                                    "SHOW_404" => "N",
-                                                    "MESSAGE_404" => ""
-                                            ],
-                                            false,
-                                            [
-                                                    "HIDE_ICONS" => "Y"
-                                            ]
-                                    );
-                                    ?>
-
-                                    <?php
-                                    global $mainNewsFilter2;
-
-                                    $mainNewsFilter2 = [
-                                            '=PROPERTY_CATEGORY' => 121,
-                                            '=!PROPERTY_VIEW_ON_MAIN' => 119,
-                                    ];
-
-                                    $APPLICATION->IncludeComponent(
-                                            "bitrix:news.list",
-                                            "main_news_category",
-                                            [
-                                                    "IBLOCK_ID" => "2",
-                                                    "NEWS_COUNT" => "4",
-                                                    "SORT_BY1" => "ACTIVE_FROM",
-                                                    "SORT_ORDER1" => "DESC",
-                                                    "CACHE_TYPE" => "Y",
-                                                    "CACHE_TIME" => "3600",
-                                                    "COMPONENT_TEMPLATE" => "main_news_category",
-                                                    "IBLOCK_TYPE" => "news",
-                                                    "SORT_BY2" => "SORT",
-                                                    "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "mainNewsFilter2",
-                                                    "FIELD_CODE" => [
-                                                            0 => "",
-                                                            1 => "",
-                                                    ],
-                                                    "PROPERTY_CODE" => [
-                                                            0 => "CATEGORY",
-                                                    ],
-                                                    "CHECK_DATES" => "Y",
-                                                    "DETAIL_URL" => "",
-                                                    "AJAX_MODE" => "N",
-                                                    "AJAX_OPTION_JUMP" => "N",
-                                                    "AJAX_OPTION_STYLE" => "Y",
-                                                    "AJAX_OPTION_HISTORY" => "N",
-                                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "Y",
-                                                    "CACHE_GROUPS" => "Y",
-                                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                                    "SET_TITLE" => "N",
-                                                    "SET_BROWSER_TITLE" => "N",
-                                                    "SET_META_KEYWORDS" => "N",
-                                                    "SET_META_DESCRIPTION" => "N",
-                                                    "SET_LAST_MODIFIED" => "N",
-                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                                    "ADD_SECTIONS_CHAIN" => "N",
-                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "",
-                                                    "PARENT_SECTION_CODE" => "",
-                                                    "INCLUDE_SUBSECTIONS" => "Y",
-                                                    "STRICT_SECTION_CHECK" => "N",
-                                                    "PAGER_TEMPLATE" => ".default",
-                                                    "DISPLAY_TOP_PAGER" => "N",
-                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                                                    "PAGER_TITLE" => "Новости",
-                                                    "PAGER_SHOW_ALWAYS" => "N",
-                                                    "PAGER_DESC_NUMBERING" => "N",
-                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                                    "PAGER_SHOW_ALL" => "N",
-                                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                                    "SET_STATUS_404" => "N",
-                                                    "SHOW_404" => "N",
-                                                    "MESSAGE_404" => ""
-                                            ],
-                                            false,
-                                            [
-                                                    "HIDE_ICONS" => "Y"
-                                            ]
-                                    );
-                                    ?>
-
-                                    <?php
-                                    global $mainNewsFilter3;
-
-                                    $mainNewsFilter3 = [
-                                            '=PROPERTY_CATEGORY' => 122,
-                                            '=!PROPERTY_VIEW_ON_MAIN' => 119,
-                                    ];
-
-                                    $APPLICATION->IncludeComponent(
-                                            "bitrix:news.list",
-                                            "main_news_category",
-                                            [
-                                                    "IBLOCK_ID" => "2",
-                                                    "NEWS_COUNT" => "4",
-                                                    "SORT_BY1" => "ACTIVE_FROM",
-                                                    "SORT_ORDER1" => "DESC",
-                                                    "CACHE_TYPE" => "Y",
-                                                    "CACHE_TIME" => "3600",
-                                                    "COMPONENT_TEMPLATE" => "main_news_category",
-                                                    "IBLOCK_TYPE" => "news",
-                                                    "SORT_BY2" => "SORT",
-                                                    "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "mainNewsFilter3",
-                                                    "FIELD_CODE" => [
-                                                            0 => "",
-                                                            1 => "",
-                                                    ],
-                                                    "PROPERTY_CODE" => [
-                                                            0 => "CATEGORY",
-                                                    ],
-                                                    "CHECK_DATES" => "Y",
-                                                    "DETAIL_URL" => "",
-                                                    "AJAX_MODE" => "N",
-                                                    "AJAX_OPTION_JUMP" => "N",
-                                                    "AJAX_OPTION_STYLE" => "Y",
-                                                    "AJAX_OPTION_HISTORY" => "N",
-                                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "Y",
-                                                    "CACHE_GROUPS" => "Y",
-                                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                                    "SET_TITLE" => "N",
-                                                    "SET_BROWSER_TITLE" => "N",
-                                                    "SET_META_KEYWORDS" => "N",
-                                                    "SET_META_DESCRIPTION" => "N",
-                                                    "SET_LAST_MODIFIED" => "N",
-                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                                    "ADD_SECTIONS_CHAIN" => "N",
-                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "",
-                                                    "PARENT_SECTION_CODE" => "",
-                                                    "INCLUDE_SUBSECTIONS" => "Y",
-                                                    "STRICT_SECTION_CHECK" => "N",
-                                                    "PAGER_TEMPLATE" => ".default",
-                                                    "DISPLAY_TOP_PAGER" => "N",
-                                                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                                                    "PAGER_TITLE" => "Новости",
-                                                    "PAGER_SHOW_ALWAYS" => "N",
-                                                    "PAGER_DESC_NUMBERING" => "N",
-                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                                    "PAGER_SHOW_ALL" => "N",
-                                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                                    "SET_STATUS_404" => "N",
-                                                    "SHOW_404" => "N",
-                                                    "MESSAGE_404" => ""
-                                            ],
-                                            false,
-                                            [
-                                                    "HIDE_ICONS" => "Y"
-                                            ]
-                                    );
-                                    ?>
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
+                            <?php
+                            $APPLICATION->IncludeComponent(
+                                    "bitrix:news.list",
+                                    "main_events",
+                                    [
+                                            "IBLOCK_ID" => "82",
+                                            "NEWS_COUNT" => "3",
+                                            "SORT_BY1" => "SORT",
+                                            "SORT_ORDER1" => "ASC",
+                                            "CACHE_TYPE" => "A",
+                                            "CACHE_TIME" => "3600",
+                                            "COMPONENT_TEMPLATE" => "main_events",
+                                            "IBLOCK_TYPE" => "news",
+                                            "SORT_BY2" => "SORT",
+                                            "SORT_ORDER2" => "ASC",
+                                            "FILTER_NAME" => "",
+                                            "FIELD_CODE" => [
+                                                    0 => "",
+                                                    1 => "",
+                                            ],
+                                            "PROPERTY_CODE" => [
+                                                    0 => "TEXT",
+                                                    1 => "",
+                                            ],
+                                            "CHECK_DATES" => "Y",
+                                            "DETAIL_URL" => "",
+                                            "AJAX_MODE" => "N",
+                                            "AJAX_OPTION_JUMP" => "N",
+                                            "AJAX_OPTION_STYLE" => "Y",
+                                            "AJAX_OPTION_HISTORY" => "N",
+                                            "AJAX_OPTION_ADDITIONAL" => "",
+                                            "CACHE_FILTER" => "N",
+                                            "CACHE_GROUPS" => "Y",
+                                            "PREVIEW_TRUNCATE_LEN" => "",
+                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                            "SET_TITLE" => "Y",
+                                            "SET_BROWSER_TITLE" => "Y",
+                                            "SET_META_KEYWORDS" => "Y",
+                                            "SET_META_DESCRIPTION" => "Y",
+                                            "SET_LAST_MODIFIED" => "N",
+                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                            "ADD_SECTIONS_CHAIN" => "Y",
+                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                            "PARENT_SECTION" => "",
+                                            "PARENT_SECTION_CODE" => "",
+                                            "INCLUDE_SUBSECTIONS" => "Y",
+                                            "STRICT_SECTION_CHECK" => "N",
+                                            "PAGER_TEMPLATE" => ".default",
+                                            "DISPLAY_TOP_PAGER" => "N",
+                                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                                            "PAGER_TITLE" => "Новости",
+                                            "PAGER_SHOW_ALWAYS" => "N",
+                                            "PAGER_DESC_NUMBERING" => "N",
+                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                            "PAGER_SHOW_ALL" => "N",
+                                            "PAGER_BASE_LINK_ENABLE" => "N",
+                                            "SET_STATUS_404" => "N",
+                                            "SHOW_404" => "N",
+                                            "MESSAGE_404" => ""
+                                    ],
+                                    false
+                            );
+                            ?>
                         </div>
+                    </div>
+                </section>
+                <!-- Секция: о нас -->
+                <section class="home__about">
+                    <div class="home__container">
                         <?php
                         $APPLICATION->IncludeComponent(
                                 "bitrix:news.list",
-                                "main_events",
+                                "about_company",
                                 [
-                                        "IBLOCK_ID" => "82",
-                                        "NEWS_COUNT" => "3",
+                                        "IBLOCK_ID" => "84",
+                                        "NEWS_COUNT" => "7",
+                                        "SORT_BY1" => "SORT",
+                                        "SORT_ORDER1" => "ASC",
+                                        "CACHE_TYPE" => "Y",
+                                        "CACHE_TIME" => "360000",
+                                        "COMPONENT_TEMPLATE" => "about_company",
+                                        "IBLOCK_TYPE" => "news",
+                                        "SORT_BY2" => "ACTIVE_FROM",
+                                        "SORT_ORDER2" => "DESC",
+                                        "FILTER_NAME" => "",
+                                        "FIELD_CODE" => [
+                                                0 => "",
+                                                1 => "",
+                                        ],
+                                        "PROPERTY_CODE" => [
+                                                0 => "TEXT",
+                                                1 => "",
+                                        ],
+                                        "CHECK_DATES" => "Y",
+                                        "DETAIL_URL" => "",
+                                        "AJAX_MODE" => "N",
+                                        "AJAX_OPTION_JUMP" => "N",
+                                        "AJAX_OPTION_STYLE" => "Y",
+                                        "AJAX_OPTION_HISTORY" => "N",
+                                        "AJAX_OPTION_ADDITIONAL" => "",
+                                        "CACHE_FILTER" => "N",
+                                        "CACHE_GROUPS" => "Y",
+                                        "PREVIEW_TRUNCATE_LEN" => "",
+                                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                        "SET_TITLE" => "Y",
+                                        "SET_BROWSER_TITLE" => "N",
+                                        "SET_META_KEYWORDS" => "N",
+                                        "SET_META_DESCRIPTION" => "N",
+                                        "SET_LAST_MODIFIED" => "N",
+                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                        "ADD_SECTIONS_CHAIN" => "N",
+                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                        "PARENT_SECTION" => "",
+                                        "PARENT_SECTION_CODE" => "",
+                                        "INCLUDE_SUBSECTIONS" => "Y",
+                                        "STRICT_SECTION_CHECK" => "N",
+                                        "PAGER_TEMPLATE" => ".default",
+                                        "DISPLAY_TOP_PAGER" => "N",
+                                        "DISPLAY_BOTTOM_PAGER" => "N",
+                                        "PAGER_TITLE" => "Новости",
+                                        "PAGER_SHOW_ALWAYS" => "N",
+                                        "PAGER_DESC_NUMBERING" => "N",
+                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                        "PAGER_SHOW_ALL" => "N",
+                                        "PAGER_BASE_LINK_ENABLE" => "N",
+                                        "SET_STATUS_404" => "N",
+                                        "SHOW_404" => "N",
+                                        "MESSAGE_404" => ""
+                                ],
+                                false
+                        );
+                        ?>
+                    </div>
+                </section>
+
+                <!-- Секция: университеты -->
+                <section class="home__universities">
+                    <div class="home__container">
+                        <div class="universities__slider swiper" data-fls-slider>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="universities__slider-content">
+                                        <h2 class="title-two">Факультеты</h2>
+                                        <?php
+                                        $APPLICATION->IncludeComponent(
+                                                "bitrix:news.list",
+                                                "faculties",
+                                                [
+                                                        "IBLOCK_ID" => "90",
+                                                        "NEWS_COUNT" => "8",
+                                                        "SORT_BY1" => "SORT",
+                                                        "SORT_ORDER1" => "ASC",
+                                                        "CACHE_TYPE" => "A",
+                                                        "CACHE_TIME" => "3600",
+                                                        "COMPONENT_TEMPLATE" => "faculties",
+                                                        "IBLOCK_TYPE" => "news",
+                                                        "SORT_BY2" => "SORT",
+                                                        "SORT_ORDER2" => "ASC",
+                                                        "FILTER_NAME" => "",
+                                                        "FIELD_CODE" => [
+                                                                0 => "",
+                                                                1 => "",
+                                                        ],
+                                                        "PROPERTY_CODE" => [
+                                                                0 => "TEXT",
+                                                                1 => "",
+                                                        ],
+                                                        "CHECK_DATES" => "Y",
+                                                        "DETAIL_URL" => "",
+                                                        "AJAX_MODE" => "N",
+                                                        "AJAX_OPTION_JUMP" => "N",
+                                                        "AJAX_OPTION_STYLE" => "Y",
+                                                        "AJAX_OPTION_HISTORY" => "N",
+                                                        "AJAX_OPTION_ADDITIONAL" => "",
+                                                        "CACHE_FILTER" => "N",
+                                                        "CACHE_GROUPS" => "Y",
+                                                        "PREVIEW_TRUNCATE_LEN" => "",
+                                                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                        "SET_TITLE" => "Y",
+                                                        "SET_BROWSER_TITLE" => "Y",
+                                                        "SET_META_KEYWORDS" => "Y",
+                                                        "SET_META_DESCRIPTION" => "Y",
+                                                        "SET_LAST_MODIFIED" => "N",
+                                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                        "ADD_SECTIONS_CHAIN" => "N",
+                                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                        "PARENT_SECTION" => "",
+                                                        "PARENT_SECTION_CODE" => "",
+                                                        "INCLUDE_SUBSECTIONS" => "N",
+                                                        "STRICT_SECTION_CHECK" => "N",
+                                                        "PAGER_TEMPLATE" => ".default",
+                                                        "DISPLAY_TOP_PAGER" => "N",
+                                                        "DISPLAY_BOTTOM_PAGER" => "N",
+                                                        "PAGER_TITLE" => "Новости",
+                                                        "PAGER_SHOW_ALWAYS" => "N",
+                                                        "PAGER_DESC_NUMBERING" => "N",
+                                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                        "PAGER_SHOW_ALL" => "N",
+                                                        "PAGER_BASE_LINK_ENABLE" => "N",
+                                                        "SET_STATUS_404" => "N",
+                                                        "SHOW_404" => "N",
+                                                        "MESSAGE_404" => ""
+                                                ],
+                                                false
+                                        );
+                                        ?>
+                                    </div>
+                                    <div class="universities__slider-wrapper">
+                                        <div class="universities__slider-img">
+                                            <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
+                                                 alt="Image" title="Факультеты" loading="lazy"/>
+                                        </div>
+                                        <div class="universities__slider-action">
+                                            <button class="universities__slider-button-prev swiper-button-prev">
+                                                <iconify-icon icon="lucide:chevron-left" width="24" height="24"
+                                                              noobserver></iconify-icon>
+                                            </button>
+                                            <button class="universities__slider-button-next swiper-button-next">
+                                                <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                                              noobserver></iconify-icon>
+                                            </button>
+                                        </div>
+                                        <div class="universities__slider-slider-pagination"></div>
+                                    </div>
+                                </div>
+                                <!--
+                                                            <div class="swiper-slide">
+                                                                <div class="universities__slider-content">
+                                                                    <h2 class="title-two">Деятельность (для теста)</h2>
+                                                                    <ul class="universities__slider-list">
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-preduprezhdeniya-i-likvidatsii-chs/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет предупреждения и ликвидации ЧС</p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-tekhnosfernoy-bezopasnosti/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет техносферной безопасности</p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-zaochnogo-obucheniya/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет заочного обучения</p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-bezopasnosti-zhiznedeyatelnosti/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет безопасности жизнедеятельности</p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-podgotovki-nauchnykh-kadrov/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет подготовки научных кадров</p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="universities__slider-list-item">
+                                                                            <a href="/structure/faculties/fakultet-podgotovki-rukovodyashchikh-kadrov/">
+                                                                                <div class="icon">
+                                                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
+                                                                                                  noobserver></iconify-icon>
+                                                                                </div>
+                                                                                <p>Факультет подготовки руководящих кадров</p>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="universities__slider-wrapper">
+                                                                    <div class="universities__slider-img">
+                                                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
+                                                                             alt="Image" title="Факультеты"/>
+                                                                    </div>
+                                                                    <div class="universities__slider-action">
+                                                                        <button class="universities__slider-button-prev swiper-button-prev">
+                                                                            <iconify-icon icon="lucide:chevron-left" width="24" height="24"
+                                                                                          noobserver></iconify-icon>
+                                                                        </button>
+                                                                        <button class="universities__slider-button-next swiper-button-next">
+                                                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                                                                          noobserver></iconify-icon>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                -->
+                            </div>
+                        </div>
+
+
+                        <?php
+                        $APPLICATION->IncludeComponent(
+                                "bitrix:news.list",
+                                "universes",
+                                [
+                                        "IBLOCK_ID" => "91",
+                                        "NEWS_COUNT" => "6",
+                                        "SORT_BY1" => "SORT",
+                                        "SORT_ORDER1" => "ASC",
+                                        "CACHE_TYPE" => "Y",
+                                        "CACHE_TIME" => "360000",
+                                        "COMPONENT_TEMPLATE" => "universes",
+                                        "IBLOCK_TYPE" => "news",
+                                        "SORT_BY2" => "SORT",
+                                        "SORT_ORDER2" => "ASC",
+                                        "FILTER_NAME" => "",
+                                        "FIELD_CODE" => [
+                                                0 => "",
+                                                1 => "",
+                                        ],
+                                        "PROPERTY_CODE" => [
+                                                0 => "",
+                                                1 => "TEXT",
+                                                2 => "",
+                                        ],
+                                        "CHECK_DATES" => "Y",
+                                        "DETAIL_URL" => "",
+                                        "AJAX_MODE" => "N",
+                                        "AJAX_OPTION_JUMP" => "N",
+                                        "AJAX_OPTION_STYLE" => "Y",
+                                        "AJAX_OPTION_HISTORY" => "N",
+                                        "AJAX_OPTION_ADDITIONAL" => "",
+                                        "CACHE_FILTER" => "N",
+                                        "CACHE_GROUPS" => "Y",
+                                        "PREVIEW_TRUNCATE_LEN" => "",
+                                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                        "SET_TITLE" => "N",
+                                        "SET_BROWSER_TITLE" => "N",
+                                        "SET_META_KEYWORDS" => "N",
+                                        "SET_META_DESCRIPTION" => "N",
+                                        "SET_LAST_MODIFIED" => "N",
+                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                        "ADD_SECTIONS_CHAIN" => "N",
+                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                        "PARENT_SECTION" => "",
+                                        "PARENT_SECTION_CODE" => "",
+                                        "INCLUDE_SUBSECTIONS" => "Y",
+                                        "STRICT_SECTION_CHECK" => "N",
+                                        "PAGER_TEMPLATE" => ".default",
+                                        "DISPLAY_TOP_PAGER" => "N",
+                                        "DISPLAY_BOTTOM_PAGER" => "N",
+                                        "PAGER_TITLE" => "Новости",
+                                        "PAGER_SHOW_ALWAYS" => "N",
+                                        "PAGER_DESC_NUMBERING" => "N",
+                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                        "PAGER_SHOW_ALL" => "N",
+                                        "PAGER_BASE_LINK_ENABLE" => "N",
+                                        "SET_STATUS_404" => "N",
+                                        "SHOW_404" => "N",
+                                        "MESSAGE_404" => ""
+                                ],
+                                false
+                        );
+                        ?>
+                    </div>
+                </section>
+
+                <section class="home__services">
+                    <div class="home__container">
+                        <?php
+
+                        global $mainServicesFilter;
+
+                        $mainServicesFilter = [
+                                '=PROPERTY_VIEW_ON_MAIN' => 137,
+                        ];
+
+                        $APPLICATION->IncludeComponent(
+                                "bitrix:news.list",
+                                "main_services",
+                                [
+                                        "IBLOCK_ID" => "79",
+                                        "NEWS_COUNT" => "40",
                                         "SORT_BY1" => "SORT",
                                         "SORT_ORDER1" => "ASC",
                                         "CACHE_TYPE" => "A",
                                         "CACHE_TIME" => "3600",
-                                        "COMPONENT_TEMPLATE" => "main_events",
-                                        "IBLOCK_TYPE" => "news",
+                                        "COMPONENT_TEMPLATE" => "main_services",
+                                        "IBLOCK_TYPE" => "services",
+                                        "SORT_BY2" => "SORT",
+                                        "SORT_ORDER2" => "ASC",
+                                        "FILTER_NAME" => "mainServicesFilter",
+                                        "FIELD_CODE" => [
+                                                0 => "",
+                                                1 => "",
+                                        ],
+                                        "PROPERTY_CODE" => [
+                                                0 => "TEXT",
+                                                1 => "",
+                                        ],
+                                        "CHECK_DATES" => "Y",
+                                        "DETAIL_URL" => "",
+                                        "AJAX_MODE" => "N",
+                                        "AJAX_OPTION_JUMP" => "N",
+                                        "AJAX_OPTION_STYLE" => "Y",
+                                        "AJAX_OPTION_HISTORY" => "N",
+                                        "AJAX_OPTION_ADDITIONAL" => "",
+                                        "CACHE_FILTER" => "N",
+                                        "CACHE_GROUPS" => "Y",
+                                        "PREVIEW_TRUNCATE_LEN" => "",
+                                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                        "SET_TITLE" => "Y",
+                                        "SET_BROWSER_TITLE" => "Y",
+                                        "SET_META_KEYWORDS" => "Y",
+                                        "SET_META_DESCRIPTION" => "Y",
+                                        "SET_LAST_MODIFIED" => "N",
+                                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                        "PARENT_SECTION" => "",
+                                        "PARENT_SECTION_CODE" => "",
+                                        "INCLUDE_SUBSECTIONS" => "Y",
+                                        "STRICT_SECTION_CHECK" => "N",
+                                        "PAGER_TEMPLATE" => ".default",
+                                        "DISPLAY_TOP_PAGER" => "N",
+                                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                                        "PAGER_TITLE" => "Новости",
+                                        "PAGER_SHOW_ALWAYS" => "N",
+                                        "PAGER_DESC_NUMBERING" => "N",
+                                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                        "PAGER_SHOW_ALL" => "N",
+                                        "PAGER_BASE_LINK_ENABLE" => "N",
+                                        "SET_STATUS_404" => "N",
+                                        "SHOW_404" => "N",
+                                        "MESSAGE_404" => ""
+                                ],
+                                false
+                        );
+                        ?>
+                    </div>
+                </section>
+
+                <!-- Секция: новости -->
+                <section class="home__news">
+                    <div class="home__container">
+                        <?php
+                        $APPLICATION->IncludeComponent(
+                                "bitrix:news.list",
+                                "projects",
+                                [
+                                        "IBLOCK_ID" => "83",
+                                        "NEWS_COUNT" => "10",
+                                        "SORT_BY1" => "SORT",
+                                        "SORT_ORDER1" => "ASC",
+                                        "CACHE_TYPE" => "A",
+                                        "CACHE_TIME" => "3600",
+                                        "COMPONENT_TEMPLATE" => "projects",
+                                        "IBLOCK_TYPE" => "projects",
                                         "SORT_BY2" => "SORT",
                                         "SORT_ORDER2" => "ASC",
                                         "FILTER_NAME" => "",
@@ -671,533 +1130,89 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                 false
                         );
                         ?>
-                    </div>
-                </div>
-            </section>
-            <!-- Секция: о нас -->
-            <section class="home__about">
-                <div class="home__container">
-                    <?php
-                    $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"about_company", 
-	[
-		"IBLOCK_ID" => "84",
-		"NEWS_COUNT" => "7",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "about_company",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "ACTIVE_FROM",
-		"SORT_ORDER2" => "DESC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "TEXT",
-			1 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "Y",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-                    ?>
-                </div>
-            </section>
+                        <div class="news__recent-content">
+                            <a href="/news/?is-project=126" class="button-all">
+                                <span>Все проекты</span>
+                                <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                              noobserver></iconify-icon>
+                            </a>
+                            <ul class="news__recent">
+                                <?php
+                                global $mainNewsFilter4;
 
-            <!-- Секция: университеты -->
-            <section class="home__universities">
-                <div class="home__container">
-                    <div class="universities__slider swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="universities__slider-content">
-                                    <h2 class="title-two">Факультеты</h2>
-                                    <?php
-                                    $APPLICATION->IncludeComponent(
-                                            "bitrix:news.list",
-                                            "faculties",
-                                            [
-                                                    "IBLOCK_ID" => "90",
-                                                    "NEWS_COUNT" => "8",
-                                                    "SORT_BY1" => "SORT",
-                                                    "SORT_ORDER1" => "ASC",
-                                                    "CACHE_TYPE" => "A",
-                                                    "CACHE_TIME" => "3600",
-                                                    "COMPONENT_TEMPLATE" => "faculties",
-                                                    "IBLOCK_TYPE" => "news",
-                                                    "SORT_BY2" => "SORT",
-                                                    "SORT_ORDER2" => "ASC",
-                                                    "FILTER_NAME" => "",
-                                                    "FIELD_CODE" => [
-                                                            0 => "",
-                                                            1 => "",
-                                                    ],
-                                                    "PROPERTY_CODE" => [
-                                                            0 => "TEXT",
-                                                            1 => "",
-                                                    ],
-                                                    "CHECK_DATES" => "Y",
-                                                    "DETAIL_URL" => "",
-                                                    "AJAX_MODE" => "N",
-                                                    "AJAX_OPTION_JUMP" => "N",
-                                                    "AJAX_OPTION_STYLE" => "Y",
-                                                    "AJAX_OPTION_HISTORY" => "N",
-                                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                                    "CACHE_FILTER" => "N",
-                                                    "CACHE_GROUPS" => "Y",
-                                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                                    "SET_TITLE" => "Y",
-                                                    "SET_BROWSER_TITLE" => "Y",
-                                                    "SET_META_KEYWORDS" => "Y",
-                                                    "SET_META_DESCRIPTION" => "Y",
-                                                    "SET_LAST_MODIFIED" => "N",
-                                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                                    "ADD_SECTIONS_CHAIN" => "N",
-                                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                                    "PARENT_SECTION" => "",
-                                                    "PARENT_SECTION_CODE" => "",
-                                                    "INCLUDE_SUBSECTIONS" => "N",
-                                                    "STRICT_SECTION_CHECK" => "N",
-                                                    "PAGER_TEMPLATE" => ".default",
-                                                    "DISPLAY_TOP_PAGER" => "N",
-                                                    "DISPLAY_BOTTOM_PAGER" => "N",
-                                                    "PAGER_TITLE" => "Новости",
-                                                    "PAGER_SHOW_ALWAYS" => "N",
-                                                    "PAGER_DESC_NUMBERING" => "N",
-                                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                                    "PAGER_SHOW_ALL" => "N",
-                                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                                    "SET_STATUS_404" => "N",
-                                                    "SHOW_404" => "N",
-                                                    "MESSAGE_404" => ""
-                                            ],
-                                            false
-                                    );
-                                    ?>
-                                </div>
-                                <div class="universities__slider-wrapper">
-                                    <div class="universities__slider-img">
-                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
-                                             alt="Image" title="Факультеты"/>
-                                    </div>
-                                    <div class="universities__slider-action">
-                                        <button class="universities__slider-button-prev swiper-button-prev">
-                                            <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                        <button class="universities__slider-button-next swiper-button-next">
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                    </div>
-                                    <div class="universities__slider-slider-pagination"></div>
-                                </div>
-                            </div>
-<!--
-                            <div class="swiper-slide">
-                                <div class="universities__slider-content">
-                                    <h2 class="title-two">Деятельность (для теста)</h2>
-                                    <ul class="universities__slider-list">
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-preduprezhdeniya-i-likvidatsii-chs/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет предупреждения и ликвидации ЧС</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-tekhnosfernoy-bezopasnosti/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет техносферной безопасности</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-zaochnogo-obucheniya/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет заочного обучения</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-bezopasnosti-zhiznedeyatelnosti/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет безопасности жизнедеятельности</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-podgotovki-nauchnykh-kadrov/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет подготовки научных кадров</p>
-                                            </a>
-                                        </li>
-                                        <li class="universities__slider-list-item">
-                                            <a href="/structure/faculties/fakultet-podgotovki-rukovodyashchikh-kadrov/">
-                                                <div class="icon">
-                                                    <iconify-icon icon="iconamoon:check-bold" width="100%" height="100%"
-                                                                  noobserver></iconify-icon>
-                                                </div>
-                                                <p>Факультет подготовки руководящих кадров</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="universities__slider-wrapper">
-                                    <div class="universities__slider-img">
-                                        <img src="/local/templates/new_ucp/assets/img/main/universities.webp"
-                                             alt="Image" title="Факультеты"/>
-                                    </div>
-                                    <div class="universities__slider-action">
-                                        <button class="universities__slider-button-prev swiper-button-prev">
-                                            <iconify-icon icon="lucide:chevron-left" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                        <button class="universities__slider-button-next swiper-button-next">
-                                            <iconify-icon icon="lucide:chevron-right" width="24" height="24"
-                                                          noobserver></iconify-icon>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
--->
+                                $mainNewsFilter4 = [
+                                        '=PROPERTY_IS_PROJECT' => 126,
+                                ];
+
+                                $APPLICATION->IncludeComponent(
+                                        "bitrix:news.list",
+                                        "news_line",
+                                        [
+                                                "IBLOCK_ID" => "2",
+                                                "NEWS_COUNT" => "5",
+                                                "SORT_BY1" => "ACTIVE_FROM",
+                                                "SORT_ORDER1" => "DESC",
+                                                "CACHE_TYPE" => "Y",
+                                                "CACHE_TIME" => "3600",
+                                                "COMPONENT_TEMPLATE" => "news_line",
+                                                "IBLOCK_TYPE" => "news",
+                                                "SORT_BY2" => "SORT",
+                                                "SORT_ORDER2" => "ASC",
+                                                "FILTER_NAME" => "mainNewsFilter4",
+                                                "FIELD_CODE" => [
+                                                        0 => "",
+                                                        1 => "",
+                                                ],
+                                                "PROPERTY_CODE" => [
+                                                        0 => "CATEGORY",
+                                                ],
+                                                "CHECK_DATES" => "Y",
+                                                "DETAIL_URL" => "",
+                                                "AJAX_MODE" => "N",
+                                                "AJAX_OPTION_JUMP" => "N",
+                                                "AJAX_OPTION_STYLE" => "Y",
+                                                "AJAX_OPTION_HISTORY" => "N",
+                                                "AJAX_OPTION_ADDITIONAL" => "",
+                                                "CACHE_FILTER" => "Y",
+                                                "CACHE_GROUPS" => "Y",
+                                                "PREVIEW_TRUNCATE_LEN" => "",
+                                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                                "SET_TITLE" => "N",
+                                                "SET_BROWSER_TITLE" => "N",
+                                                "SET_META_KEYWORDS" => "N",
+                                                "SET_META_DESCRIPTION" => "N",
+                                                "SET_LAST_MODIFIED" => "N",
+                                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                                "ADD_SECTIONS_CHAIN" => "N",
+                                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                                "PARENT_SECTION" => "",
+                                                "PARENT_SECTION_CODE" => "",
+                                                "INCLUDE_SUBSECTIONS" => "Y",
+                                                "STRICT_SECTION_CHECK" => "N",
+                                                "PAGER_TEMPLATE" => ".default",
+                                                "DISPLAY_TOP_PAGER" => "N",
+                                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                                "PAGER_TITLE" => "Новости",
+                                                "PAGER_SHOW_ALWAYS" => "N",
+                                                "PAGER_DESC_NUMBERING" => "N",
+                                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                                "PAGER_SHOW_ALL" => "N",
+                                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                                "SET_STATUS_404" => "N",
+                                                "SHOW_404" => "N",
+                                                "MESSAGE_404" => ""
+                                        ],
+                                        false,
+                                        [
+                                                "HIDE_ICONS" => "Y"
+                                        ]
+                                );
+                                ?>
+                            </ul>
                         </div>
                     </div>
-
-
-                    <?php
-                    $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"universes", 
-	[
-		"IBLOCK_ID" => "91",
-		"NEWS_COUNT" => "6",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"CACHE_TYPE" => "Y",
-		"CACHE_TIME" => "360000",
-		"COMPONENT_TEMPLATE" => "universes",
-		"IBLOCK_TYPE" => "news",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
-		"FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"PROPERTY_CODE" => [
-			0 => "",
-			1 => "TEXT",
-			2 => "",
-		],
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"SET_TITLE" => "N",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"STRICT_SECTION_CHECK" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"DISPLAY_TOP_PAGER" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "Новости",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"SET_STATUS_404" => "N",
-		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
-	],
-	false
-);
-                    ?>
-                </div>
-            </section>
-
-            <section class="home__services">
-                <div class="home__container">
-                    <?php
-                    $APPLICATION->IncludeComponent(
-                            "bitrix:news.list",
-                            "main_services",
-                            [
-                                    "IBLOCK_ID" => "79",
-                                    "NEWS_COUNT" => "40",
-                                    "SORT_BY1" => "SORT",
-                                    "SORT_ORDER1" => "ASC",
-                                    "CACHE_TYPE" => "A",
-                                    "CACHE_TIME" => "3600",
-                                    "COMPONENT_TEMPLATE" => "main_services",
-                                    "IBLOCK_TYPE" => "services",
-                                    "SORT_BY2" => "SORT",
-                                    "SORT_ORDER2" => "ASC",
-                                    "FILTER_NAME" => "",
-                                    "FIELD_CODE" => [
-                                            0 => "",
-                                            1 => "",
-                                    ],
-                                    "PROPERTY_CODE" => [
-                                            0 => "TEXT",
-                                            1 => "",
-                                    ],
-                                    "CHECK_DATES" => "Y",
-                                    "DETAIL_URL" => "",
-                                    "AJAX_MODE" => "N",
-                                    "AJAX_OPTION_JUMP" => "N",
-                                    "AJAX_OPTION_STYLE" => "Y",
-                                    "AJAX_OPTION_HISTORY" => "N",
-                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                    "CACHE_FILTER" => "N",
-                                    "CACHE_GROUPS" => "Y",
-                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                    "SET_TITLE" => "Y",
-                                    "SET_BROWSER_TITLE" => "Y",
-                                    "SET_META_KEYWORDS" => "Y",
-                                    "SET_META_DESCRIPTION" => "Y",
-                                    "SET_LAST_MODIFIED" => "N",
-                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                    "ADD_SECTIONS_CHAIN" => "Y",
-                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                    "PARENT_SECTION" => "",
-                                    "PARENT_SECTION_CODE" => "",
-                                    "INCLUDE_SUBSECTIONS" => "Y",
-                                    "STRICT_SECTION_CHECK" => "N",
-                                    "PAGER_TEMPLATE" => ".default",
-                                    "DISPLAY_TOP_PAGER" => "N",
-                                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                                    "PAGER_TITLE" => "Новости",
-                                    "PAGER_SHOW_ALWAYS" => "N",
-                                    "PAGER_DESC_NUMBERING" => "N",
-                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                    "PAGER_SHOW_ALL" => "N",
-                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                    "SET_STATUS_404" => "N",
-                                    "SHOW_404" => "N",
-                                    "MESSAGE_404" => ""
-                            ],
-                            false
-                    );
-                    ?>
-                </div>
-            </section>
-
-            <!-- Секция: новости -->
-            <section class="home__news">
-                <div class="home__container">
-                    <?php
-                    $APPLICATION->IncludeComponent(
-                            "bitrix:news.list",
-                            "projects",
-                            [
-                                    "IBLOCK_ID" => "83",
-                                    "NEWS_COUNT" => "10",
-                                    "SORT_BY1" => "SORT",
-                                    "SORT_ORDER1" => "ASC",
-                                    "CACHE_TYPE" => "A",
-                                    "CACHE_TIME" => "3600",
-                                    "COMPONENT_TEMPLATE" => "projects",
-                                    "IBLOCK_TYPE" => "projects",
-                                    "SORT_BY2" => "SORT",
-                                    "SORT_ORDER2" => "ASC",
-                                    "FILTER_NAME" => "",
-                                    "FIELD_CODE" => [
-                                            0 => "",
-                                            1 => "",
-                                    ],
-                                    "PROPERTY_CODE" => [
-                                            0 => "TEXT",
-                                            1 => "",
-                                    ],
-                                    "CHECK_DATES" => "Y",
-                                    "DETAIL_URL" => "",
-                                    "AJAX_MODE" => "N",
-                                    "AJAX_OPTION_JUMP" => "N",
-                                    "AJAX_OPTION_STYLE" => "Y",
-                                    "AJAX_OPTION_HISTORY" => "N",
-                                    "AJAX_OPTION_ADDITIONAL" => "",
-                                    "CACHE_FILTER" => "N",
-                                    "CACHE_GROUPS" => "Y",
-                                    "PREVIEW_TRUNCATE_LEN" => "",
-                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                    "SET_TITLE" => "Y",
-                                    "SET_BROWSER_TITLE" => "Y",
-                                    "SET_META_KEYWORDS" => "Y",
-                                    "SET_META_DESCRIPTION" => "Y",
-                                    "SET_LAST_MODIFIED" => "N",
-                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                    "ADD_SECTIONS_CHAIN" => "Y",
-                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                    "PARENT_SECTION" => "",
-                                    "PARENT_SECTION_CODE" => "",
-                                    "INCLUDE_SUBSECTIONS" => "Y",
-                                    "STRICT_SECTION_CHECK" => "N",
-                                    "PAGER_TEMPLATE" => ".default",
-                                    "DISPLAY_TOP_PAGER" => "N",
-                                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                                    "PAGER_TITLE" => "Новости",
-                                    "PAGER_SHOW_ALWAYS" => "N",
-                                    "PAGER_DESC_NUMBERING" => "N",
-                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                    "PAGER_SHOW_ALL" => "N",
-                                    "PAGER_BASE_LINK_ENABLE" => "N",
-                                    "SET_STATUS_404" => "N",
-                                    "SHOW_404" => "N",
-                                    "MESSAGE_404" => ""
-                            ],
-                            false
-                    );
-                    ?>
-                    <div class="news__recent-content">
-                        <a href="/news/?is-project=126" class="button-all">
-                            <span>Все проекты</span>
-                            <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
-                        </a>
-                        <ul class="news__recent">
-                            <?php
-                            global $mainNewsFilter4;
-
-                            $mainNewsFilter4 = [
-                                    '=PROPERTY_IS_PROJECT' => 126,
-                            ];
-
-                            $APPLICATION->IncludeComponent(
-                                    "bitrix:news.list",
-                                    "news_line",
-                                    [
-                                            "IBLOCK_ID" => "2",
-                                            "NEWS_COUNT" => "5",
-                                            "SORT_BY1" => "ACTIVE_FROM",
-                                            "SORT_ORDER1" => "DESC",
-                                            "CACHE_TYPE" => "Y",
-                                            "CACHE_TIME" => "3600",
-                                            "COMPONENT_TEMPLATE" => "news_line",
-                                            "IBLOCK_TYPE" => "news",
-                                            "SORT_BY2" => "SORT",
-                                            "SORT_ORDER2" => "ASC",
-                                            "FILTER_NAME" => "mainNewsFilter4",
-                                            "FIELD_CODE" => [
-                                                    0 => "",
-                                                    1 => "",
-                                            ],
-                                            "PROPERTY_CODE" => [
-                                                    0 => "CATEGORY",
-                                            ],
-                                            "CHECK_DATES" => "Y",
-                                            "DETAIL_URL" => "",
-                                            "AJAX_MODE" => "N",
-                                            "AJAX_OPTION_JUMP" => "N",
-                                            "AJAX_OPTION_STYLE" => "Y",
-                                            "AJAX_OPTION_HISTORY" => "N",
-                                            "AJAX_OPTION_ADDITIONAL" => "",
-                                            "CACHE_FILTER" => "Y",
-                                            "CACHE_GROUPS" => "Y",
-                                            "PREVIEW_TRUNCATE_LEN" => "",
-                                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                                            "SET_TITLE" => "N",
-                                            "SET_BROWSER_TITLE" => "N",
-                                            "SET_META_KEYWORDS" => "N",
-                                            "SET_META_DESCRIPTION" => "N",
-                                            "SET_LAST_MODIFIED" => "N",
-                                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                                            "ADD_SECTIONS_CHAIN" => "N",
-                                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                                            "PARENT_SECTION" => "",
-                                            "PARENT_SECTION_CODE" => "",
-                                            "INCLUDE_SUBSECTIONS" => "Y",
-                                            "STRICT_SECTION_CHECK" => "N",
-                                            "PAGER_TEMPLATE" => ".default",
-                                            "DISPLAY_TOP_PAGER" => "N",
-                                            "DISPLAY_BOTTOM_PAGER" => "Y",
-                                            "PAGER_TITLE" => "Новости",
-                                            "PAGER_SHOW_ALWAYS" => "N",
-                                            "PAGER_DESC_NUMBERING" => "N",
-                                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                                            "PAGER_SHOW_ALL" => "N",
-                                            "PAGER_BASE_LINK_ENABLE" => "N",
-                                            "SET_STATUS_404" => "N",
-                                            "SHOW_404" => "N",
-                                            "MESSAGE_404" => ""
-                                    ],
-                                    false,
-                                    [
-                                            "HIDE_ICONS" => "Y"
-                                    ]
-                            );
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
 </main>

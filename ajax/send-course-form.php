@@ -11,201 +11,136 @@ use Bitrix\Main\Loader;
 
 header('Content-Type: application/json; charset=UTF-8');
 
+if (!Loader::includeModule('iblock')) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Не удалось подключить модуль инфоблоков.'
+    ], JSON_UNESCAPED_UNICODE);
+
+    exit;
+}
+
+/**
+ * Только POST
+ */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode([
         'success' => false,
-        'message' => 'Недопустимый метод запроса'
+        'message' => 'Некорректный метод запроса.'
     ], JSON_UNESCAPED_UNICODE);
 
     exit;
 }
-
-if (!Loader::includeModule('main')) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Не удалось подключить модуль Bitrix'
-    ], JSON_UNESCAPED_UNICODE);
-
-    exit;
-}
-
 
 /**
- * Получаем данные
+ * Получение и очистка данных
  */
-$emailTo = trim((string)($_POST['EMAIL_TO'] ?? 'fpipk@ucp.by'));
-
 $name = trim((string)($_POST['name'] ?? ''));
 $phone = trim((string)($_POST['phone'] ?? ''));
 $email = trim((string)($_POST['email'] ?? ''));
-
 $address = trim((string)($_POST['address'] ?? ''));
 
 $enterprise = trim((string)($_POST['enterprise'] ?? ''));
 
-$representativeName = trim(
-    (string)($_POST['representative_name'] ?? '')
-);
-
-$representativePhone = trim(
-    (string)($_POST['representative_phone'] ?? '')
-);
-
-$representativeEmail = trim(
-    (string)($_POST['representative_email'] ?? '')
-);
-
-$text = trim((string)($_POST['text'] ?? ''));
-
+$captchaText = trim((string)($_POST['text'] ?? ''));
 
 /**
- * Проверяем email получателя
+ * Получатель
+ *
+ * Пока берём из скрытого поля формы.
+ * В дальнейшем лучше передавать ID курса/элемента
+ * и получать EMAIL_TO непосредственно на сервере.
  */
-if (
-    !$emailTo ||
-    !check_email($emailTo)
-) {
+$emailTo = trim((string)($_POST['EMAIL_TO'] ?? ''));
+
+/**
+ * Валидация
+ */
+$errors = [];
+
+if ($name === '') {
+    $errors[] = 'Укажите ФИО.';
+}
+
+if ($phone === '') {
+    $errors[] = 'Укажите телефон.';
+}
+
+if ($email === '') {
+    $errors[] = 'Укажите электронную почту.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Укажите корректный адрес электронной почты.';
+}
+
+if ($address === '') {
+    $errors[] = 'Укажите адрес.';
+}
+
+if ($enterprise === '') {
+    $errors[] = 'Выберите образование.';
+}
+
+if ($emailTo === '') {
+    $errors[] = 'Не указан получатель письма.';
+}
+
+if (!empty($errors)) {
     echo json_encode([
         'success' => false,
-        'message' => 'Некорректный адрес получателя'
+        'message' => implode(' ', $errors)
     ], JSON_UNESCAPED_UNICODE);
 
     exit;
 }
 
-
 /**
- * Проверяем обязательные поля
+ * Расшифровка образования
  */
-if (!$name || !$phone || !$email || !$enterprise) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Заполните все обязательные поля'
-    ], JSON_UNESCAPED_UNICODE);
-
-    exit;
-}
-
-
-/**
- * Проверяем email пользователя
- */
-if (!check_email($email)) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Некорректный E-mail'
-    ], JSON_UNESCAPED_UNICODE);
-
-    exit;
-}
-
-
-/**
- * Названия образования
- */
-$educationNames = [
+$enterpriseList = [
     'brest_meat' => 'Среднее специальное (техникум, колледж)',
     'brest_traditions' => 'Профессионально-техническое',
     'brest_treats' => 'Среднее',
 ];
 
-$education = $educationNames[$enterprise] ?? $enterprise;
-
-
-/**
- * Формируем письмо
- */
-$subject = 'Заявка на обучающие курсы';
-
-$message = '
-<h2>Новая заявка на обучающие курсы</h2>
-
-<p>
-    <strong>ФИО:</strong><br>
-    ' . htmlspecialchars($name) . '
-</p>
-
-<p>
-    <strong>Телефон:</strong><br>
-    ' . htmlspecialchars($phone) . '
-</p>
-
-<p>
-    <strong>E-mail:</strong><br>
-    ' . htmlspecialchars($email) . '
-</p>
-
-<p>
-    <strong>Почтовый адрес:</strong><br>
-    ' . htmlspecialchars($address) . '
-</p>
-
-<p>
-    <strong>Образование:</strong><br>
-    ' . htmlspecialchars($education) . '
-</p>
-';
-
-
-if ($representativeName) {
-    $message .= '
-    <p>
-        <strong>ФИО законного представителя:</strong><br>
-        ' . htmlspecialchars($representativeName) . '
-    </p>
-    ';
-}
-
-if ($representativePhone) {
-    $message .= '
-    <p>
-        <strong>Телефон законного представителя:</strong><br>
-        ' . htmlspecialchars($representativePhone) . '
-    </p>
-    ';
-}
-
-if ($representativeEmail) {
-    $message .= '
-    <p>
-        <strong>E-mail законного представителя:</strong><br>
-        ' . htmlspecialchars($representativeEmail) . '
-    </p>
-    ';
-}
-
+$enterpriseName = $enterpriseList[$enterprise] ?? $enterprise;
 
 /**
- * Отправляем письмо
+ * Параметры почтового события
  */
-$headers = [
-    'Content-Type: text/html; charset=UTF-8',
-    'From: noreply@' . $_SERVER['HTTP_HOST'],
-    'Reply-To: ' . $email,
+$arFields = [
+    'EMAIL_TO' => $emailTo,
+
+    'NAME' => $name,
+    'PHONE' => $phone,
+    'EMAIL' => $email,
+    'ADDRESS' => $address,
+
+    'ENTERPRISE' => $enterpriseName,
+
+    'TEXT' => $captchaText,
+
+    'DATE' => date('d.m.Y H:i:s'),
 ];
 
-$result = \Bitrix\Main\Mail\Mail::send([
-    'TO' => $emailTo,
-    'SUBJECT' => $subject,
-    'BODY' => $message,
-    'HEADER' => $headers,
-]);
-
-
 /**
- * Ответ JS
+ * Отправка почтового события
  */
-if ($result) {
+$eventId = CEvent::Send(
+    'SEND_SERVICE_MAIL',
+    SITE_ID,
+    $arFields
+);
 
-    echo json_encode([
-        'success' => true,
-        'message' => 'Заявка успешно отправлена!'
-    ], JSON_UNESCAPED_UNICODE);
-
-} else {
-
+if (!$eventId) {
     echo json_encode([
         'success' => false,
         'message' => 'Не удалось отправить заявку. Попробуйте ещё раз.'
     ], JSON_UNESCAPED_UNICODE);
+
+    exit;
 }
+
+echo json_encode([
+    'success' => true,
+    'message' => 'Заявка успешно отправлена!'
+], JSON_UNESCAPED_UNICODE);

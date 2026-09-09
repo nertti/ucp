@@ -20,7 +20,7 @@ $this->setFrameMode(true);
             ?>
             <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="home__feed-nav-item">
                 <a href="<?= $arItem['PROPERTIES']['LINK']['VALUE'] ?>" style="background: url(<?= CFile::GetPath($arItem['PROPERTIES']['BACKGROUND']['VALUE']) ?>) #d3d3d3 50%/cover no-repeat;">
-                    <img src="<?= CFile::GetPath($arItem['PROPERTIES']['ICON_DESKTOP']['VALUE']) ?>" alt="<?= $arItem['NAME'] ?>"/>
+                    <img loading="lazy" src="<?= CFile::GetPath($arItem['PROPERTIES']['ICON_DESKTOP']['VALUE']) ?>" alt="<?= $arItem['NAME'] ?>"/>
                     <p><?= $arItem['NAME'] ?></p>
                 </a>
             </li>

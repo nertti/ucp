@@ -5,7 +5,7 @@
 
 <?php if (!empty($block['images'])): ?>
     <div class="page__image-slider">
-        <div class="page__image-slider-main swiper">
+        <div class="page__image-slider-main swiper" data-fls-slider>
             <div class="swiper-wrapper">
                 <?php foreach ($block['images'] as $image) : ?>
                     <div class="swiper-slide">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="page__image-slider-thumbs swiper">
+        <div class="page__image-slider-thumbs swiper" data-fls-slider>
             <div class="swiper-wrapper">
                 <?php foreach ($block['images'] as $image) : ?>
                     <div class="swiper-slide">

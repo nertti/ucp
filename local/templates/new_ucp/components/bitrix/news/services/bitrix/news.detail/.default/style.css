@@ -1,3 +1,39 @@
 p {
     text-indent: 15px;
+    line-height: 0.85; /* уменьшенный межстрочный интервал */
+}
+
+.popup__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.popup__success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+}
+
+.popup__success-icon iconify-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.popup__success .title-three {
+    margin-bottom: 20px;
+}
+
+.popup__success-text {
+    max-width: 600px;
+    margin: 0 0 10px;
+}
+
+.popup__success .button-blue {
+    margin-top: 25px;
 }

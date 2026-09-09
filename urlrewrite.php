@@ -408,6 +408,14 @@ $arUrlRewrite=array (
     'PATH' => '/new/news/index.php',
     'SORT' => 100,
   ),
+  89 => 
+  array (
+    'CONDITION' => '#^/services/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/services/index.php',
+    'SORT' => 100,
+  ),
   19 => 
   array (
     'CONDITION' => '#^/photo/#',

@@ -1,4 +1,4 @@
-<div class="header__search" data-da=".header__search-mobile,1200, 1">
+<div class="header__search" data-fls-dynamic=".header__search-mobile,1200, 1">
     <div class="header__search-input">
         <button
             type="button"

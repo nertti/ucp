@@ -101,10 +101,10 @@ $this->setFrameMode(true);
                 data-category="<?=$directSectionCode?>"
                 data-categories='<?=$categoriesJson?>'>
                 <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="services__list-item-img">
-                    <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
+                    <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" title="<?= $arItem['NAME'] ?>" />
                     <div class="services__list-item-badge">
                         <div class="icon">
-                            <img src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
+                            <img loading="lazy" src="<?= $arItem['ICON'] ?>" alt="<?= $arItem['SECTION_NAME'] ?>" />
                         </div>
                         <?php if (!empty($arItem['PROPERTIES']['TAG']['VALUE'])): ?>
                             <div class="label">
@@ -120,22 +120,6 @@ $this->setFrameMode(true);
                             <?=$arItem['TEXT']?>
                         </p>
                     </a>
-                    <?php if (!empty($arItem['HASHTAGS']['TAGS'])): ?>
-                        <ul class="hashtags">
-                            <?php foreach ($arItem['HASHTAGS']['TAGS'] as $hashtagTag): ?>
-                                <li class="hashtags__item">
-                                    <a
-                                            class="services-filter-tag"
-                                            data-tag="<?= htmlspecialcharsbx($hashtagTag['UF_XML_ID']) ?>"
-                                            data-name="<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>"
-                                            href="?<?= htmlspecialcharsbx($hashtagTag['LINK']) ?>"
-                                    >
-                                        #<?= htmlspecialcharsbx($hashtagTag['NAME']) ?>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
                 </div>
             </li>
 

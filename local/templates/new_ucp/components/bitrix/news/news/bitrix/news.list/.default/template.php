@@ -24,7 +24,7 @@ $this->setFrameMode(true);
             <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="news__list-item">
                 <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="news__list-item-img">
                     <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
-                         title="<?= $arItem['NAME'] ?>"/>
+                         title="<?= $arItem['NAME'] ?>" loading="lazy"/>
                     <?php if (!empty($arItem['ICON'])): ?>
                         <div class="icon">
                             <?= $arItem['ICON'] ?>

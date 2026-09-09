@@ -28,3 +28,14 @@ html.preloader-done body {
     transition: opacity 1s ease, transform 1s ease;
     transition-delay: 0.4s;
 }
+
+.news__slider {
+    overflow: hidden;
+}
+
+.icon-menu-block, .icon-menu-block * {
+    cursor: pointer;
+}
+.header__nav .menu__link span {
+    font-family:' Montserrat-Medium', sans-serif;
+}

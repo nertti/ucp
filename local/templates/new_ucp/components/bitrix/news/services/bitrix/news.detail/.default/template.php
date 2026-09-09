@@ -114,6 +114,11 @@ $this->setFrameMode(true);
                                                 name="EMAIL_TO"
                                                 value="<?= htmlspecialchars($arResult['PROPERTIES']['EMAIL_TO']['VALUE']) ?>"
                                         >
+                                        <input
+                                                type="hidden"
+                                                name="SERVICE_NAME"
+                                                value="Заявка на услугу '<?=$arResult['NAME']?>'"
+                                        >
                                         <div class="form__line">
                                             <div class="form__content">
                                                 <!-- ФИО абитуриента -->
@@ -233,57 +238,6 @@ $this->setFrameMode(true);
                                                         </div>
 
                                                     </div>
-                                                </div>
-                                                <!-- Законный представитель -->
-                                                <div class="form__line">
-                                                    <label for="representative-name">
-                                                        ФИО законного представителя
-                                                        несовершеннолетнего абитуриента
-                                                        <span>*</span>
-                                                    </label>
-                                                    <input
-                                                            id="representative-name"
-                                                            name="representative_name"
-                                                            type="text"
-                                                            class="input"
-                                                            placeholder="ФИО законного представителя несовершеннолетнего абитуриента"
-                                                            data-error="Обязательно для заполнения"
-                                                            autocomplete="name"
-                                                            required
-                                                    >
-                                                </div>
-                                                <!-- Телефон представителя -->
-                                                <div class="form__line">
-                                                    <label for="representative-phone">
-                                                        Телефон (с кодом) <span>*</span>
-                                                    </label>
-
-                                                    <input
-                                                            id="representative-phone"
-                                                            name="representative_phone"
-                                                            type="tel"
-                                                            class="input phone-mask"
-                                                            placeholder="+375 (__) ___ - __ - __"
-                                                            data-error="Обязательно для заполнения"
-                                                            autocomplete="tel"
-                                                            required
-                                                    >
-                                                </div>
-                                                <!-- Email представителя -->
-                                                <div class="form__line">
-                                                    <label for="representative-email">
-                                                        E-mail <span>*</span>
-                                                    </label>
-                                                    <input
-                                                            id="representative-email"
-                                                            name="representative_email"
-                                                            type="email"
-                                                            class="input"
-                                                            placeholder="Email"
-                                                            data-error="Обязательно для заполнения"
-                                                            autocomplete="email"
-                                                            required
-                                                    >
                                                 </div>
                                             </div>
                                         </div>

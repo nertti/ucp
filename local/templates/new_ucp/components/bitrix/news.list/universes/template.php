@@ -19,7 +19,7 @@ $this->setFrameMode(true);
 <div class="universities__branches">
     <h2 class="title-two">Институты и филиалы</h2>
     <div class="universities__branches-slider-wrapper">
-        <div class="universities__branches-slider swiper">
+        <div class="universities__branches-slider swiper" data-fls-slider>
             <div class="swiper-wrapper">
                 <?php foreach ($arResult["ITEMS"] as $arItem):
                     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -28,7 +28,7 @@ $this->setFrameMode(true);
                     <div id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="swiper-slide">
                         <a href="<?=$arItem["DETAIL_PAGE_URL"]; ?>">
                             <?php if (!empty($arItem["PREVIEW_PICTURE"]['SRC'])): ?>
-                                <img src="<?=$arItem["PREVIEW_PICTURE"]['SRC']?>" alt="<?= $arItem["NAME"]; ?>">
+                                <img loading="lazy" src="<?=$arItem["PREVIEW_PICTURE"]['SRC']?>" alt="<?= $arItem["NAME"]; ?>">
                             <?php endif; ?>
                             <p><?= $arItem["NAME"]; ?></p>
                         </a>

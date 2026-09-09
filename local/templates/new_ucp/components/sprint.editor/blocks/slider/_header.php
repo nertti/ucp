@@ -11,5 +11,5 @@ use Sprint\Editor\Module;
 
 
             <section class="universities__info">
-                <div class="universities__slider swiper">
+                <div class="universities__slider swiper" data-fls-slider>
                     <div class="swiper-wrapper">

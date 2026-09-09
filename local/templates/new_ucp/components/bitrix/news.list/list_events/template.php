@@ -89,7 +89,7 @@ $this->setFrameMode(true);
                                         </div>
                                     </div>
                                     <?php if (!empty($arItem["PREVIEW_PICTURE"]["SRC"])): ?>
-                                        <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
+                                        <img loading="lazy" src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
                                              alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"]; ?>"
                                              title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"]; ?>">
                                     <?php endif; ?>

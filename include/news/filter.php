@@ -60,7 +60,7 @@ while ($section = $sectionRes->GetNext()) {
 }
 ?>
 
-<div class="page__sidebar-content" data-da=".page__sidebar-content-mobile,950, 1">
+<div class="page__sidebar-content" data-fls-dynamic=".page__sidebar-content-mobile,950, 1">
 
     <div class="page__sidebar-search-content">
         <p>Быстрый поиск</p>
@@ -107,10 +107,10 @@ while ($section = $sectionRes->GetNext()) {
         </div>
     </div>
 
-    <div data-spollers class="spollers">
+    <div data-fls-spollers class="spollers">
 
         <!-- Категории -->
-        <details class="spollers__item" data-open>
+        <details class="spollers__item" data-fls-spollers-open>
             <summary class="spollers__title">
                 Категории новостей
             </summary>
