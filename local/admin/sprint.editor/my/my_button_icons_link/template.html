@@ -1,0 +1,49 @@
+{{~it.items :item}}
+
+<div class="sp-item">
+
+    <div class="sp-field-row">
+        <input
+                class="sp-title"
+                placeholder="Текст кнопки"
+                type="text"
+                value="{{!item.title}}"
+        />
+    </div>
+
+    <div class="sp-field-row">
+        <input
+                class="sp-url"
+                placeholder="Ссылка"
+                type="text"
+                value="{{!item.url}}"
+        />
+    </div>
+
+    <div class="sp-field-row">
+        <input
+                class="sp-icon"
+                placeholder="Иконка"
+                type="text"
+                value="{{!item.icon}}"
+        />
+    </div>
+
+    <div class="sp-field-row">
+        <select class="sp-target">
+
+            {{~it.targets :target}}
+            <option
+                    value="{{=target.value}}"
+                    {{?target.value == item.target}}selected="selected"{{?}}
+            >
+                {{=target.name}}
+            </option>
+            {{~}}
+
+        </select>
+    </div>
+
+</div>
+
+{{~}}

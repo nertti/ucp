@@ -5,6 +5,6 @@
  * @var $arParams array - массив с параметрами компонента
  */
 ?>
+
 </div>
 </div>
-</section>

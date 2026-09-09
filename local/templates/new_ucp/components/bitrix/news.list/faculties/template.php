@@ -13,17 +13,29 @@
 $this->setFrameMode(true);
 ?>
 <?php if (!empty($arResult['ITEMS'])): ?>
-    <ul class="universities__slider-list">
-        <?php foreach ($arResult['ITEMS'] as $arItem):
-            $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-            $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-            ?>
-            <li id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="universities__slider-list-item">
-                <a href="<?= $arItem['PROPERTIES']['LINK']['VALUE'] ?>">
-                    <?= htmlspecialchars_decode($arItem['PROPERTIES']['ICON']['VALUE']) ?>
-                    <p><?= $arItem['NAME'] ?></p>
-                </a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+<div class="universities__slider swiper" data-fls-slider>
+    <div class="swiper-wrapper">
+    <?php foreach ($arResult['ITEMS'] as $arItem):
+        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+        ?>
+
+        <div id="<?= $this->GetEditAreaId($arItem['ID']); ?>" class="swiper-slide">
+            <?php $APPLICATION->IncludeComponent(
+                    "sprint.editor:blocks",
+                    "slider",
+                    array(
+                            "ELEMENT_ID" => $arItem["ID"],
+                            "IBLOCK_ID" => $arResult["IBLOCK_ID"],
+                            "PROPERTY_CODE" => 'EDITOR',
+                    ),
+                    $component,
+                    array(
+                            "HIDE_ICONS" => "Y"
+                    )
+            ); ?>
+        </div>
+    <?php endforeach; ?>
+    </div>
+</div>
 <?php endif; ?>

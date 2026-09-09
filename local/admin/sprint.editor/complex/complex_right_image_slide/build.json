@@ -1,0 +1,21 @@
+{
+    "title": "Слайд с картинкой справа",
+    "sort": 500,
+    "layouts": [
+        {
+            "title": "",
+            "columns": [
+                {
+                    "blocks": [
+                        "image"
+                    ]
+                },
+                {
+                    "blocks": [
+                        "my_container"
+                    ]
+                }
+            ]
+        }
+    ]
+}
