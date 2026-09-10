@@ -6,12 +6,19 @@
  * @var $arParams array - массив с параметрами компонента
  */
 global $APPLICATION;
-
+$this->registerCss($this->findResource('_style.css'));
 use Sprint\Editor\Module;
 ?>
 <main class="page">
     <div class="page__container">
         <nav class="page__sidebar">
+            <?php $APPLICATION->IncludeFile(
+                    "/include/left/menu.php",
+                    array(),
+                    array(
+                            "MODE" => "html"
+                    )
+            ); ?>
             <?php $APPLICATION->IncludeFile(
                     "/include/left/banners.php",
                     array(),

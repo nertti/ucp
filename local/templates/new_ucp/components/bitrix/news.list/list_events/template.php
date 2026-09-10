@@ -2,106 +2,211 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
 }
+
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
 /** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
+
 $this->setFrameMode(true);
 ?>
 
 <main class="page">
     <div class="page__container">
+
         <nav class="page__sidebar">
-            <div class="page__sidebar-content _event">
-                <ul class="page__sidebar-event">
-                    <li class="page__sidebar-event-item"><a href="#">История</a></li>
-                    <li class="page__sidebar-event-item"><a href="#">Презентация университета</a></li>
-                    <li class="page__sidebar-event-item">
-                        <a href="#">Лицензии, сертификаты и аттестаты</a>
-                    </li>
-                    <li class="page__sidebar-event-item"><a href="#">Система менеджмента качества</a></li>
-                    <li class="page__sidebar-event-item">
-                        <a href="#">Система управления охраной труда</a>
-                    </li>
-                    <li class="page__sidebar-event-item"><a href="#">Информационные ресурсы</a></li>
-                    <li class="page__sidebar-event-item">
-                        <a href="#">Нумерация корпусов и учебных аудиторий</a>
-                    </li>
-                    <li class="page__sidebar-event-item">
-                        <a href="#">Политика в отношении обработки персональных данных</a>
-                    </li>
-                    <li class="page__sidebar-event-item"><a href="#">Вакансии</a></li>
-                    <li class="page__sidebar-event-item _active"><a href="#">События</a></li>
-                </ul>
-            </div>
-            <?php $APPLICATION->IncludeFile(
-                    "/include/left/banners.php",
-                    array(),
-                    array(
+
+            <?php
+            $APPLICATION->IncludeFile(
+                    "/include/left/menu.php",
+                    [],
+                    [
                             "MODE" => "html"
-                    )
-            ); ?>
+                    ]
+            );
+            ?>
+
+            <?php
+            $APPLICATION->IncludeFile(
+                    "/include/left/banners.php",
+                    [],
+                    [
+                            "MODE" => "html"
+                    ]
+            );
+            ?>
+
         </nav>
+
         <div class="page__content">
+
             <div class="page__content-header">
-                <h1 class="title-two">События</h1>
+
+                <h1 class="title-two">
+                    События
+                </h1>
+
                 <nav class="breadcrumbs">
                     <ul class="breadcrumbs__list">
+
                         <li class="breadcrumbs__item">
-                            <a href="/" class="breadcrumbs__link">Главная</a>
-                        </li>
-                        <li class="breadcrumbs__item">
-                            <a href="#" class="breadcrumbs__link">События</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="event__wrapper">
-                <ul class="event__list">
-                    <?php foreach ($arResult["ITEMS"] as $arItem): ?>
-                        <?php
-                        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-                        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-                        ?>
-                        <li
-                                class="event__item"
-                                id="<?=$this->GetEditAreaId($arItem['ID'])?>"
-                                data-event-id="<?=$arItem['ID']?>"
-                        >
-                            <a href="<?php echo $arItem["PROPERTIES"]["LINK"]["VALUE"]; ?>">
-                                <div class="event__item-date">
-                                    <p>
-                                        <strong><?php echo $arItem["PROPERTIES"]["DATE"]["DESCRIPTION"]; ?></strong><?php echo $arItem["PROPERTIES"]["DATE"]["VALUE"]; ?>
-                                    </p>
-                                </div>
-                                <div class="event__item-content">
-                                    <div class="event__item-info">
-                                        <h4 class="title-four"><?= $arItem["NAME"]; ?></h4>
-                                        <div class="text-block">
-                                            <p><?= $arItem["DETAIL_TEXT"]; ?></p>
-                                        </div>
-                                    </div>
-                                    <?php if (!empty($arItem["PREVIEW_PICTURE"]["SRC"])): ?>
-                                        <img loading="lazy" src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
-                                             alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"]; ?>"
-                                             title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"]; ?>">
-                                    <?php endif; ?>
-                                </div>
+                            <a href="/" class="breadcrumbs__link">
+                                Главная
                             </a>
                         </li>
-                    <?php endforeach; ?>
-                </ul>
-                <?php if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
-                    <?php echo $arResult["NAV_STRING"]; ?>
-                <?php endif; ?>
+
+                        <li class="breadcrumbs__item">
+                            <span class="breadcrumbs__link">
+                                События
+                            </span>
+                        </li>
+
+                    </ul>
+                </nav>
+
             </div>
+
+            <div class="event__wrapper">
+
+                <?php if (!empty($arResult["ITEMS"])): ?>
+
+                    <ul class="event__list">
+
+                        <?php foreach ($arResult["ITEMS"] as $arItem): ?>
+
+                            <?php
+                            $this->AddEditAction(
+                                    $arItem['ID'],
+                                    $arItem['EDIT_LINK'],
+                                    CIBlock::GetArrayByID(
+                                            $arItem["IBLOCK_ID"],
+                                            "ELEMENT_EDIT"
+                                    )
+                            );
+
+                            $this->AddDeleteAction(
+                                    $arItem['ID'],
+                                    $arItem['DELETE_LINK'],
+                                    CIBlock::GetArrayByID(
+                                            $arItem["IBLOCK_ID"],
+                                            "ELEMENT_DELETE"
+                                    ),
+                                    [
+                                            "CONFIRM" => GetMessage(
+                                                    'CT_BNL_ELEMENT_DELETE_CONFIRM'
+                                            )
+                                    ]
+                            );
+
+                            // Ссылка события
+                            $link = '';
+
+                            if (!empty($arItem["PROPERTIES"]["LINK"]["VALUE"])) {
+                                $link = trim($arItem["PROPERTIES"]["LINK"]["VALUE"]);
+                            }
+
+                            // Дата
+                            $dateValue = '';
+                            $dateDescription = '';
+
+                            if (!empty($arItem["PROPERTIES"]["DATE"])) {
+                                $dateValue = $arItem["PROPERTIES"]["DATE"]["VALUE"] ?? '';
+                                $dateDescription = $arItem["PROPERTIES"]["DATE"]["DESCRIPTION"] ?? '';
+                            }
+
+                            // Картинка
+                            $picture = $arItem["PREVIEW_PICTURE"] ?? null;
+                            ?>
+
+                            <li
+                                    class="event__item"
+                                    id="<?= $this->GetEditAreaId($arItem['ID']) ?>"
+                                    data-event-id="<?= (int)$arItem['ID'] ?>"
+                            >
+
+                                <?php if ($link): ?>
+
+                                    <a
+                                            href="<?= htmlspecialcharsbx($link) ?>"
+                                            class="event__item-link"
+                                            aria-label="<?= htmlspecialcharsbx($arItem["NAME"]) ?>"
+                                    ></a>
+
+                                <?php endif; ?>
+
+
+                                <div class="event__item-date">
+                                    <p>
+
+                                        <?php if ($dateDescription): ?>
+
+                                            <strong>
+                                                <?= htmlspecialcharsbx($dateDescription) ?>
+                                            </strong>
+
+                                        <?php endif; ?>
+
+                                        <?= htmlspecialcharsbx($dateValue) ?>
+
+                                    </p>
+                                </div>
+
+
+                                <div class="event__item-content">
+
+                                    <div class="event__item-info">
+
+                                        <h4 class="title-four">
+                                            <?= htmlspecialcharsbx($arItem["NAME"]) ?>
+                                        </h4>
+
+
+                                        <?php if (!empty($arItem["DETAIL_TEXT"])): ?>
+
+                                            <div class="text-block">
+                                                <?= $arItem["DETAIL_TEXT"] ?>
+                                            </div>
+
+                                        <?php endif; ?>
+
+                                    </div>
+
+
+                                    <?php if (!empty($picture["SRC"])): ?>
+
+                                        <img
+                                                loading="lazy"
+                                                src="<?= htmlspecialcharsbx($picture["SRC"]) ?>"
+                                                alt="<?= htmlspecialcharsbx(
+                                                        $picture["ALT"] ?? $arItem["NAME"]
+                                                ) ?>"
+                                                title="<?= htmlspecialcharsbx(
+                                                        $picture["TITLE"] ?? $arItem["NAME"]
+                                                ) ?>"
+                                        >
+
+                                    <?php endif; ?>
+
+                                </div>
+
+                            </li>
+
+                        <?php endforeach; ?>
+
+                    </ul>
+
+                <?php endif; ?>
+
+
+                <?php if (!empty($arParams["DISPLAY_BOTTOM_PAGER"])): ?>
+
+                    <?= $arResult["NAV_STRING"] ?>
+
+                <?php endif; ?>
+
+            </div>
+
         </div>
+
     </div>
 </main>

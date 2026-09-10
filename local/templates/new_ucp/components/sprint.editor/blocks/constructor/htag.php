@@ -1,10 +1,12 @@
 <?php
 /** @var $block array */
-
-$tag = in_array($block['type'], ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $block['type'] : 'h2';
-
-$anc = !empty($block['anchor']) ? '<a name="' . htmlspecialcharsbx($block['anchor']) . '"></a>' : '';
-
-$val = htmlspecialcharsbx((string)$block['value']);
-
-echo "$anc<$tag>$val</$tag>";
+?>
+<?php if ($block['type'] == 'h1'): ?>
+    <h1 class="title-one"><?=$block['value']?></h1>
+<?php elseif ($block['type'] == 'h2'): ?>
+    <h2 class="title-two"><?=$block['value']?></h2>
+<?php elseif ($block['type'] == 'h3'): ?>
+    <h3 class="title-three"><?=$block['value']?></h3>
+<?php elseif ($block['type'] == 'h4'): ?>
+    <h4 class="title-four"><?=$block['value']?></h4>
+<?php endif; ?>
