@@ -88,54 +88,53 @@ if ($tag !== '') {
  * СОРТИРОВКА
  * =========================================================
  */
+$sort = $_POST['sort'] ?? 'random';
 
-$sort = $_POST['sort'] ?? 'popular';
-
-
-/**
- * Защищаемся от неизвестных значений
- */
 $allowedSorts = [
+        'random',
         'popular',
         'name_asc',
         'name_desc',
         'new'
 ];
 
-
 if (!in_array($sort, $allowedSorts, true)) {
-
-    $sort = 'popular';
-
+    $sort = 'random';
 }
 
-
-/**
- * Значения сортировки
- */
 $sortBy1 = 'SORT';
 $sortOrder1 = 'ASC';
 
 $sortBy2 = 'ACTIVE_FROM';
 $sortOrder2 = 'DESC';
 
-
 switch ($sort) {
 
     /**
+     * В случайном порядке
+     */
+    case 'random':
+
+        $sortBy1 = 'RAND';
+        $sortOrder1 = 'ASC';
+
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'ASC';
+
+        break;
+
+
+    /**
      * По популярности
-     *
-     * Основная сортировка:
-     * SORT ASC
-     *
-     * Если SORT одинаковый:
-     * новые выше.
      */
     case 'popular':
+
         $sortBy1 = 'PROPERTY_VIEWS';
         $sortOrder1 = 'DESC';
+
         $sortBy2 = 'ACTIVE_FROM';
         $sortOrder2 = 'DESC';
+
         break;
 
 

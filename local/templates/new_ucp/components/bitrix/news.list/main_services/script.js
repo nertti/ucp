@@ -8,25 +8,61 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Функция сортировки: элементы с заполненным тегом .label поднимаются наверх
     function sortItemsByTag(itemsArray) {
-        return itemsArray.sort((a, b) => {
-            // Вспомогательная функция для определения веса карточки
-            const getWeight = (item) => {
-                const tagSpan = item.querySelector(".services__list-item-badge .label span");
-                if (!tagSpan) return 3; // Нет тега — самый низкий приоритет
 
-                const tagText = tagSpan.textContent.trim().toLowerCase();
+        function getWeight(item) {
+            const tagSpan = item.querySelector(
+                ".services__list-item-badge .label span"
+            );
 
-                if (tagText === "популярная услуга") return 1; // Максимальный приоритет
-                if (tagText === "рекомендуем") return 2;       // Средний приоритет
+            if (!tagSpan) {
+                return 4; // Без тега
+            }
 
-                return 3; // Любой другой текст тега
-            };
+            const tagText = tagSpan.textContent.trim().toLowerCase();
 
-            const weightA = getWeight(a);
-            const weightB = getWeight(b);
+            if (tagText === "популярная услуга") {
+                return 1;
+            }
 
-            return weightA - weightB; // Сортируем от меньшего веса к большему (1 -> 2 -> 3)
+            if (tagText === "рекомендуем") {
+                return 2;
+            }
+
+            return 3; // Любой другой тег
+        }
+
+        // Сначала разбиваем карточки по группам
+        const groups = {
+            1: [],
+            2: [],
+            3: [],
+            4: []
+        };
+
+        itemsArray.forEach(item => {
+            const weight = getWeight(item);
+            groups[weight].push(item);
         });
+
+        // Перемешивание внутри каждой группы
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+
+            return array;
+        }
+
+        // Собираем обратно:
+        // Популярная → Рекомендуем → другие теги → без тега
+        return [
+            ...shuffle(groups[1]),
+            ...shuffle(groups[2]),
+            ...shuffle(groups[3]),
+            ...shuffle(groups[4])
+        ];
     }
 
     function filterServices(category) {

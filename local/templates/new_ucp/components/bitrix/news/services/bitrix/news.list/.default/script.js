@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let selectedSections = [];
     let selectedTag = '';
-    let selectedSort = 'popular';
+    let selectedSort = 'random';
 
 
     /**
@@ -314,7 +314,6 @@ document.addEventListener('DOMContentLoaded', function () {
             '"]'
         );
 
-
         if (sortInput) {
 
             const label = sortInput.closest('label');
@@ -331,19 +330,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /**
-         * Запасные значения
-         */
         const names = {
+            random: 'В случайном порядке',
             popular: 'По популярности',
             name_asc: 'По названию (А-Я)',
             name_desc: 'По названию (Я-А)',
             new: 'Сначала новые'
         };
 
-
-        return names[sort] || names.popular;
+        return names[sort] || names.random;
     }
 
 
@@ -499,13 +494,14 @@ document.addEventListener('DOMContentLoaded', function () {
         selectedSort =
             params.get(
                 'sort'
-            ) || 'popular';
+            ) || 'random';
 
 
         /**
          * Разрешённые значения сортировки
          */
         const allowedSorts = [
+            'random',
             'popular',
             'name_asc',
             'name_desc',
@@ -516,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!allowedSorts.includes(selectedSort)) {
 
             selectedSort =
-                'popular';
+                'random';
 
         }
 
@@ -654,13 +650,13 @@ document.addEventListener('DOMContentLoaded', function () {
         /**
          * Сортировка
          *
-         * popular считаем значением
+         * random считаем значением
          * по умолчанию и не обязательно
          * писать его в URL.
          */
         if (
             selectedSort &&
-            selectedSort !== 'popular'
+            selectedSort !== 'random'
         ) {
 
             params.set(
@@ -1222,6 +1218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             const allowedSorts = [
+                'random',
                 'popular',
                 'name_asc',
                 'name_desc',

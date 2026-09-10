@@ -19,9 +19,10 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
 /**
  * Сортировка
  */
-$sort = $_GET['sort'] ?? 'popular';
+$sort = $_GET['sort'] ?? 'random';
 
 $allowedSorts = [
+        'random',
         'popular',
         'name_asc',
         'name_desc',
@@ -29,7 +30,7 @@ $allowedSorts = [
 ];
 
 if (!in_array($sort, $allowedSorts, true)) {
-    $sort = 'popular';
+    $sort = 'random';
 }
 
 $sortBy1 = 'SORT';
@@ -38,6 +39,14 @@ $sortBy2 = 'ACTIVE_FROM';
 $sortOrder2 = 'DESC';
 
 switch ($sort) {
+    case 'random':
+
+        $sortBy1 = 'RAND';
+        $sortOrder1 = 'ASC';
+        $sortBy2 = 'ID';
+        $sortOrder2 = 'ASC';
+        break;
+
     case 'name_asc':
         $sortBy1 = 'NAME';
         $sortOrder1 = 'ASC';
@@ -127,7 +136,8 @@ switch ($sort) {
                                 <div class="page__mobile-filter-action">
                                     <button type="button" class="button-result" data-close>
                                         <span>Показать результат</span>
-                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
+                                        <iconify-icon icon="lucide:chevron-right" width="24" height="24"
+                                                      noobserver></iconify-icon>
                                     </button>
                                 </div>
                             </form>

@@ -8,7 +8,7 @@
                     noobserver
             ></iconify-icon>
         </div>
-        <span>По популярности</span>
+        <span>В случайном порядке</span>
     </button>
     <div class="sort__content">
         <ul>
@@ -17,8 +17,18 @@
                     <input
                             type="radio"
                             name="services_sort"
-                            value="popular"
+                            value="random"
                             checked
+                    />
+                    <span>В случайном порядке</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input
+                            type="radio"
+                            name="services_sort"
+                            value="popular"
                     />
                     <span>По популярности</span>
                 </label>
