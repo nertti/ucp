@@ -59,15 +59,16 @@
                                     playsinline
                                     loop
                                     muted
+                                    preload="auto"
                             ></video>
                         </div>
                         <div class="preview-slider-logo-wrapper">
                             <div class="home__container">
                                 <img loading="lazy"
                                      src="<?= $image ?>"
-                                        alt="<?= $arItem['NAME'] ?>"
-                                        title="<?= $arItem['NAME'] ?>"
-                                        class="preview-slider-logo"
+                                     alt="<?= $arItem['NAME'] ?>"
+                                     title="<?= $arItem['NAME'] ?>"
+                                     class="preview-slider-logo"
                                 />
                             </div>
                         </div>
@@ -83,13 +84,21 @@
                         <div class="preview-slider-img
                         <?php if ($arItem['PROPERTIES']['VIEW_GRADIENT']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>
                         <?php if ($arItem['PROPERTIES']['VIEW_BLUR']['VALUE_XML_ID'] !== 'Y'): ?> without-gradient<?php endif; ?>">
-                            <img loading="lazy" src="<?= htmlspecialcharsbx($backgroundImage) ?>" alt="<?= $arItem['NAME'] ?>"
+                            <img loading="eager"
+                                 etchpriority="high"
+                                 decoding="async"
+                                 src="<?= htmlspecialcharsbx($backgroundImage) ?>"
+                                 alt="<?= $arItem['NAME'] ?>"
                                  title="<?= $arItem['NAME'] ?>">
                         </div>
                         <?php if ($image): ?>
                             <div class="preview-slider-logo-wrapper">
                                 <div class="home__container">
-                                    <img loading="lazy" src="<?= htmlspecialcharsbx($image) ?>" alt="<?= $arItem['NAME'] ?>"
+                                    <img src="<?= htmlspecialcharsbx($image) ?>"
+                                         alt="<?= $arItem['NAME'] ?>"
+                                         loading="eager"
+                                         etchpriority="high"
+                                         decoding="async"
                                          title="<?= $arItem['NAME'] ?>" class="preview-slider-logo">
                                 </div>
                             </div>
