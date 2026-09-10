@@ -19,6 +19,45 @@ foreach ($containerBlocks as $item) {
 ?>
 
 <div class="swiper-slide">
+    <div class="universities__slider-wrapper">
+
+        <div class="universities__slider-img">
+            <?php if (!empty($block['image']['file']['ORIGIN_SRC'])): ?>
+                <img
+                        alt="Image"
+                        title="Факультеты"
+                        src="<?= htmlspecialcharsbx($block['image']['file']['ORIGIN_SRC']) ?>"
+                >
+            <?php endif; ?>
+        </div>
+
+
+        <div class="universities__slider-action">
+
+            <button class="universities__slider-button-prev swiper-button-prev">
+                <iconify-icon
+                        icon="lucide:chevron-left"
+                        width="24"
+                        height="24"
+                        noobserver=""
+                ></iconify-icon>
+            </button>
+
+            <button class="universities__slider-button-next swiper-button-next">
+                <iconify-icon
+                        icon="lucide:chevron-right"
+                        width="24"
+                        height="24"
+                        noobserver=""
+                ></iconify-icon>
+            </button>
+
+        </div>
+
+
+        <div class="universities__slider-slider-pagination"></div>
+
+    </div>
     <div class="universities__slider-content">
 
         <?php if (!empty($block['htag']['value'])): ?>
@@ -111,47 +150,6 @@ foreach ($containerBlocks as $item) {
             <?php endforeach; ?>
         </div>
 
-
-    </div>
-
-
-    <div class="universities__slider-wrapper">
-
-        <div class="universities__slider-img">
-            <?php if (!empty($block['image']['file']['ORIGIN_SRC'])): ?>
-                <img
-                        alt="Image"
-                        title="Факультеты"
-                        src="<?= htmlspecialcharsbx($block['image']['file']['ORIGIN_SRC']) ?>"
-                >
-            <?php endif; ?>
-        </div>
-
-
-        <div class="universities__slider-action">
-
-            <button class="universities__slider-button-prev swiper-button-prev">
-                <iconify-icon
-                        icon="lucide:chevron-left"
-                        width="24"
-                        height="24"
-                        noobserver=""
-                ></iconify-icon>
-            </button>
-
-            <button class="universities__slider-button-next swiper-button-next">
-                <iconify-icon
-                        icon="lucide:chevron-right"
-                        width="24"
-                        height="24"
-                        noobserver=""
-                ></iconify-icon>
-            </button>
-
-        </div>
-
-
-        <div class="universities__slider-slider-pagination"></div>
 
     </div>
 </div>

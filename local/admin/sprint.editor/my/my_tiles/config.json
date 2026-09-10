@@ -1,0 +1,7 @@
+{
+  "title": "Плитки",
+  "sort": "950",
+  "templates": [
+    "box.html"
+  ]
+}

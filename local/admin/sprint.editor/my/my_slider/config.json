@@ -1,0 +1,7 @@
+{
+  "title": "Слайдер",
+  "sort": "950",
+  "templates": [
+    "box.html"
+  ]
+}

@@ -8,7 +8,6 @@
 global $APPLICATION;
 
 use Sprint\Editor\Module;
-
 ?>
 <main class="page">
     <div class="page__container">
