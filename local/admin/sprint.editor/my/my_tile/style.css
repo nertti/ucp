@@ -103,6 +103,7 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .sp-block-my_tile .sp-x-btn-file label {
@@ -121,11 +122,12 @@
 
 .sp-block-my_tile .sp-x-btn-file input[type="file"] {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    overflow: hidden;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 

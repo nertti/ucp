@@ -8,12 +8,8 @@ sprint_editor.registerBlock('my_container', function ($, $el, data, settings, cu
     }, data);
 
     var blocklist = [
-        {id: 'htag', title: 'заголовок'},
-        {id: 'text', title: 'текст'},
-        {id: 'image', title: 'картинку'},
-        {id: 'video', title: 'видео'},
-        {id: 'lists', title: 'список'},
         {id: 'my_button_icons_link', title: 'Кнопка-ссылка-иконка'},
+        {id: 'text', title: 'текст'},
         {id: 'button_link', title: 'Кнопка-ссылка'},
     ];
 

@@ -27,22 +27,6 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
     ?>
     <link rel="stylesheet" crossorigin="" href="/local/templates/new_ucp/dist/css/app.min.css">
     <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app9.min.js"></script>
-
-    <link rel="preload"
-          href="https://ucp.itg-soft.by/upload/iblock/668/j3yo329is4t82n808sx6x6z3siajwdur.jpg"
-          as="image"
-          type="image/avif"
-          fetchpriority="high">
-
-    <link rel="preload"
-          href="./assets/img/main/previewLogo.svg"
-          as="image"
-          type="image/svg+xml"
-          fetchpriority="high">
-    <link rel="preload"
-          href="https://ucp.itg-soft.by/upload/iblock/43a/zarvuzk6tx990gw944q22rlpgabl3b4d.mp4"
-          as="video"
-          type="video/mp4">
 </head>
 
 <body>
