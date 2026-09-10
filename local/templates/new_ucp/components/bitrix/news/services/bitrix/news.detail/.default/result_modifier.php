@@ -38,14 +38,18 @@ if (!Loader::includeModule('iblock')) {
 $elementId = (int)$arResult['ID'];
 
 if ($elementId > 0) {
+    $currentViews = (int)CIBlockElement::GetProperty(
+        $arParams['IBLOCK_ID'],
+        $elementId,
+        [],
+        ['CODE' => 'VIEWS']
+    )->Fetch()['VALUE'];
+
     CIBlockElement::SetPropertyValuesEx(
         $elementId,
         $arParams['IBLOCK_ID'],
         [
-            'VIEWS' => new \Bitrix\Main\DB\SqlExpression(
-                'IFNULL(%s, 0) + 1',
-                'PROPERTY_VIEWS'
-            )
+            'VIEWS' => $currentViews + 1
         ]
     );
 }
