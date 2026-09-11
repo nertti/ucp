@@ -620,7 +620,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
                                     "main_events",
                                     [
                                             "IBLOCK_ID" => "82",
-                                            "NEWS_COUNT" => "3",
+                                            "NEWS_COUNT" => "4",
                                             "SORT_BY1" => "SORT",
                                             "SORT_ORDER1" => "ASC",
                                             "CACHE_TYPE" => "A",

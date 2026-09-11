@@ -48,7 +48,7 @@ $this->setFrameMode(true);
                             <?= $arItem['NAME'] ?>
                         </h5>
                         <p>
-                            <?=$arItem['TEXT']?>
+                            <?= $arItem['TEXT'] ?>
                         </p>
                     </a>
                     <?php if (!empty($arItem['HASHTAGS']['TAGS'])): ?>
@@ -86,17 +86,17 @@ $this->setFrameMode(true);
                         </ul>
                     <?php endif; ?>
 
-                    <?php if (!empty($arItem['PROPERTIES']['IS_PROJECT']['VALUE_XML_ID'])): ?>
+                    <?php if (!empty($arItem['PROPERTIES']['IS_PROJECT']['VALUE_XML_ID']) && false): //Принято скрыть из списка, но вдруг пригодится?>
                         <ul class="hashtags">
-                                <li class="hashtags__item">
-                                    <a
-                                            class="news-filter-project"
-                                            data-is-project="126"
-                                            href="?is-project=126"
-                                    >
-                                        #Проект
-                                    </a>
-                                </li>
+                            <li class="hashtags__item">
+                                <a
+                                        class="news-filter-project"
+                                        data-is-project="126"
+                                        href="?is-project=126"
+                                >
+                                    #Проект
+                                </a>
+                            </li>
                         </ul>
                     <?php endif; ?>
                 </div>
@@ -106,6 +106,6 @@ $this->setFrameMode(true);
     <?php if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
         <?php echo $arResult["NAV_STRING"]; ?>
     <?php endif; ?>
-<?php else:?>
-<p class="text">По вашему запросу ничего не найдено</p>
+<?php else: ?>
+    <p class="text">По вашему запросу ничего не найдено</p>
 <?php endif; ?>
