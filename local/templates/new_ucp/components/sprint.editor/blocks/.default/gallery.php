@@ -9,8 +9,9 @@ $arWaterMark = array(
                 "name" => "watermark",
                 "position" => "bottomright",
                 "type" => "image",
-                "size" => "real",
-                "file" => $_SERVER["DOCUMENT_ROOT"] . '/local/templates/new_ucp/dist/img/watermark.png',
+//                "size" => "real",
+                "size" => "small",
+                "file" => SITE_TEMPLATE_PATH . '/dist/img/watermark.png',
                 'alpha_level' => 70, //прозрачность
                 "fill" => "exact",
         )
@@ -41,7 +42,7 @@ $images = Sprint\Editor\Blocks\Gallery::getImages(
                         <a href="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
                            class="page__image-slider-link"
                            data-fancybox="gallery">
-                            <img src="<?= htmlspecialcharsbx($image['SRC']) ?>"
+                            <img src="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
                                  alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"/>
                         </a>
                     </div>
