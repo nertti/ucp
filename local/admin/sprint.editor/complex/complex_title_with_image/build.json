@@ -1,0 +1,17 @@
+{
+    "title": "Заголовок с картинкой",
+    "sort": 500,
+    "layouts": [
+        {
+            "title": "",
+            "columns": [
+                {
+                    "blocks": [
+                        "htag",
+                        "image"
+                    ]
+                }
+            ]
+        }
+    ]
+}

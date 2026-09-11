@@ -19,13 +19,14 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
-    //Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/bvi.min.css');
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/fancybox.css');
 
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/fancybox.umd.js', true, ['defer' => 'defer']);
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/iconify-icon.min.js', true, ['defer' => 'defer']);
     ?>
-    <link rel="stylesheet" crossorigin="" href="/local/templates/new_ucp/dist/css/app.min.css">
+
     <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app9.min.js"></script>
 </head>
 
@@ -67,11 +68,11 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                                     <li class="menu__dropdown-item"><a href="/university/licenses/" class="menu__dropdown-link">Лицензии, сертификаты и аттестаты</a></li>
                                     <li class="menu__dropdown-item"><a href="/university/quality-management-system/" class="menu__dropdown-link">Система менеджмента качества</a></li>
                                     <li class="menu__dropdown-item"><a href="/university/sistema-upravleniya-okhranoy-truda/" class="menu__dropdown-link">Система управления охраной труда</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/informatsionnye-resursy/" class="menu__dropdown-link">Информационные ресурсы</a></li>
+                                    <li class="menu__dropdown-item"><a href="/university/informatsionnye-resursy/" class="menu__dropdown-link">Информационно-образовательная платформа</a></li>
                                     <li class="menu__dropdown-item"><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/" class="menu__dropdown-link">Нумерация корпусов и учебных аудиторий</a></li>
                                     <li class="menu__dropdown-item"><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/" class="menu__dropdown-link">Политика в отношении обработки персональных данных</a></li>
                                     <li class="menu__dropdown-item"><a href="/university/vakansii/" class="menu__dropdown-link">Вакансии</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/notification" class="menu__dropdown-link">Объявления</a></li>
+                                    <li class="menu__dropdown-item"><a href="/events/" class="menu__dropdown-link">События</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -104,7 +105,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                             </a>
                             <div class="menu__dropdown">
                                 <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/activity/obrazovatelnaya/" class="menu__dropdown-link">Образовательная и просветительская</a></li>
+                                    <li class="menu__dropdown-item"><a href="/activity/obrazovatelnaya/" class="menu__dropdown-link">Образовательные и просветительские услуги</a></li>
                                     <li class="menu__dropdown-item"><a href="/activity/nauchnaya/" class="menu__dropdown-link">Научная и инновационная</a></li>
                                     <li class="menu__dropdown-item"><a href="/activity/formirovanie-kultury-bezopasnosti-zhiznedeyatelnosti/" class="menu__dropdown-link">Формирование культуры безопасности жизнедеятельности</a></li>
                                     <li class="menu__dropdown-item"><a href="/activity/ideologicheskaya/" class="menu__dropdown-link">Идеологическая</a></li>
@@ -169,7 +170,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                 ); ?>
                 <div class="header__accessibility" data-fls-dynamic=".header__accessibility-mobile,1200, 1">
                     <div class="socials__item">
-                        <a href="?special_version=Y">
+                        <a href="#" class="bvi-open">
                             <iconify-icon icon="mdi:eye" width="20.4" height="20.4" noobserver></iconify-icon>
                         </a>
                     </div>
@@ -182,6 +183,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                             <div class="header__lang-dropdown">
                                 <a href="#" class="header__lang-option language__img" data-lang="ru" data-google-lang="ru">RU</a>
                                 <a href="#" class="header__lang-option language__img" data-lang="en" data-google-lang="en">EN</a>
+                                <a href="#" class="header__lang-option language__img" data-lang="be" data-google-lang="be">BE</a>
                             </div>
                         </div>
                     </div>
@@ -315,11 +317,11 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                                 <li><a href="/university/licenses/">Лицензии, сертификаты и аттестаты</a></li>
                                 <li><a href="/university/quality-management-system/">Система менеджмента качества</a></li>
                                 <li><a href="/university/sistema-upravleniya-okhranoy-truda/">Система управления охраной труда</a></li>
-                                <li><a href="/university/informatsionnye-resursy/">Информационные ресурсы</a></li>
+                                <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная платформа/</a></li>
                                 <li><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/">Нумерация корпусов и учебных аудиторий</a></li>
                                 <li><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/">Политика в отношении обработки персональных данных</a></li>
                                 <li><a href="/university/vakansii/">Вакансии</a></li>
-                                <li><a href="/university/notification">Объявления</a></li>
+                                <li><a href="/events/">События</a></li>
                             </ul>
                         </div>
                     </details>
@@ -397,4 +399,3 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                 <div class="header__accessibility-mobile"></div>
             </div>
         </div>
-

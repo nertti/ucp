@@ -5,16 +5,16 @@
 	scroll-margin-top: 100px;
 }
 .event__item {
-	position: relative;
+    position: relative;
 }
 
 .event__item-link {
-	position: absolute;
-	inset: 0;
-	z-index: 1;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .event__item .text-block a {
-	position: relative;
-	z-index: 2;
+    position: relative;
+    z-index: 2;
 }

@@ -1,18 +1,28 @@
 {
     "title": "Слайд с картинкой справа",
-    "sort": 500,
+    "sort": "500",
     "layouts": [
         {
             "title": "",
             "columns": [
                 {
                     "blocks": [
-                        "image"
+                        "htag"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "",
+            "columns": [
+                {
+                    "blocks": [
+                        "my_container"
                     ]
                 },
                 {
                     "blocks": [
-                        "my_container"
+                        "image"
                     ]
                 }
             ]

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items iblockUid="main:include_areas" exchangeVersion="2" >
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM"/>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Слайдер на главной</value>
+ </field>
+ <field name="PREVIEW_PICTURE"/>
+ <field name="PREVIEW_TEXT"/>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT"/>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>slayder-na-glavnoy</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>29247</value>
+ </field>
+ <field name="IBLOCK_SECTION"/>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="EDITOR">
+  <value><![CDATA[{"version":2,"blocks":[{"name":"complex_left_image_slide","image":{"file":{"ID":"127823","TIMESTAMP_X":"10.09.2026 00:01:19","MODULE_ID":"sprint.editor","HEIGHT":210,"WIDTH":800,"FILE_SIZE":"66606","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/74e","FILE_NAME":"9i58ddliw2bmab4b65ortr0gmnc5aax7.webp","ORIGINAL_NAME":"banner2.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"bmugmfxm6vmwbxfqlxx15u1wm65kybav","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/74e/800_210_1/9i58ddliw2bmab4b65ortr0gmnc5aax7.webp","ORIGIN_SRC":"/upload/sprint.editor/74e/9i58ddliw2bmab4b65ortr0gmnc5aax7.webp"},"desc":"","name":"image"},"my_container":{"blocks":[{"items":[{"title":"Факультет предупреждения и ликвидации ЧС","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}},{"items":[{"title":"Факультет техносферной безопасности","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}},{"items":[{"title":"Факультет заочного обучения","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}},{"items":[{"title":"Факультет безопасности жизнедеятельности","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}},{"items":[{"title":"Факультет подготовки научных кадров","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}},{"items":[{"title":"Факультет подготовки руководящих кадров","url":"/","icon":"<iconify-icon icon=\"iconamoon:check-bold\" width=\"100%\" height=\"100%\" noobserver=\"\"></iconify-icon>","target":""}],"name":"my_button_icons_link","settings":{}}],"name":"my_container"},"settings":{},"layout":"0,0","meta":{},"button_link":{"title":"123","url":"123","target":"","name":"button_link"},"htag":{"type":"h1","value":"Факультеты","anchor":"fakultety","name":"htag"}},{"name":"complex_left_image_slide","image":{"file":{"ID":"127822","TIMESTAMP_X":"09.09.2026 23:55:22","MODULE_ID":"sprint.editor","HEIGHT":210,"WIDTH":800,"FILE_SIZE":"133194","CONTENT_TYPE":"image/webp","SUBDIR":"sprint.editor/655","FILE_NAME":"eu6b8ii52cfcst47pwrj3x0nvq041zli.webp","ORIGINAL_NAME":"feed5.webp","DESCRIPTION":"","HANDLER_ID":null,"EXTERNAL_ID":"0jnq13iel8cjkicx8on8ai73m8o0nrhy","VERSION_ORIGINAL_ID":null,"META":"","SRC":"/upload/resize_cache/sprint.editor/655/800_210_1/eu6b8ii52cfcst47pwrj3x0nvq041zli.webp","ORIGIN_SRC":"/upload/sprint.editor/655/eu6b8ii52cfcst47pwrj3x0nvq041zli.webp"},"desc":"","name":"image"},"button_link":{"title":"321","url":"321","target":"","name":"button_link"},"settings":{},"layout":"0,0","meta":{},"htag":{"type":"h1","value":"Текстовый","anchor":"tekstovyy","name":"htag"},"my_container":{"blocks":[{"value":"<p>123ntrcn</p><p>322`1212</p>","name":"text","settings":{}},{"title":"Подробнее","url":"/","target":"","name":"button_link","settings":{}}],"name":"my_container"}}],"layouts":[{"settings":{},"columns":[{"css":""}]}]}]]></value>
+ </property>
+</item>
+
+</items>

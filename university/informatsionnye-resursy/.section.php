@@ -1,3 +1,6 @@
 <?
-$sSectionName="Информационные ресурсы";
+$sSectionName = "Информационно-образовательная платформа";
+$arDirProperties = array(
+
+);
 ?>

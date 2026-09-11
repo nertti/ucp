@@ -1,7 +1,17 @@
 {
     "title": "Слайд с картинкой слева",
-    "sort": 500,
+    "sort": "500",
     "layouts": [
+        {
+            "title": "Слайд",
+            "columns": [
+                {
+                    "blocks": [
+                        "htag"
+                    ]
+                }
+            ]
+        },
         {
             "title": "",
             "columns": [

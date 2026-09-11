@@ -18,21 +18,21 @@ $this->setFrameMode(true);
 
             <?php
             $APPLICATION->IncludeFile(
-                    "/include/left/menu.php",
-                    [],
-                    [
-                            "MODE" => "html"
-                    ]
+                "/include/left/menu.php",
+                [],
+                [
+                    "MODE" => "html"
+                ]
             );
             ?>
 
             <?php
             $APPLICATION->IncludeFile(
-                    "/include/left/banners.php",
-                    [],
-                    [
-                            "MODE" => "html"
-                    ]
+                "/include/left/banners.php",
+                [],
+                [
+                    "MODE" => "html"
+                ]
             );
             ?>
 
@@ -76,26 +76,26 @@ $this->setFrameMode(true);
 
                             <?php
                             $this->AddEditAction(
-                                    $arItem['ID'],
-                                    $arItem['EDIT_LINK'],
-                                    CIBlock::GetArrayByID(
-                                            $arItem["IBLOCK_ID"],
-                                            "ELEMENT_EDIT"
-                                    )
+                                $arItem['ID'],
+                                $arItem['EDIT_LINK'],
+                                CIBlock::GetArrayByID(
+                                    $arItem["IBLOCK_ID"],
+                                    "ELEMENT_EDIT"
+                                )
                             );
 
                             $this->AddDeleteAction(
-                                    $arItem['ID'],
-                                    $arItem['DELETE_LINK'],
-                                    CIBlock::GetArrayByID(
-                                            $arItem["IBLOCK_ID"],
-                                            "ELEMENT_DELETE"
-                                    ),
-                                    [
-                                            "CONFIRM" => GetMessage(
-                                                    'CT_BNL_ELEMENT_DELETE_CONFIRM'
-                                            )
-                                    ]
+                                $arItem['ID'],
+                                $arItem['DELETE_LINK'],
+                                CIBlock::GetArrayByID(
+                                    $arItem["IBLOCK_ID"],
+                                    "ELEMENT_DELETE"
+                                ),
+                                [
+                                    "CONFIRM" => GetMessage(
+                                        'CT_BNL_ELEMENT_DELETE_CONFIRM'
+                                    )
+                                ]
                             );
 
                             // Ссылка события
@@ -119,17 +119,17 @@ $this->setFrameMode(true);
                             ?>
 
                             <li
-                                    class="event__item"
-                                    id="<?= $this->GetEditAreaId($arItem['ID']) ?>"
-                                    data-event-id="<?= (int)$arItem['ID'] ?>"
+                                class="event__item"
+                                id="<?= $this->GetEditAreaId($arItem['ID']) ?>"
+                                data-event-id="<?= (int)$arItem['ID'] ?>"
                             >
 
                                 <?php if ($link): ?>
 
                                     <a
-                                            href="<?= htmlspecialcharsbx($link) ?>"
-                                            class="event__item-link"
-                                            aria-label="<?= htmlspecialcharsbx($arItem["NAME"]) ?>"
+                                        href="<?= htmlspecialcharsbx($link) ?>"
+                                        class="event__item-link"
+                                        aria-label="<?= htmlspecialcharsbx($arItem["NAME"]) ?>"
                                     ></a>
 
                                 <?php endif; ?>
@@ -175,14 +175,14 @@ $this->setFrameMode(true);
                                     <?php if (!empty($picture["SRC"])): ?>
 
                                         <img
-                                                loading="lazy"
-                                                src="<?= htmlspecialcharsbx($picture["SRC"]) ?>"
-                                                alt="<?= htmlspecialcharsbx(
-                                                        $picture["ALT"] ?? $arItem["NAME"]
-                                                ) ?>"
-                                                title="<?= htmlspecialcharsbx(
-                                                        $picture["TITLE"] ?? $arItem["NAME"]
-                                                ) ?>"
+                                            loading="lazy"
+                                            src="<?= htmlspecialcharsbx($picture["SRC"]) ?>"
+                                            alt="<?= htmlspecialcharsbx(
+                                                $picture["ALT"] ?? $arItem["NAME"]
+                                            ) ?>"
+                                            title="<?= htmlspecialcharsbx(
+                                                $picture["TITLE"] ?? $arItem["NAME"]
+                                            ) ?>"
                                         >
 
                                     <?php endif; ?>

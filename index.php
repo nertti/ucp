@@ -75,7 +75,7 @@ $APPLICATION->SetTitle("Университет гражданской защит
         );
         ?>
         <div class="home__wrapper">
-            <nav class="home__subnav">
+            <nav class="home__subnav bvi-hide">
                 <?php
                 $APPLICATION->IncludeComponent(
                         "bitrix:news.list",

@@ -149,13 +149,13 @@
                             </li>
                             <li><a href="/university/sistema-upravleniya-okhranoy-truda/">Система управления охраной
                                     труда</a></li>
-                            <li><a href="/university/informatsionnye-resursy/">Информационные ресурсы</a></li>
+                            <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная платформа</a></li>
                             <li><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/">Нумерация корпусов
                                     и учебных аудиторий</a></li>
                             <li><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/">Политика
                                     в отношении обработки персональных данных</a></li>
                             <li><a href="/university/vakansii/">Вакансии</a></li>
-                            <li><a href="/university/notification">Объявления</a></li>
+                            <li><a href="/events/">События</a></li>
                         </ul>
                     </div>
                 </details>
@@ -390,6 +390,10 @@
     }
 
     menuInit();
+</script>
+<script src="/local/templates/new_ucp/dist/js/bvi.min.js"></script>
+<script>
+    new isvek.Bvi();
 </script>
 </body>
 </html>

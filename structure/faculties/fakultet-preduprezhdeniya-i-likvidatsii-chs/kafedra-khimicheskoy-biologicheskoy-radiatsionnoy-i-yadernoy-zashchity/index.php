@@ -1,7 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Кафедра химической, биологической, радиационной и ядерной защиты");
-?><table border="1" cellspacing="0" cellpadding="0">
+?><p style="text-align: justify;">
+</p>
+<table border="1" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 	<td>
@@ -15,9 +17,13 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 </tr>
 </tbody>
 </table>
+<p>
+</p>
 <p style="text-align: justify;">
  <br>
 	 &nbsp; &nbsp; Кафедра химической, биологической, радиационной и ядерной защиты создана в марте 2022 года. Кафедра является подразделением Университета гражданской защиты, обеспечивающим проведение учебной, учебно-методической, научно-исследовательской, идеологической и воспитательной работы.
+</p>
+<p style="text-align: justify;">
 </p>
 <table cellspacing="0" cellpadding="0">
 <tbody>
@@ -35,9 +41,13 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 </tr>
 </tbody>
 </table>
-<p align="center">
+<p>
+</p>
+<p align="center" style="text-align: justify;">
  <b><br>
 	 Основные направления деятельности кафедры</b>
+</p>
+<p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
 	 &nbsp; &nbsp; Учебная и научно-исследовательская деятельность кафедры химической, биологической, радиационной и ядерной защиты направлена на повышение эффективности действий подразделений МЧС и совершенствование тактической подготовки специалистов. В числе приоритетных направлений:<br>
@@ -47,12 +57,14 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 	 &nbsp; &nbsp;4) Разработка и исследование механизмов действия антипиренов для снижения горючести полимеров и материалов на их основе.<br>
 	 &nbsp; &nbsp;5) Разработка способов химического и электрохимического нанесения функциональных и защитных покрытий для деталей механизмов спасательной техники.
 </p>
+<p style="text-align: justify;">
+</p>
 <table cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 	<td>
 		<p>
-			<img width="250" alt="peebsnpm0.jpg" src="/upload/medialibrary/e99/g24ioz2pplnt4kzgyemeu0769a4glxag.jpg" height="350" title="peebsnpm0.jpg"><br>
+ <img width="250" alt="peebsnpm0.jpg" src="/upload/medialibrary/e99/g24ioz2pplnt4kzgyemeu0769a4glxag.jpg" height="350" title="peebsnpm0.jpg"><br>
 		</p>
 	</td>
 	<td>
@@ -80,8 +92,12 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 </table>
  <br>
 <hr size="3" width="98%" align="left">
-<p align="center">
+<p>
+</p>
+<p align="center" style="text-align: justify;">
  <b>Учебно-методическая работа</b>
+</p>
+<p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
 	 &nbsp; &nbsp;1)&nbsp;Рева О.В., Богданова В.В., Врублевский А.В. Специальная химия. В 2-х частях. Часть 1: учебник. – Минск: Колорград, 2024. – 360&nbsp;с.<br>
@@ -102,11 +118,19 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 	 &nbsp; &nbsp;16)&nbsp;Котов Г.В. Прикладная термодинамика. Учебное пособие. – Мн.: УП «Донарит», 2004. – 421 с.<br>
 	 &nbsp;17)&nbsp;Астапов В.П. Барингольц Б.С., Тищенко В.Г., Шишканов М.М., Врублевский А.В. Демеркуризационные работы. Учебное пособие. – Минск: Право и экономика, 2001. – 88 с.
 </p>
-<p style="text-align: left;">
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
 </p>
 <hr size="3" width="98%" align="left">
-<p style="text-align: center;">
+<p>
+</p>
+<p style="text-align: justify;">
  <b>ГРАФИК КОНСУЛЬТАЦИЙ</b>
+</p>
+<p style="text-align: justify;">
 </p>
 <table border="1" cellspacing="0" cellpadding="0">
 <tbody>
@@ -219,18 +243,29 @@ $APPLICATION->SetTitle("Кафедра химической, биологиче�
 </tr>
 </tbody>
 </table>
+<p>
+</p>
 <p style="text-align: justify;">
  <span style="color: #333333; font-weight: bold;"><span style="color: #337ab7;">&nbsp;</span></span><span style="text-align: justify; color: #333333; font-weight: bold;"><span style="color: #337ab7;">&nbsp; [*]</span></span><span style="text-align: justify; color: #333333;">&nbsp;</span><span style="text-align: justify;">В случае, если обучающиеся не могут прибыть в отведенное для консультации время, консультация может проводиться в другое время по предварительной договоренности с преподавателем.</span>
 </p>
 <p style="text-align: justify;">
 </p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
 <hr size="3" width="98%" align="left">
-<p align="center">
+<p>
+</p>
+<p align="center" style="text-align: justify;">
  <b>Контактная информация</b>
 </p>
-<p>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
 	 Телефон кафедры: +375 17 341-74-11.<br>
 	 Факс: +375 17 340-35-57 (с пометкой «для кафедры ХБРиЯЗ»)<br>
 	 Почта кафедры:&nbsp;<a href="mailto:pgv@ucp.by">pgv@ucp.by</a>
 </p>
- <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<p style="text-align: justify;">
+</p><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

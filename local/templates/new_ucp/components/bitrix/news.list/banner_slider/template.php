@@ -1,4 +1,4 @@
-<section class="preview">
+<section class="preview bvi-hide">
     <div class="preview-slider swiper" data-fls-slider>
         <div class="swiper-wrapper">
             <?php

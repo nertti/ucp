@@ -36,7 +36,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Информационные ресурсы", 
+		"Информационно-образовательная платформа", 
 		"/university/informatsionnye-resursy/", 
 		Array(), 
 		Array(), 
@@ -64,8 +64,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Объявления", 
-		"/university/notification", 
+		"События", 
+		"/university/events", 
 		Array(), 
 		Array(), 
 		"" 
