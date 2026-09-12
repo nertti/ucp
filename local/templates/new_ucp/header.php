@@ -20,11 +20,11 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css');
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/bvi.min.css');
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/fancybox.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/bvi.min.css', true, ['defer' => 'defer']);
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/fancybox.min.css', true, ['defer' => 'defer']);
 
-    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/fancybox.umd.js', true, ['defer' => 'defer']);
-    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/iconify-icon.min.js', true, ['defer' => 'defer']);
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/dist/js/fancybox.min.js', true, ['defer' => 'defer']);
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/dist/js/iconify-icon.min.js', true, ['defer' => 'defer']);
     ?>
 
     <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app9.min.js"></script>

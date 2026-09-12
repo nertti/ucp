@@ -60,7 +60,7 @@ html.preloader-done body {
 
 .swiper.preview-slider.swiper-initialized::after {
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 .swiper::after {
@@ -81,12 +81,12 @@ html.preloader-done body {
 
 .swiper.swiper-initialized::after {
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 .universities__branches-slider.swiper::after {
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 @keyframes shimmer {
@@ -96,4 +96,10 @@ html.preloader-done body {
     100% {
         background-position: -200% 0;
     }
+}
+html {
+    height: initial !important;
+}
+html.popup-show {
+    overflow-y: hidden;
 }

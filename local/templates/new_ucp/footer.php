@@ -149,7 +149,8 @@
                             </li>
                             <li><a href="/university/sistema-upravleniya-okhranoy-truda/">Система управления охраной
                                     труда</a></li>
-                            <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная платформа</a></li>
+                            <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная
+                                    платформа</a></li>
                             <li><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/">Нумерация корпусов
                                     и учебных аудиторий</a></li>
                             <li><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/">Политика
@@ -276,58 +277,74 @@
 </button>
 </div>
 <script>
-    Fancybox.defaults.l10n = {
-        CLOSE: "Закрыть",
-        NEXT: "Следующий",
-        PREV: "Предыдущий",
-        MODAL: "Вы можете закрыть это окно клавишей ESC",
-        ERROR: "Не удалось загрузить контент. <br> Пожалуйста, попробуйте позже.",
-        IMAGE_ERROR: "Не удалось загрузить изображение.",
-        ELEMENT_NOT_FOUND: "Элемент не найден.",
-        AJAX_NOT_FOUND: "Ошибка (404). Не удалось загрузить файл.",
-        AJAX_FORBIDDEN: "Ошибка (403). Доступ запрещён.",
-        IFRAME_ERROR: "Ошибка загрузки страницы.",
-        TOGGLE_ZOOM: "Масштаб",
-        TOGGLE_THUMBS: "Миниатюры",
-        TOGGLE_SLIDESHOW: "Слайд-шоу",
-        TOGGLE_FULLSCREEN: "Полноэкранный режим",
-        DOWNLOAD: "Скачать",
-        SHARE: "Поделиться",
-    };
+    function initFancybox() {
+        const galleryElements = document.querySelectorAll("[data-fancybox='gallery']");
 
-    Fancybox.defaults.Toolbar = {
-        display: {
-            left: [],
-            middle: ["zoom", "slideshow", "fullscreen", "thumbs"],
-            right: ["close"],
-        },
-        items: {
-            zoom: {
-                tpl: `
-                    <button class="f-button" title="Масштаб" data-fancybox-zoom>
-                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="11" cy="11" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                    </button>
-                `,
-            },
-        },
-    };
+        if (galleryElements.length === 0) {
+            console.log(' Элементы [data-fancybox="gallery"] не найдены');
+            return;
+        }
 
-    Fancybox.bind("[data-fancybox^='gallery']", {
-        Thumbs: {
-            type: "classic",
-        },
-        Images: {
-            zoom: true,
-            panzoom: {
-                zoomFactor: 1.5,
-                maxScale: 4,
-            },
-        },
-    });
+        //   Fancybox v4/v5
+        if (typeof window.Fancybox !== 'undefined' && typeof Fancybox.bind === 'function') {
+            // Уничтожаем предыдущий экземпляр (если есть)
+            if (window.fancyboxInstance) {
+                try {
+                    window.fancyboxInstance.destroy();
+                } catch (e) {
+                }
+            }
+
+            window.fancyboxInstance = Fancybox.bind("[data-fancybox='gallery']", {
+                groupAll: true,
+                Thumbs: {type: "classic"},
+                on: {
+                    init: (instance) => console.log(' Fancybox v4/v5 инициализирован:', instance),
+                    error: (err) => console.error(' Ошибка Fancybox:', err)
+                }
+            });
+
+            console.log(' Fancybox v4/v5 инициализирован для', galleryElements.length, 'элементов');
+            return;
+        }
+
+        //   Fancybox v3 (jQuery или без)
+        if (typeof window.Fancybox !== 'undefined' && typeof Fancybox.open === 'function') {
+            // v3 без jQuery
+            galleryElements.forEach(el => {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const src = this.href || this.dataset.src;
+                    Fancybox.open([{src: src, type: 'image'}], {
+                        loop: true,
+                        thumbs: {autoStart: true}
+                    });
+                });
+            });
+            console.log(' Fancybox v3 инициализирован для', galleryElements.length, 'элементов');
+            return;
+        }
+
+        //   Fancybox v3 с jQuery
+        if (typeof jQuery !== 'undefined' && jQuery.fn.fancybox) {
+            jQuery("[data-fancybox='gallery']").fancybox({
+                loop: true,
+                thumbs: {autoStart: true}
+            });
+            console.log(' Fancybox v3 (jQuery) инициализирован');
+            return;
+        }
+
+        console.warn(' Не удалось определить версию Fancybox или библиотека не загружена');
+    }
+
+    // Инициализация после полной загрузки страницы + отложенных скриптов
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFancybox);
+    } else {
+        // Если DOM уже готов, ждём немного для загрузки скрипта с defer
+        setTimeout(initFancybox, 100);
+    }
 </script>
 <?php $APPLICATION->IncludeFile(
         "/include/footer/cookies.php",
