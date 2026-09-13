@@ -35,14 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 /**
  * Получение и очистка данных
  */
+$serviceName = trim((string)($_POST['SERVICE_NAME'] ?? ''));
 $name = trim((string)($_POST['name'] ?? ''));
 $phone = trim((string)($_POST['phone'] ?? ''));
 $email = trim((string)($_POST['email'] ?? ''));
 $address = trim((string)($_POST['address'] ?? ''));
 
 $enterprise = trim((string)($_POST['enterprise'] ?? ''));
-
-$captchaText = trim((string)($_POST['text'] ?? ''));
 
 /**
  * Получатель
@@ -117,7 +116,7 @@ $arFields = [
 
     'ENTERPRISE' => $enterpriseName,
 
-    'TEXT' => $captchaText,
+    'SERVICE_NAME' => $serviceName,
 
     'DATE' => date('d.m.Y H:i:s'),
 ];
