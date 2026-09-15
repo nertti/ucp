@@ -52,114 +52,26 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                         )
                 ); ?>
                 <nav class="header__nav">
-                    <!-- Меню обернуть в компонент -->
-                    <ul class="menu">
-                        <li class="menu__item menu__item--has-dropdown">
-                            <a href="/university/" class="menu__link">
-                                <span>Университет</span>
-                                <span class="menu__arrow">
-                                    <iconify-icon icon="lucide:chevron-down" width="100%" height="100%" noobserver></iconify-icon>
-                                </span>
-                            </a>
-                            <div class="menu__dropdown">
-                                <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/university/history/" class="menu__dropdown-link">История</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/presentation/" class="menu__dropdown-link">Презентация университета</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/licenses/" class="menu__dropdown-link">Лицензии, сертификаты и аттестаты</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/quality-management-system/" class="menu__dropdown-link">Система менеджмента качества</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/sistema-upravleniya-okhranoy-truda/" class="menu__dropdown-link">Система управления охраной труда</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/informatsionnye-resursy/" class="menu__dropdown-link">Информационно-образовательная платформа</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/" class="menu__dropdown-link">Нумерация корпусов и учебных аудиторий</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/" class="menu__dropdown-link">Политика в отношении обработки персональных данных</a></li>
-                                    <li class="menu__dropdown-item"><a href="/university/vakansii/" class="menu__dropdown-link">Вакансии</a></li>
-                                    <li class="menu__dropdown-item"><a href="/events/" class="menu__dropdown-link">События</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu__item menu__item--has-dropdown">
-                            <a href="/structure/" class="menu__link">
-                                <span>Структура</span>
-                                <span class="menu__arrow">
-                                    <iconify-icon icon="lucide:chevron-down" width="100%" height="100%" noobserver></iconify-icon>
-                                </span>
-                            </a>
-                            <div class="menu__dropdown">
-                                <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/structure/leaders/" class="menu__dropdown-link">Руководство</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/faculties/" class="menu__dropdown-link">Факультеты</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/institut-professionalnogo-obrazovaniya/" class="menu__dropdown-link">Институт профессионального образования</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/institut-perepodgotovki-i-povysheniya-kvalifikatsii/" class="menu__dropdown-link">Институт переподготовки и повышения квалификации</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/nauchno-issledovatelskiy-institut-pozharnoy-bezopasnosti-i-problem-chrezvychaynykh-situatsiy/" class="menu__dropdown-link">Научно - исследовательский институт пожарной безопасности и проблем чрезвычайных ситуаций</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/" class="menu__dropdown-link">Институт теории и практики безопасности жизнедеятельности</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/litsey-mchs/" class="menu__dropdown-link">Лицей МЧС</a></li>
-                                    <li class="menu__dropdown-item"><a href="/structure/otdely/" class="menu__dropdown-link">Отделы и центры</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu__item menu__item--has-dropdown">
-                            <a href="/activity/" class="menu__link">
-                                <span>Деятельность</span>
-                                <span class="menu__arrow">
-                                    <iconify-icon icon="lucide:chevron-down" width="100%" height="100%" noobserver></iconify-icon>
-                                </span>
-                            </a>
-                            <div class="menu__dropdown">
-                                <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/activity/obrazovatelnaya/" class="menu__dropdown-link">Образовательные и просветительские услуги</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/nauchnaya/" class="menu__dropdown-link">Научная и инновационная</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/formirovanie-kultury-bezopasnosti-zhiznedeyatelnosti/" class="menu__dropdown-link">Формирование культуры безопасности жизнедеятельности</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/ideologicheskaya/" class="menu__dropdown-link">Идеологическая</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/mezhdunarodnaya/" class="menu__dropdown-link">Международная</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/izdatelskaya/" class="menu__dropdown-link">Издательская</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/sportivnaya/" class="menu__dropdown-link">Спортивная</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/tekhnicheskiy-komitet-tk-by-35/" class="menu__dropdown-link">Технический комитет ТК ВУ 35</a></li>
-                                    <li class="menu__dropdown-item"><a href="/activity/tnpa-i-npa/" class="menu__dropdown-link">ТНПА и НПА</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu__item menu__item--has-dropdown">
-                            <a href="/services/" class="menu__link">
-                                <span>Услуги</span>
-                                <span class="menu__arrow">
-                                    <iconify-icon icon="lucide:chevron-down" width="100%" height="100%" noobserver></iconify-icon>
-                                </span>
-                            </a>
-                            <div class="menu__dropdown">
-                                <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/services/erip/" class="menu__dropdown-link">ЕРИП</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/obrazovatelnye/" class="menu__dropdown-link">Образовательные и просветительские услуги</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/nauchnye/" class="menu__dropdown-link">Наука и инновационная продукция</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/provedenie-ispytaniy/" class="menu__dropdown-link">Испытательная деятельность</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/ekspertno-konsultatsionnye/" class="menu__dropdown-link">Экспертная деятельность</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/organ-po-sertifikatsii-produktsii/" class="menu__dropdown-link">Орган по сертификации продукции</a></li>
-                                    <li class="menu__dropdown-item"><a href="/services/poligraficheskie/" class="menu__dropdown-link">Полиграфические и сервисные услуги</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu__item menu__item--has-dropdown">
-                            <a href="/abiturientu/" class="menu__link">
-                                <span>Абитуриенту</span>
-                                <span class="menu__arrow">
-                                    <iconify-icon icon="lucide:chevron-down" width="100%" height="100%" noobserver></iconify-icon>
-                                </span>
-                            </a>
-                            <div class="menu__dropdown">
-                                <ul class="menu__dropdown-list">
-                                    <li class="menu__dropdown-item"><a href="/abiturientu/priemnaya-kampaniya/" class="menu__dropdown-link">Приемная кампания</a></li>
-                                    <li class="menu__dropdown-item"><a href="/abiturientu/obshchee-vysshee-obrazovanie-bakalavriat/" class="menu__dropdown-link">Общее высшее образование (бакалавриат)</a></li>
-                                    <li class="menu__dropdown-item"><a href="/abiturientu/uglublennoe-vysshee-obrazovanie-magistratura/" class="menu__dropdown-link">Углубленное высшее образование (магистратура)</a></li>
-                                    <li class="menu__dropdown-item"><a href="/abiturientu/adyunktura/" class="menu__dropdown-link">Адъюнктура</a></li>
-                                    <li class="menu__dropdown-item"><a href="/abiturientu/dopolnitelnoe-obrazovanie-vzroslykh" class="menu__dropdown-link">Переподготовка руководящих работников и специалистов, имеющих высшее образование</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu__item">
-                            <a href="/contacts/" class="menu__link">
-                                <span>Контакты</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- Меню обернуть в компонент -->
+                    <?php
+                    $APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "top",
+                            Array(
+                                    "ALLOW_MULTI_SELECT" => "N",
+                                    "CHILD_MENU_TYPE" => "left",
+                                    "COMPOSITE_FRAME_MODE" => "A",
+                                    "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                    "DELAY" => "N",
+                                    "MAX_LEVEL" => "2",
+                                    "MENU_CACHE_GET_VARS" => array(""),
+                                    "MENU_CACHE_TIME" => "3600",
+                                    "MENU_CACHE_TYPE" => "Y",
+                                    "MENU_CACHE_USE_GROUPS" => "Y",
+                                    "ROOT_MENU_TYPE" => "top",
+                                    "USE_EXT" => "Y"
+                            )
+                    );
+                    ?>
                 </nav>
                 <?php $APPLICATION->IncludeFile(
                         "/include/header/search.php",

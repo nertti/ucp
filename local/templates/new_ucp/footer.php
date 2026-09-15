@@ -137,79 +137,26 @@
         </div>
 
         <div class="footer__nav">
-            <div data-fls-spollers="1024,max" class="spollers">
-                <details class="spollers__item">
-                    <summary class="spollers__title"><a href="/university/">Университет</a></summary>
-                    <div class="spollers__body">
-                        <ul>
-                            <li><a href="/university/history/">История</a></li>
-                            <li><a href="/university/presentation/">Презентация университета</a></li>
-                            <li><a href="/university/licenses/">Лицензии, сертификаты и аттестаты</a></li>
-                            <li><a href="/university/quality-management-system/">Система менеджмента качества</a>
-                            </li>
-                            <li><a href="/university/sistema-upravleniya-okhranoy-truda/">Система управления охраной
-                                    труда</a></li>
-                            <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная
-                                    платформа</a></li>
-                            <li><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/">Нумерация корпусов
-                                    и учебных аудиторий</a></li>
-                            <li><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/">Политика
-                                    в отношении обработки персональных данных</a></li>
-                            <li><a href="/university/vakansii/">Вакансии</a></li>
-                            <li><a href="/events/">События</a></li>
-                        </ul>
-                    </div>
-                </details>
-                <details class="spollers__item">
-                    <summary class="spollers__title"><a href="/structure/">Структура</a></summary>
-                    <div class="spollers__body">
-                        <ul>
-                            <li><a href="/structure/leaders/">Руководство</a></li>
-                            <li><a href="/structure/faculties/">Факультеты</a></li>
-                            <li><a href="/structure/institut-professionalnogo-obrazovaniya/">Институт
-                                    профессионального образования</a></li>
-                            <li><a href="/structure/institut-perepodgotovki-i-povysheniya-kvalifikatsii/">Институт
-                                    переподготовки и повышения квалификации</a></li>
-                            <li>
-                                <a href="/structure/nauchno-issledovatelskiy-institut-pozharnoy-bezopasnosti-i-problem-chrezvychaynykh-situatsiy/">Научно
-                                    - исследовательский институт пожарной безопасности и проблем чрезвычайных
-                                    ситуаций</a></li>
-                            <li><a href="/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/">Институт
-                                    теории и практики безопасности жизнедеятельности</a></li>
-                            <li><a href="/structure/litsey-mchs/">Лицей МЧС</a></li>
-                            <li><a href="/structure/otdely/">Отделы и центры</a></li>
-                        </ul>
-                    </div>
-                </details>
-                <details class="spollers__item">
-                    <summary class="spollers__title"><a href="/services/">Услуги</a></summary>
-                    <div class="spollers__body">
-                        <ul>
-                            <li><a href="/services/erip/">ЕРИП</a></li>
-                            <li><a href="/services/obrazovatelnye/">Образовательные и просветительские услуги</a>
-                            </li>
-                            <li><a href="/services/nauchnye/">Наука и инновационная продукция</a></li>
-                            <li><a href="/services/provedenie-ispytaniy/">Испытательная деятельность</a></li>
-                            <li><a href="/services/ekspertno-konsultatsionnye/">Экспертная деятельность</a></li>
-                            <li><a href="/services/organ-po-sertifikatsii-produktsii/">Орган по сертификации
-                                    продукции</a></li>
-                            <li><a href="/services/poligraficheskie/">Полиграфические и сервисные услуги</a></li>
-                        </ul>
-                    </div>
-                </details>
-                <details class="spollers__item">
-                    <summary class="spollers__title"><a href="/contacts/">Контакты</a></summary>
-                    <div class="spollers__body">
-                        <ul>
-                            <li><a href="/contacts/kontakty/">Контактная информация</a></li>
-                            <li><a href="/contacts/administrativnye-procedury/">Административные процедуры</a></li>
-                            <li><a href="/contacts/priem/">Прием граждан</a></li>
-                            <li><a href="/contacts/telefon-doveriya/">Телефон доверия</a></li>
-                            <li><a href="/electronic-forms/">Обращения граждан</a></li>
-                        </ul>
-                    </div>
-                </details>
-            </div>
+            <?php
+            $APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "bottom",
+                    Array(
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "left",
+                            "COMPOSITE_FRAME_MODE" => "A",
+                            "COMPOSITE_FRAME_TYPE" => "AUTO",
+                            "DELAY" => "N",
+                            "MAX_LEVEL" => "2",
+                            "MENU_CACHE_GET_VARS" => array(""),
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_TYPE" => "Y",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "ROOT_MENU_TYPE" => "bottom",
+                            "USE_EXT" => "Y"
+                    )
+            );
+            ?>
             <ul class="footer__contacts">
                 <li class="footer__contacts-item">
                     <?php $APPLICATION->IncludeFile(
