@@ -33,7 +33,6 @@ if ($search !== '') {
 
 }
 
-
 /**
  * =========================================================
  * КАТЕГОРИИ
@@ -43,30 +42,88 @@ if ($search !== '') {
 $sections = $_POST['section'] ?? [];
 
 if (!is_array($sections)) {
-
-    $sections = [
-            $sections
-    ];
-
+    $sections = [$sections];
 }
 
-
-$sections = array_filter(
-        array_map(
-                'intval',
-                $sections
+$sections = array_values(
+        array_filter(
+                array_map('intval', $sections)
         )
 );
 
-
 if (!empty($sections)) {
 
-    $GLOBALS[$filterName]['SECTION_ID'] =
-            $sections;
+    $iblockId = 79;
 
+    /**
+     * Здесь будут ID выбранных разделов
+     * + всех их дочерних разделов.
+     */
+    $allSections = [];
+
+    foreach ($sections as $sectionId) {
+
+        /**
+         * Получаем выбранный раздел
+         * и его границы в дереве.
+         */
+        $section = CIBlockSection::GetList(
+                [],
+                [
+                        'IBLOCK_ID' => $iblockId,
+                        'ID' => $sectionId,
+                        'ACTIVE' => 'Y',
+                ],
+                false,
+                [
+                        'ID',
+                        'LEFT_MARGIN',
+                        'RIGHT_MARGIN',
+                ]
+        )->Fetch();
+
+        if (!$section) {
+            continue;
+        }
+
+        /**
+         * Получаем сам раздел
+         * + все дочерние разделы
+         * любой глубины.
+         */
+        $rsSections = CIBlockSection::GetList(
+                ['LEFT_MARGIN' => 'ASC'],
+                [
+                        'IBLOCK_ID' => $iblockId,
+                        'ACTIVE' => 'Y',
+                        '>=LEFT_MARGIN' => $section['LEFT_MARGIN'],
+                        '<=RIGHT_MARGIN' => $section['RIGHT_MARGIN'],
+                ],
+                false,
+                ['ID']
+        );
+
+        while ($subSection = $rsSections->Fetch()) {
+
+            $allSections[] = (int)$subSection['ID'];
+
+        }
+    }
+
+    /**
+     * Убираем дубли.
+     */
+    $allSections = array_values(
+            array_unique($allSections)
+    );
+
+    if (!empty($allSections)) {
+
+        $GLOBALS[$filterName]['SECTION_ID'] =
+                $allSections;
+
+    }
 }
-
-
 /**
  * =========================================================
  * TAG

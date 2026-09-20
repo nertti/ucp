@@ -464,38 +464,27 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function initFiltersFromUrl() {
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
+        const params = new URLSearchParams(
+            window.location.search
+        );
 
         /**
          * Категории
+         *
+         * Здесь храним только те ID,
+         * которые реально находятся в URL.
          */
-        selectedSections =
-            params.getAll(
-                'section[]'
-            );
-
+        selectedSections = params.getAll('section[]');
 
         /**
          * Тег
          */
-        selectedTag =
-            params.get(
-                'tag'
-            ) || '';
-
+        selectedTag = params.get('tag') || '';
 
         /**
          * Сортировка
          */
-        selectedSort =
-            params.get(
-                'sort'
-            ) || 'random';
-
+        selectedSort = params.get('sort') || 'random';
 
         /**
          * Разрешённые значения сортировки
@@ -508,74 +497,86 @@ document.addEventListener('DOMContentLoaded', function () {
             'new'
         ];
 
-
         if (!allowedSorts.includes(selectedSort)) {
-
-            selectedSort =
-                'random';
-
+            selectedSort = 'random';
         }
-
 
         /**
          * Поиск
          */
-        const searchInput =
-            document.querySelector(
-                'input[name="service_search"]'
-            );
-
+        const searchInput = document.querySelector(
+            'input[name="service_search"]'
+        );
 
         if (searchInput) {
-
-            searchInput.value =
-                params.get('search') || '';
-
+            searchInput.value = params.get('search') || '';
         }
 
-
         /**
-         * Сбрасываем визуальное состояние категорий
+         * Сбрасываем визуальное состояние всех разделов
          */
         document
-            .querySelectorAll(
-                '.services-filter-section'
-            )
+            .querySelectorAll('.services-filter-section')
             .forEach(function (item) {
 
-                item.classList.remove(
-                    'checked'
-                );
+                item.classList.remove('checked');
 
             });
 
-
         /**
-         * Восстанавливаем выбранные категории
+         * --------------------------------------------------
+         * ВАЖНО:
+         *
+         * Если в URL есть родительский раздел,
+         * отмечаем его и всё его поддерево.
+         *
+         * Например:
+         *
+         * URL:
+         * section[]=10
+         *
+         * DOM:
+         *
+         * 10
+         * ├── 11
+         * ├── 12
+         * │   └── 13
+         * └── 14
+         *
+         * Будут checked:
+         * 10, 11, 12, 13, 14
+         * --------------------------------------------------
          */
-        document
-            .querySelectorAll(
-                '.services-filter-section'
-            )
-            .forEach(function (item) {
 
-                const section =
-                    item.dataset.section;
+        selectedSections.forEach(function (sectionId) {
 
+            const sectionLink = document.querySelector(
+                '.services-filter-section[data-section="' +
+                CSS.escape(sectionId) +
+                '"]'
+            );
 
-                if (
-                    section &&
-                    selectedSections.includes(section)
-                ) {
+            if (!sectionLink) {
+                return;
+            }
 
-                    item.classList.add(
-                        'checked'
-                    );
+            /**
+             * Получаем родителя + всех его детей
+             */
+            const group = getSectionGroup(
+                sectionLink
+            );
 
-                }
+            /**
+             * Ставим checked всей группе
+             */
+            group.forEach(function (item) {
+
+                item.classList.add('checked');
 
             });
 
+        });
 
         /**
          * Восстанавливаем сортировку

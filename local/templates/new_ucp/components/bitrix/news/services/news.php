@@ -148,6 +148,9 @@ switch ($sort) {
             <?php
             /**
              * Институт / филиал
+             *
+             * Если выбран родительский раздел,
+             * добавляем в фильтр сам раздел + все его подразделы.
              */
             $sections = $_GET['section'] ?? [];
 
@@ -160,11 +163,65 @@ switch ($sort) {
             );
 
             if ($sections) {
-                $GLOBALS[$filterName]['SECTION_ID'] = $sections;
+                $iblockId = (int)$arParams['IBLOCK_ID'];
+
+                $allSections = [];
+
+                foreach ($sections as $sectionId) {
+                    $sectionId = (int)$sectionId;
+
+                    // Получаем границы выбранного раздела
+                    $section = CIBlockSection::GetList(
+                            [],
+                            [
+                                    'IBLOCK_ID' => $iblockId,
+                                    'ID' => $sectionId,
+                                    'ACTIVE' => 'Y',
+                            ],
+                            false,
+                            [
+                                    'ID',
+                                    'IBLOCK_ID',
+                                    'LEFT_MARGIN',
+                                    'RIGHT_MARGIN',
+                            ]
+                    )->Fetch();
+
+                    if (!$section) {
+                        continue;
+                    }
+
+                    // Получаем сам раздел и все его подразделы
+                    $rsSections = CIBlockSection::GetList(
+                            ['LEFT_MARGIN' => 'ASC'],
+                            [
+                                    'IBLOCK_ID' => $iblockId,
+                                    'ACTIVE' => 'Y',
+                                    '>=LEFT_MARGIN' => $section['LEFT_MARGIN'],
+                                    '<=RIGHT_MARGIN' => $section['RIGHT_MARGIN'],
+                            ],
+                            false,
+                            ['ID']
+                    );
+
+                    while ($subSection = $rsSections->Fetch()) {
+                        $allSections[] = (int)$subSection['ID'];
+                    }
+                }
+
+                $allSections = array_values(
+                        array_unique($allSections)
+                );
+
+                if ($allSections) {
+                    $GLOBALS[$filterName]['SECTION_ID'] = $allSections;
+                }
             }
+
             if (!empty($_GET['tag'])) {
                 $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_GET['tag'];
             }
+
             if (!empty($_GET['institute'])) {
                 $GLOBALS[$filterName]['PROPERTY_INSTITUTE'] = $_GET['institute'];
             }
