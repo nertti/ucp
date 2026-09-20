@@ -1,7 +1,19 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Переподготовка руководящих работников и специалистов, имеющих высшее образование");
-?><p>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '5-dopolnitelnoe-obrazovanie-vzroslykh',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+
+
+
+
+
+<p>
  <a href="https://ucp.by/upload/FILES/umc/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA%20%D0%BF%D1%80%D0%B8%D0%B5%D0%BC%D0%B0%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B2%202026%20%D0%B3%D0%BE%D0%B4%D1%83.pdf"></a>
 </p>
 <p style="text-align: justify;">

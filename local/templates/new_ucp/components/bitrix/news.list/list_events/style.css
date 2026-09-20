@@ -15,6 +15,14 @@
 }
 
 .event__item .text-block a {
-    position: relative;
-    z-index: 2;
+      display: contents;
+}
+.event__item .block {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding-block-end: 30px;
+  border-bottom: 1px solid var(--grey);
+  transition: all .3s ease;
 }

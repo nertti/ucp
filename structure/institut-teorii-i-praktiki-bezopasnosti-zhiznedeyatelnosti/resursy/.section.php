@@ -1,3 +1,6 @@
 <?
-$sSectionName="Ресурсы";
+$sSectionName = "Культура безопасности";
+$arDirProperties = array(
+
+);
 ?>

@@ -1,15 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Факультет заочного обучения");
-?><p style="text-align: justify;">
-	 Цель подразделения&nbsp;– подготовка кадров для органов и подразделений по чрезвычайным ситуациям Республики Беларусь, обладающих необходимыми теоретическими знаниями, умениями и навыками деятельности по предупреждению и ликвидации чрезвычайных ситуаций, обладающих высокой общей культурой и необходимыми нравственными качествами.
-</p>
-<p>
-	 Контактная информация:
-</p>
-<p>
-	 Телефон: +375(017)340-71-89<br>
-	факс: +375(017)340-71-89.<br>
-	e-mail:&nbsp;<a href="mailto:fzo@ucp.by">fzo@ucp.by</a>
-</p>
- <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '2-2-3-fakultet-zaochnogo-obucheniya',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

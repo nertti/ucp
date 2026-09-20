@@ -1,8 +1,16 @@
-p {
-    text-indent: 15px;
+.page__info p {
+    /*text-indent: 15px;*/
     line-height: 0.85; /* уменьшенный межстрочный интервал */
 }
-
+.page__info p::first-letter {
+  margin-left: 15px; 
+}
+.page__info a {
+  text-indent: 0;
+}
+iframe, video, img {
+  width: 100%;
+}
 .popup__success {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,18 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Углубленное высшее образование (магистратура)");
-?><p>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '3-uglublennoe-vysshee-obrazovanie-magistratura',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+
+
+
+
+<p>
  <a href="https://ucp.by/upload/FILES/umc/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA%20%D0%BF%D1%80%D0%B8%D0%B5%D0%BC%D0%B0%20%D0%BF%D0%BE%20%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8F%D0%BC%20%D0%BC%D0%B0%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B%202026.pdf"><b>Порядок приема по специальностям углубленного высшего образования в 2026&nbsp;году</b></a><b>&nbsp;</b>
 </p>
 <p>

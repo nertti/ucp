@@ -32,12 +32,12 @@ $filterName = $arParams['FILTER_NAME'] ?: 'arrFilter';
             <div class="page__content-header">
                 <div class="title-block">
                     <h1 class="title-two">Новости</h1>
-                    <a href="#" class="button-rss" data-da=".button-rss__mobile,950,1">
+					<a href="/rss/" class="button-rss" data-fls-dynamic=".button-rss__mobile,950,1">
                         <iconify-icon icon="line-md:rss" width="24" height="24" noobserver></iconify-icon>
                         <span>RSS</span>
                     </a>
                 </div>
-                <div class="hashtags-header" data-da=".hashtags-header-mobile,950,1">
+                <div class="hashtags-header" data-fls-dynamic=".hashtags-header-mobile,950,1">
                     <ul></ul>
                 </div>
                 <?php $APPLICATION->IncludeComponent(

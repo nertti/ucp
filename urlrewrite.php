@@ -192,14 +192,6 @@ $arUrlRewrite=array (
     'PATH' => '/programmy-obucheniya/index.php',
     'SORT' => 100,
   ),
-  71 => 
-  array (
-    'CONDITION' => '#^/structure/biblioteka/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/structure/biblioteka/index.php',
-    'SORT' => 100,
-  ),
   29 => 
   array (
     'CONDITION' => '#^/en/university/news/#',
@@ -230,14 +222,6 @@ $arUrlRewrite=array (
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/areas-of-activity/index.php',
-    'SORT' => 100,
-  ),
-  75 => 
-  array (
-    'CONDITION' => '#^/structure/otdely/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/structure/otdely/index.php',
     'SORT' => 100,
   ),
   57 => 
@@ -448,7 +432,7 @@ $arUrlRewrite=array (
     'PATH' => '/honor/index.php',
     'SORT' => 100,
   ),
-  88 => 
+  90 => 
   array (
     'CONDITION' => '#^/news/#',
     'RULE' => '',

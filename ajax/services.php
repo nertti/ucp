@@ -82,6 +82,10 @@ if ($tag !== '') {
 
 }
 
+if (!empty($_POST['institute'])) {
+	$GLOBALS[$filterName]['PROPERTY_INSTITUTE'] = $_POST['institute'];
+}
+
 
 /**
  * =========================================================

@@ -1,6 +1,6 @@
 <?
-$sSectionName = "Университет";
-$arDirProperties = Array(
+$sSectionName = "Об университете";
+$arDirProperties = array(
 
 );
 ?>

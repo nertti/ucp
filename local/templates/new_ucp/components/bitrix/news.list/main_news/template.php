@@ -26,7 +26,7 @@ $this->setFrameMode(true);
                                 <span><?= $arItem['DISPLAY_ACTIVE_FROM'] ?></span>
                             </div>
                             <h4 class="title-four"><?= $arItem["NAME"] ?></h4>
-                            <div class="text-caption"><?= $arItem["PREVIEW_TEXT"] ?></div>
+                            <div class="text-caption"><?= $arItem["TEXT"] ?></div>
                         </div>
                     </a>
                 </div>

@@ -139,23 +139,26 @@
         <div class="footer__nav">
             <?php
             $APPLICATION->IncludeComponent(
-                    "bitrix:menu",
-                    "bottom",
-                    Array(
-                            "ALLOW_MULTI_SELECT" => "N",
-                            "CHILD_MENU_TYPE" => "left",
-                            "COMPOSITE_FRAME_MODE" => "A",
-                            "COMPOSITE_FRAME_TYPE" => "AUTO",
-                            "DELAY" => "N",
-                            "MAX_LEVEL" => "2",
-                            "MENU_CACHE_GET_VARS" => array(""),
-                            "MENU_CACHE_TIME" => "3600",
-                            "MENU_CACHE_TYPE" => "Y",
-                            "MENU_CACHE_USE_GROUPS" => "Y",
-                            "ROOT_MENU_TYPE" => "bottom",
-                            "USE_EXT" => "Y"
-                    )
-            );
+	"bitrix:menu", 
+	"bottom", 
+	[
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "2",
+		"MENU_CACHE_GET_VARS" => [
+		],
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "bottom",
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "bottom"
+	],
+	false
+);
             ?>
             <ul class="footer__contacts">
                 <li class="footer__contacts-item">

@@ -1,7 +1,19 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Общее высшее образование (бакалавриат)");
-?><p>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '2-obshchee-vysshee-obrazovanie-bakalavriat',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+
+
+
+
+
+<p>
  <a href="https://ucp.by/upload/FILES/umc/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA%20%D0%BF%D1%80%D0%B8%D0%B5%D0%BC%D0%B0%20%D0%BF%D0%BE%20%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8F%D0%BC%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D0%B8%D0%B0%D1%82%D0%B0%202026.pdf"></a>
 </p>
 <p style="text-align: justify;">
@@ -80,7 +92,7 @@ $APPLICATION->SetTitle("Общее высшее образование (бака
 <p style="text-align: justify;">
 </p>
 <p style="text-align: justify;">
- <a href="https://ucp.by/upload/FILES/umc/%D0%98%D0%A2%D0%9E%D0%93%D0%98%20%D0%9F%D0%A0%D0%98%D0%95%D0%9C%D0%9D%D0%9E%D0%99%20%D0%9A%D0%90%D0%9C%D0%9F%D0%90%D0%9D%D0%98%D0%98%20%D0%92%20%D0%A3%D0%9D%D0%98%D0%92%D0%95%D0%A0%D0%A1%D0%98%D0%A2%D0%95%D0%A2%20%D0%93%D0%A0%D0%90%D0%96%D0%94%D0%90%D0%9D%D0%A1%D0%9A%D0%9E%D0%99%20%D0%97%D0%90%D0%A9%D0%98%D0%A2%D0%AB%20%D0%9C%D0%A7%D0%A1%20%D0%91%D0%95%D0%9B%D0%90%D0%A0%D0%A3%D0%A1%D0%98%20%D0%92%202025%20%D0%93%D0%9E%D0%94%D0%A3.docx"><b>Конкурс и проходной балл в 2025 году</b></a>
+ <a href="https://ucp.by/upload/FILES/umc/ИТОГИ%20ПРИЕМНОЙ%20КАМПАНИИ%20В%20УНИВЕРСИТЕТ%20ГРАЖДАНСКОЙ%20ЗАЩИТЫ%20МЧС%20БЕЛАРУСИ%20В%202026%20ГОДУ.docx"><b>Конкурс и проходной балл в 2026 году</b></a>
 </p>
 <p style="text-align: justify;">
 </p>

@@ -1,24 +1,11 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Научно-ориентированное образование");
-?><?
-$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"tree", 
-	array(
-		"COMPONENT_TEMPLATE" => "tree",
-		"ROOT_MENU_TYPE" => "sub",
-		"MENU_CACHE_TYPE" => "Y",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MAX_LEVEL" => "1",
-		"CHILD_MENU_TYPE" => "sub",
-		"USE_EXT" => "Y",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N"
-	),
-	false
-);
-?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '3-1-3-nauchno-orientirovannoe-obrazovanie',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

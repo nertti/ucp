@@ -1,7 +1,18 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Приемная кампания");
-?><p align="center">
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '1-priemnaya-kampaniya',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+
+
+
+
+<p align="center">
  <b>ГОРЯЧАЯ ЛИНИЯ ПРИЕМНОЙ КОМИССИИ</b><br>
 	 (017) 345 33 38
 </p>

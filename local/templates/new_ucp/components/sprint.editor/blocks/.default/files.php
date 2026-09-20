@@ -7,7 +7,7 @@
     <div class="documents">
         <?php foreach ($block['files'] as $item) : ?>
             <div class="documents__item">
-                <a download="<?= htmlspecialcharsbx($item['file']['ORIGINAL_NAME']) ?>"
+                <a target="_blank" download="<?= htmlspecialcharsbx($item['file']['ORIGINAL_NAME']) ?>"
                    title="<?= htmlspecialcharsbx($item['desc']) ?>"
                    href="<?= htmlspecialcharsbx($item['file']['SRC']) ?>">
                     <div class="icon">

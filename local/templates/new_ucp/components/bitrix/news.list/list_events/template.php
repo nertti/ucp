@@ -60,7 +60,7 @@ $this->setFrameMode(true);
                             $picture = $arItem["PREVIEW_PICTURE"] ?? null;
                             ?>
                             <li class="event__item" id="<?= $this->GetEditAreaId($arItem['ID']) ?>" data-event-id="<?= (int)$arItem['ID'] ?>">
-                                <div>
+                                <div class="block">
                                     <div class="event__item-date">
                                         <p>
                                             <?php if ($dateDescription): ?>

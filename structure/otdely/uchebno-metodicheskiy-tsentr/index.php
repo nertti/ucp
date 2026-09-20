@@ -1,8 +1,16 @@
-<?
+<?php
+
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+
+/**
+ * @global CMain $APPLICATION
+ */
+
 $APPLICATION->SetTitle("Учебно-методический центр");
-?><p style="text-align: justify;">
-	Основные задачи центра: координация нормирования, планирования и контроль выполнения работы профессорско-преподавательским составом университета по направлению образовательной деятельности; организация, планирование и управление образовательным процессом университета; координация деятельности учебно-методического объединения по образованию в области защиты от чрезвычайных ситуаций; координация деятельности по профессиональной ориентации обучающихся учреждений общего среднего образования для поступления в университет. <br>
-	<br>
-	Контактный телефон: +375 17 340 55 12
-</p><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '2-8-7-uchebno-metodicheskiy-tsentr',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>

@@ -1,4 +1,13 @@
-.text{
-    text-indent: 15px;
+.page__content-block .text{
+    /*text-indent: 15px;*/
     line-height: 0.85; /* уменьшенный межстрочный интервал */
+}
+.page__content-block .text::first-letter {
+  margin-left: 15px; 
+}
+.page__content-block a {
+  text-indent: 0;
+}
+.title-four {
+  color: var(--blue);
 }

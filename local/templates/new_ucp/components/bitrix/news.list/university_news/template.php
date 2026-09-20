@@ -58,9 +58,9 @@ $this->setFrameMode(true);
                             <?= $mainItem['NAME'] ?>
                         </h4>
 
-                        <?php if (!empty($mainItem['PREVIEW_TEXT'])): ?>
+                        <?php if (!empty($mainItem['TEXT'])): ?>
                             <p class="text-caption">
-                                <?= $mainItem['PREVIEW_TEXT'] ?>
+                                <?= $mainItem['TEXT'] ?>
                             </p>
                         <?php endif; ?>
                     </div>

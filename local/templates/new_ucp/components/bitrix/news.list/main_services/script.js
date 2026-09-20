@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tabsContainer = document.querySelector(".tabs");
-    const servicesList = document.querySelector(".services__list");
+    const servicesList = document.querySelector(".services__main-list");
     const wrapper = document.querySelector(".services__wrapper");
     const skeletonList = document.querySelector(".services__skeleton-list");
 

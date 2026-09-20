@@ -28,7 +28,7 @@
     <div class="universities__slider-wrapper">
         <a href="#" class="universities__slider-img">
             <img src="<?= $block['image']['file']['SRC'] ?>" alt="<?= $block['image']['htag']['value'] ?>"
-                 title="<?= $block['image']['htag']['value'] ?>"/>
+                 title="<?= $block['image']['htag']['value'] ?>" loading="lazy"/>
         </a>
         <div class="universities__slider-action">
             <button class="universities__slider-button-prev swiper-button-prev">

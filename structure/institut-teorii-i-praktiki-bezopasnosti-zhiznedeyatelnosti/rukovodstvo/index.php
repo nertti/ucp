@@ -1,7 +1,15 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Руководство");
-?><p style="text-align: center;">
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '3-rukovodstvo',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>
+
+<p style="text-align: center;">
 	Заместитель начальника университета по идеологической работе и кадровому обеспечению – начальник института теории и практики безопасности жизнедеятельности <br>
 	полковник внутренней службы <br>
 	<b>Делендик Николай Анатольевич</b><br>

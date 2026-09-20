@@ -1,3 +1,6 @@
 <?
-$sSectionName="Услуги";
+$sSectionName = "Образовательный центр безопасности";
+$arDirProperties = array(
+
+);
 ?>

@@ -1,4 +1,16 @@
-<?
+<?php
+
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+
+/**
+ * @global CMain $APPLICATION
+ */
+
 $APPLICATION->SetTitle("Отдел по защите государственных секретов и документационного обеспечения");
-?>Text here....<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => '2-8-10-otdel-po-zashchite-gosudarstvennykh-sekretov-i-dokumentatsionnogo-obespecheniya-',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
+]); ?>

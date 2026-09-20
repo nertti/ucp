@@ -8,7 +8,44 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 $APPLICATION->SetTitle("События");
 ?>
-
+<main class="page">
+    <div class="page__container">
+        <nav class="page__sidebar">
+            <?php
+            $APPLICATION->IncludeFile(
+                "/include/left/menu.php",
+                [],
+                [
+                    "MODE" => "html"
+                ]
+            );
+            ?>
+            <?php
+            $APPLICATION->IncludeFile(
+                "/include/left/banners.php",
+                [],
+                [
+                    "MODE" => "html"
+                ]
+            );
+            ?>
+        </nav>
+        <div class="page__content">
+            <div class="page__content-header">
+                <h1 class="title-two">
+                    События
+                </h1>
+                <?php $APPLICATION->IncludeComponent(
+                        "bitrix:breadcrumb",
+                        "breadcrumb",
+                        array(
+                                "COMPONENT_TEMPLATE" => "breadcrumb",
+                                "PATH" => "",
+                                "SITE_ID" => "s1",
+                                "START_FROM" => "0"
+                        )
+                ); ?>
+            </div>
 <?php
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
@@ -50,8 +87,8 @@ $APPLICATION->IncludeComponent(
 		"SET_META_KEYWORDS" => "Y",
 		"SET_META_DESCRIPTION" => "Y",
 		"SET_LAST_MODIFIED" => "N",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
@@ -68,10 +105,15 @@ $APPLICATION->IncludeComponent(
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
-		"MESSAGE_404" => ""
+		"MESSAGE_404" => "",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO"
 	],
 	false
 );
 ?>
+        </div>
+    </div>
+</main>
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");

@@ -1,6 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Политика в отношении обработки персональных данных");
-?><?php $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
-    'PACK_ID' => 'politika_personalnykh_dannykh',
+?><? $APPLICATION->IncludeComponent("sprint.editor:blocks", "constructor", [
+    'IBLOCK_TYPE' => 'static_pages',
+    'IBLOCK_CODE' => 'static_pages',
+    'ELEMENT_CODE' => 'politika-v-otnoshenii-obrabotki-personalnykh-dannykh',
+    'PROPERTY_CODE' => 'EDITOR',
+    'SHOW_AREAS' => 'Y',
 ]); ?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

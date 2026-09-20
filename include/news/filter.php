@@ -135,9 +135,9 @@ while ($section = $sectionRes->GetNext()) {
 
 
         <!-- Институты и филиалы -->
-        <details class="spollers__item">
+        <details class="spollers__item" data-fls-spollers-open>
             <summary class="spollers__title">
-                Институты и филиалы
+                Институты
             </summary>
 
             <div class="spollers__body">
