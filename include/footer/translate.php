@@ -19,44 +19,73 @@
 
 <script>
     const googleTranslateConfig = {
-        lang: "ru", // Язык оригинала сайта
+        lang: "ru",
     };
 
+    let googleTranslateLoaded = false;
+    let googleTranslateLoading = false;
+
+    /**
+     * Инициализация Google Translate
+     */
     function TranslateInit() {
-        let code = TranslateGetCode();
+        googleTranslateLoaded = true;
+        googleTranslateLoading = false;
 
-        // 2. Находим выбранный язык, подсвечиваем его и скрываем из списка
-        const activeOption = document.querySelector(`[data-google-lang="${code}"]`);
-        if (activeOption) {
-            activeOption.remove();
-        }
+        const code = TranslateGetCode();
 
-        // 1. Показываем все языки и убираем старые классы активности
-        const langOptions = document.querySelectorAll('.header__lang-dropdown .header__lang-option');
+        // Показываем все языки
+        const langOptions = document.querySelectorAll(
+            '.header__lang-dropdown .header__lang-option'
+        );
+
         langOptions.forEach(option => {
             option.style.display = '';
-            option.classList.remove('language__img_active', 'active');
+            option.classList.remove(
+                'language__img_active',
+                'active'
+            );
         });
 
-        // 3. Синхронизируем текст на главной кнопке (RU или EN)
-        const currentLangBtn = document.querySelector('.header__lang-current');
+        // Скрываем текущий язык
+        const activeOption = document.querySelector(
+            `[data-google-lang="${code}"]`
+        );
+
+        if (activeOption) {
+            activeOption.style.display = 'none';
+        }
+
+        // Текущий язык
+        const currentLangBtn = document.querySelector(
+            '.header__lang-current'
+        );
+
         if (currentLangBtn) {
             currentLangBtn.textContent = code.toUpperCase();
         }
 
-        // Инициализация виджета Google Translate
+        // Инициализация Google Translate
         new google.translate.TranslateElement({
             pageLanguage: googleTranslateConfig.lang,
         });
 
-        // 4. Логика клика по языкам
+        // Обработчики языков
         langOptions.forEach(option => {
+            // Чтобы обработчик не добавлялся несколько раз
+            if (option.dataset.translateInitialized) {
+                return;
+            }
+
+            option.dataset.translateInitialized = 'true';
+
             option.addEventListener('click', function (e) {
                 e.preventDefault();
-                let selectedLang = this.getAttribute("data-google-lang");
 
-                // Вместо удаления куки, мы всегда ЗАПИСЫВАЕМ её.
-                // Для RU запишется /auto/ru, что сбросит перевод у Google.
+                const selectedLang = this.getAttribute(
+                    'data-google-lang'
+                );
+
                 TranslateSetCookie(selectedLang);
 
                 window.location.reload();
@@ -64,44 +93,116 @@
         });
     }
 
-    // Чтение куки на чистом JS
-    function getCookie(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches) : undefined;
+
+    /**
+     * Загружает Google Translate только при необходимости
+     */
+    function loadGoogleTranslate() {
+        // Уже загружен
+        if (googleTranslateLoaded) {
+            return;
+        }
+
+        // Уже идёт загрузка
+        if (googleTranslateLoading) {
+            return;
+        }
+
+        googleTranslateLoading = true;
+
+        // callback Google
+        window.TranslateInit = TranslateInit;
+
+        const script = document.createElement('script');
+
+        script.src =
+            'https://translate.google.com/translate_a/element.js?cb=TranslateInit';
+
+        script.async = true;
+
+        script.onerror = function () {
+            googleTranslateLoading = false;
+
+            console.warn(
+                'Google Translate недоступен'
+            );
+        };
+
+        document.head.appendChild(script);
     }
 
+
+    /**
+     * Чтение cookie
+     */
+    function getCookie(name) {
+        const matches = document.cookie.match(
+            new RegExp(
+                "(?:^|; )" +
+                name.replace(
+                    /([\.$?*|{}\(\)\[\]\\\/\+^])/g,
+                    '\\$1'
+                ) +
+                "=([^;]*)"
+            )
+        );
+
+        return matches
+            ? decodeURIComponent(matches[1])
+            : undefined;
+    }
+
+
+    /**
+     * Получение текущего языка
+     */
     function TranslateGetCode() {
-        let googtrans = getCookie('googtrans');
-        // Если куки нет или она указывает на дефолтный язык (ru), возвращаем "ru"
-        if (!googtrans || googtrans === "null" || googtrans === `/${googleTranslateConfig.lang}/${googleTranslateConfig.lang}` || googtrans === `/auto/${googleTranslateConfig.lang}`) {
+        const googtrans = getCookie('googtrans');
+
+        if (
+            !googtrans ||
+            googtrans === "null" ||
+            googtrans === `/${googleTranslateConfig.lang}/${googleTranslateConfig.lang}` ||
+            googtrans === `/auto/${googleTranslateConfig.lang}`
+        ) {
             return googleTranslateConfig.lang;
         }
-        return lang = googtrans.substring(googtrans.lastIndexOf('/') + 1).toLowerCase();
+
+        return googtrans
+            .substring(googtrans.lastIndexOf('/') + 1)
+            .toLowerCase();
     }
 
-    // Универсальная и жесткая запись куки для всех уровней домена
+
+    /**
+     * Установка cookie Google Translate
+     */
     function TranslateSetCookie(code) {
         const value = "/auto/" + code;
         const domain = window.location.hostname;
-        const baseDomain = domain.split('.').slice(-2).join('.'); // Выделяет site.com из ://site.com
+        const baseDomain = domain
+            .split('.')
+            .slice(-2)
+            .join('.');
 
-        // Очищаем кэш сессий браузера
         sessionStorage.removeItem('googtrans');
         localStorage.removeItem('googtrans');
 
-        // Перезаписываем куки на всех возможных путях и доменах
-        document.cookie = `googtrans=${value}; path=/;`;
-        document.cookie = `googtrans=${value}; path=/; domain=${domain};`;
-        document.cookie = `googtrans=${value}; path=/; domain=.${domain};`;
+        document.cookie =
+            `googtrans=${value}; path=/;`;
+
+        document.cookie =
+            `googtrans=${value}; path=/; domain=${domain};`;
+
+        document.cookie =
+            `googtrans=${value}; path=/; domain=.${domain};`;
 
         if (baseDomain !== domain) {
-            document.cookie = `googtrans=${value}; path=/; domain=.${baseDomain};`;
-            document.cookie = `googtrans=${value}; path=/; domain=${baseDomain};`;
+            document.cookie =
+                `googtrans=${value}; path=/; domain=.${baseDomain};`;
+
+            document.cookie =
+                `googtrans=${value}; path=/; domain=${baseDomain};`;
         }
     }
 </script>
-
-<!-- Скрипт Google, который автоматически вызовет функцию TranslateInit -->
-<script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>

@@ -165,6 +165,9 @@ switch ($sort) {
             if (!empty($_GET['tag'])) {
                 $GLOBALS[$filterName]['PROPERTY_TAGS'] = $_GET['tag'];
             }
+            if (!empty($_GET['institute'])) {
+                $GLOBALS[$filterName]['PROPERTY_INSTITUTE'] = $_GET['institute'];
+            }
             ?>
             <div class="services__list-wrapper" id="services-list">
                 <?php

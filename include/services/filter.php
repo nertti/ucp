@@ -80,7 +80,7 @@ function renderServiceSections(array $sections): void
 
                 <div data-fls-spollers class="spollers">
 
-                    <details class="spollers__item" >
+                    <details class="spollers__item"  data-fls-spollers-open>
 
                         <summary class="spollers__title">
 
@@ -131,7 +131,7 @@ function renderServiceSections(array $sections): void
 
 <div
     class="page__sidebar-content"
-    data-da=".page__sidebar-content-mobile,950,1"
+    data-fls-dynamic=".page__sidebar-content-mobile,950,1"
 >
 
     <div class="page__sidebar-search-content">

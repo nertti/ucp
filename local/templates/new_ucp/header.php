@@ -19,7 +19,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
 	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/app.min.css', true, ['defer' => 'defer']);
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/bvi.min.css', true, ['defer' => 'defer']);
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/fancybox.min.css', true, ['defer' => 'defer']);
 
@@ -27,7 +27,7 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/dist/js/iconify-icon.min.js', true, ['defer' => 'defer']);
     ?>
 
-    <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app9.min.js"></script>
+    <script type="module" crossorigin="" src="/local/templates/new_ucp/dist/js/app10.min.js"></script>
 </head>
 
 <body>
@@ -52,26 +52,31 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
                         )
                 ); ?>
                 <nav class="header__nav">
+                    <!-- Меню обернуть в компонент -->
                     <?php
                     $APPLICATION->IncludeComponent(
-                            "bitrix:menu",
-                            "top",
-                            Array(
-                                    "ALLOW_MULTI_SELECT" => "N",
-                                    "CHILD_MENU_TYPE" => "left",
-                                    "COMPOSITE_FRAME_MODE" => "A",
-                                    "COMPOSITE_FRAME_TYPE" => "AUTO",
-                                    "DELAY" => "N",
-                                    "MAX_LEVEL" => "2",
-                                    "MENU_CACHE_GET_VARS" => array(""),
-                                    "MENU_CACHE_TIME" => "3600",
-                                    "MENU_CACHE_TYPE" => "Y",
-                                    "MENU_CACHE_USE_GROUPS" => "Y",
-                                    "ROOT_MENU_TYPE" => "top",
-                                    "USE_EXT" => "Y"
-                            )
-                    );
+	"bitrix:menu", 
+	"top", 
+	[
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "2",
+		"MENU_CACHE_GET_VARS" => [
+		],
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "top",
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "top"
+	],
+	false
+);
                     ?>
+                    <!-- Меню обернуть в компонент -->
                 </nav>
                 <?php $APPLICATION->IncludeFile(
                         "/include/header/search.php",
@@ -176,137 +181,73 @@ $isMainPage = $APPLICATION->GetCurPage(false) === '/';
         </header>
 
         <div class="mobile-search">
-            <div class="mobile-search__container">
-                <div class="mobile-search__input-wrapper">
-                    <button class="mobile-search__btn mobile-search__btn--search">
-                        <iconify-icon icon="lucide:search" width="20" height="20" noobserver></iconify-icon>
-                    </button>
-                    <input type="text" class="mobile-search__input" placeholder="Поиск" />
-                    <button class="mobile-search__btn mobile-search__btn--clear">
-                        <iconify-icon icon="lucide:x" width="20" height="20" noobserver></iconify-icon>
-                    </button>
-                </div>
-                <div class="mobile-search__content">
-                    <ul class="mobile-search__list">
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет предупреждения и ликвидации ЧС</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет техносферной безопасности</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет заочного обучения</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет безопасности жизнедеятельности</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет предупреждения и ликвидации ЧС</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет техносферной безопасности</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет заочного обучения</p>
-                        </li>
-                        <li class="mobile-search__item">
-                            <p class="text-caption">Факультет безопасности жизнедеятельности</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <div class="mobile-search__container">
+
+        <div class="mobile-search__input-wrapper">
+
+            <button
+                type="button"
+                class="mobile-search__btn mobile-search__btn--search"
+            >
+                <iconify-icon
+                    icon="lucide:search"
+                    width="20"
+                    height="20"
+                    noobserver
+                ></iconify-icon>
+            </button>
+
+            <input
+                type="text"
+                name="search"
+                class="mobile-search__input"
+                placeholder="Поиск"
+                autocomplete="off"
+            />
+
+            <button
+                type="button"
+                class="mobile-search__btn mobile-search__btn--clear"
+            >
+                <iconify-icon
+                    icon="lucide:x"
+                    width="20"
+                    height="20"
+                    noobserver
+                ></iconify-icon>
+            </button>
+
         </div>
+
+        <div class="mobile-search__content">
+            <ul class="mobile-search__list"></ul>
+        </div>
+
+    </div>
+</div>
 
         <div class="header-mobile">
             <div class="header__container">
-                <div class="spollers" data-fls-spollers="">
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/university/">Университет</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/university/history/">История</a></li>
-                                <li><a href="/university/presentation/">Презентация университета</a></li>
-                                <li><a href="/university/licenses/">Лицензии, сертификаты и аттестаты</a></li>
-                                <li><a href="/university/quality-management-system/">Система менеджмента качества</a></li>
-                                <li><a href="/university/sistema-upravleniya-okhranoy-truda/">Система управления охраной труда</a></li>
-                                <li><a href="/university/informatsionnye-resursy/">Информационно-образовательная платформа/</a></li>
-                                <li><a href="/university/numeratsiya-korpusov-i-uchebnykh-auditoriy/">Нумерация корпусов и учебных аудиторий</a></li>
-                                <li><a href="/university/politika-v-otnoshenii-obrabotki-personalnykh-dannykh/">Политика в отношении обработки персональных данных</a></li>
-                                <li><a href="/university/vakansii/">Вакансии</a></li>
-                                <li><a href="/events/">События</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/structure/">Структура</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/structure/leaders/">Руководство</a></li>
-                                <li><a href="/structure/faculties/">Факультеты</a></li>
-                                <li><a href="/structure/institut-professionalnogo-obrazovaniya/">Институт профессионального образования</a></li>
-                                <li><a href="/structure/institut-perepodgotovki-i-povysheniya-kvalifikatsii/">Институт переподготовки и повышения квалификации</a></li>
-                                <li><a href="/structure/nauchno-issledovatelskiy-institut-pozharnoy-bezopasnosti-i-problem-chrezvychaynykh-situatsiy/">Научно - исследовательский институт пожарной безопасности и проблем чрезвычайных ситуаций</a></li>
-                                <li><a href="/structure/institut-teorii-i-praktiki-bezopasnosti-zhiznedeyatelnosti/">Институт теории и практики безопасности жизнедеятельности</a></li>
-                                <li><a href="/structure/litsey-mchs/">Лицей МЧС</a></li>
-                                <li><a href="/structure/otdely/">Отделы и центры</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/activity/">Деятельность</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/activity/obrazovatelnaya/">Образовательная и просветительская</a></li>
-                                <li><a href="/activity/nauchnaya/">Научная и инновационная</a></li>
-                                <li><a href="/activity/formirovanie-kultury-bezopasnosti-zhiznedeyatelnosti/">Формирование культуры безопасности жизнедеятельности</a></li>
-                                <li><a href="/activity/ideologicheskaya/">Идеологическая</a></li>
-                                <li><a href="/activity/mezhdunarodnaya/">Международная</a></li>
-                                <li><a href="/activity/izdatelskaya/">Издательская</a></li>
-                                <li><a href="/activity/sportivnaya/">Спортивная</a></li>
-                                <li><a href="/activity/tekhnicheskiy-komitet-tk-by-35/">Технический комитет ТК ВУ 35</a></li>
-                                <li><a href="/activity/tnpa-i-npa/">ТНПА и НПА</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/services/">Услуги</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/services/erip/">ЕРИП</a></li>
-                                <li><a href="/services/obrazovatelnye/">Образовательные и просветительские услуги</a></li>
-                                <li><a href="/services/nauchnye/">Наука и инновационная продукция</a></li>
-                                <li><a href="/services/provedenie-ispytaniy/">Испытательная деятельность</a></li>
-                                <li><a href="/services/ekspertno-konsultatsionnye/">Экспертная деятельность</a></li>
-                                <li><a href="/services/organ-po-sertifikatsii-produktsii/">Орган по сертификации продукции</a></li>
-                                <li><a href="/services/poligraficheskie/">Полиграфические и сервисные услуги</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/abiturientu/">Абитуриенту</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/abiturientu/priemnaya-kampaniya/">Приемная кампания</a></li>
-                                <li><a href="/abiturientu/obshchee-vysshee-obrazovanie-bakalavriat/">Общее высшее образование (бакалавриат)</a></li>
-                                <li><a href="/abiturientu/uglublennoe-vysshee-obrazovanie-magistratura/">Углубленное высшее образование (магистратура)</a></li>
-                                <li><a href="/abiturientu/adyunktura/">Адъюнктура</a></li>
-                                <li><a href="/abiturientu/dopolnitelnoe-obrazovanie-vzroslykh">Переподготовка руководящих работников и специалистов, имеющих высшее образование</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="spollers__item">
-                        <summary class="spollers__title"><a href="/contacts/">Контакты</a></summary>
-                        <div class="spollers__body">
-                            <ul>
-                                <li><a href="/contacts/kontakty/">Контактная информация</a></li>
-                                <li><a href="/contacts/administrativnye-procedury/">Административные процедуры</a></li>
-                                <li><a href="/contacts/priem/">Прием граждан</a></li>
-                                <li><a href="/contacts/telefon-doveriya/">Телефон доверия</a></li>
-                                <li><a href="/electronic-forms/">Обращения граждан</a></li>
-                            </ul>
-                        </div>
-                    </details>
-                </div>
+                <?php
+                $APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "top-mobile",
+                        Array(
+                                "ALLOW_MULTI_SELECT" => "N",
+                                "CHILD_MENU_TYPE" => "left",
+                                "COMPOSITE_FRAME_MODE" => "A",
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                "DELAY" => "N",
+                                "MAX_LEVEL" => "2",
+                                "MENU_CACHE_GET_VARS" => array(""),
+                                "MENU_CACHE_TIME" => "3600",
+                                "MENU_CACHE_TYPE" => "Y",
+                                "MENU_CACHE_USE_GROUPS" => "Y",
+                                "ROOT_MENU_TYPE" => "top",
+                                "USE_EXT" => "Y"
+                        )
+                );
+                ?>
                 <div class="socials-mobile"></div>
                 <div class="header__accessibility-mobile"></div>
             </div>

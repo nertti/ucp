@@ -185,92 +185,77 @@ $this->setFrameMode(true);
                         $component,
                 ); ?>
 
-                <section class="page__services" style="display: none">
-                    <div class="title-block">
-                        <h2 class="title-two">
-                            <a href="">Услуги</a>
-                        </h2>
-                        <a href="#" class="button-all">
-                            <span>Все услуги</span>
-                            <iconify-icon icon="lucide:chevron-right" width="24" height="24" noobserver></iconify-icon>
-                        </a>
-                    </div>
-                    <ul class="services__main-list">
-                        <li class="services__main-list-item">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="streamline-plump:graduation-cap" width="100%" height="100%"
-                                                      noobserver></iconify-icon>
-                                    </div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Обучение руководящего состава по программе «Защита от ЧС»</h3>
-                                    <p>
-                                        Обязательное обучение директоров предприятий и уполномоченных лиц в
-                                        области гражданской обороны, защиты населения и организации
-                                        первичных звеньев....
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="lucide:atom" width="100%" height="100%"
-                                                      noobserver></iconify-icon>
-                                    </div>
-                                    <div class="label">Популярная услуга</div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Разработка инновационных решений для промышленной безопасности</h3>
-                                    <p>
-                                        Проведение научных исследований, разработка методик и технологий,
-                                        направленных на повышение уровня безопасности и эффективности
-                                        производственных процессов.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="famicons:flask-outline" width="100%" height="100%"
-                                                      noobserver></iconify-icon>
-                                    </div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Испытания продукции на соответствие требованиям безопасности</h3>
-                                    <p>
-                                        Комплексные лабораторные испытания материалов,
-                                        оборудования и изделий с выдачей официальных протоколов испытаний.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="services__main-list-item">
-                            <a href="#">
-                                <div class="services__main-list-header">
-                                    <div class="icon">
-                                        <iconify-icon icon="solar:clipboard-check-linear" width="100%" height="100%"
-                                                      noobserver></iconify-icon>
-                                    </div>
-                                    <div class="label">Рекомендуем</div>
-                                </div>
-                                <div class="services__main-list-content">
-                                    <h3>Экспертная оценка промышленной и пожарной безопасности</h3>
-                                    <p>
-                                        Проведение независимой экспертной оценки объектов, документации и
-                                        технических решений в соответствии с действующими нормативными
-                                        требованиями.
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
+                <?php
+
+                global $universityServicesFilter;
+
+                $universityServicesFilter = [
+                        '=PROPERTY_VIEW_ON_MAIN' => 137,
+                ];
+
+                $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "university_services",
+                        [
+                                "IBLOCK_ID" => "79",
+                                "NEWS_COUNT" => "4",
+                                "SORT_BY1" => "SORT",
+                                "SORT_ORDER1" => "ASC",
+                                "CACHE_TYPE" => "A",
+                                "CACHE_TIME" => "3600",
+                                "COMPONENT_TEMPLATE" => "university_services",
+                                "IBLOCK_TYPE" => "services",
+                                "SORT_BY2" => "SORT",
+                                "SORT_ORDER2" => "ASC",
+                                "FILTER_NAME" => "universityServicesFilter",
+                                "FIELD_CODE" => [
+                                        0 => "",
+                                        1 => "",
+                                ],
+                                "PROPERTY_CODE" => [
+                                        0 => "TEXT",
+                                        1 => "",
+                                ],
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "CACHE_FILTER" => "N",
+                                "CACHE_GROUPS" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "SET_TITLE" => "Y",
+                                "SET_BROWSER_TITLE" => "Y",
+                                "SET_META_KEYWORDS" => "Y",
+                                "SET_META_DESCRIPTION" => "Y",
+                                "SET_LAST_MODIFIED" => "N",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                "ADD_SECTIONS_CHAIN" => "Y",
+                                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                "PARENT_SECTION" => "",
+                                "PARENT_SECTION_CODE" => "",
+                                "INCLUDE_SUBSECTIONS" => "Y",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                "PAGER_TITLE" => "Новости",
+                                "PAGER_SHOW_ALWAYS" => "N",
+                                "PAGER_DESC_NUMBERING" => "N",
+                                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SHOW_404" => "N",
+                                "MESSAGE_404" => ""
+                        ],
+                        false
+                );
+                ?>
+
                 <section class="home__news">
                     <div class="home__container">
                         <?php
@@ -356,7 +341,7 @@ $this->setFrameMode(true);
                                         "news_line",
                                         [
                                                 "IBLOCK_ID" => "2",
-                                                "NEWS_COUNT" => "5",
+                                                "NEWS_COUNT" => "4",
                                                 "SORT_BY1" => "SORT",
                                                 "SORT_ORDER1" => "ASC",
                                                 "CACHE_TYPE" => "Y",
@@ -422,8 +407,3 @@ $this->setFrameMode(true);
             </div>
         </div>
     </div>
-<?php
-//echo '<pre>';
-//print_r($arResult);
-//echo '</pre>';
-//?>
