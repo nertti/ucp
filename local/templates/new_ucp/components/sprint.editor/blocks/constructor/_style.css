@@ -9,5 +9,5 @@
   text-indent: 0;
 }
 .title-four {
-  color: var(--blue);
+  color: var(--blue) !important;
 }

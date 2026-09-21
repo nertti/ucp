@@ -5155,6 +5155,7 @@ function checkAndHideNavigation(sliderElement, config) {
 	}
 	return hasMultipleSlides;
 }
+console.log('v1');
 var sliderConfigs = {
 	"preview-slider": {
 		modules: [Pagination],
@@ -5193,10 +5194,7 @@ var sliderConfigs = {
 			el: ".home__feed-news-slider-pagination",
 			clickable: true
 		},
-		breakpoints: { 0: {
-			slidesPerView: 1,
-			spaceBetween: 20
-		} }
+		breakpoints: { 0: { slidesPerView: 1, spaceBetween: 20 } }
 	},
 	"universities__slider": {
 		modules: [Navigation, Pagination],
@@ -5214,10 +5212,7 @@ var sliderConfigs = {
 			el: ".universities__slider-pagination",
 			clickable: true
 		},
-		breakpoints: { 0: {
-			slidesPerView: 1,
-			spaceBetween: 60
-		} }
+		breakpoints: { 0: { slidesPerView: 1, spaceBetween: 60 } }
 	},
 	"universities__branches-slider": {
 		modules: [Navigation],
@@ -5233,14 +5228,8 @@ var sliderConfigs = {
 			nextEl: ".universities__branches-slider-button-next"
 		},
 		breakpoints: {
-			0: {
-				slidesPerView: 1,
-				spaceBetween: 20
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 16
-			}
+			0: { slidesPerView: 1, spaceBetween: 20 },
+			768: { slidesPerView: 2, spaceBetween: 16 }
 		},
 		isResponsive: true
 	},
@@ -5260,10 +5249,7 @@ var sliderConfigs = {
 			el: ".news__slider-pagination",
 			clickable: true
 		},
-		breakpoints: { 0: {
-			slidesPerView: 1,
-			spaceBetween: 60
-		} }
+		breakpoints: { 0: { slidesPerView: 1, spaceBetween: 60 } }
 	},
 	"page__image-slider-main": {
 		modules: [Navigation, Thumb],
@@ -5271,26 +5257,7 @@ var sliderConfigs = {
 		observeParents: true,
 		slidesPerView: 1,
 		spaceBetween: 20,
-		speed: 800,
-		navigation: {
-			prevEl: ".page__image-slider-prev",
-			nextEl: ".page__image-slider-next"
-		},
-		thumbs: { swiper: {
-			el: ".page__image-slider-thumbs",
-			slidesPerView: 6,
-			spaceBetween: 10,
-			breakpoints: {
-				768: {
-					slidesPerView: 6,
-					spaceBetween: 8
-				},
-				1024: {
-					slidesPerView: 9,
-					spaceBetween: 8
-				}
-			}
-		} }
+		speed: 800
 	},
 	"footer__slider": {
 		modules: [Navigation],
@@ -5305,33 +5272,215 @@ var sliderConfigs = {
 			nextEl: ".footer__slider-button-next"
 		},
 		breakpoints: {
-			0: {
-				slidesPerView: 2,
-				spaceBetween: 20
-			},
-			767: {
-				slidesPerView: 4,
-				spaceBetween: 20,
-				slidesPerGroup: 1
-			}
+			0: { slidesPerView: 2, spaceBetween: 20 },
+			767: { slidesPerView: 4, spaceBetween: 20, slidesPerGroup: 1 }
 		}
 	}
 };
-function initSliders() {
-	Object.keys(sliderConfigs).forEach((sliderClass) => {
-		const element = document.querySelector(`.${sliderClass}`);
+
+function getRealSlideCount(element) {
+	return element.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
+}
+
+function hideSliderControls(element, config) {
+	element.classList.add('swiper-single-slide');
+
+	if (config.navigation) {
+		[config.navigation.prevEl, config.navigation.nextEl].forEach((sel) => {
+			if (!sel) return;
+			document.querySelectorAll(sel).forEach((el) => {
+				el.classList.add('swiper-control-hidden');
+			});
+		});
+	}
+
+	if (config.pagination && config.pagination.el) {
+		document.querySelectorAll(config.pagination.el).forEach((el) => {
+			el.classList.add('swiper-control-hidden');
+		});
+	}
+}
+
+function initImageSlider(element, config) {
+	const root = element.closest(".page__image-slider");
+	const thumbsEl = root ? root.querySelector(".page__image-slider-thumbs") : null;
+	const navPrev = root ? root.querySelector(".page__image-slider-prev") : null;
+	const navNext = root ? root.querySelector(".page__image-slider-next") : null;
+	let thumbsSwiper = null;
+	if (thumbsEl) {
+		thumbsSwiper = thumbsEl.swiper || new Swiper(thumbsEl, {
+			slidesPerView: 6,
+			spaceBetween: 10,
+			watchSlidesProgress: true,
+			breakpoints: {
+				768: { slidesPerView: 6, spaceBetween: 8 },
+				1024: { slidesPerView: 9, spaceBetween: 8 }
+			}
+		});
+	}
+	new Swiper(element, {
+		...config,
+		navigation: { prevEl: navPrev, nextEl: navNext },
+		thumbs: thumbsSwiper ? { swiper: thumbsSwiper } : undefined
+	});
+}
+
+function initResponsiveSlider(element, config) {
+	let branchesSlider = null;
+	const MOBILE_BREAKPOINT = 950;
+
+	function setGridMode() {
+		element.classList.remove(
+			"swiper-initialized",
+			"swiper-horizontal",
+			"swiper-backface-hidden",
+			"swiper-pointer-events",
+			"swiper-ios",
+			"swiper-android",
+			"swiper-css-mode"
+		);
+		element.classList.add("swiper-static");
+
+		const wrapper = element.querySelector(".swiper-wrapper");
+		if (wrapper) {
+			wrapper.removeAttribute("style");
+			wrapper.style.display = "grid";
+			wrapper.style.gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
+			wrapper.style.gap = config.spaceBetween ? config.spaceBetween + "px" : "16px";
+			wrapper.style.transform = "none";
+		}
+
+		element.querySelectorAll(".swiper-slide").forEach((slide) => {
+			slide.removeAttribute("style");
+			slide.classList.remove(
+				"swiper-slide-active",
+				"swiper-slide-next",
+				"swiper-slide-prev",
+				"swiper-slide-visible",
+				"swiper-slide-fully-visible"
+			);
+			slide.style.width = "auto";
+			slide.style.marginRight = "0";
+		});
+
+		const action = element.querySelector(".universities__branches-slider-action");
+		if (action) action.style.display = "none";
+	}
+
+	function setSliderMode() {
+		element.classList.remove("swiper-static");
+
+		const wrapper = element.querySelector(".swiper-wrapper");
+		if (wrapper) {
+			wrapper.style.display = "";
+			wrapper.style.gridTemplateColumns = "";
+			wrapper.style.gap = "";
+			wrapper.style.transform = "";
+		}
+
+		const action = element.querySelector(".universities__branches-slider-action");
+		if (action) action.style.display = "";
+
+		if (!branchesSlider) {
+			branchesSlider = new Swiper(element, {
+				...config,
+				on: {
+					init(swiper) {
+						swiper.update();
+					}
+				}
+			});
+		}
+	}
+
+	function initBranchesSlider() {
 		if (!element) return;
-		const config = sliderConfigs[sliderClass];
-		if (!checkAndHideNavigation(element, config)) return;
-		if (config.isVideoSlider) {
-			initPreviewSlider(element, config);
+
+		const slides = element.querySelectorAll(".swiper-slide:not(.swiper-slide-duplicate)");
+		const hasMultipleSlides = slides.length > 1;
+
+		if (!hasMultipleSlides) {
+			if (branchesSlider) {
+				branchesSlider.destroy(true, true);
+				branchesSlider = null;
+			}
+			setGridMode();
+			element.classList.add("swiper-single-slide");
+			if (config.navigation) {
+				const navPrev = document.querySelector(config.navigation.prevEl);
+				const navNext = document.querySelector(config.navigation.nextEl);
+				if (navPrev) navPrev.style.display = "none";
+				if (navNext) navNext.style.display = "none";
+			}
 			return;
 		}
-		if (config.isResponsive) {
-			initResponsiveSlider(sliderClass, config);
-			return;
+
+		element.classList.remove("swiper-single-slide");
+
+		if (window.innerWidth <= MOBILE_BREAKPOINT) {
+			setSliderMode();
+		} else {
+			if (branchesSlider) {
+				branchesSlider.destroy(true, true);
+				branchesSlider = null;
+			}
+			setGridMode();
 		}
-		new Swiper(`.${sliderClass}`, config);
+	}
+
+	initBranchesSlider();
+
+	let resizeTimer;
+	window.addEventListener("resize", () => {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(initBranchesSlider, 200);
+	});
+}
+
+function initSliders() {
+	const sliderObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				const element = entry.target;
+				const configKey = element.dataset.sliderConfig;
+				const config = sliderConfigs[configKey];
+				if (config) {
+					observer.unobserve(element);
+
+					const slideCount = getRealSlideCount(element);
+					if (slideCount <= 1) {
+						hideSliderControls(element, config);
+						return;
+					}
+
+					if (config.isVideoSlider) {
+						initPreviewSlider(element, config);
+						return;
+					}
+					if (config.isResponsive) {
+						initResponsiveSlider(element, config);
+						return;
+					}
+					if (configKey === "page__image-slider-main") {
+						initImageSlider(element, config);
+						return;
+					}
+					new Swiper(element, config);
+				}
+			}
+		});
+	}, {
+		rootMargin: "100px 0px",
+		threshold: 0
+	});
+
+	Object.keys(sliderConfigs).forEach((sliderClass) => {
+		const elements = document.querySelectorAll(`.${sliderClass}`);
+		elements.forEach((element) => {
+			if (element.swiper) return;
+			element.dataset.sliderConfig = sliderClass;
+			sliderObserver.observe(element);
+		});
 	});
 }
 function initPreviewSlider(element, config) {

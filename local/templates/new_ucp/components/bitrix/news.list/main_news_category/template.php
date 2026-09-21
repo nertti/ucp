@@ -12,6 +12,11 @@ $this->setFrameMode(true);
             <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
                 <div class="home__feed-news-item-img">
                     <img loading="lazy" src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem["NAME"] ?>">
+                    <?php if (!empty($arItem['ICON'])): ?>
+                        <div class="icon">
+                            <?= $arItem['ICON'] ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="home__feed-news-info">
                     <div class="date">
