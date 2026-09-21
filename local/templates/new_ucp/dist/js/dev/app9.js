@@ -5665,75 +5665,157 @@ var DynamicAdapt = class {
 		this.type = "max";
 		this.init();
 	}
+
+	injectStyles() {
+		if (document.getElementById("fls-dynamic-styles")) return;
+		const style = document.createElement("style");
+		style.id = "fls-dynamic-styles";
+		style.textContent = `
+      [data-fls-dynamic].--dynamic-hidden {
+        display: none !important;
+      }
+      [data-fls-dynamic].--dynamic-anim {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        will-change: opacity;
+      }
+      [data-fls-dynamic].--dynamic-show {
+        opacity: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-fls-dynamic].--dynamic-anim { transition: none; }
+      }
+    `;
+		document.head.appendChild(style);
+	}
+
 	init() {
+		this.injectStyles();
 		this.objects = [];
 		this.daClassname = "--dynamic";
+		this.hiddenClass = "--dynamic-hidden";
+		this.animClass = "--dynamic-anim";
+		this.showClass = "--dynamic-show";
+
 		this.nodes = [...document.querySelectorAll("[data-fls-dynamic]")];
 		this.nodes.forEach((node) => {
 			const dataArray = node.dataset.flsDynamic.trim().split(`,`);
 			const object = {};
 			object.element = node;
 			object.parent = node.parentNode;
-			object.destinationParent = dataArray[3] ? node.closest(dataArray[3].trim()) || document : document;
+			object.destinationParent = dataArray[3]
+				? node.closest(dataArray[3].trim()) || document
+				: document;
+
 			const parentObjectSelector = dataArray[3] ? dataArray[3].trim() : null;
 			const objectSelector = dataArray[0] ? dataArray[0].trim() : null;
+
 			if (objectSelector) {
-				if (parentObjectSelector) `${parentObjectSelector}${objectSelector}`;
-				const foundDestination = object.destinationParent.querySelector(objectSelector);
+				const fullSelector = parentObjectSelector
+					? `${parentObjectSelector} ${objectSelector}`
+					: objectSelector;
+				const foundDestination =
+					object.destinationParent.querySelector(objectSelector) ||
+					document.querySelector(fullSelector);
 				if (foundDestination) object.destination = foundDestination;
 			}
+
 			object.breakpoint = dataArray[1] ? dataArray[1].trim() : `767.98`;
 			object.place = dataArray[2] ? dataArray[2].trim() : `last`;
 			object.index = this.indexInParent(object.parent, object.element);
 			this.objects.push(object);
 		});
+
 		this.arraySort(this.objects);
-		this.mediaQueries = this.objects.map(({ breakpoint }) => `(${this.type}-width: ${breakpoint / 16}em),${breakpoint}`).filter((item, index, self) => self.indexOf(item) === index);
+		this.mediaQueries = this.objects
+			.map(({ breakpoint }) => `(${this.type}-width: ${breakpoint / 16}em),${breakpoint}`)
+			.filter((item, index, self) => self.indexOf(item) === index);
+
 		this.mediaQueries.forEach((media) => {
 			const mediaSplit = media.split(",");
 			const matchMedia = window.matchMedia(mediaSplit[0]);
 			const mediaBreakpoint = mediaSplit[1];
-			const objectsFilter = this.objects.filter(({ breakpoint }) => breakpoint === mediaBreakpoint);
+			const objectsFilter = this.objects.filter(
+				({ breakpoint }) => breakpoint === mediaBreakpoint
+			);
 			matchMedia.addEventListener("change", () => {
 				this.mediaHandler(matchMedia, objectsFilter);
 			});
 			this.mediaHandler(matchMedia, objectsFilter);
 		});
 	}
+
 	mediaHandler(matchMedia, objects) {
-		if (matchMedia.matches) objects.forEach((object) => {
-			if (object.destination) this.moveTo(object.place, object.element, object.destination);
-		});
-		else objects.forEach(({ parent, element, index }) => {
-			if (element.classList.contains(this.daClassname)) this.moveBack(parent, element, index);
+		if (matchMedia.matches) {
+			objects.forEach((object) => {
+				if (object.destination) this.moveTo(object.place, object.element, object.destination);
+			});
+		} else {
+			objects.forEach(({ parent, element, index }) => {
+				if (element.classList.contains(this.daClassname))
+					this.moveBack(parent, element, index);
+			});
+		}
+	}
+
+	_animateSwap(element, mover) {
+		element.classList.add(this.hiddenClass);
+		mover();
+		void element.offsetHeight;
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				element.classList.remove(this.hiddenClass);
+				element.classList.add(this.animClass);
+				requestAnimationFrame(() => {
+					element.classList.add(this.showClass);
+					const onEnd = () => {
+						element.classList.remove(this.animClass, this.showClass);
+						element.removeEventListener("transitionend", onEnd);
+					};
+					element.addEventListener("transitionend", onEnd);
+					setTimeout(onEnd, 400);
+				});
+			});
 		});
 	}
+
 	moveTo(place, element, destination) {
-		if (element.parentNode === destination) return;
-		element.classList.add(this.daClassname);
+		if (!element.classList.contains(this.daClassname)) {
+			element.classList.add(this.daClassname);
+		}
 		const index = place === "last" || place === "first" ? place : parseInt(place, 10);
-		if (index === "last" || index >= destination.children.length) destination.append(element);
-		else if (index === "first") destination.prepend(element);
-		else destination.children[index].before(element);
+
+		this._animateSwap(element, () => {
+			if (index === "last" || index >= destination.children.length) destination.append(element);
+			else if (index === "first") destination.prepend(element);
+			else destination.children[index].before(element);
+		});
 	}
+
 	moveBack(parent, element, index) {
 		element.classList.remove(this.daClassname);
-		if (parent.children[index] !== void 0) parent.children[index].before(element);
-		else parent.append(element);
+
+		this._animateSwap(element, () => {
+			if (parent.children[index] !== void 0) parent.children[index].before(element);
+			else parent.append(element);
+		});
 	}
+
 	indexInParent(parent, element) {
 		return [...parent.children].indexOf(element);
 	}
+
 	arraySort(arr) {
-		if (this.type === "min") arr.sort((a, b) => {
-			if (a.breakpoint === b.breakpoint) {
-				if (a.place === b.place) return 0;
-				if (a.place === "first" || b.place === "last") return -1;
-				if (a.place === "last" || b.place === "first") return 1;
-				return 0;
-			}
-			return a.breakpoint - b.breakpoint;
-		});
+		if (this.type === "min")
+			arr.sort((a, b) => {
+				if (a.breakpoint === b.breakpoint) {
+					if (a.place === b.place) return 0;
+					if (a.place === "first" || b.place === "last") return -1;
+					if (a.place === "last" || b.place === "first") return 1;
+					return 0;
+				}
+				return a.breakpoint - b.breakpoint;
+			});
 		else {
 			arr.sort((a, b) => {
 				if (a.breakpoint === b.breakpoint) {
@@ -5744,9 +5826,15 @@ var DynamicAdapt = class {
 				}
 				return b.breakpoint - a.breakpoint;
 			});
+			return;
 		}
 	}
 };
+
+if (document.querySelector("[data-fls-dynamic]")) {
+	window.addEventListener("load", () => (window.flsDynamic = new DynamicAdapt()));
+}
+
 const initDynamicAdapt = () => {
 	if (document.querySelector("[data-fls-dynamic]")) {
 		window.flsDynamic = new DynamicAdapt();
