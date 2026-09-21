@@ -4,6 +4,6 @@ $settings = !empty($block['settings']) ? $block['settings'] : [];
 $tag = !empty($settings['type']) ? $settings['type'] : 'ul';
 
 ?>
-<div class="sp-lists">
+<div class="page__info-block">
     <?= Sprint\Editor\Blocks\Lists::getValue($block, $tag); ?>
 </div>

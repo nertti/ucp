@@ -5660,26 +5660,6 @@ window.addEventListener("load", function(e) {
 });
 //#endregion
 //#region src/components/layout/dynamic/dynamic.js
-(function () {
-	if (!document.querySelector("[data-fls-dynamic]")) return;
-
-	var style = document.createElement("style");
-	style.id = "fls-dynamic-styles";
-	style.textContent = `
-    [data-fls-dynamic].--dynamic-hidden { display: none !important; }
-    [data-fls-dynamic].--dynamic-anim { opacity: 0; transition: opacity 0.25s ease; will-change: opacity; }
-    [data-fls-dynamic].--dynamic-show { opacity: 1; }
-    [data-fls-dynamic]:not(.--dynamic-ready) { visibility: hidden !important; }
-    @media (prefers-reduced-motion: reduce) {
-      [data-fls-dynamic].--dynamic-anim { transition: none; }
-    }
-  `;
-	document.head.appendChild(style);
-
-	document.querySelectorAll("[data-fls-dynamic]").forEach(function (el) {
-		el.classList.add("--dynamic-hidden");
-	});
-})();
 
 var DynamicAdapt = class {
 	constructor() {
@@ -5687,13 +5667,36 @@ var DynamicAdapt = class {
 		this.init();
 	}
 
+	injectStyles() {
+		if (document.getElementById("fls-dynamic-styles")) return;
+		const style = document.createElement("style");
+		style.id = "fls-dynamic-styles";
+		style.textContent = `
+      [data-fls-dynamic].--dynamic-hidden {
+        display: none !important;
+      }
+      [data-fls-dynamic].--dynamic-anim {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        will-change: opacity;
+      }
+      [data-fls-dynamic].--dynamic-show {
+        opacity: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-fls-dynamic].--dynamic-anim { transition: none; }
+      }
+    `;
+		document.head.appendChild(style);
+	}
+
 	init() {
+		this.injectStyles();
 		this.objects = [];
 		this.daClassname = "--dynamic";
 		this.hiddenClass = "--dynamic-hidden";
 		this.animClass = "--dynamic-anim";
 		this.showClass = "--dynamic-show";
-		this.readyClass = "--dynamic-ready";
 
 		this.nodes = [...document.querySelectorAll("[data-fls-dynamic]")];
 		this.nodes.forEach((node) => {
@@ -5737,45 +5740,29 @@ var DynamicAdapt = class {
 				({ breakpoint }) => breakpoint === mediaBreakpoint
 			);
 			matchMedia.addEventListener("change", () => {
-				this.mediaHandler(matchMedia, objectsFilter, false);
+				this.mediaHandler(matchMedia, objectsFilter);
 			});
-			this.mediaHandler(matchMedia, objectsFilter, true);
-		});
-
-		requestAnimationFrame(() => {
-			requestAnimationFrame(() => {
-				this.nodes.forEach((el) => el.classList.add(this.readyClass));
-			});
+			this.mediaHandler(matchMedia, objectsFilter);
 		});
 	}
 
-	mediaHandler(matchMedia, objects, isInitial) {
+	mediaHandler(matchMedia, objects) {
 		if (matchMedia.matches) {
 			objects.forEach((object) => {
-				if (object.destination) this.moveTo(object.place, object.element, object.destination, isInitial);
+				if (object.destination) this.moveTo(object.place, object.element, object.destination);
 			});
 		} else {
 			objects.forEach(({ parent, element, index }) => {
 				if (element.classList.contains(this.daClassname))
-					this.moveBack(parent, element, index, isInitial);
+					this.moveBack(parent, element, index);
 			});
 		}
 	}
 
-	_animateSwap(element, mover, isInitial) {
+	_animateSwap(element, mover) {
 		element.classList.add(this.hiddenClass);
 		mover();
 		void element.offsetHeight;
-
-		if (isInitial) {
-			requestAnimationFrame(() => {
-				requestAnimationFrame(() => {
-					element.classList.remove(this.hiddenClass);
-				});
-			});
-			return;
-		}
-
 		requestAnimationFrame(() => {
 			requestAnimationFrame(() => {
 				element.classList.remove(this.hiddenClass);
@@ -5793,7 +5780,7 @@ var DynamicAdapt = class {
 		});
 	}
 
-	moveTo(place, element, destination, isInitial) {
+	moveTo(place, element, destination) {
 		if (!element.classList.contains(this.daClassname)) {
 			element.classList.add(this.daClassname);
 		}
@@ -5803,16 +5790,16 @@ var DynamicAdapt = class {
 			if (index === "last" || index >= destination.children.length) destination.append(element);
 			else if (index === "first") destination.prepend(element);
 			else destination.children[index].before(element);
-		}, isInitial);
+		});
 	}
 
-	moveBack(parent, element, index, isInitial) {
+	moveBack(parent, element, index) {
 		element.classList.remove(this.daClassname);
 
 		this._animateSwap(element, () => {
 			if (parent.children[index] !== void 0) parent.children[index].before(element);
 			else parent.append(element);
-		}, isInitial);
+		});
 	}
 
 	indexInParent(parent, element) {
