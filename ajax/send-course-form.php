@@ -33,52 +33,119 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /**
- * Получение и очистка данных
+ * Какие поля разрешены для данной формы
+ */
+$formFields = $_POST['FORM_FIELDS'] ?? [];
+
+if (!is_array($formFields)) {
+    $formFields = [$formFields];
+}
+
+$formFields = array_map(
+    'trim',
+    array_map('strval', $formFields)
+);
+
+/**
+ * Разрешённые поля формы
+ */
+$availableFields = [
+    'NAME',
+    'PHONE',
+    'EMAIL',
+    'ADDRESS',
+    'ORGANIZATION',
+    'ORGANIZATION_ADDRESS',
+    'ENTERPRISE',
+    'POSITION',
+    'CATEGORY',
+];
+
+/**
+ * Оставляем только известные XML_ID
+ */
+$formFields = array_values(
+    array_intersect($formFields, $availableFields)
+);
+
+/**
+ * Проверка наличия поля
+ */
+$hasField = static function (string $xmlId) use ($formFields): bool {
+    return in_array($xmlId, $formFields, true);
+};
+
+/**
+ * Получение данных
  */
 $serviceName = trim((string)($_POST['SERVICE_NAME'] ?? ''));
+$emailTo = trim((string)($_POST['EMAIL_TO'] ?? ''));
+
 $name = trim((string)($_POST['name'] ?? ''));
 $phone = trim((string)($_POST['phone'] ?? ''));
 $email = trim((string)($_POST['email'] ?? ''));
+
 $address = trim((string)($_POST['address'] ?? ''));
 
-$enterprise = trim((string)($_POST['enterprise'] ?? ''));
+$organization = trim((string)($_POST['organization'] ?? ''));
+$organizationAddress = trim(
+    (string)($_POST['organization_address'] ?? '')
+);
 
-/**
- * Получатель
- *
- * Пока берём из скрытого поля формы.
- * В дальнейшем лучше передавать ID курса/элемента
- * и получать EMAIL_TO непосредственно на сервере.
- */
-$emailTo = trim((string)($_POST['EMAIL_TO'] ?? ''));
+$enterprise = trim((string)($_POST['enterprise'] ?? ''));
+$position = trim((string)($_POST['position'] ?? ''));
+
+$category = trim(
+    (string)($_POST['form_dropdown_category'] ?? '')
+);
 
 /**
  * Валидация
  */
 $errors = [];
 
-if ($name === '') {
+/**
+ * ФИО
+ */
+if ($hasField('NAME') && $name === '') {
     $errors[] = 'Укажите ФИО.';
 }
 
-if ($phone === '') {
+/**
+ * Телефон
+ */
+if ($hasField('PHONE') && $phone === '') {
     $errors[] = 'Укажите телефон.';
 }
 
-if ($email === '') {
-    $errors[] = 'Укажите электронную почту.';
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'Укажите корректный адрес электронной почты.';
+/**
+ * Email
+ */
+if ($hasField('EMAIL')) {
+    if ($email === '') {
+        $errors[] = 'Укажите электронную почту.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Укажите корректный адрес электронной почты.';
+    }
 }
 
-if ($address === '') {
-    $errors[] = 'Укажите адрес.';
-}
-
-if ($enterprise === '') {
+/**
+ * Образование
+ */
+if ($hasField('ENTERPRISE') && $enterprise === '') {
     $errors[] = 'Выберите образование.';
 }
 
+/**
+ * Категория
+ */
+if ($hasField('CATEGORY') && $category === '') {
+    $errors[] = 'Выберите категорию слушателя.';
+}
+
+/**
+ * Получатель письма
+ */
 if ($emailTo === '') {
     $errors[] = 'Не указан получатель письма.';
 }
@@ -96,16 +163,16 @@ if (!empty($errors)) {
  * Расшифровка образования
  */
 $enterpriseList = [
-    'hight' => 'Высшее образование',
-    'brest_meat' => 'Среднее специальное (техникум, колледж)',
-    'brest_traditions' => 'Профессионально-техническое',
-    'brest_treats' => 'Среднее',
+    'Высшее' => 'Высшее образование',
+    'Среднее специальное' => 'Среднее специальное (техникум, колледж)',
+    'Профессионально-техническое' => 'Профессионально-техническое',
+    'Среднее' => 'Среднее',
 ];
 
 $enterpriseName = $enterpriseList[$enterprise] ?? $enterprise;
 
 /**
- * Параметры почтового события
+ * Поля письма
  */
 $arFields = [
     'EMAIL_TO' => $emailTo,
@@ -113,9 +180,16 @@ $arFields = [
     'NAME' => $name,
     'PHONE' => $phone,
     'EMAIL' => $email,
+
     'ADDRESS' => $address,
 
+    'ORGANIZATION' => $organization,
+    'ORGANIZATION_ADDRESS' => $organizationAddress,
+
     'ENTERPRISE' => $enterpriseName,
+    'POSITION' => $position,
+
+    'CATEGORY' => $category,
 
     'SERVICE_NAME' => $serviceName,
 
@@ -123,7 +197,7 @@ $arFields = [
 ];
 
 /**
- * Отправка почтового события
+ * Отправка письма
  */
 $eventId = CEvent::Send(
     'SEND_SERVICE_MAIL',
@@ -144,3 +218,5 @@ echo json_encode([
     'success' => true,
     'message' => 'Заявка успешно отправлена!'
 ], JSON_UNESCAPED_UNICODE);
+
+exit;
