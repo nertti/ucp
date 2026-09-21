@@ -5155,7 +5155,6 @@ function checkAndHideNavigation(sliderElement, config) {
 	}
 	return hasMultipleSlides;
 }
-console.log('v1');
 var sliderConfigs = {
 	"preview-slider": {
 		modules: [Pagination],
@@ -5345,7 +5344,7 @@ function initResponsiveSlider(element, config) {
 		if (wrapper) {
 			wrapper.removeAttribute("style");
 			wrapper.style.display = "grid";
-			wrapper.style.gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
+			wrapper.style.gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
 			wrapper.style.gap = config.spaceBetween ? config.spaceBetween + "px" : "16px";
 			wrapper.style.transform = "none";
 		}
@@ -5656,50 +5655,6 @@ function initPreviewSlider(element, config) {
 	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initSlider);
 	else initSlider();
 }
-function initResponsiveSlider(sliderClass, config) {
-	let branchesSlider = null;
-	function initBranchesSlider() {
-		const element = document.querySelector(`.${sliderClass}`);
-		if (!element) return;
-		const hasMultipleSlides = element.querySelectorAll(".swiper-slide").length > 1;
-		if (window.innerWidth <= 950 && hasMultipleSlides) {
-			if (!branchesSlider) branchesSlider = new Swiper(`.${sliderClass}`, {
-				...config,
-				on: { init(swiper) {
-					swiper.update();
-				} }
-			});
-		} else {
-			if (branchesSlider) {
-				branchesSlider.destroy(true, true);
-				branchesSlider = null;
-				const wrapper = document.querySelector(`.${sliderClass} .swiper-wrapper`);
-				const slides = document.querySelectorAll(`.${sliderClass} .swiper-slide`);
-				const action = document.querySelector(`.${sliderClass}-action`);
-				if (wrapper) wrapper.removeAttribute("style");
-				slides.forEach((slide) => {
-					slide.removeAttribute("style");
-					slide.classList.remove("swiper-slide-active", "swiper-slide-next", "swiper-slide-prev");
-				});
-				if (action) action.style.display = "";
-			}
-			if (!hasMultipleSlides) {
-				const navPrev = document.querySelector(config.navigation.prevEl);
-				const navNext = document.querySelector(config.navigation.nextEl);
-				if (navPrev) navPrev.style.display = "none";
-				if (navNext) navNext.style.display = "none";
-			}
-		}
-	}
-	initBranchesSlider();
-	let resizeTimer;
-	window.addEventListener("resize", () => {
-		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(() => {
-			initBranchesSlider();
-		}, 200);
-	});
-}
 window.addEventListener("load", function(e) {
 	initSliders();
 });
@@ -5754,6 +5709,7 @@ var DynamicAdapt = class {
 		});
 	}
 	moveTo(place, element, destination) {
+		if (element.parentNode === destination) return;
 		element.classList.add(this.daClassname);
 		const index = place === "last" || place === "first" ? place : parseInt(place, 10);
 		if (index === "last" || index >= destination.children.length) destination.append(element);
@@ -5788,10 +5744,21 @@ var DynamicAdapt = class {
 				}
 				return b.breakpoint - a.breakpoint;
 			});
-			return;
 		}
 	}
 };
+const initDynamicAdapt = () => {
+	if (document.querySelector("[data-fls-dynamic]")) {
+		window.flsDynamic = new DynamicAdapt();
+	}
+};
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initDynamicAdapt);
+} else {
+	initDynamicAdapt();
+}
+
+
 if (document.querySelector("[data-fls-dynamic]")) window.addEventListener("load", () => window.flsDynamic = new DynamicAdapt());
 //#endregion
 //#region src/components/templates/main/main.js
