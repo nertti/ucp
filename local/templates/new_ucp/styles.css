@@ -207,3 +207,13 @@ video, iframe {
 .swiper-control-hidden {
     display: none !important;
 }
+@media (max-width: 900px) {
+    .header__search {
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    .header__accessibility {
+        display: none;
+    }
+}
