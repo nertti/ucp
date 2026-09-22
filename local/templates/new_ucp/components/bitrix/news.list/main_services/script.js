@@ -64,36 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return array;
         }
 
-        /**
-         * Итоговый порядок:
-         *
-         * Популярная услуга
-         * ↓
-         * Рекомендуем
-         * ↓
-         * Другие теги
-         * ↓
-         * Без тега
-         */
         return [
             ...shuffle(groups[1]),
             ...shuffle(groups[2]),
             ...shuffle(groups[3]),
             ...shuffle(groups[4])
         ];
-    }
-
-    /**
-     * Поднимает найденные карточки в начало списка.
-     *
-     * CSS при этом продолжает самостоятельно
-     * ограничивать количество отображаемых карточек
-     * через nth-child().
-     */
-    function moveItemsToTop(items) {
-        [...items].reverse().forEach(item => {
-            servicesList.prepend(item);
-        });
     }
 
     /**
@@ -104,21 +80,24 @@ document.addEventListener("DOMContentLoaded", function () {
             servicesList.querySelectorAll(".services__list-item")
         );
 
-        // Сбрасываем состояние пустого раздела
         skeletonList.classList.remove("_empty-active");
 
-        // Фиксируем текущую высоту блока
+        /**
+         * Фиксируем текущую высоту блока.
+         */
         const currentHeight = wrapper.offsetHeight;
         wrapper.style.minHeight = `${currentHeight}px`;
 
-        // Плавно скрываем текущий список
+        /**
+         * Плавно скрываем текущий список.
+         */
         servicesList.style.transition = "opacity 0.25s ease";
         servicesList.style.opacity = "0";
 
         setTimeout(() => {
 
             /**
-             * Сначала скрываем все карточки.
+             * Сначала полностью скрываем ВСЕ карточки.
              */
             items.forEach(item => {
                 item.style.display = "none";
@@ -128,18 +107,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.style.transition = "none";
             });
 
-            // Показываем скелетон
+            /**
+             * Показываем скелетон.
+             */
             skeletonList.classList.add("_active");
 
             setTimeout(() => {
 
-                // Отключаем анимацию скелетона
                 skeletonList.classList.remove("_active");
 
                 setTimeout(() => {
 
                     /**
-                     * Фильтруем карточки.
+                     * Определяем подходящие карточки.
                      */
                     let matchedItems = items.filter(item => {
                         const singleCategory =
@@ -166,48 +146,71 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     /**
-                     * Сортируем найденные карточки.
+                     * Сортируем только подходящие карточки.
                      */
                     matchedItems = sortItemsByTag(matchedItems);
 
                     const matchCount = matchedItems.length;
 
                     /**
-                     * Сначала скрываем ВСЕ карточки.
-                     *
-                     * Это важно, поскольку CSS использует nth-child().
+                     * Создаём Set подходящих карточек.
+                     * Это позволит гарантированно определить,
+                     * какие карточки нужно скрыть.
+                     */
+                    const matchedSet = new Set(matchedItems);
+
+                    /**
+                     * ------------------------------------------------
+                     * ВАЖНО:
+                     * Сначала возвращаем все карточки в DOM.
+                     * ------------------------------------------------
                      */
                     items.forEach(item => {
-                        item.style.display = "none";
+                        servicesList.appendChild(item);
                     });
 
                     /**
-                     * Поднимаем найденные карточки в начало.
+                     * ------------------------------------------------
+                     * Затем поднимаем подходящие карточки наверх.
+                     * ------------------------------------------------
                      *
-                     * Благодаря этому CSS:
+                     * reverse нужен для сохранения порядка:
                      *
-                     * > 1500px  → первые 5
-                     * 1025-1500 → первые 4
-                     * <=1024px  → первые 6
+                     * [1, 2, 3]
                      *
-                     * будет работать именно с отфильтрованными
-                     * карточками.
+                     * prepend(3)
+                     * prepend(2)
+                     * prepend(1)
+                     *
+                     * результат:
+                     *
+                     * [1, 2, 3]
                      */
-                    moveItemsToTop(matchedItems);
-
-                    /**
-                     * Показываем найденные карточки.
-                     */
-                    matchedItems.forEach(item => {
-                        item.style.display = "";
+                    [...matchedItems].reverse().forEach(item => {
+                        servicesList.prepend(item);
                     });
 
                     /**
-                     * Анимируем только первые 6 карточек.
+                     * ------------------------------------------------
+                     * ЯВНО скрываем все неподходящие карточки.
+                     * ------------------------------------------------
+                     */
+                    items.forEach(item => {
+                        if (matchedSet.has(item)) {
+                            item.style.display = "";
+                        } else {
+                            item.style.display = "none";
+                            item.style.opacity = "0";
+                            item.style.transform =
+                                "translateY(20px) scale(0.95)";
+                        }
+                    });
+
+                    /**
+                     * Анимируем только первые 6 подходящих карточек.
                      *
-                     * Это НЕ ограничение количества.
-                     * Количество отображаемых карточек
-                     * по-прежнему определяет CSS.
+                     * Это не ограничивает количество.
+                     * Количество отображаемых карточек определяет CSS.
                      */
                     matchedItems.slice(0, 6).forEach((item, index) => {
                         item.style.opacity = "0";
@@ -245,7 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     } else {
 
-                        // Показываем список
+                        /**
+                         * Показываем список.
+                         */
                         servicesList.style.opacity = "1";
 
                         /**
@@ -267,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * Переключение вкладок
+     * Переключение вкладок.
      */
     tabsContainer.addEventListener("click", function (e) {
         const tabItem = e.target.closest(".tabs__item");
@@ -285,29 +290,39 @@ document.addEventListener("DOMContentLoaded", function () {
             tabItem.dataset.code ||
             "all";
 
-        // Убираем active со всех вкладок
+        /**
+         * Убираем active со всех вкладок.
+         */
         document
             .querySelectorAll(".tabs__item")
             .forEach(el => {
                 el.classList.remove("_active");
             });
 
-        // Добавляем active текущей
+        /**
+         * Добавляем active текущей.
+         */
         tabItem.classList.add("_active");
 
-        // Фильтруем
+        /**
+         * Фильтруем.
+         */
         filterServices(category);
     });
 
     /**
+     * ------------------------------------------------
      * Первоначальная загрузка.
-     *
-     * Сортируем все карточки.
+     * ------------------------------------------------
      */
+
     const firstItems = Array.from(
         servicesList.querySelectorAll(".services__list-item")
     );
 
+    /**
+     * Сортируем все карточки.
+     */
     const sortedFirstItems = sortItemsByTag(firstItems);
 
     /**
@@ -320,15 +335,15 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * Показываем все карточки.
      *
-     * Какие именно будут видны —
-     * решает CSS через nth-child().
+     * Фактическое количество видимых карточек
+     * определяет CSS через nth-child().
      */
     sortedFirstItems.forEach(item => {
         item.style.display = "";
     });
 
     /**
-     * Анимируем первые 6 карточек.
+     * Анимируем первые 6.
      */
     sortedFirstItems.slice(0, 6).forEach((item, index) => {
         item.style.opacity = "0";
