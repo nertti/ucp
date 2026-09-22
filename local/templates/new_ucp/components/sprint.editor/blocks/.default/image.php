@@ -2,7 +2,7 @@
 $image = Sprint\Editor\Blocks\Image::getImage(
     $block, [
         'width'  => 1024,
-        'height' => 768,
+        'height' => 1024,
         'exact'  => 0,
         //'jpg_quality' => 75
     ]

@@ -32,11 +32,12 @@ $images = Sprint\Editor\Blocks\Gallery::getImages(
     ],
     [
         'width' => 1024,
-        'height' => 768,
+        'height' => 1024,
         'exact' => BX_RESIZE_IMAGE_PROPORTIONAL,
         'filters' => $arWaterMark,
     ]
 );
+
 ?>
 
 <?php if (!empty($images)): ?>

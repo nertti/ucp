@@ -10,33 +10,34 @@ $arWaterMark = [];
 
 if (file_exists($watermarkPath)) {
     $arWaterMark = [
-        [
-            'name' => 'watermark',
-            'position' => 'bottomright',
-            'type' => 'image',
-            'size' => 'small',
-            'file' => $watermarkPath,
-            'alpha_level' => 90,
-            'padding' => 10,
-            'coefficient' => 0.1,
-        ],
+            [
+                    'name' => 'watermark',
+                    'position' => 'bottomright',
+                    'type' => 'image',
+                    'size' => 'small',
+                    'file' => $watermarkPath,
+                    'alpha_level' => 90,
+                    'padding' => 10,
+                    'coefficient' => 0.1,
+            ],
     ];
 }
 
 $images = Sprint\Editor\Blocks\Gallery::getImages(
-    $block,
-    [
-        'width' => 300,
-        'height' => 300,
-        'exact' => BX_RESIZE_IMAGE_PROPORTIONAL,
-    ],
-    [
-        'width' => 1024,
-        'height' => 768,
-        'exact' => BX_RESIZE_IMAGE_PROPORTIONAL,
-        'filters' => $arWaterMark,
-    ]
+        $block,
+        [
+                'width' => 300,
+                'height' => 300,
+                'exact' => BX_RESIZE_IMAGE_PROPORTIONAL,
+        ],
+        [
+                'width' => 1024,
+                'height' => 1024,
+                'exact' => BX_RESIZE_IMAGE_PROPORTIONAL,
+                'filters' => $arWaterMark,
+        ]
 );
+
 ?>
 
 <?php if (!empty($images)): ?>
@@ -50,15 +51,15 @@ $images = Sprint\Editor\Blocks\Gallery::getImages(
 
                     <div class="swiper-slide">
                         <a
-                            href="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
-                            class="page__image-slider-link"
-                            data-fancybox="gallery"
+                                href="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
+                                class="page__image-slider-link"
+                                data-fancybox="gallery"
                         >
                             <img
-                                src="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
-                                alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"
-                                loading="lazy"
-                                decoding="async"
+                                    src="<?= htmlspecialcharsbx($image['DETAIL_SRC']) ?>"
+                                    alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"
+                                    loading="lazy"
+                                    decoding="async"
                             />
                         </a>
                     </div>
@@ -70,19 +71,19 @@ $images = Sprint\Editor\Blocks\Gallery::getImages(
             <div class="page__image-slider-action">
                 <div class="page__image-slider-prev swiper-button-prev">
                     <iconify-icon
-                        icon="ep:arrow-left-bold"
-                        width="20"
-                        height="20"
-                        noobserver
+                            icon="ep:arrow-left-bold"
+                            width="20"
+                            height="20"
+                            noobserver
                     ></iconify-icon>
                 </div>
 
                 <div class="page__image-slider-next swiper-button-next">
                     <iconify-icon
-                        icon="ep:arrow-right-bold"
-                        width="20"
-                        height="20"
-                        noobserver
+                            icon="ep:arrow-right-bold"
+                            width="20"
+                            height="20"
+                            noobserver
                     ></iconify-icon>
                 </div>
             </div>
@@ -95,10 +96,10 @@ $images = Sprint\Editor\Blocks\Gallery::getImages(
 
                     <div class="swiper-slide">
                         <img
-                            src="<?= htmlspecialcharsbx($image['SRC']) ?>"
-                            alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"
-                            loading="lazy"
-                            decoding="async"
+                                src="<?= htmlspecialcharsbx($image['SRC']) ?>"
+                                alt="<?= htmlspecialcharsbx($image['DESCRIPTION']) ?>"
+                                loading="lazy"
+                                decoding="async"
                         />
 
                     </div>
