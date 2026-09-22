@@ -1292,4 +1292,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderSelectedFilters();
 
+    /**
+     * Первоначальная AJAX-загрузка
+     */
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const page = params.get('PAGEN_1') || 1;
+
+    loadNews(page);
+
 });
