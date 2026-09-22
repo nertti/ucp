@@ -118,9 +118,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     let visibleIndex = 0;
                     const matchCount = matchedItems.length;
 
-                    // Отображаем первые 5 отсортированных карточек
+                    // Отображаем первые 6 отсортированных карточек
                     matchedItems.forEach((item) => {
-                        if (visibleIndex < 5) {
+                        if (visibleIndex < 6) {
                             item.style.display = "";
 
                             // Каскадная анимация появления
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let initialCount = 0;
 
     sortedFirstItems.forEach((item) => {
-        if (initialCount < 5) {
+        if (initialCount < 6) {
             item.style.opacity = "0";
             item.style.transform = "translateY(20px) scale(0.95)";
             item.style.transition = "none";

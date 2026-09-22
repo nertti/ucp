@@ -1,3 +1,27 @@
+.tabs button span{
+    text-align: left;
+}
+/* > 1500px — показываем 5 */
+@media (min-width: 1501px) {
+    .services__main-list > .services__list-item:nth-child(n + 6) {
+        display: none !important;
+    }
+}
+
+/* 1025–1500px — показываем 4 */
+@media (min-width: 1025px) and (max-width: 1500px) {
+    .services__main-list > .services__list-item:nth-child(n + 5) {
+        display: none !important;
+    }
+}
+
+/* <= 1024px — показываем 6 */
+@media (max-width: 1024px) {
+    .services__main-list > .services__list-item:nth-child(n + 7) {
+        display: none !important;
+    }
+}
+
 .services__wrapper {
     position: relative;
     width: 100%;
